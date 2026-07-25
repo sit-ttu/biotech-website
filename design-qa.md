@@ -8,7 +8,7 @@
 ## Comparison
 
 - P0: none. The portfolio renders with live API data and no broken images or horizontal overflow.
-- P1: none. The reference's role-led hero, compact portrait, restrained navigation, pill ticker, editorial section hierarchy, bento skills, horizontal experience rows, project grid, and dark contact band are represented while retaining the SIT terracotta accent.
+- P1: none. The reference's role-led hero, compact portrait, restrained navigation, pill ticker, editorial section hierarchy, bento skills, horizontal experience rows, project grid, and dark contact band are represented while retaining the Biotech teal accent.
 - P2: none. Desktop keeps the hero to 627px with a 240px portrait; mobile stacks the heading and portrait cleanly at 390px without horizontal overflow. Focus styles, semantic headings, conditional navigation, and external-link attributes are present.
 - P3: the current published portfolio only contains identity and avatar data, so lower sections correctly remain hidden until projects, skills, experience, education, achievements, or contacts are added in the dashboard.
 

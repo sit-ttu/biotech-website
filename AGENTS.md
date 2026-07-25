@@ -9,7 +9,7 @@ A university website system with a Next.js frontend, NestJS backend, and React a
 ## Project Structure
 
 ```
-sit/
+biotech/
 ├── app/                    # Next.js frontend
 │   └── src/
 │       ├── app/[locale]/  # Internationalized pages

@@ -6,7 +6,7 @@
 <p align="center">School of Biotechnology &middot; Tan Tao University</p>
 
 <p align="center">
-  <a href="https://github.com/biotech-ttu/biotech-website/actions/workflows/deploy.yml"><img src="https://img.shields.io/github/actions/workflow/status/biotech-ttu/biotech-website/deploy.yml?style=for-the-badge&label=deploy" alt="Deploy status"></a>
+  <a href="https://github.com/sit-ttu/biotech-website/actions/workflows/deploy.yml"><img src="https://img.shields.io/github/actions/workflow/status/sit-ttu/biotech-website/deploy.yml?style=for-the-badge&label=deploy" alt="Deploy status"></a>
   <a href="https://biotech.ttu.edu.vn"><img src="https://img.shields.io/badge/website-biotech.ttu.edu.vn-2ea44f?style=for-the-badge" alt="Website"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="MIT License"></a>
 </p>

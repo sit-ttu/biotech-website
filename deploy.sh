@@ -12,7 +12,7 @@ if ! command -v pnpm >/dev/null 2>&1; then
   export PATH="$HOME/.local/share/pnpm:$NVM_NODE_BIN:$PATH"
 fi
 
-echo "==> Deploy school-of-information-technology | dir=$APP_DIR branch=$BRANCH"
+echo "==> Deploy school-of-biotechnology | dir=$APP_DIR branch=$BRANCH"
 cd "$APP_DIR"
 
 # Repo là private nên fetch qua HTTPS cần auth. Dùng GH_TOKEN (secrets.GITHUB_TOKEN từ
