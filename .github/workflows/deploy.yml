@@ -1,0 +1,32 @@
+name: Deploy
+
+on:
+  push:
+    branches: [prod]
+  workflow_dispatch:
+    inputs:
+      runner_label:
+        description: "Runner để chạy (production, local-test)"
+        default: production
+        type: choice
+        options:
+          - production
+          - local-test
+
+concurrency:
+  group: deploy-${{ github.event.inputs.runner_label || 'production' }}
+  cancel-in-progress: false 
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, "${{ github.event.inputs.runner_label || 'production' }}"]
+    steps:
+      - name: Deploy
+        env:
+          APP_DIR: ${{ github.event.inputs.runner_label == 'local-test' && '/tmp/sit-test' || '/home/dev/dev/sit' }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PM2_HOME: ${{ github.event.inputs.runner_label == 'local-test' && '' || '/root/.pm2' }}
+        run: "$APP_DIR/deploy.sh"
