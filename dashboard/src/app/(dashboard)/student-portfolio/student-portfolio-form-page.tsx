@@ -413,7 +413,7 @@ export default function StudentPortfolioFormPage({
                       <FormLabel>Nơi ở</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Long An, Việt Nam"
+                          placeholder="Tây Ninh, Việt Nam"
                           {...field}
                           className="shadow-none"
                         />

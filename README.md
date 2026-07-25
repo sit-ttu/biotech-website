@@ -100,4 +100,4 @@ MIT — see [LICENSE](LICENSE).
 
 - Website: [biotech.ttu.edu.vn](https://biotech.ttu.edu.vn)
 - Email: [secretary.sbio@ttu.edu.vn](mailto:secretary.sbio@ttu.edu.vn)
-- Tan Tao University, Long An, Vietnam
+- Tan Tao University, Tay Ninh, Vietnam
