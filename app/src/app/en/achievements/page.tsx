@@ -4,9 +4,9 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
-const title = "Student and Faculty Achievements | SIT - Tan Tao University";
+const title = "Student and Faculty Achievements | Biotech TTU - Tan Tao University";
 const description =
-  "Explore academic, research, scholarship and competition achievements by students and faculty of the School of Information Technology at Tan Tao University.";
+  "Explore academic, research, scholarship and competition achievements by students and faculty of the School of Biotechnology at Tan Tao University.";
 
 export async function generateMetadata() {
   const items = await api.achievements

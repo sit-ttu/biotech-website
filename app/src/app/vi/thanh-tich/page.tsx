@@ -4,9 +4,9 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
-const title = "Thành tích sinh viên và giảng viên | SIT - Đại học Tân Tạo";
+const title = "Thành tích sinh viên và giảng viên | Biotech TTU - Đại học Tân Tạo";
 const description =
-  "Khám phá thành tích học thuật, nghiên cứu, học bổng và các cuộc thi của sinh viên, giảng viên Khoa Công nghệ Thông tin, Đại học Tân Tạo.";
+  "Khám phá thành tích học thuật, nghiên cứu, học bổng và các cuộc thi của sinh viên, giảng viên Khoa Công nghệ Sinh học, Đại học Tân Tạo.";
 
 export async function generateMetadata() {
   const items = await api.achievements

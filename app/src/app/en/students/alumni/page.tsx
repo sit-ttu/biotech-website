@@ -4,9 +4,9 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
-const title = "SIT Alumni | Tan Tao University";
+const title = "Biotech TTU Alumni | Tan Tao University";
 const description =
-  "Explore the profiles, career journeys and milestones of alumni from the School of Information Technology at Tan Tao University.";
+  "Explore the profiles, career journeys and milestones of alumni from the School of Biotechnology at Tan Tao University.";
 
 export async function generateMetadata() {
   const alumni = await api.alumni.findAll().catch(() => []);

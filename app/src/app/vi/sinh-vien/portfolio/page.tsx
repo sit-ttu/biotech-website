@@ -10,9 +10,9 @@ export async function generateMetadata() {
 
   return buildPageMetadata({
     locale: "vi",
-    title: "Portfolio Sinh viên | SIT - Đại học Tân Tạo",
+    title: "Portfolio Sinh viên | Biotech TTU - Đại học Tân Tạo",
     description:
-      "Khám phá portfolio cá nhân của những sinh viên Khoa Công nghệ Thông tin đã chủ động giới thiệu dự án, kỹ năng và hành trình học tập của mình.",
+      "Khám phá portfolio cá nhân của những sinh viên Khoa Công nghệ Sinh học đã chủ động giới thiệu dự án, kỹ năng và hành trình học tập của mình.",
     path: "/vi/sinh-vien/portfolio",
     alternatePath: "/en/students/portfolio",
     image: featured?.avatarUrl || "/assets/ttu/students-campus-learning.jpg",

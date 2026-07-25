@@ -107,7 +107,7 @@ export default function StudentHandbookView({
   return (
     <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-16">
       <aside className="lg:sticky lg:top-28 lg:self-start">
-        <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.17em] text-[#BA4811]">
+        <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.17em] text-[#16856F]">
           {copy.contents}
         </p>
         <div className="mt-5 border-t-2 border-[#171b25]">
@@ -116,9 +116,9 @@ export default function StudentHandbookView({
               key={section.id}
               href={`#handbook-section-${section.id}`}
               onClick={() => open(section.id)}
-              className="grid min-h-14 grid-cols-[2.25rem_1fr] items-center border-b border-[#d4cec8] py-3 text-[0.78rem] font-semibold leading-5 text-[#5f635e] transition-colors hover:text-[#BA4811] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BA4811]"
+              className="grid min-h-14 grid-cols-[2.25rem_1fr] items-center border-b border-[#d4cec8] py-3 text-[0.78rem] font-semibold leading-5 text-[#5f635e] transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F]"
             >
-              <span className="font-mono text-[0.62rem] text-[#BA4811]">
+              <span className="font-mono text-[0.62rem] text-[#16856F]">
                 {String(index + 1).padStart(2, "0")}
               </span>
               {section.title}
@@ -130,7 +130,7 @@ export default function StudentHandbookView({
       <div>
         <header className="grid gap-6 border-b-2 border-[#171b25] pb-8 lg:grid-cols-[1fr_0.9fr] lg:items-end">
           <div>
-            <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#BA4811]">
+            <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
               {copy.eyebrow}
             </p>
             <h2 className="mt-4 text-[2.2rem] font-bold leading-[1.05] tracking-[-0.04em] sm:text-[2.9rem]">
@@ -163,17 +163,17 @@ export default function StudentHandbookView({
                     aria-expanded={isOpen}
                     aria-controls={`handbook-panel-${section.id}`}
                     onClick={() => toggle(section.id)}
-                    className="group grid w-full grid-cols-[2.75rem_minmax(0,1fr)_2.5rem] items-center gap-4 py-7 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811] sm:grid-cols-[3.5rem_minmax(0,1fr)_3rem] sm:py-8"
+                    className="group grid w-full grid-cols-[2.75rem_minmax(0,1fr)_2.5rem] items-center gap-4 py-7 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] sm:grid-cols-[3.5rem_minmax(0,1fr)_3rem] sm:py-8"
                   >
-                    <span className="font-mono text-[0.68rem] font-semibold text-[#BA4811]">
+                    <span className="font-mono text-[0.68rem] font-semibold text-[#16856F]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-lg font-bold leading-7 tracking-[-0.025em] transition-colors group-hover:text-[#BA4811] sm:text-[1.35rem]">
+                    <span className="text-lg font-bold leading-7 tracking-[-0.025em] transition-colors group-hover:text-[#16856F] sm:text-[1.35rem]">
                       {section.title}
                     </span>
                     <span
                       aria-hidden
-                      className="flex h-9 w-9 items-center justify-center justify-self-end border border-[#BA4811]/35 text-xl font-light leading-none text-[#BA4811] transition-colors group-hover:bg-[#BA4811] group-hover:text-white"
+                      className="flex h-9 w-9 items-center justify-center justify-self-end border border-[#16856F]/35 text-xl font-light leading-none text-[#16856F] transition-colors group-hover:bg-[#16856F] group-hover:text-white"
                     >
                       {isOpen ? "−" : "+"}
                     </span>

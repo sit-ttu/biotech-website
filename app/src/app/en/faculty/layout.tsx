@@ -16,9 +16,9 @@ export async function generateMetadata() {
 
   return buildPageMetadata({
     locale: "en",
-    title: "Information Technology Faculty | SIT - Tan Tao University",
+    title: "Biotechnology Faculty | Biotech TTU - Tan Tao University",
     description:
-      "Meet the faculty and researchers of the School of Information Technology at Tan Tao University and explore their academic expertise.",
+      "Meet the faculty and researchers of the School of Biotechnology at Tan Tao University and explore their academic expertise.",
     path: "/en/faculty",
     image: featured?.avatarUrl,
   });

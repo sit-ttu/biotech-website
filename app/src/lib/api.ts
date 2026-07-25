@@ -2,7 +2,7 @@ export const API_URL =
   typeof window === "undefined"
     ? process.env.INTERNAL_API_URL ||
       (process.env.NODE_ENV === "production"
-        ? "https://sit.ttu.edu.vn/api/backend"
+        ? "https://biotech.ttu.edu.vn/api/backend"
         : "http://localhost:8080/api/v1")
     : "/api/backend";
 

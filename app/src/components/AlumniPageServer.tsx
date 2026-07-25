@@ -41,8 +41,8 @@ export default async function AlumniPageServer({
     "@type": "CollectionPage",
     name:
       locale === "vi"
-        ? "Mạng lưới cựu sinh viên SIT"
-        : "SIT Alumni Network",
+        ? "Mạng lưới cựu sinh viên Biotech TTU"
+        : "Biotech TTU Alumni Network",
     url: absoluteUrl(path),
     inLanguage: locale === "vi" ? "vi-VN" : "en-US",
     mainEntity: {

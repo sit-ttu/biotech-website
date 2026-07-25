@@ -26,7 +26,7 @@ export default function NotFound() {
 
               {/* Center - 0 */}
               <div className="w-24 h-24 md:w-28 md:h-28 flex items-center justify-center transform translate-y-3 relative">
-                <span className="text-6xl md:text-8xl font-black text-[#BA4811] select-none">
+                <span className="text-6xl md:text-8xl font-black text-[#16856F] select-none">
                   0
                 </span>
                 <div className="absolute -top-6 -right-6">
@@ -102,16 +102,16 @@ export default function NotFound() {
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
               href="/"
-              className="px-8 py-3 bg-[#BA4811] text-white font-bold rounded-full shadow-lg hover:shadow-[#BA4811]/20 hover:-translate-y-0.5 transition-all flex items-center gap-2 text-sm"
+              className="px-8 py-3 bg-[#16856F] text-white font-bold rounded-full shadow-lg hover:shadow-[#16856F]/20 hover:-translate-y-0.5 transition-all flex items-center gap-2 text-sm"
             >
               Quay lại Trang Chủ
               <Home className="h-4 w-4" />
             </Link>
             <a
-              href="https://www.facebook.com/sit.ttu.edu.vn"
+              href="https://www.facebook.com/biotech.ttu.edu.vn"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#1A1A1A] font-semibold hover:text-[#BA4811] transition-colors flex items-center gap-2 py-1 border-b-2 border-transparent hover:border-[#BA4811] text-sm"
+              className="text-[#1A1A1A] font-semibold hover:text-[#16856F] transition-colors flex items-center gap-2 py-1 border-b-2 border-transparent hover:border-[#16856F] text-sm"
             >
               Liên hệ hỗ trợ
               <Headphones className="h-4 w-4" />

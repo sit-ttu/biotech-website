@@ -2,9 +2,9 @@ import StudentCareersPageContent from "@/components/StudentCareersPageContent";
 import { api } from "@/lib/api";
 import { buildPageMetadata } from "@/lib/seo";
 
-const title = "Jobs and Internships for SIT Students | Tan Tao University";
+const title = "Jobs and Internships for Biotech TTU Students | Tan Tao University";
 const description =
-  "Career preparation, internship opportunities and employer connections for students of the School of Information Technology at Tan Tao University.";
+  "Career preparation, internship opportunities and employer connections for students of the School of Biotechnology at Tan Tao University.";
 
 export const metadata = buildPageMetadata({
   locale: "en",

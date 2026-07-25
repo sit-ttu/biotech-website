@@ -10,9 +10,9 @@ export async function generateMetadata() {
 
   return buildPageMetadata({
     locale: "en",
-    title: "Student Portfolios | SIT - Tan Tao University",
+    title: "Student Portfolios | Biotech TTU - Tan Tao University",
     description:
-      "Explore the personal portfolio pages of School of Information Technology students who chose to showcase their projects, skills and learning journey.",
+      "Explore the personal portfolio pages of School of Biotechnology students who chose to showcase their projects, skills and learning journey.",
     path: "/en/students/portfolio",
     alternatePath: "/vi/sinh-vien/portfolio",
     image: featured?.avatarUrl || "/assets/ttu/students-campus-learning.jpg",

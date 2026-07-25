@@ -12,9 +12,9 @@ export async function generateMetadata() {
 
   return buildPageMetadata({
     locale: "en",
-    title: "Information Technology Programs | SIT - Tan Tao University",
+    title: "Biotechnology Programs | Biotech TTU - Tan Tao University",
     description:
-      "Explore undergraduate and postgraduate programs in Information Technology, Computer Science, Data Science and AI at Tan Tao University.",
+      "Explore Biotechnology and High-Tech Agriculture programs at Tan Tao University.",
     path: "/en/programs",
     alternatePath: "/vi/chuong-trinh-dao-tao",
     image: programs[0] ? programImage(programs[0]) : undefined,

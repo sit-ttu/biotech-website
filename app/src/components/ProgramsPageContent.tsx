@@ -131,7 +131,7 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
   if (error) {
     return (
       <main className="flex min-h-[55vh] items-center justify-center bg-[#f7f4f1] px-5">
-        <div className="max-w-lg border-l-4 border-[#BA4811] bg-white p-8">
+        <div className="max-w-lg border-l-4 border-[#16856F] bg-white p-8">
           <p className="text-xl font-bold tracking-tight text-[#171b25]">
             {locale === "vi"
               ? "Không thể tải danh sách chương trình"
@@ -140,7 +140,7 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
           <button
             type="button"
             onClick={() => window.location.reload()}
-            className="mt-6 min-h-11 bg-[#BA4811] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#96380d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+            className="mt-6 min-h-11 bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
           >
             {locale === "vi" ? "Thử lại" : "Try again"}
           </button>
@@ -161,12 +161,12 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
             className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_23rem] lg:items-end lg:gap-14"
           >
             <div>
-              <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#BA4811]">
+              <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
                 <span className="h-px w-12 bg-current" />
                 {copy.directory}
               </div>
               <h1 className="mt-7 max-w-[17ch] text-[2.75rem] font-bold leading-[1.03] tracking-[-0.045em] text-balance sm:text-[3.2rem] lg:text-[3.55rem] xl:text-[3.8rem]">
-                {t("title")} <span className="text-[#BA4811]">{t("titleHighlight")}</span>
+                {t("title")} <span className="text-[#16856F]">{t("titleHighlight")}</span>
               </h1>
             </div>
             <div className="border-t border-[#171b25]/20 pt-6 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
@@ -176,7 +176,7 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
               <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
                 <a
                   href="#program-index"
-                  className="group inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-[#171b25] underline decoration-[#BA4811] underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                  className="group inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-[#171b25] underline decoration-[#16856F] underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
                 >
                   {copy.explore}
                   <span className="transition-transform group-hover:translate-y-1"><ArrowIcon direction="down" size={16} /></span>
@@ -185,7 +185,7 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
                   href="https://tuyensinh.ttu.edu.vn"
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-[#BA4811] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                  className="group inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
                 >
                   {copy.admissions}
                   <span className="transition-transform group-hover:translate-x-1"><ArrowIcon direction="up-right" size={16} /></span>
@@ -196,9 +196,9 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
 
           <div className="mt-10 grid h-64 gap-3 sm:h-80 sm:grid-cols-[1.45fr_0.55fr]">
             <div className="relative overflow-hidden bg-[#ece8e4]">
-              <img src="/assets/ttu/programs-technology-learning.jpg" alt="" className="h-full w-full object-cover object-center" />
+              <img src="/assets/biotech/research-biotechnology.png" alt="" className="h-full w-full object-cover object-center" />
               <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#171b25]/45 to-transparent" />
-              <span className="absolute bottom-5 left-5 font-mono text-[0.6rem] uppercase tracking-[0.16em] text-white sm:left-6">School of Information Technology</span>
+              <span className="absolute bottom-5 left-5 font-mono text-[0.6rem] uppercase tracking-[0.16em] text-white sm:left-6">School of Biotechnology</span>
             </div>
             <div className="relative hidden overflow-hidden bg-[#ece8e4] sm:block">
               <img src="/assets/ttu/programs-academic-partnership.jpg" alt="" className="h-full w-full object-cover object-center" />
@@ -224,7 +224,7 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
                 key={String(label)}
                 className={`px-4 py-5 sm:px-8 ${index > 0 ? "border-l border-[#171b25]/15" : ""}`}
               >
-                <span className="font-mono text-[0.62rem] text-[#BA4811]">0{index + 1}</span>
+                <span className="font-mono text-[0.62rem] text-[#16856F]">0{index + 1}</span>
                 <p className="mt-2 text-sm font-semibold sm:text-base">
                   <span className="mr-2 text-xl font-bold tracking-[-0.04em] sm:text-2xl">{value}</span>
                   <span className="text-[#70736f]">{label}</span>
@@ -261,9 +261,9 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
                     type="button"
                     aria-pressed={selected}
                     onClick={() => setFilter(value)}
-                    className={`grid min-h-14 w-full grid-cols-[0.5rem_1fr_auto] items-center gap-3 border-b border-[#dedad5] px-5 text-left text-sm transition-colors last:border-b-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BA4811] ${selected ? "bg-[#faf7f4] text-[#BA4811]" : "text-[#686c67] hover:bg-[#faf9f8] hover:text-[#171b25]"}`}
+                    className={`grid min-h-14 w-full grid-cols-[0.5rem_1fr_auto] items-center gap-3 border-b border-[#dedad5] px-5 text-left text-sm transition-colors last:border-b-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F] ${selected ? "bg-[#faf7f4] text-[#16856F]" : "text-[#686c67] hover:bg-[#faf9f8] hover:text-[#171b25]"}`}
                   >
-                    <span className={`h-1.5 w-1.5 rounded-full ${selected ? "bg-[#BA4811]" : "bg-[#d5d0ca]"}`} />
+                    <span className={`h-1.5 w-1.5 rounded-full ${selected ? "bg-[#16856F]" : "bg-[#d5d0ca]"}`} />
                     <span className="font-semibold">{label}</span>
                     <span className="font-mono text-[0.6rem] text-[#8a8d88]">
                       {String(count).padStart(2, "0")}
@@ -277,7 +277,7 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
           <div>
             <div className="flex flex-wrap items-end justify-between gap-5 border-b border-[#171b25]/20 pb-6">
               <div>
-                <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-[#BA4811]">
+                <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-[#16856F]">
                   {copy.index}
                 </p>
                 <h2 className="mt-3 text-2xl font-bold tracking-[-0.04em] sm:text-[2rem]">
@@ -302,7 +302,7 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
                     >
                       <Link
                         href={programDetailHref(locale, program)}
-                        className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                        className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
                       >
                         <span className="relative block aspect-[16/10] overflow-hidden bg-[#fbf8f5]">
                           <img
@@ -310,7 +310,7 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
                             alt={title}
                             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                           />
-                          <span className="absolute left-4 top-4 bg-white/95 px-3 py-2 font-mono text-[0.58rem] font-semibold uppercase tracking-[0.12em] text-[#BA4811] backdrop-blur-sm">
+                          <span className="absolute left-4 top-4 bg-white/95 px-3 py-2 font-mono text-[0.58rem] font-semibold uppercase tracking-[0.12em] text-[#16856F] backdrop-blur-sm">
                             {program.majorCode || program.code}
                           </span>
                         </span>
@@ -319,11 +319,11 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
                             <span className="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-[#858984]">
                               {level === "undergraduate" ? t("undergraduate") : t("graduate")}
                             </span>
-                            <span className="mt-2 block text-lg font-bold leading-snug tracking-[-0.025em] transition-colors group-hover:text-[#BA4811] sm:text-xl">
+                            <span className="mt-2 block text-lg font-bold leading-snug tracking-[-0.025em] transition-colors group-hover:text-[#16856F] sm:text-xl">
                               {title}
                             </span>
                           </span>
-                          <span className="flex h-11 w-11 items-center justify-center self-end border border-[#BA4811]/30 text-[#BA4811] transition-colors group-hover:bg-[#BA4811] group-hover:text-white">
+                          <span className="flex h-11 w-11 items-center justify-center self-end border border-[#16856F]/30 text-[#16856F] transition-colors group-hover:bg-[#16856F] group-hover:text-white">
                             <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} />
                           </span>
                         </span>
@@ -347,11 +347,11 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
             <Link
               key={level}
               href={`${programsBasePath(locale)}/${programLevelPath(locale, level)}`}
-              className={`group flex min-h-56 flex-col justify-between p-7 transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#BA4811] sm:p-9 ${index > 0 ? "border-t border-[#171b25]/15 md:border-l md:border-t-0" : ""}`}
+              className={`group flex min-h-56 flex-col justify-between p-7 transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#16856F] sm:p-9 ${index > 0 ? "border-t border-[#171b25]/15 md:border-l md:border-t-0" : ""}`}
             >
               <div className="flex items-start justify-between">
-                <span className="font-mono text-[0.64rem] font-semibold text-[#BA4811]">0{index + 1}</span>
-                <HugeiconsIcon icon={ArrowUpRight01Icon} size={19} className="text-[#BA4811] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <span className="font-mono text-[0.64rem] font-semibold text-[#16856F]">0{index + 1}</span>
+                <HugeiconsIcon icon={ArrowUpRight01Icon} size={19} className="text-[#16856F] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold tracking-[-0.04em] sm:text-3xl">

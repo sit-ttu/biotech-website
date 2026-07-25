@@ -1,9 +1,9 @@
 import StudentActivitiesPageServer from "@/components/StudentActivitiesPageServer";
 import { buildPageMetadata } from "@/lib/seo";
 
-const title = "Hoạt động sinh viên SIT | Đại học Tân Tạo";
+const title = "Hoạt động sinh viên Biotech TTU | Đại học Tân Tạo";
 const description =
-  "Khám phá workshop, cuộc thi, hoạt động cộng đồng và lịch sự kiện dành cho sinh viên Khoa Công nghệ Thông tin, Đại học Tân Tạo.";
+  "Khám phá workshop, cuộc thi, hoạt động cộng đồng và lịch sự kiện dành cho sinh viên Khoa Công nghệ Sinh học, Đại học Tân Tạo.";
 
 export const metadata = buildPageMetadata({
   locale: "vi",
@@ -11,7 +11,7 @@ export const metadata = buildPageMetadata({
   description,
   path: "/vi/sinh-vien/hoat-dong",
   alternatePath: "/en/students/activities",
-  image: "/assets/meeting.png",
+  image: "/assets/biotech/research-biotechnology.png",
 });
 
 export default function StudentActivitiesPage() {

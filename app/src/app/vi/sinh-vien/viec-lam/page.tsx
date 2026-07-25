@@ -2,9 +2,9 @@ import StudentCareersPageContent from "@/components/StudentCareersPageContent";
 import { api } from "@/lib/api";
 import { buildPageMetadata } from "@/lib/seo";
 
-const title = "Việc làm và thực tập cho sinh viên SIT | Đại học Tân Tạo";
+const title = "Việc làm và thực tập cho sinh viên Biotech TTU | Đại học Tân Tạo";
 const description =
-  "Chuẩn bị hồ sơ nghề nghiệp, tìm cơ hội thực tập và kết nối tuyển dụng dành cho sinh viên Khoa Công nghệ Thông tin, Đại học Tân Tạo.";
+  "Chuẩn bị hồ sơ nghề nghiệp, tìm cơ hội thực tập và kết nối tuyển dụng dành cho sinh viên Khoa Công nghệ Sinh học, Đại học Tân Tạo.";
 
 export const metadata = buildPageMetadata({
   locale: "vi",

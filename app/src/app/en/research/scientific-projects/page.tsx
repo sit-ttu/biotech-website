@@ -179,7 +179,7 @@ export default function ScientificProjectsPage() {
               </div>
               <div className="relative h-full min-h-[26rem] overflow-hidden rounded-3xl border border-border/80 bg-gradient-to-br from-white to-muted">
                 <Image
-                  src="/assets/meeting.png"
+                  src="/assets/biotech/research-biotechnology.png"
                   alt="Research collaboration"
                   fill
                   className="object-cover"

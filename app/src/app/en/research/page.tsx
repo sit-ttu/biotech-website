@@ -3,12 +3,12 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
   locale: "en",
-  title: "Information Technology Research | SIT - Tan Tao University",
+  title: "Biotechnology Research | Biotech TTU - Tan Tao University",
   description:
-    "Explore research areas, scientific projects and international publications from the School of Information Technology at Tan Tao University.",
+    "Explore research areas, scientific projects and international publications from the School of Biotechnology at Tan Tao University.",
   path: "/en/research",
   alternatePath: "/vi/nghien-cuu",
-  image: "/assets/ttu/programs-technology-learning.jpg",
+  image: "/assets/biotech/research-biotechnology.png",
 });
 
 export default function ResearchPage() {

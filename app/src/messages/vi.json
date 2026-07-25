@@ -203,7 +203,7 @@
           "subtitle": "Nâng cao chuyên môn với các học phần định hướng nghiên cứu cùng đội ngũ giảng viên và doanh nghiệp đối tác của Biotech TTU.",
           "ctaPrimary": "Nhận đề cương chương trình",
           "ctaSecondary": "Trao đổi với giảng viên",
-          "image": "/assets/meeting.png",
+          "image": "/assets/biotech/research-biotechnology.png",
           "alt": "Học viên cao học trình bày nghiên cứu với giảng viên"
         },
         "keyDetails": [
@@ -233,7 +233,7 @@
           "title": "Chinh phục chuẩn mực học thuật mới",
           "description": "Phát triển sự nghiệp và đóng góp nghiên cứu thông qua hướng dẫn cá nhân hóa, phòng thí nghiệm đổi mới và nguồn lực liên kết toàn trường.",
           "points": [
-            "Seminar chuyên sâu cập nhật xu hướng điện toán mới",
+            "Seminar chuyên sâu cập nhật xu hướng công nghệ sinh học mới",
             "Hướng dẫn nghiên cứu cá nhân gắn với nhu cầu doanh nghiệp",
             "Cơ hội công bố cùng nhóm nghiên cứu Biotech TTU",
             "Khai thác phòng thí nghiệm hiện đại và hệ sinh thái đổi mới ĐHTT"
@@ -260,7 +260,7 @@
         "overview": {
           "badge": "Tổng quan chương trình",
           "title": "Dẫn dắt công nghệ và sáng tạo",
-          "description": "Biotech TTU kết hợp nền tảng khai phóng với phòng studio công nghệ giúp bạn xây dựng sự nghiệp ý nghĩa.",
+          "description": "Biotech TTU kết hợp nền tảng khai phóng với phòng thí nghiệm hiện đại giúp bạn xây dựng sự nghiệp ý nghĩa.",
           "points": [
             "Phòng studio hợp tác cùng giảng viên Biotech TTU",
             "Workshop doanh nghiệp và thử thách đổi mới",
@@ -309,7 +309,7 @@
       },
       "graduate": {
         "heroTagline": "Nâng tầm nghiên cứu với cố vấn giảng viên và phòng lab đổi mới.",
-        "heroImage": "/assets/meeting.png",
+        "heroImage": "/assets/biotech/research-biotechnology.png",
         "keyFacts": [
           {
             "label": "Mã ngành",
@@ -334,7 +334,7 @@
       "shared": {
         "hero": {
           "badge": "Chương trình Sau đại học",
-          "fallbackImage": "/assets/meeting.png",
+          "fallbackImage": "/assets/biotech/research-biotechnology.png",
           "inquireLabel": "Tư vấn",
           "applyLabel": "Đăng ký"
         },
@@ -573,7 +573,7 @@
       "graduate": {
         "hero": {
           "badge": "Chương trình Sau đại học",
-          "fallbackImage": "/assets/meeting.png"
+          "fallbackImage": "/assets/biotech/research-biotechnology.png"
         },
         "meta": {
           "school": "Khoa Công nghệ Sinh học",
@@ -785,7 +785,7 @@
       {
         "value": "05",
         "label": "Phòng lab đang hoạt động",
-        "description": "Giảng viên dẫn dắt các nhóm AI, dữ liệu, an ninh mạng và kỹ thuật phần mềm."
+        "description": "Giảng viên dẫn dắt các nhóm sinh học phân tử, y sinh, nông nghiệp, môi trường và tin sinh học."
       },
       {
         "value": "—",
@@ -864,7 +864,7 @@
     },
     "filters": [
       "AI & ML",
-      "Khoa học dữ liệu",
+      "Tin sinh học và dữ liệu sinh học",
       "An toàn sinh học",
       "Kỹ thuật phần mềm"
     ],
@@ -939,8 +939,8 @@
     "quickFeedTitle": "Dòng tin nhanh",
     "quickFeedDescription": "Danh sách cô đọng giúp bạn quét nhanh những thông báo và câu chuyện mới nhất từ Biotech TTU.",
     "officialChannel": "Kênh thông tin chính thức",
-    "exploreSIT": "Khám phá thêm về Biotech TTU",
-    "exploreSITDescription": "Tìm hiểu chương trình đào tạo, nghiên cứu và đời sống sinh viên tại Khoa Công nghệ Sinh học.",
+    "exploreBiotech": "Khám phá thêm về Biotech TTU",
+    "exploreBiotechDescription": "Tìm hiểu chương trình đào tạo, nghiên cứu và đời sống sinh viên tại Khoa Công nghệ Sinh học.",
     "exploreProgramsTitle": "Chương trình đào tạo",
     "exploreProgramsDescription": "Tìm hiểu ngành học, cấu trúc chương trình và định hướng đào tạo tại Biotech TTU.",
     "exploreResearchTitle": "Nghiên cứu tại Biotech TTU",
@@ -1003,7 +1003,11 @@
       "desc": "Học phí, học bổng, hồ sơ xét tuyển, lịch nhập học.",
       "cta": "Đến Cổng tuyển sinh"
     },
-    "channelAcademic": "Học thuật & nghiên cứu",
+    "channelAcademic": {
+      "title": "Học thuật & nghiên cứu",
+      "desc": "Trao đổi về chương trình đào tạo, phòng thí nghiệm và hợp tác nghiên cứu.",
+      "cta": "Gửi email cho Khoa"
+    },
     "channelFast": {
       "title": "Cần trả lời nhanh",
       "desc": "Nhắn tin qua Fanpage, đội ngũ Khoa phản hồi trong ngày.",

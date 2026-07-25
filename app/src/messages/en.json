@@ -203,7 +203,7 @@
           "subtitle": "Deepen your expertise with research-driven coursework guided by Biotech TTU academics and industry collaborators.",
           "ctaPrimary": "Request program guide",
           "ctaSecondary": "Speak with faculty",
-          "image": "/assets/meeting.png",
+          "image": "/assets/biotech/research-biotechnology.png",
           "alt": "Graduate student presenting research to faculty"
         },
         "keyDetails": [
@@ -233,7 +233,7 @@
           "title": "Pursue postgraduate excellence",
           "description": "Advance your career and research impact through tailored supervision, innovation labs and cross-campus resources.",
           "points": [
-            "Advanced seminars covering emerging computing paradigms",
+            "Advanced seminars on emerging biotechnology research",
             "Individual research supervision aligned with industry needs",
             "Opportunities to publish with Biotech TTU-led research teams",
             "Access to modern labs and the Tan Tao innovation ecosystem"
@@ -260,7 +260,7 @@
         "overview": {
           "badge": "Program overview",
           "title": "Lead with technology and creativity",
-          "description": "Biotech TTU blends liberal arts foundations with hands-on computing studios to help you build a meaningful career.",
+          "description": "Biotech TTU blends liberal arts foundations with modern laboratories to help you build a meaningful career.",
           "points": [
             "Collaborative studios mentored by Biotech TTU faculty",
             "Industry workshops and innovation challenges",
@@ -278,7 +278,7 @@
           "badge": "Career pathways",
           "title": "Where this program can take you",
           "points": [
-            "Software and data engineering roles",
+            "Biotechnology research and laboratory roles",
             "AI and analytics research positions",
             "Product leadership and digital innovation",
             "Entrepreneurship within the Biotech TTU ecosystem"
@@ -309,7 +309,7 @@
       },
       "graduate": {
         "heroTagline": "Advance your research with faculty mentorship and innovation labs.",
-        "heroImage": "/assets/meeting.png",
+        "heroImage": "/assets/biotech/research-biotechnology.png",
         "keyFacts": [
           {
             "label": "Program code",
@@ -334,7 +334,7 @@
       "shared": {
         "hero": {
           "badge": "Graduate Programs",
-          "fallbackImage": "/assets/meeting.png",
+          "fallbackImage": "/assets/biotech/research-biotechnology.png",
           "inquireLabel": "Inquire",
           "applyLabel": "Apply"
         },
@@ -359,7 +359,7 @@
             {
               "title": "Graduate competencies",
               "points": [
-                "Design and deliver software products end-to-end",
+                "Plan and conduct biotechnology projects from laboratory to application",
                 "Implement AI, Bioinformatics and cloud solutions",
                 "Collaborate in multicultural teams with agile workflows",
                 "Lead innovation initiatives across sectors"
@@ -573,7 +573,7 @@
       "graduate": {
         "hero": {
           "badge": "Graduate Programs",
-          "fallbackImage": "/assets/meeting.png"
+          "fallbackImage": "/assets/biotech/research-biotechnology.png"
         },
         "meta": {
           "school": "School of Biotechnology",
@@ -785,7 +785,7 @@
       {
         "value": "05",
         "label": "Active research labs",
-        "description": "Guided by faculty mentors across AI, data, Biosafety and Biotechnology Engineering."
+        "description": "Guided by faculty mentors across molecular biology, biomedicine, agriculture, environment and bioinformatics."
       },
       {
         "value": "—",
@@ -939,8 +939,8 @@
     "quickFeedTitle": "News in brief",
     "quickFeedDescription": "A compact index for scanning the latest announcements and stories from Biotech TTU.",
     "officialChannel": "Official information channel",
-    "exploreSIT": "Explore more from Biotech TTU",
-    "exploreSITDescription": "Discover programs, research and student life at the School of Biotechnology.",
+    "exploreBiotech": "Explore more from Biotech TTU",
+    "exploreBiotechDescription": "Discover programs, research and student life at the School of Biotechnology.",
     "exploreProgramsTitle": "Academic programmes",
     "exploreProgramsDescription": "Explore majors, curriculum structures and the academic direction of Biotech TTU.",
     "exploreResearchTitle": "Research at Biotech TTU",
@@ -1003,7 +1003,11 @@
       "desc": "Tuition, scholarships, applications, enrollment dates.",
       "cta": "Go to Admissions Portal"
     },
-    "channelAcademic": "Academic & research enquiries",
+    "channelAcademic": {
+      "title": "Academic & research enquiries",
+      "desc": "Discuss programs, laboratories and research collaboration with the School.",
+      "cta": "Email the School"
+    },
     "channelFast": {
       "title": "Need a fast answer",
       "desc": "Message us on our Fanpage, the team replies same day.",

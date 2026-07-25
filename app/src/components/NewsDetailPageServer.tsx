@@ -6,8 +6,8 @@ import { extractNewsText, getNewsImage } from "@/lib/news-content";
 import type { SiteLocale } from "@/lib/program-pages";
 import { absoluteUrl, localizedAlternates, truncateText } from "@/lib/seo";
 
-const SITE_URL = "https://sit.ttu.edu.vn";
-const PUBLISHER_NAME = "Khoa Công nghệ Thông tin - Đại học Tân Tạo";
+const SITE_URL = "https://biotech.ttu.edu.vn";
+const PUBLISHER_NAME = "Khoa Công nghệ Sinh học - Đại học Tân Tạo";
 
 const getNewsPath = (locale: SiteLocale) =>
   locale === "vi" ? "/vi/tin-tuc" : "/en/news";
@@ -29,13 +29,13 @@ export async function buildNewsDetailMetadata(
     const news = await api.news.findOne(slug);
     const path = `${getNewsPath(locale)}/${news.slug}`;
     const description = getDescription(news);
-    const image = getNewsImage(news) || "/assets/banner-KT2.png";
-    const siteName = locale === "vi" ? PUBLISHER_NAME : "School of Information Technology - Tan Tao University";
+    const image = getNewsImage(news) || "/assets/biotech/hero-biotechnology.png";
+    const siteName = locale === "vi" ? PUBLISHER_NAME : "School of Biotechnology - Tan Tao University";
     const socialDescription = truncateText(description, 125);
     const socialImage = absoluteUrl(image);
 
     return {
-      title: `${truncateText(news.title, 54)} | SIT`,
+      title: `${truncateText(news.title, 54)} | Biotech TTU`,
       description,
       alternates: {
         canonical: path,
@@ -72,7 +72,7 @@ export async function buildNewsDetailMetadata(
     };
   } catch {
     return {
-      title: locale === "vi" ? "Tin tức | SIT - Đại học Tân Tạo" : "News | SIT - Tan Tao University",
+      title: locale === "vi" ? "Tin tức | Biotech TTU - Đại học Tân Tạo" : "News | Biotech TTU - Tan Tao University",
     };
   }
 }
@@ -98,7 +98,7 @@ export default async function NewsDetailPageServer({
   const path = `${getNewsPath(locale)}/${news.slug}`;
   const articleText = news.contentText?.trim() || extractNewsText(news.content);
   const image = getNewsImage(news);
-  const socialImage = absoluteUrl(image || "/assets/banner-KT2.png");
+  const socialImage = absoluteUrl(image || "/assets/biotech/hero-biotechnology.png");
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -118,7 +118,7 @@ export default async function NewsDetailPageServer({
     isAccessibleForFree: true,
     author: {
       "@type": "Organization",
-      name: locale === "vi" ? "Ban Truyền thông SIT" : "SIT Editorial Team",
+      name: locale === "vi" ? "Ban Truyền thông Biotech TTU" : "Biotech TTU Editorial Team",
       url: SITE_URL,
     },
     publisher: {
@@ -127,7 +127,7 @@ export default async function NewsDetailPageServer({
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/assets/logo-sit.png`,
+        url: `${SITE_URL}/assets/biotech/logo-biotech.png`,
       },
     },
   };

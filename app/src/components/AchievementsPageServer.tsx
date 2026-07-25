@@ -22,8 +22,8 @@ export default async function AchievementsPageServer({
     "@type": "CollectionPage",
     name:
       locale === "vi"
-        ? "Thành tích sinh viên và giảng viên SIT"
-        : "SIT Student and Faculty Achievements",
+        ? "Thành tích sinh viên và giảng viên Biotech TTU"
+        : "Biotech TTU Student and Faculty Achievements",
     url: absoluteUrl(path),
     inLanguage: locale === "vi" ? "vi-VN" : "en-US",
     mainEntity: {

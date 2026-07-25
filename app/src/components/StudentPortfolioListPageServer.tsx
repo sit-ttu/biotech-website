@@ -10,7 +10,7 @@ const copy = {
     badge: "Sinh viên & cựu sinh viên",
     title: "Portfolio Sinh viên",
     description:
-      "Góc trưng bày portfolio cá nhân của sinh viên Khoa Công nghệ Thông tin — nơi các bạn giới thiệu dự án, kỹ năng và hành trình học tập của mình. Danh sách sẽ tiếp tục dài thêm khi có nhiều bạn tham gia.",
+      "Góc trưng bày portfolio cá nhân của sinh viên Khoa Công nghệ Sinh học — nơi các bạn giới thiệu dự án, kỹ năng và hành trình học tập của mình. Danh sách sẽ tiếp tục dài thêm khi có nhiều bạn tham gia.",
     empty: "Hiện chưa có portfolio nào được công khai. Quay lại sau nhé!",
     view: "Xem portfolio",
   },
@@ -18,7 +18,7 @@ const copy = {
     badge: "Students & alumni",
     title: "Student Portfolios",
     description:
-      "A showcase of personal portfolios built by School of Information Technology students, highlighting their projects, skills and learning journey. More get added as more students join in.",
+      "A showcase of personal portfolios built by School of Biotechnology students, highlighting their projects, skills and learning journey. More get added as more students join in.",
     empty: "No portfolios have been published yet. Check back soon!",
     view: "View portfolio",
   },
@@ -79,7 +79,7 @@ export default async function StudentPortfolioListPageServer({
 
       <section className="border-b border-[#171b25]/15">
         <div className="mx-auto max-w-7xl px-5 pb-12 pt-10 sm:px-8 lg:pb-16 lg:pt-14">
-          <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#BA4811]">
+          <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
             <span className="h-px w-12 bg-current" />
             {t.badge}
           </div>
@@ -103,7 +103,7 @@ export default async function StudentPortfolioListPageServer({
               <Link
                 key={portfolio.id}
                 href={`/${portfolio.slug}`}
-                className="group flex flex-col gap-4 border border-[#e4dfda] p-6 transition-colors hover:border-[#BA4811] hover:bg-[#fbf6f2]"
+                className="group flex flex-col gap-4 border border-[#e4dfda] p-6 transition-colors hover:border-[#16856F] hover:bg-[#fbf6f2]"
               >
                 <div className="flex items-center gap-4">
                   {portfolio.avatarUrl ? (
@@ -114,12 +114,12 @@ export default async function StudentPortfolioListPageServer({
                       className="h-14 w-14 shrink-0 rounded-full object-cover"
                     />
                   ) : (
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#f4efe9] text-lg font-bold text-[#BA4811]">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#f4efe9] text-lg font-bold text-[#16856F]">
                       {getInitials(portfolio.fullName)}
                     </div>
                   )}
                   <div className="min-w-0">
-                    <h2 className="truncate text-lg font-bold tracking-[-0.02em] transition-colors group-hover:text-[#BA4811]">
+                    <h2 className="truncate text-lg font-bold tracking-[-0.02em] transition-colors group-hover:text-[#16856F]">
                       {portfolio.fullName}
                     </h2>
                     {(portfolio.title || portfolio.program) && (
@@ -136,7 +136,7 @@ export default async function StudentPortfolioListPageServer({
                   </p>
                 )}
 
-                <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#BA4811]">
+                <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#16856F]">
                   {t.view}
                   <HugeiconsIcon icon={ArrowUpRight01Icon} size={16} />
                 </span>

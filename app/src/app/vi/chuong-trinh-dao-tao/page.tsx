@@ -12,9 +12,9 @@ export async function generateMetadata() {
 
   return buildPageMetadata({
     locale: "vi",
-    title: "Chương trình đào tạo Công nghệ Thông tin | SIT",
+    title: "Chương trình đào tạo Công nghệ Sinh học | Biotech TTU",
     description:
-      "Khám phá các chương trình đại học và sau đại học về Công nghệ Thông tin, Khoa học Máy tính, Khoa học Dữ liệu và AI tại Đại học Tân Tạo.",
+      "Khám phá các chương trình Công nghệ Sinh học và Nông nghiệp công nghệ cao tại Đại học Tân Tạo.",
     path: "/vi/chuong-trinh-dao-tao",
     alternatePath: "/en/programs",
     image: programs[0] ? programImage(programs[0]) : undefined,

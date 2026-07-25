@@ -12,8 +12,8 @@ export async function generateMetadata({
   const { schoolYear } = await params;
   return buildPageMetadata({
     locale: "en",
-    title: `Student Handbook ${schoolYear} | SIT - Tan Tao University`,
-    description: `Official ${schoolYear} study, academic, project, research and student support handbook for the School of Information Technology at Tan Tao University.`,
+    title: `Student Handbook ${schoolYear} | Biotech TTU - Tan Tao University`,
+    description: `Official ${schoolYear} study, academic, project, research and student support handbook for the School of Biotechnology at Tan Tao University.`,
     path: `/en/students/handbook/${schoolYear}`,
     alternatePath: `/vi/sinh-vien/so-tay/${schoolYear}`,
     image: "/assets/ttu/students-library-reading.jpg",

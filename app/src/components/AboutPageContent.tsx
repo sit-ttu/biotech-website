@@ -69,7 +69,7 @@ const AboutPageContent = () => {
             variants={reveal}
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="mb-6 flex items-center gap-4 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#BA4811]">
+            <div className="mb-6 flex items-center gap-4 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#16856F]">
               <span className="h-px w-10 bg-current" />
               {t("title")}
             </div>
@@ -83,14 +83,14 @@ const AboutPageContent = () => {
             <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-4">
               <Link
                 href={programsHref}
-                className="group inline-flex min-h-12 items-center gap-4 bg-[#BA4811] px-6 text-sm font-semibold text-white transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#96380d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811] active:translate-y-0"
+                className="group inline-flex min-h-12 items-center gap-4 bg-[#16856F] px-6 text-sm font-semibold text-white transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] active:translate-y-0"
               >
                 {t("explorePrograms")}
                 <span className="text-lg transition-transform group-hover:translate-x-1"><ArrowIcon direction="up-right" size={16} /></span>
               </Link>
               <a
                 href="#history"
-                className="group inline-flex min-h-12 items-center gap-3 text-sm font-semibold text-[#5b321f] underline decoration-[#BA4811]/40 underline-offset-8 transition-colors hover:text-[#BA4811] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                className="group inline-flex min-h-12 items-center gap-3 text-sm font-semibold text-[#12312B] underline decoration-[#16856F]/40 underline-offset-8 transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
               >
                 {t("history")}
                 <span className="transition-transform group-hover:translate-x-1"><ArrowIcon direction="down" size={16} /></span>
@@ -104,7 +104,7 @@ const AboutPageContent = () => {
                     key={topic}
                     className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-[#70736f]"
                   >
-                    <span className="mr-2 font-mono text-[#BA4811]">0{index + 1}</span>
+                    <span className="mr-2 font-mono text-[#16856F]">0{index + 1}</span>
                     {topic}
                   </span>
                 ),
@@ -128,9 +128,9 @@ const AboutPageContent = () => {
           >
             <div
               aria-hidden="true"
-              className="absolute inset-0 -translate-y-3 translate-x-3 bg-[#BA4811] [clip-path:polygon(12%_0,100%_0,100%_82%,88%_100%,0_100%,0_18%)]"
+              className="absolute inset-0 -translate-y-3 translate-x-3 bg-[#16856F] [clip-path:polygon(12%_0,100%_0,100%_82%,88%_100%,0_100%,0_18%)]"
             />
-            <div className="absolute inset-0 overflow-hidden bg-[#BA4811] [clip-path:polygon(12%_0,100%_0,100%_82%,88%_100%,0_100%,0_18%)]">
+            <div className="absolute inset-0 overflow-hidden bg-[#16856F] [clip-path:polygon(12%_0,100%_0,100%_82%,88%_100%,0_100%,0_18%)]">
               <Image
                 src="/assets/ttu/about-tan-tao-campus.jpg"
                 alt={t("heroImageAlt")}
@@ -141,7 +141,7 @@ const AboutPageContent = () => {
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,16,24,0.02)_38%,rgba(12,16,24,0.68)_100%)]" />
               <div className="absolute inset-x-6 bottom-6 text-white sm:inset-x-8 sm:bottom-8">
-                <div className="max-w-[27rem] border-l-2 border-[#e96a2d] pl-4 sm:pl-5">
+                <div className="max-w-[27rem] border-l-2 border-[#16856F] pl-4 sm:pl-5">
                   <p className="font-mono text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-white/70">
                     {t("heroMediaEyebrow")}
                   </p>
@@ -196,7 +196,7 @@ const AboutPageContent = () => {
             <h2 className="max-w-sm text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
               {t("history")}
             </h2>
-            <div className="mt-8 text-[4.5rem] font-bold leading-none tracking-[-0.07em] text-[#BA4811] sm:text-[6rem]">
+            <div className="mt-8 text-[4.5rem] font-bold leading-none tracking-[-0.07em] text-[#16856F] sm:text-[6rem]">
               2011
             </div>
           </motion.div>
@@ -207,7 +207,7 @@ const AboutPageContent = () => {
             variants={reveal}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.08 }}
-            className="border-t-2 border-[#BA4811] pt-6"
+            className="border-t-2 border-[#16856F] pt-6"
           >
             <p className="max-w-3xl text-base leading-8 text-[#343a43] sm:text-lg">
               {t("historyText")}
@@ -258,13 +258,13 @@ const AboutPageContent = () => {
                 variants={reveal}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="group flex min-h-64 flex-col border border-[#dedad5] bg-white p-6 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-[#BA4811] hover:shadow-[8px_8px_0_#eadfd6]"
+                className="group flex min-h-64 flex-col border border-[#dedad5] bg-white p-6 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-[#16856F] hover:shadow-[8px_8px_0_#eadfd6]"
               >
                 <div className="mb-10 flex items-center justify-between">
-                  <span className="font-mono text-[0.68rem] font-semibold text-[#BA4811]">
+                  <span className="font-mono text-[0.68rem] font-semibold text-[#16856F]">
                     0{index + 1}
                   </span>
-                  <span className="h-px w-10 bg-[#BA4811]/45 transition-all duration-300 group-hover:w-16" />
+                  <span className="h-px w-10 bg-[#16856F]/45 transition-all duration-300 group-hover:w-16" />
                 </div>
                 <h3 className="text-lg font-bold tracking-tight">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-[#686c67]">{item.description}</p>
@@ -294,7 +294,7 @@ const AboutPageContent = () => {
               viewport={{ once: true }}
               className="border border-[#dedad5] bg-white p-7 sm:p-9"
             >
-              <div className="flex h-11 w-11 items-center justify-center border border-[#BA4811]/50 text-[#BA4811]">
+              <div className="flex h-11 w-11 items-center justify-center border border-[#16856F]/50 text-[#16856F]">
                 <HugeiconsIcon icon={Target02Icon} size={20} strokeWidth={1.5} />
               </div>
               <h3 className="mt-8 text-xl font-bold tracking-tight">{t("mission")}</h3>
@@ -307,7 +307,7 @@ const AboutPageContent = () => {
               variants={reveal}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="relative overflow-hidden bg-[#BA4811] p-7 text-white [clip-path:polygon(0_0,100%_0,100%_84%,94%_100%,0_100%)] sm:p-9"
+              className="relative overflow-hidden bg-[#16856F] p-7 text-white [clip-path:polygon(0_0,100%_0,100%_84%,94%_100%,0_100%)] sm:p-9"
             >
               <div className="flex h-11 w-11 items-center justify-center border border-white/45">
                 <HugeiconsIcon icon={VisionIcon} size={20} strokeWidth={1.5} />
@@ -327,7 +327,7 @@ const AboutPageContent = () => {
                   index > 1 ? "sm:border-t" : "sm:border-t-0"
                 }`}
               >
-                <span className="font-mono text-[0.62rem] text-[#BA4811]">0{index + 1}</span>
+                <span className="font-mono text-[0.62rem] text-[#16856F]">0{index + 1}</span>
                 <span className="text-[12px] font-semibold leading-5 text-[#4f544f]">{value}</span>
               </div>
             ))}
@@ -344,14 +344,14 @@ const AboutPageContent = () => {
             variants={reveal}
             viewport={{ once: true }}
           >
-            <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#BA4811]">
+            <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
               {t("ourPhilosophy")}
             </p>
             <h2 className="mt-4 text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
               {t("howWeOperate")}
             </h2>
-            <div className="mt-8 border-l-2 border-[#BA4811] pl-5">
-              <p className="text-xl font-bold tracking-tight text-[#BA4811]">{t("philosophyText")}</p>
+            <div className="mt-8 border-l-2 border-[#16856F] pl-5">
+              <p className="text-xl font-bold tracking-tight text-[#16856F]">{t("philosophyText")}</p>
               <p className="mt-3 text-sm leading-7 text-[#686c67]">
                 {t("philosophyDetails.lifelongLearning.description")}
               </p>
@@ -370,7 +370,7 @@ const AboutPageContent = () => {
                   transition={{ duration: 0.5, delay: index * 0.06 }}
                   className="grid grid-cols-[2.5rem_1fr] gap-3 border-b border-[#dedad5] py-6 sm:gap-5"
                 >
-                  <span className="pt-0.5 font-mono text-[0.62rem] text-[#BA4811]">
+                  <span className="pt-0.5 font-mono text-[0.62rem] text-[#16856F]">
                     0{index + 1}
                   </span>
                   <div>
@@ -385,16 +385,16 @@ const AboutPageContent = () => {
       </section>
 
       <section className="bg-white px-5 pb-16 sm:px-8">
-        <div className="relative mx-auto grid max-w-7xl gap-8 overflow-hidden bg-[#BA4811] px-7 py-10 text-white [clip-path:polygon(0_0,100%_0,100%_78%,96%_100%,0_100%)] sm:px-10 lg:grid-cols-[1fr_auto] lg:items-center lg:px-12">
+        <div className="relative mx-auto grid max-w-7xl gap-8 overflow-hidden bg-[#16856F] px-7 py-10 text-white [clip-path:polygon(0_0,100%_0,100%_78%,96%_100%,0_100%)] sm:px-10 lg:grid-cols-[1fr_auto] lg:items-center lg:px-12">
           <div>
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{t("readyToStart")}</h2>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-white/75">{t("joinEcosystem")}</p>
           </div>
           <a
-            href="https://www.facebook.com/sit.ttu.edu.vn"
+            href="https://www.facebook.com/biotech.ttu.edu.vn"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-12 w-fit items-center gap-4 border border-white bg-white px-6 text-sm font-semibold text-[#BA4811] transition-colors hover:bg-transparent hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            className="inline-flex min-h-12 w-fit items-center gap-4 border border-white bg-white px-6 text-sm font-semibold text-[#16856F] transition-colors hover:bg-transparent hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
             {t("contactUs")}
             <span><ArrowIcon direction="up-right" size={16} /></span>

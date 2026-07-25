@@ -20,7 +20,7 @@ const facultyDescription = (faculty: Awaited<ReturnType<typeof getFaculty>>) => 
   const role = faculty.position || "giảng viên";
   const workplace = /khoa/i.test(role)
     ? "Đại học Tân Tạo"
-    : `${faculty.department || "Khoa Công nghệ Thông tin"}, Đại học Tân Tạo`;
+    : `${faculty.department || "Khoa Công nghệ Sinh học"}, Đại học Tân Tạo`;
   const publicationText = publications
     ? ` Xem hồ sơ đào tạo và ${publications} công bố khoa học.`
     : " Xem hồ sơ đào tạo, chuyên môn và hoạt động học thuật.";
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
 
     return buildPageMetadata({
       locale: "vi",
-      title: `${credential}${faculty.fullName} | Giảng viên SIT - TTU`,
+      title: `${credential}${faculty.fullName} | Giảng viên Biotech TTU`,
       description: facultyDescription(faculty),
       path: `/vi/giang-vien/${faculty.slug}`,
       image: faculty.avatarUrl,
@@ -85,7 +85,7 @@ export default async function FacultyDetailLayout({
   const profileSchema = {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    name: `${faculty.fullName} - Giảng viên SIT`,
+    name: `${faculty.fullName} - Giảng viên Biotech TTU`,
     url: absoluteUrl(path),
     dateCreated: faculty.createdAt,
     dateModified: faculty.meta?.lastUpdatedAt || faculty.updatedAt,
@@ -104,8 +104,8 @@ export default async function FacultyDetailLayout({
       ...(sameAs.length ? { sameAs } : {}),
       worksFor: {
         "@type": "CollegeOrUniversity",
-        name: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
-        url: "https://sit.ttu.edu.vn",
+        name: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
+        url: "https://biotech.ttu.edu.vn",
       },
     },
   };

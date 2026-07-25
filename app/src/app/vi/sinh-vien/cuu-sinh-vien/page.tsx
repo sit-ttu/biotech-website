@@ -4,9 +4,9 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
-const title = "Cựu sinh viên SIT | Đại học Tân Tạo";
+const title = "Cựu sinh viên Biotech TTU | Đại học Tân Tạo";
 const description =
-  "Khám phá hồ sơ, hành trình nghề nghiệp và những dấu ấn của cựu sinh viên Khoa Công nghệ Thông tin, Đại học Tân Tạo.";
+  "Khám phá hồ sơ, hành trình nghề nghiệp và những dấu ấn của cựu sinh viên Khoa Công nghệ Sinh học, Đại học Tân Tạo.";
 
 export async function generateMetadata() {
   const alumni = await api.alumni.findAll().catch(() => []);

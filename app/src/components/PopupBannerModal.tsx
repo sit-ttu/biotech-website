@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
 import { api, type PopupBanner } from "@/lib/api";
 
-const DISMISSED_BANNER_KEY = "sit-dismissed-popup-banner";
+const DISMISSED_BANNER_KEY = "biotech-dismissed-popup-banner";
 // ponytail: sessionStorage so a closed banner stays closed only for the current tab session
 
 export default function PopupBannerModal() {
@@ -94,7 +94,7 @@ export default function PopupBannerModal() {
           ref={closeButtonRef}
           type="button"
           onClick={dismissBanner}
-          className="absolute right-2 top-2 z-10 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#171b25]/90 text-white shadow-[0_8px_24px_rgba(15,23,42,0.28)] backdrop-blur-md transition-all duration-200 hover:scale-105 hover:bg-[#ba4811] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#171b25] sm:-right-4 sm:-top-4"
+          className="absolute right-2 top-2 z-10 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#171b25]/90 text-white shadow-[0_8px_24px_rgba(15,23,42,0.28)] backdrop-blur-md transition-all duration-200 hover:scale-105 hover:bg-[#16856F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#171b25] sm:-right-4 sm:-top-4"
           aria-label={isEnglish ? "Close banner" : "Đóng banner"}
         >
           <X className="h-5 w-5" strokeWidth={2} />
@@ -105,7 +105,7 @@ export default function PopupBannerModal() {
           target={openInNewTab ? "_blank" : undefined}
           rel={openInNewTab ? "noopener noreferrer" : undefined}
           onClick={dismissBanner}
-          className="group block cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#c84b12]"
+          className="group block cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#16856F]"
           aria-label={`${title}. ${
             openInNewTab
               ? isEnglish

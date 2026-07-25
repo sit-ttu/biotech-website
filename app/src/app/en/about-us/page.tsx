@@ -1,9 +1,9 @@
 import AboutPageContent from "@/components/AboutPageContent";
 import { buildPageMetadata } from "@/lib/seo";
 
-const title = "School of Information Technology | Tan Tao University";
+const title = "School of Biotechnology | Tan Tao University";
 const description =
-  "Learn about Tan Tao University's School of Information Technology, including its history since 2011, mission, 2030 vision, faculty and academic programs.";
+  "Learn about Tan Tao University's School of Biotechnology, including its history since 2011, mission, 2030 vision, faculty and academic programs.";
 
 export const metadata = buildPageMetadata({
   locale: "en",
@@ -19,14 +19,14 @@ const aboutPageSchema = {
   "@type": "AboutPage",
   name: title,
   description,
-  url: "https://sit.ttu.edu.vn/en/about-us",
+  url: "https://biotech.ttu.edu.vn/en/about-us",
   inLanguage: "en-US",
   mainEntity: {
     "@type": "CollegeOrUniversity",
-    name: "School of Information Technology - Tan Tao University",
-    alternateName: "SIT - TTU",
+    name: "School of Biotechnology - Tan Tao University",
+    alternateName: "Biotech TTU",
     foundingDate: "2011-01-04",
-    url: "https://sit.ttu.edu.vn/",
+    url: "https://biotech.ttu.edu.vn/",
     parentOrganization: {
       "@type": "CollegeOrUniversity",
       name: "Tan Tao University",
@@ -35,7 +35,7 @@ const aboutPageSchema = {
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+84-272-376-9216",
-      email: "sit@ttu.edu.vn",
+      email: "secretary.sbio@ttu.edu.vn",
       contactType: "admissions and academic information",
     },
   },

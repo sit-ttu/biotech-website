@@ -9,17 +9,17 @@ import {
 
 const seoCopy = {
   vi: {
-    name: "Tin tức & Sự kiện - Khoa Công nghệ Thông tin",
+    name: "Tin tức & Sự kiện - Khoa Công nghệ Sinh học",
     description:
-      "Tin tức, hoạt động học thuật, nghiên cứu, thành tích sinh viên và sự kiện chính thức của Khoa Công nghệ Thông tin, Đại học Tân Tạo.",
+      "Tin tức, hoạt động học thuật, nghiên cứu, thành tích sinh viên và sự kiện chính thức của Khoa Công nghệ Sinh học, Đại học Tân Tạo.",
     home: "Trang chủ",
     news: "Tin tức & Sự kiện",
     path: "/vi/tin-tuc",
   },
   en: {
-    name: "News & Events - School of Information Technology",
+    name: "News & Events - School of Biotechnology",
     description:
-      "Official news, academic activities, research, student achievements and events from the School of Information Technology at Tan Tao University.",
+      "Official news, academic activities, research, student achievements and events from the School of Biotechnology at Tan Tao University.",
     home: "Home",
     news: "News & Events",
     path: "/en/news",
@@ -75,7 +75,7 @@ export default async function NewsPageServer({
   }
 
   const copy = seoCopy[locale];
-  const baseUrl = "https://sit.ttu.edu.vn";
+  const baseUrl = "https://biotech.ttu.edu.vn";
   const publishedNews = (initialItems ?? [])
     .filter((item) => item.status === "published")
     .sort(

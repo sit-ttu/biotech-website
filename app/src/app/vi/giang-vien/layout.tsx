@@ -16,9 +16,9 @@ export async function generateMetadata() {
 
   return buildPageMetadata({
     locale: "vi",
-    title: "Đội ngũ giảng viên Công nghệ Thông tin | SIT",
+    title: "Đội ngũ giảng viên Công nghệ Sinh học | Biotech TTU",
     description:
-      "Tìm hiểu học vị, chuyên môn, hướng nghiên cứu và công bố khoa học của đội ngũ giảng viên Khoa Công nghệ Thông tin, Đại học Tân Tạo.",
+      "Tìm hiểu học vị, chuyên môn, hướng nghiên cứu và công bố khoa học của đội ngũ giảng viên Khoa Công nghệ Sinh học, Đại học Tân Tạo.",
     path: "/vi/giang-vien",
     image: featured?.avatarUrl,
   });

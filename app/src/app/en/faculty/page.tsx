@@ -40,11 +40,11 @@ export default function FacultyPage() {
       <header className="mb-24 text-left sm:text-center max-w-3xl sm:mx-auto">
         <h1 className="font-roboto-condensed text-3xl sm:text-4xl md:text-5xl font-bold text-[#020617] dark:text-white mb-8 tracking-tight leading-tight">
           Đội ngũ giảng viên & <br className="hidden sm:block" />
-          nhân viên tại SIT
+          nhân viên tại Biotech TTU
         </h1>
         <div className="h-1 w-20 bg-primary sm:mx-auto mb-8"></div>
         <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400 leading-relaxed font-light">
-          Khoa Công nghệ Thông tin (SIT) được dẫn dắt bởi các chuyên gia xuất
+          Khoa Công nghệ Sinh học (Biotech TTU) được dẫn dắt bởi các chuyên gia xuất
           sắc và các học giả hàng đầu, cam kết mang đến môi trường học thuật
           tiên tiến cho thế hệ kế tiếp của ngành công nghệ.
         </p>

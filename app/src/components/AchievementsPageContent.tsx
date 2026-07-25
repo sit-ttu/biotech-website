@@ -3,10 +3,10 @@ import type { SiteLocale } from "@/lib/program-pages";
 
 const copyByLocale = {
   vi: {
-    eyebrow: "Thành tích SIT",
+    eyebrow: "Thành tích Biotech TTU",
     title: "Những cột mốc được tạo nên từ nỗ lực thật.",
     description:
-      "Ghi nhận thành tích học thuật, nghiên cứu và các cuộc thi của sinh viên, giảng viên Khoa Công nghệ Thông tin.",
+      "Ghi nhận thành tích học thuật, nghiên cứu và các cuộc thi của sinh viên, giảng viên Khoa Công nghệ Sinh học.",
     count: "thành tích được công bố",
     archive: "Danh sách thành tích",
     empty: "Chưa có thành tích công khai.",
@@ -30,10 +30,10 @@ const copyByLocale = {
     },
   },
   en: {
-    eyebrow: "SIT achievements",
+    eyebrow: "Biotech TTU achievements",
     title: "Milestones shaped by meaningful work.",
     description:
-      "Recognising academic, research and competition achievements by students and faculty of the School of Information Technology.",
+      "Recognising academic, research and competition achievements by students and faculty of the School of Biotechnology.",
     count: "published achievements",
     archive: "Achievement archive",
     empty: "No public achievements are available yet.",
@@ -82,7 +82,7 @@ export default function AchievementsPageContent({
       <section className="border-b border-[#171b25]/15 bg-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 pb-14 pt-10 sm:px-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end lg:gap-20 lg:pb-20 lg:pt-16">
           <div>
-            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#BA4811]">
+            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
               <span className="h-px w-12 bg-current" />
               {copy.eyebrow}
             </div>
@@ -94,8 +94,8 @@ export default function AchievementsPageContent({
             </p>
           </div>
 
-          <div className="border-l-2 border-[#BA4811] pl-6 lg:mb-1">
-            <p className="font-mono text-[2.5rem] font-medium leading-none tracking-[-0.06em] text-[#BA4811]">
+          <div className="border-l-2 border-[#16856F] pl-6 lg:mb-1">
+            <p className="font-mono text-[2.5rem] font-medium leading-none tracking-[-0.06em] text-[#16856F]">
               {String(sortedItems.length).padStart(2, "0")}
             </p>
             <p className="mt-3 text-sm leading-6 text-[#676b66]">{copy.count}</p>
@@ -110,12 +110,12 @@ export default function AchievementsPageContent({
               {copy.archive}
             </h2>
             <span className="font-mono text-[0.58rem] uppercase tracking-[0.14em] text-[#898c87]">
-              SIT · TTU
+              Biotech TTU
             </span>
           </div>
 
           {sortedItems.length === 0 ? (
-            <div className="border-l-2 border-[#BA4811] bg-[#f7f4f1] px-6 py-10 text-sm text-[#626661]">
+            <div className="border-l-2 border-[#16856F] bg-[#f7f4f1] px-6 py-10 text-sm text-[#626661]">
               {copy.empty}
             </div>
           ) : (
@@ -139,19 +139,19 @@ export default function AchievementsPageContent({
                         />
                       ) : (
                         <div className="relative flex h-full flex-col justify-between overflow-hidden p-6">
-                          <span className="relative z-10 font-mono text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-[#9c3c0e]">
+                          <span className="relative z-10 font-mono text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-[#0D5E50]">
                             {typeLabel}
                           </span>
-                          <span className="relative z-10 font-mono text-[3.5rem] font-medium leading-none tracking-[-0.08em] text-[#BA4811]">
-                            {item.achievedYear ?? "SIT"}
+                          <span className="relative z-10 font-mono text-[3.5rem] font-medium leading-none tracking-[-0.08em] text-[#16856F]">
+                            {item.achievedYear ?? "Biotech TTU"}
                           </span>
-                          <span className="absolute -bottom-14 -right-8 h-52 w-52 rounded-full border border-[#BA4811]/20" />
-                          <span className="absolute -bottom-5 right-12 h-28 w-28 rounded-full border border-[#BA4811]/25" />
+                          <span className="absolute -bottom-14 -right-8 h-52 w-52 rounded-full border border-[#16856F]/20" />
+                          <span className="absolute -bottom-5 right-12 h-28 w-28 rounded-full border border-[#16856F]/25" />
                         </div>
                       )}
 
                       {item.isHighlight && (
-                        <span className="absolute right-4 top-4 bg-[#BA4811] px-3 py-1.5 font-mono text-[0.53rem] font-semibold uppercase tracking-[0.13em] text-white">
+                        <span className="absolute right-4 top-4 bg-[#16856F] px-3 py-1.5 font-mono text-[0.53rem] font-semibold uppercase tracking-[0.13em] text-white">
                           {copy.highlight}
                         </span>
                       )}
@@ -159,7 +159,7 @@ export default function AchievementsPageContent({
 
                     <div className="flex flex-1 flex-col py-5">
                       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[0.55rem] uppercase tracking-[0.12em] text-[#8a8d88]">
-                        <span className="text-[#BA4811]">{typeLabel}</span>
+                        <span className="text-[#16856F]">{typeLabel}</span>
                         {levelLabel && (
                           <>
                             <span aria-hidden>·</span>

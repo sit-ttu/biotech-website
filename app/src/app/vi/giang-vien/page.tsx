@@ -111,7 +111,7 @@ export default function FacultyPage() {
     return (
       <main className="flex min-h-[65vh] items-center bg-white px-5 sm:px-8">
         <div className="mx-auto w-full max-w-7xl border-t border-[#d8d3cc] pt-10">
-          <p className="font-roboto-mono text-xs uppercase tracking-[0.18em] text-[#ba4811]">
+          <p className="font-roboto-mono text-xs uppercase tracking-[0.18em] text-[#16856F]">
             Danh sách giảng viên
           </p>
           <h1 className="mt-5 max-w-xl text-3xl font-bold leading-tight tracking-[-0.03em] text-[#151823] sm:text-5xl">
@@ -120,7 +120,7 @@ export default function FacultyPage() {
           <button
             type="button"
             onClick={() => window.location.reload()}
-            className="mt-9 cursor-pointer border-b border-[#ba4811] pb-1 text-sm font-semibold text-[#ba4811]"
+            className="mt-9 cursor-pointer border-b border-[#16856F] pb-1 text-sm font-semibold text-[#16856F]"
           >
             Thử tải lại trang
           </button>
@@ -138,12 +138,12 @@ export default function FacultyPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex items-center gap-4 font-roboto-mono text-xs uppercase tracking-[0.18em] text-[#ba4811]">
-              <span className="h-px w-12 bg-[#ba4811]" />
+            <div className="flex items-center gap-4 font-roboto-mono text-xs uppercase tracking-[0.18em] text-[#16856F]">
+              <span className="h-px w-12 bg-[#16856F]" />
               Đội ngũ học thuật
             </div>
             <h1 className="mt-7 max-w-[17ch] text-[clamp(2.55rem,5vw,4.9rem)] font-bold leading-[1.08] tracking-[-0.04em] text-balance">
-              Những người dẫn dắt việc học và nghiên cứu tại SIT
+              Những người dẫn dắt việc học và nghiên cứu tại Biotech TTU
             </h1>
           </motion.div>
 
@@ -156,9 +156,9 @@ export default function FacultyPage() {
             <div className="flex items-start justify-between gap-8">
               <p className="max-w-[29rem] text-sm leading-7 text-[#666963] sm:text-base">
                 Khám phá chuyên môn, quá trình đào tạo và các công bố khoa học
-                của đội ngũ giảng viên Khoa Công nghệ Thông tin.
+                của đội ngũ giảng viên Khoa Công nghệ Sinh học.
               </p>
-              <span className="shrink-0 font-roboto-mono text-2xl font-semibold tabular-nums text-[#ba4811]">
+              <span className="shrink-0 font-roboto-mono text-2xl font-semibold tabular-nums text-[#16856F]">
                 {String(activeFaculty.length).padStart(2, "0")}
               </span>
             </div>
@@ -170,9 +170,9 @@ export default function FacultyPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:py-16">
-        <label className="mx-auto grid h-16 max-w-4xl grid-cols-[4rem_minmax(0,1fr)_auto] border border-[#d8d3cc] bg-white transition-colors duration-200 focus-within:border-[#ba4811]">
+        <label className="mx-auto grid h-16 max-w-4xl grid-cols-[4rem_minmax(0,1fr)_auto] border border-[#d8d3cc] bg-white transition-colors duration-200 focus-within:border-[#16856F]">
           <span className="sr-only">Tìm kiếm giảng viên</span>
-          <span className="flex h-full items-center justify-center border-r border-[#d8d3cc] bg-[#f7f4ef] text-[#ba4811]">
+          <span className="flex h-full items-center justify-center border-r border-[#d8d3cc] bg-[#f7f4ef] text-[#16856F]">
             <Search className="h-5 w-5" strokeWidth={1.8} />
           </span>
           <input
@@ -186,7 +186,7 @@ export default function FacultyPage() {
             <button
               type="button"
               onClick={() => setQuery("")}
-              className="flex h-full w-16 shrink-0 cursor-pointer items-center justify-center border-l border-[#d8d3cc] text-[#777a74] transition-colors hover:bg-[#ba4811] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#ba4811]"
+              className="flex h-full w-16 shrink-0 cursor-pointer items-center justify-center border-l border-[#d8d3cc] text-[#777a74] transition-colors hover:bg-[#16856F] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#16856F]"
               aria-label="Xóa nội dung tìm kiếm"
             >
               <X className="h-4 w-4" />
@@ -205,7 +205,7 @@ export default function FacultyPage() {
             <button
               type="button"
               onClick={() => setQuery("")}
-              className="mt-7 cursor-pointer border-b border-[#ba4811] pb-1 text-sm font-semibold text-[#ba4811]"
+              className="mt-7 cursor-pointer border-b border-[#16856F] pb-1 text-sm font-semibold text-[#16856F]"
             >
               Hiển thị toàn bộ giảng viên
             </button>
@@ -255,22 +255,22 @@ export default function FacultyPage() {
                           />
                         ) : (
                           <div className="flex h-full items-end bg-[linear-gradient(145deg,#f4f1ec_0%,#e5ded5_100%)] p-6">
-                            <span className="text-5xl font-bold tracking-[-0.07em] text-[#ba4811]">
+                            <span className="text-5xl font-bold tracking-[-0.07em] text-[#16856F]">
                               {getInitials(member.fullName)}
                             </span>
                           </div>
                         )}
                       </div>
-                      <span className="absolute bottom-0 left-0 h-1.5 w-20 bg-[#ba4811] transition-[width] duration-300 group-hover:w-full" />
+                      <span className="absolute bottom-0 left-0 h-1.5 w-20 bg-[#16856F] transition-[width] duration-300 group-hover:w-full" />
                     </Link>
 
                     <div className="flex min-w-0 flex-col sm:py-1">
-                      <p className="font-roboto-mono text-[0.68rem] uppercase leading-5 tracking-[0.13em] text-[#ba4811]">
+                      <p className="font-roboto-mono text-[0.68rem] uppercase leading-5 tracking-[0.13em] text-[#16856F]">
                         {member.position?.split(/\s+[–—-]\s+/)[0] ||
                           "Giảng viên"}
                       </p>
                       <Link href={detailHref} className="cursor-pointer">
-                        <h2 className="mt-3 text-[1.65rem] font-bold leading-[1.16] tracking-[-0.035em] text-[#1c1f1b] transition-colors group-hover:text-[#ba4811] sm:text-[1.85rem]">
+                        <h2 className="mt-3 text-[1.65rem] font-bold leading-[1.16] tracking-[-0.035em] text-[#1c1f1b] transition-colors group-hover:text-[#16856F] sm:text-[1.85rem]">
                           {member.academicTitle &&
                             `${member.academicTitle.replace(/\.+$/, "")}. `}
                           {member.fullName}
@@ -279,7 +279,7 @@ export default function FacultyPage() {
                       <p className="mt-5 line-clamp-4 text-sm leading-7 text-[#666963]">
                         {member.bioShort ||
                           member.quote ||
-                          "Thông tin chuyên môn và hoạt động học thuật của giảng viên Khoa Công nghệ Thông tin."}
+                          "Thông tin chuyên môn và hoạt động học thuật của giảng viên Khoa Công nghệ Sinh học."}
                       </p>
 
                       <div className="mt-auto pt-7">
@@ -303,7 +303,7 @@ export default function FacultyPage() {
 
                         <Link
                           href={detailHref}
-                          className="inline-flex cursor-pointer items-center gap-2 border-b border-[#ba4811] pb-1 text-sm font-semibold text-[#ba4811]"
+                          className="inline-flex cursor-pointer items-center gap-2 border-b border-[#16856F] pb-1 text-sm font-semibold text-[#16856F]"
                         >
                           Xem hồ sơ
                           <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

@@ -1,9 +1,9 @@
 import FaqPageContent from "@/components/FaqPageContent";
 import { buildPageMetadata } from "@/lib/seo";
 
-const title = "FAQ - School of Information Technology - Tan Tao University";
+const title = "FAQ - School of Biotechnology - Tan Tao University";
 const description =
-  "Frequently asked questions about admissions, tuition, programs, and student life at the School of Information Technology, Tan Tao University.";
+  "Frequently asked questions about admissions, tuition, programs, and student life at the School of Biotechnology, Tan Tao University.";
 
 export const metadata = buildPageMetadata({
   locale: "en",
@@ -11,7 +11,7 @@ export const metadata = buildPageMetadata({
   description,
   path: "/en/faq",
   alternatePath: "/vi/hoi-dap",
-  image: "/assets/meeting.png",
+  image: "/assets/biotech/research-biotechnology.png",
 });
 
 export default function FaqPage() {

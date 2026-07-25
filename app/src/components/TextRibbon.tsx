@@ -59,7 +59,7 @@ const TextRibbon = ({
 
   return (
     <motion.div
-      className={`relative overflow-hidden bg-[#BA4811] ${className}`}
+      className={`relative overflow-hidden bg-[#16856F] ${className}`}
       onMouseEnter={() => pauseOnHover && setIsPaused(true)}
       onMouseLeave={() => pauseOnHover && setIsPaused(false)}
       initial={{ opacity: 0, y: -20 }}
@@ -68,10 +68,10 @@ const TextRibbon = ({
     >
       <div className="relative flex items-center py-4">
         {/* Left fade effect */}
-        <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#BA4811] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#16856F] to-transparent z-10 pointer-events-none" />
 
         {/* Right fade effect */}
-        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#BA4811] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#16856F] to-transparent z-10 pointer-events-none" />
 
         {/* Scrolling content */}
         <motion.div

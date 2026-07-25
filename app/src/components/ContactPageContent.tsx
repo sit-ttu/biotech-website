@@ -48,7 +48,7 @@ const ContactPageContent = () => {
       title: t("channelFast.title"),
       desc: t("channelFast.desc"),
       cta: t("channelFast.cta"),
-      href: "https://www.facebook.com/sit.ttu.edu.vn",
+      href: "https://www.facebook.com/biotech.ttu.edu.vn",
       external: true,
     },
   ];
@@ -65,7 +65,7 @@ const ContactPageContent = () => {
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-3xl"
           >
-            <div className="mb-6 flex items-center gap-4 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#BA4811]">
+            <div className="mb-6 flex items-center gap-4 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#16856F]">
               <span className="h-px w-10 bg-current" />
               {t("eyebrow")}
             </div>
@@ -87,7 +87,7 @@ const ContactPageContent = () => {
             className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
           >
             <div className="border border-[#ececec] p-5">
-              <Clock className="mb-3 h-5 w-5 text-[#BA4811]" strokeWidth={1.75} />
+              <Clock className="mb-3 h-5 w-5 text-[#16856F]" strokeWidth={1.75} />
               <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#8d8f8a]">
                 {t("officeHoursLabel")}
               </p>
@@ -99,23 +99,23 @@ const ContactPageContent = () => {
               href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group border border-[#ececec] p-5 transition-colors hover:border-[#BA4811]"
+              className="group border border-[#ececec] p-5 transition-colors hover:border-[#16856F]"
             >
-              <HugeiconsIcon icon={Location01Icon} size={20} className="mb-3 text-[#BA4811]" />
+              <HugeiconsIcon icon={Location01Icon} size={20} className="mb-3 text-[#16856F]" />
               <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#8d8f8a]">
                 {t("addressLabel")}
               </p>
               <p className="mt-1.5 text-sm leading-relaxed text-[#171b25]">{address}</p>
-              <span className="mt-2 inline-flex items-center gap-1 text-[13px] font-semibold text-[#BA4811]">
+              <span className="mt-2 inline-flex items-center gap-1 text-[13px] font-semibold text-[#16856F]">
                 {t("mapCta")}
                 <ArrowIcon direction="up-right" size={13} />
               </span>
             </a>
             <a
               href={`tel:${phone}`}
-              className="group border border-[#ececec] p-5 transition-colors hover:border-[#BA4811]"
+              className="group border border-[#ececec] p-5 transition-colors hover:border-[#16856F]"
             >
-              <HugeiconsIcon icon={Call02Icon} size={20} className="mb-3 text-[#BA4811]" />
+              <HugeiconsIcon icon={Call02Icon} size={20} className="mb-3 text-[#16856F]" />
               <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#8d8f8a]">
                 {t("phoneLabel")}
               </p>
@@ -123,9 +123,9 @@ const ContactPageContent = () => {
             </a>
             <a
               href={`mailto:${email}`}
-              className="group border border-[#ececec] p-5 transition-colors hover:border-[#BA4811]"
+              className="group border border-[#ececec] p-5 transition-colors hover:border-[#16856F]"
             >
-              <HugeiconsIcon icon={Mail01Icon} size={20} className="mb-3 text-[#BA4811]" />
+              <HugeiconsIcon icon={Mail01Icon} size={20} className="mb-3 text-[#16856F]" />
               <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#8d8f8a]">
                 {t("emailLabel")}
               </p>
@@ -161,7 +161,7 @@ const ContactPageContent = () => {
                   transition={{ duration: 0.6, delay: index * 0.08 }}
                   className="flex flex-col bg-white p-6"
                 >
-                  <Icon className="h-6 w-6 text-[#BA4811]" strokeWidth={1.75} />
+                  <Icon className="h-6 w-6 text-[#16856F]" strokeWidth={1.75} />
                   <h3 className="mt-4 text-base font-bold text-[#171b25]">
                     {channel.title}
                   </h3>
@@ -172,7 +172,7 @@ const ContactPageContent = () => {
                     href={channel.href}
                     target={channel.external ? "_blank" : undefined}
                     rel={channel.external ? "noopener noreferrer" : undefined}
-                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#BA4811] hover:text-[#96380d]"
+                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#16856F] hover:text-[#0D5E50]"
                   >
                     {channel.cta}
                     <ArrowIcon direction="up-right" size={14} />
@@ -191,14 +191,14 @@ const ContactPageContent = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mx-auto flex max-w-7xl flex-col items-start gap-6 bg-[#BA4811] p-10 [clip-path:polygon(3%_0,100%_0,100%_82%,97%_100%,0_100%,0_18%)] sm:p-12 lg:flex-row lg:items-center lg:justify-between"
+          className="mx-auto flex max-w-7xl flex-col items-start gap-6 bg-[#16856F] p-10 [clip-path:polygon(3%_0,100%_0,100%_82%,97%_100%,0_100%,0_18%)] sm:p-12 lg:flex-row lg:items-center lg:justify-between"
         >
           <p className="max-w-xl text-sm leading-relaxed text-white sm:text-base">
             {t("faqTeaser")}
           </p>
           <Link
             href={faqHref}
-            className="inline-flex shrink-0 items-center gap-2 bg-white px-7 py-3 text-sm font-semibold text-[#BA4811] transition-colors hover:bg-white/90"
+            className="inline-flex shrink-0 items-center gap-2 bg-white px-7 py-3 text-sm font-semibold text-[#16856F] transition-colors hover:bg-white/90"
           >
             {t("faqCta")}
             <ArrowIcon direction="up-right" size={15} />

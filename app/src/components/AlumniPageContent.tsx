@@ -5,16 +5,16 @@ import { ArrowIcon } from "@/components/icons/ArrowIcon";
 
 const copyByLocale = {
   vi: {
-    eyebrow: "Cựu sinh viên SIT",
-    title: "Những hành trình tiếp nối từ SIT.",
+    eyebrow: "Cựu sinh viên Biotech TTU",
+    title: "Những hành trình tiếp nối từ Biotech TTU.",
     description:
-      "Gặp gỡ các thế hệ cựu sinh viên, khám phá hướng đi nghề nghiệp và những dấu ấn được hình thành từ nền tảng học tập tại Khoa Công nghệ Thông tin.",
+      "Gặp gỡ các thế hệ cựu sinh viên, khám phá hướng đi nghề nghiệp và những dấu ấn được hình thành từ nền tảng học tập tại Khoa Công nghệ Sinh học.",
     countLabel: "hồ sơ công khai",
     explore: "Khám phá hồ sơ",
     connect: "Kết nối với Khoa",
     featuredEyebrow: "Gương mặt nổi bật",
     featuredTitle: "Một hành trình được kể bằng trải nghiệm thật.",
-    directoryEyebrow: "Mạng lưới SIT",
+    directoryEyebrow: "Mạng lưới Biotech TTU",
     directoryTitle: "Cựu sinh viên theo từng dấu mốc.",
     directoryDescription:
       "Hồ sơ được tổ chức theo các nhóm nội dung do Khoa quản lý, giúp người đọc tìm đúng câu chuyện và hướng nghề nghiệp quan tâm.",
@@ -22,9 +22,9 @@ const copyByLocale = {
     emptyTitle: "Hồ sơ cựu sinh viên đang được cập nhật",
     emptyDescription:
       "Dữ liệu đã được kết nối với hệ thống quản trị. Những hồ sơ được xác minh và đặt ở chế độ công khai sẽ xuất hiện tại đây.",
-    alumniCta: "Bạn là cựu sinh viên SIT?",
+    alumniCta: "Bạn là cựu sinh viên Biotech TTU?",
     alumniCtaDescription:
-      "Chia sẻ dấu mốc học tập, công việc hoặc câu chuyện nghề nghiệp để cùng xây dựng mạng lưới SIT.",
+      "Chia sẻ dấu mốc học tập, công việc hoặc câu chuyện nghề nghiệp để cùng xây dựng mạng lưới Biotech TTU.",
     alumniCtaAction: "Gửi thông tin cho Khoa",
     career: "Hành trình nghề nghiệp",
     achievements: "Dấu ấn nổi bật",
@@ -33,16 +33,16 @@ const copyByLocale = {
     profileFallback: "Câu chuyện nghề nghiệp đang được cập nhật.",
   },
   en: {
-    eyebrow: "SIT alumni",
-    title: "Journeys that continue beyond SIT.",
+    eyebrow: "Biotech TTU alumni",
+    title: "Journeys that continue beyond Biotech TTU.",
     description:
-      "Meet generations of SIT alumni, explore their career directions and discover the paths shaped by their studies at the School of Information Technology.",
+      "Meet generations of Biotech TTU alumni, explore their career directions and discover the paths shaped by their studies at the School of Biotechnology.",
     countLabel: "public profiles",
     explore: "Explore profiles",
     connect: "Connect with the School",
     featuredEyebrow: "Featured alumni",
     featuredTitle: "A journey told through real experience.",
-    directoryEyebrow: "SIT network",
+    directoryEyebrow: "Biotech TTU network",
     directoryTitle: "Alumni across different milestones.",
     directoryDescription:
       "Profiles are organised into School-managed groups, helping visitors find the stories and career directions most relevant to them.",
@@ -50,9 +50,9 @@ const copyByLocale = {
     emptyTitle: "Alumni profiles are being updated",
     emptyDescription:
       "The page is connected to the management system. Verified profiles marked as public will appear here.",
-    alumniCta: "Are you an SIT alumnus?",
+    alumniCta: "Are you an Biotech TTU alumnus?",
     alumniCtaDescription:
-      "Share a learning milestone, career update or professional story and help strengthen the SIT network.",
+      "Share a learning milestone, career update or professional story and help strengthen the Biotech TTU network.",
     alumniCtaAction: "Share your update",
     career: "Career journey",
     achievements: "Selected milestones",
@@ -116,7 +116,7 @@ function AlumniCard({
           />
         ) : (
           <div className="relative flex h-full min-h-[16rem] items-end overflow-hidden p-6">
-            <span className="font-mono text-[4rem] font-medium leading-none tracking-[-0.08em] text-[#BA4811]">
+            <span className="font-mono text-[4rem] font-medium leading-none tracking-[-0.08em] text-[#16856F]">
               {alumnus.fullName
                 .split(" ")
                 .slice(-2)
@@ -124,8 +124,8 @@ function AlumniCard({
                 .join("")
                 .toUpperCase()}
             </span>
-            <span className="absolute -right-16 -top-16 h-52 w-52 rounded-full border border-[#BA4811]/25" />
-            <span className="absolute -right-6 -top-6 h-28 w-28 rounded-full border border-[#BA4811]/25" />
+            <span className="absolute -right-16 -top-16 h-52 w-52 rounded-full border border-[#16856F]/25" />
+            <span className="absolute -right-6 -top-6 h-28 w-28 rounded-full border border-[#16856F]/25" />
           </div>
         )}
       </div>
@@ -142,7 +142,7 @@ function AlumniCard({
           {alumnus.fullName}
         </h3>
         {profileTitle && (
-          <p className="mt-3 text-sm font-semibold leading-6 text-[#BA4811]">
+          <p className="mt-3 text-sm font-semibold leading-6 text-[#16856F]">
             {profileTitle}
           </p>
         )}
@@ -200,7 +200,7 @@ function AlumniCard({
                 href={contact.url}
                 target="_blank"
                 rel="noreferrer"
-                className="text-xs font-semibold capitalize text-[#BA4811] underline decoration-[#BA4811]/35 underline-offset-4 hover:decoration-[#BA4811] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                className="text-xs font-semibold capitalize text-[#16856F] underline decoration-[#16856F]/35 underline-offset-4 hover:decoration-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
               >
                 {contact.type} <ArrowIcon direction="up-right" size={16} />
               </a>
@@ -245,7 +245,7 @@ export default function AlumniPageContent({
       <section className="border-b border-[#171b25]/15 bg-white">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-14 pt-10 sm:px-8 lg:grid-cols-[1.12fr_0.88fr] lg:items-end lg:gap-20 lg:pb-20 lg:pt-16">
           <div>
-            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#BA4811]">
+            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
               <span className="h-px w-12 bg-current" />
               {copy.eyebrow}
             </div>
@@ -254,22 +254,22 @@ export default function AlumniPageContent({
             </h1>
           </div>
 
-          <div className="border-l-2 border-[#BA4811] pl-6 sm:pl-8">
+          <div className="border-l-2 border-[#16856F] pl-6 sm:pl-8">
             <p className="max-w-xl text-base leading-8 text-[#626661] sm:text-lg">
               {copy.description}
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-4">
               <a
                 href="#mang-luoi"
-                className="inline-flex min-h-12 items-center bg-[#BA4811] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#96380d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                className="inline-flex min-h-12 items-center bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
               >
                 {copy.explore}
               </a>
               <a
-                href="https://www.facebook.com/sit.ttu.edu.vn"
+                href="https://www.facebook.com/biotech.ttu.edu.vn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold text-[#5b321f] underline decoration-[#BA4811]/35 underline-offset-8 transition-colors hover:text-[#BA4811] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                className="text-sm font-semibold text-[#12312B] underline decoration-[#16856F]/35 underline-offset-8 transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
               >
                 {copy.connect} <ArrowIcon direction="up-right" size={16} />
               </a>
@@ -289,7 +289,7 @@ export default function AlumniPageContent({
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="mb-9 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-20">
               <div>
-                <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#BA4811]">
+                <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#16856F]">
                   {copy.featuredEyebrow}
                 </p>
                 <h2 className="mt-4 max-w-[14ch] text-[2.25rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[3rem]">
@@ -306,14 +306,14 @@ export default function AlumniPageContent({
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-7 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-20">
             <div>
-              <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#BA4811]">
+              <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#16856F]">
                 {copy.directoryEyebrow}
               </p>
               <h2 className="mt-4 max-w-[14ch] text-[2.25rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[3rem]">
                 {copy.directoryTitle}
               </h2>
             </div>
-            <p className="max-w-xl border-l-2 border-[#BA4811] pl-5 text-sm leading-7 text-[#686c67]">
+            <p className="max-w-xl border-l-2 border-[#16856F] pl-5 text-sm leading-7 text-[#686c67]">
               {copy.directoryDescription}
             </p>
           </div>
@@ -384,8 +384,8 @@ export default function AlumniPageContent({
             </p>
           </div>
           <a
-            href="mailto:sit@ttu.edu.vn?subject=SIT%20Alumni"
-            className="inline-flex min-h-12 items-center justify-center bg-[#BA4811] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#96380d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+            href="mailto:secretary.sbio@ttu.edu.vn?subject=Biotech TTU%20Alumni"
+            className="inline-flex min-h-12 items-center justify-center bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
           >
             {copy.alumniCtaAction} <ArrowIcon direction="up-right" size={16} />
           </a>

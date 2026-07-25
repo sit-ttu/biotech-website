@@ -10,19 +10,19 @@ const copyByLocale = {
     eyebrow: "Việc làm & thực tập",
     title: "Chuẩn bị tốt trước khi cơ hội xuất hiện.",
     description:
-      "Một điểm bắt đầu rõ ràng để sinh viên SIT xây hồ sơ, tìm trải nghiệm thực tế và sẵn sàng cho bước chuyển từ giảng đường đến môi trường công nghệ.",
+      "Một điểm bắt đầu rõ ràng để sinh viên Biotech TTU xây hồ sơ, tìm trải nghiệm thực tế và sẵn sàng cho bước chuyển từ giảng đường đến môi trường công nghệ.",
     primaryAction: "Trao đổi với Khoa",
     secondaryAction: "Xem lộ trình chuẩn bị",
     statusLabel: "Cơ hội tuyển dụng",
     openTitle: "Cơ hội thực tập và việc làm đang mở",
     openDescription:
-      "Các vị trí dưới đây được tổng hợp cho sinh viên SIT. Hãy đọc kỹ yêu cầu, thời hạn và điều chỉnh hồ sơ trước khi ứng tuyển.",
+      "Các vị trí dưới đây được tổng hợp cho sinh viên Biotech TTU. Hãy đọc kỹ yêu cầu, thời hạn và điều chỉnh hồ sơ trước khi ứng tuyển.",
     statusTitle: "Danh sách vị trí đang được cập nhật",
     statusDescription:
       "Hiện chưa có vị trí việc làm hoặc thực tập được công bố trên website. Khi có thông tin đã được xác minh từ doanh nghiệp và Khoa, cơ hội mới sẽ xuất hiện tại đây.",
     employerTitle: "Dành cho doanh nghiệp",
     employerDescription:
-      "Gửi thông tin tuyển dụng, thực tập hoặc đề xuất hợp tác cùng sinh viên SIT qua email của Khoa.",
+      "Gửi thông tin tuyển dụng, thực tập hoặc đề xuất hợp tác cùng sinh viên Biotech TTU qua email của Khoa.",
     employerAction: "Gửi cơ hội tuyển dụng",
     followAction: "Theo dõi thông tin từ Khoa",
     journeyEyebrow: "Lộ trình nghề nghiệp",
@@ -66,7 +66,7 @@ const copyByLocale = {
         text: "Luyện giải thích giả định, lựa chọn kỹ thuật, đánh đổi và cách bạn kiểm tra chất lượng sản phẩm.",
       },
     ],
-    nextTitle: "Tiếp tục từ trải nghiệm thật tại SIT.",
+    nextTitle: "Tiếp tục từ trải nghiệm thật tại Biotech TTU.",
     nextDescription:
       "Hoạt động học thuật, dự án và câu chuyện cựu sinh viên có thể giúp bạn định hình bước tiếp theo.",
     activities: "Khám phá hoạt động",
@@ -76,19 +76,19 @@ const copyByLocale = {
     eyebrow: "Jobs & internships",
     title: "Be ready before the opportunity arrives.",
     description:
-      "A clear starting point for SIT students to build credible profiles, gain practical experience and prepare for the transition from university to technology careers.",
+      "A clear starting point for Biotech TTU students to build credible profiles, gain practical experience and prepare for careers in biotechnology and applied life science.",
     primaryAction: "Talk to the School",
     secondaryAction: "View the preparation path",
     statusLabel: "Open opportunities",
     openTitle: "Open internships and jobs",
     openDescription:
-      "These opportunities are curated for SIT students. Review the requirements and deadline, then tailor your application before applying.",
+      "These opportunities are curated for Biotech TTU students. Review the requirements and deadline, then tailor your application before applying.",
     statusTitle: "The opportunity list is being updated",
     statusDescription:
       "No job or internship has been published on the website yet. Verified opportunities from employers and the School will appear here when available.",
     employerTitle: "For employers",
     employerDescription:
-      "Share a job, internship or collaboration proposal for SIT students through the School's email.",
+      "Share a job, internship or collaboration proposal for Biotech TTU students through the School's email.",
     employerAction: "Share an opportunity",
     followAction: "Follow School updates",
     journeyEyebrow: "Career journey",
@@ -98,7 +98,7 @@ const copyByLocale = {
     steps: [
       {
         title: "Choose a direction",
-        text: "Identify roles that match your strengths across software, data, AI, systems or research.",
+        text: "Identify roles that match your strengths across laboratories, quality assurance, agriculture, biomedicine or research.",
       },
       {
         title: "Build proof of ability",
@@ -132,11 +132,11 @@ const copyByLocale = {
         text: "Practise discussing assumptions, technical choices, trade-offs and how you validate product quality.",
       },
     ],
-    nextTitle: "Continue with real experiences at SIT.",
+    nextTitle: "Continue with real experiences at Biotech TTU.",
     nextDescription:
       "Academic activities, projects and alumni stories can help you shape your next step.",
     activities: "Explore activities",
-    alumni: "Meet SIT alumni",
+    alumni: "Meet Biotech TTU alumni",
   },
 } as const;
 
@@ -158,7 +158,7 @@ export default function StudentCareersPageContent({
       <section className="border-b border-[#171b25]/15 bg-white">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-14 pt-10 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-20 lg:pb-20 lg:pt-16">
           <div>
-            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#BA4811]">
+            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
               <span className="h-px w-12 bg-current" />
               {copy.eyebrow}
             </div>
@@ -167,22 +167,22 @@ export default function StudentCareersPageContent({
             </h1>
           </div>
 
-          <div className="border-l-2 border-[#BA4811] pl-6 sm:pl-8">
+          <div className="border-l-2 border-[#16856F] pl-6 sm:pl-8">
             <p className="max-w-xl text-base leading-8 text-[#626661] sm:text-lg">
               {copy.description}
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-4">
               <a
-                href="https://www.facebook.com/sit.ttu.edu.vn"
+                href="https://www.facebook.com/biotech.ttu.edu.vn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center bg-[#BA4811] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#96380d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                className="inline-flex min-h-12 items-center bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
               >
                 {copy.primaryAction} <ArrowIcon direction="up-right" size={16} />
               </a>
               <a
                 href="#lo-trinh"
-                className="text-sm font-semibold text-[#5b321f] underline decoration-[#BA4811]/35 underline-offset-8 transition-colors hover:text-[#BA4811] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                className="text-sm font-semibold text-[#12312B] underline decoration-[#16856F]/35 underline-offset-8 transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
               >
                 {copy.secondaryAction}
               </a>
@@ -200,7 +200,7 @@ export default function StudentCareersPageContent({
           >
             <div className="grid lg:grid-cols-[1.25fr_0.75fr]">
             <div className="py-8 lg:pr-14">
-              <p className="font-mono text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-[#BA4811]">
+              <p className="font-mono text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-[#16856F]">
                 {copy.statusLabel}
               </p>
               <h2 className="mt-4 max-w-2xl text-[2rem] font-bold leading-tight tracking-[-0.04em] sm:text-[2.6rem]">
@@ -213,10 +213,10 @@ export default function StudentCareersPageContent({
               </p>
               {opportunities.length === 0 && (
                 <a
-                  href="https://www.facebook.com/sit.ttu.edu.vn"
+                  href="https://www.facebook.com/biotech.ttu.edu.vn"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex min-h-11 items-center border border-[#BA4811] px-5 text-sm font-semibold text-[#BA4811] transition-colors hover:bg-[#BA4811] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                  className="mt-6 inline-flex min-h-11 items-center border border-[#16856F] px-5 text-sm font-semibold text-[#16856F] transition-colors hover:bg-[#16856F] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
                 >
                   {copy.followAction}{" "}
                   <ArrowIcon direction="up-right" size={16} />
@@ -231,10 +231,10 @@ export default function StudentCareersPageContent({
                 {copy.employerDescription}
               </p>
               <a
-                href="https://www.facebook.com/sit.ttu.edu.vn"
+                href="https://www.facebook.com/biotech.ttu.edu.vn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex text-sm font-semibold text-[#BA4811] underline decoration-[#BA4811]/35 underline-offset-6 hover:decoration-[#BA4811] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                className="mt-6 inline-flex text-sm font-semibold text-[#16856F] underline decoration-[#16856F]/35 underline-offset-6 hover:decoration-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
               >
                 {copy.employerAction} <ArrowIcon direction="up-right" size={16} />
               </a>
@@ -254,14 +254,14 @@ export default function StudentCareersPageContent({
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-7 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-20">
             <div>
-              <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#BA4811]">
+              <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#16856F]">
                 {copy.journeyEyebrow}
               </p>
               <h2 className="mt-4 max-w-[14ch] text-[2.25rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[3rem]">
                 {copy.journeyTitle}
               </h2>
             </div>
-            <p className="max-w-xl border-l-2 border-[#BA4811] pl-5 text-sm leading-7 text-[#686c67]">
+            <p className="max-w-xl border-l-2 border-[#16856F] pl-5 text-sm leading-7 text-[#686c67]">
               {copy.journeyDescription}
             </p>
           </div>
@@ -272,7 +272,7 @@ export default function StudentCareersPageContent({
                 key={step.title}
                 className="border-b border-[#d8d3ce] py-7 md:px-6 md:first:pl-0 lg:border-r lg:last:border-r-0 lg:last:pr-0"
               >
-                <span className="font-mono text-[0.62rem] font-semibold text-[#BA4811]">
+                <span className="font-mono text-[0.62rem] font-semibold text-[#16856F]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-6 text-xl font-bold leading-snug tracking-[-0.025em]">
@@ -289,7 +289,7 @@ export default function StudentCareersPageContent({
 
       <section className="bg-white py-14 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#BA4811]">
+          <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#16856F]">
             {copy.toolkitEyebrow}
           </p>
           <h2 className="mt-4 max-w-3xl text-[2.25rem] font-bold leading-[1.08] tracking-[-0.045em] sm:text-[3rem]">
@@ -299,7 +299,7 @@ export default function StudentCareersPageContent({
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {copy.toolkit.map((item) => (
               <article key={item.label} className="border-t-2 border-[#171b25] py-6">
-                <p className="font-mono text-[0.58rem] font-semibold uppercase tracking-[0.15em] text-[#BA4811]">
+                <p className="font-mono text-[0.58rem] font-semibold uppercase tracking-[0.15em] text-[#16856F]">
                   {item.label}
                 </p>
                 <h3 className="mt-5 text-xl font-bold leading-snug tracking-[-0.025em]">
@@ -327,13 +327,13 @@ export default function StudentCareersPageContent({
           <div className="flex flex-wrap gap-3">
             <Link
               href={activitiesPath}
-              className="inline-flex min-h-12 items-center border border-[#BA4811] px-5 text-sm font-semibold text-[#BA4811] transition-colors hover:bg-[#BA4811] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+              className="inline-flex min-h-12 items-center border border-[#16856F] px-5 text-sm font-semibold text-[#16856F] transition-colors hover:bg-[#16856F] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
             >
               {copy.activities} <ArrowIcon direction="up-right" size={16} />
             </Link>
             <Link
               href={alumniPath}
-              className="inline-flex min-h-12 items-center bg-[#BA4811] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#96380d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+              className="inline-flex min-h-12 items-center bg-[#16856F] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
             >
               {copy.alumni} <ArrowIcon direction="up-right" size={16} />
             </Link>

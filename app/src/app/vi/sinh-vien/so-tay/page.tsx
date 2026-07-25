@@ -3,9 +3,9 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
-const title = "Sổ tay sinh viên Khoa Công nghệ Thông tin | SIT";
+const title = "Sổ tay sinh viên Khoa Công nghệ Sinh học | Biotech TTU";
 const description =
-  "Hướng dẫn học tập, dự án, nghiên cứu, hỗ trợ và các đường dẫn cần thiết dành cho sinh viên Khoa Công nghệ Thông tin, Đại học Tân Tạo.";
+  "Hướng dẫn học tập, dự án, nghiên cứu, hỗ trợ và các đường dẫn cần thiết dành cho sinh viên Khoa Công nghệ Sinh học, Đại học Tân Tạo.";
 
 export const metadata = buildPageMetadata({
   locale: "vi",

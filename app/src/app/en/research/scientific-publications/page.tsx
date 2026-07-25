@@ -194,7 +194,7 @@ export default function ScientificPublicationsPage() {
               </div>
               <div className="relative h-full min-h-[14rem] sm:min-h-[20rem] lg:min-h-[26rem] overflow-hidden rounded-2xl sm:rounded-3xl border border-border/80 bg-gradient-to-br from-white to-muted">
                 <Image
-                  src="/assets/meeting.png"
+                  src="/assets/biotech/research-biotechnology.png"
                   alt="Research collaboration"
                   fill
                   className="object-cover"
@@ -228,7 +228,7 @@ export default function ScientificPublicationsPage() {
               researchPublications.map((item) => (
                 <Card
                   key={item.id}
-                  className="h-full border border-[#ef8c5a] bg-white transition-transform duration-300 hover:-translate-y-1"
+                  className="h-full border border-[#9BCFC2] bg-white transition-transform duration-300 hover:-translate-y-1"
                 >
                   <CardHeader className="space-y-3 sm:space-y-4 p-4 sm:p-6">
                     <CardTitle className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 line-clamp-2 sm:line-clamp-none">

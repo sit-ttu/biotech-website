@@ -12,8 +12,8 @@ export async function generateMetadata({
   const { schoolYear } = await params;
   return buildPageMetadata({
     locale: "vi",
-    title: `Sổ tay sinh viên ${schoolYear} | SIT - Đại học Tân Tạo`,
-    description: `Sổ tay chính thức năm học ${schoolYear}: hướng dẫn học tập, học vụ, dự án, nghiên cứu và hỗ trợ sinh viên Khoa Công nghệ Thông tin, Đại học Tân Tạo.`,
+    title: `Sổ tay sinh viên ${schoolYear} | Biotech TTU - Đại học Tân Tạo`,
+    description: `Sổ tay chính thức năm học ${schoolYear}: hướng dẫn học tập, học vụ, dự án, nghiên cứu và hỗ trợ sinh viên Khoa Công nghệ Sinh học, Đại học Tân Tạo.`,
     path: `/vi/sinh-vien/so-tay/${schoolYear}`,
     alternatePath: `/en/students/handbook/${schoolYear}`,
     image: "/assets/ttu/students-library-reading.jpg",

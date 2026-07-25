@@ -1,5 +1,5 @@
-<h1 align="center">SIT Public Site</h1>
-<p align="center">Public website for the School of Information Technology, Tan Tao University</p>
+<h1 align="center">Biotech Public Site</h1>
+<p align="center">Public website for the School of Biotechnology, Tan Tao University</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">

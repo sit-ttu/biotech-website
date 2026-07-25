@@ -339,7 +339,7 @@ export default function NewsPageContent({
             className="grid gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:items-end"
           >
             <div>
-              <div className="mb-5 flex items-center gap-4 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#BA4811]">
+              <div className="mb-5 flex items-center gap-4 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#16856F]">
                 <span className="h-px w-10 bg-current" />
                 {t("newsroom")}
               </div>
@@ -363,10 +363,10 @@ export default function NewsPageContent({
               <NewsVisual item={featuredStory} index={0} featured />
               <div className="flex flex-col justify-center p-6 sm:p-9 lg:p-11">
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.68rem] font-semibold uppercase tracking-[0.13em]">
-                  <span className="bg-[#BA4811] px-3 py-1.5 text-white">
+                  <span className="bg-[#16856F] px-3 py-1.5 text-white">
                     {t("featuredStory")}
                   </span>
-                  <span className="text-[#BA4811]">{featuredStory.category}</span>
+                  <span className="text-[#16856F]">{featuredStory.category}</span>
                 </div>
                 <h2 className="mt-6 text-[1.7rem] font-bold leading-[1.15] tracking-[-0.035em] sm:text-[2rem]">
                   {featuredStory.title}
@@ -383,7 +383,7 @@ export default function NewsPageContent({
                   </span>
                   <a
                     href={newsHref(featuredStory)}
-                    className="group/link inline-flex min-h-11 items-center gap-3 bg-[#BA4811] px-5 text-sm font-semibold text-white transition-[background-color,transform] hover:-translate-y-0.5 hover:bg-[#96380d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                    className="group/link inline-flex min-h-11 items-center gap-3 bg-[#16856F] px-5 text-sm font-semibold text-white transition-[background-color,transform] hover:-translate-y-0.5 hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
                   >
                     {t("viewDetails")}
                     <HugeiconsIcon
@@ -427,10 +427,10 @@ export default function NewsPageContent({
                       type="button"
                       aria-pressed={selected}
                       onClick={() => setActiveCategory(category)}
-                      className={`min-h-10 border px-4 text-[0.7rem] font-semibold uppercase tracking-[0.1em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BA4811] ${
+                      className={`min-h-10 border px-4 text-[0.7rem] font-semibold uppercase tracking-[0.1em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F] ${
                         selected
-                          ? "border-[#BA4811] bg-[#BA4811] text-white"
-                          : "border-[#d7d1cb] bg-white text-[#666a65] hover:border-[#BA4811] hover:text-[#BA4811]"
+                          ? "border-[#16856F] bg-[#16856F] text-white"
+                          : "border-[#d7d1cb] bg-white text-[#666a65] hover:border-[#16856F] hover:text-[#16856F]"
                       }`}
                     >
                       {category === "all" ? t("allCategories") : category}
@@ -452,11 +452,11 @@ export default function NewsPageContent({
                   variants={reveal}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: (index % 3) * 0.07 }}
-                  className="group relative flex flex-col overflow-hidden border border-[#dedad5] bg-white transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-1 hover:border-[#BA4811] hover:shadow-[0_12px_26px_rgba(55,34,23,0.07)]"
+                  className="group relative flex flex-col overflow-hidden border border-[#dedad5] bg-white transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-1 hover:border-[#16856F] hover:shadow-[0_12px_26px_rgba(55,34,23,0.07)]"
                 >
                   <div className="relative overflow-hidden">
                     <NewsVisual item={story} index={index + 1} />
-                    <span className="absolute bottom-0 left-0 bg-[#BA4811] px-3.5 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.13em] text-white">
+                    <span className="absolute bottom-0 left-0 bg-[#16856F] px-3.5 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.13em] text-white">
                       {story.category}
                     </span>
                   </div>
@@ -465,7 +465,7 @@ export default function NewsPageContent({
                       <HugeiconsIcon icon={Calendar03Icon} size={13} strokeWidth={1.5} />
                       <span>{story.date}</span>
                     </div>
-                    <h3 className="mt-4 line-clamp-2 text-[1rem] font-bold leading-[1.4] tracking-[-0.025em] transition-colors group-hover:text-[#BA4811] sm:text-[1.08rem]">
+                    <h3 className="mt-4 line-clamp-2 text-[1rem] font-bold leading-[1.4] tracking-[-0.025em] transition-colors group-hover:text-[#16856F] sm:text-[1.08rem]">
                       {story.title}
                     </h3>
                     {story.summary && (
@@ -473,9 +473,9 @@ export default function NewsPageContent({
                         {story.summary}
                       </p>
                     )}
-                    <div className="mt-auto flex items-center justify-between border-t border-[#e6e1dc] pt-5 text-[0.78rem] font-semibold text-[#BA4811]">
+                    <div className="mt-auto flex items-center justify-between border-t border-[#e6e1dc] pt-5 text-[0.78rem] font-semibold text-[#16856F]">
                       <span>{t("viewDetails")}</span>
-                      <span className="flex h-9 w-9 items-center justify-center border border-[#BA4811]/35 transition-colors group-hover:border-[#BA4811] group-hover:bg-[#BA4811] group-hover:text-white">
+                      <span className="flex h-9 w-9 items-center justify-center border border-[#16856F]/35 transition-colors group-hover:border-[#16856F] group-hover:bg-[#16856F] group-hover:text-white">
                         <HugeiconsIcon
                           icon={ArrowUpRight01Icon}
                           size={16}
@@ -507,7 +507,7 @@ export default function NewsPageContent({
                 variants={reveal}
                 viewport={{ once: true }}
               >
-                <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#BA4811]">
+                <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
                   {t("topicsEyebrow")}
                 </p>
                 <h2 className="mt-4 text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
@@ -541,7 +541,7 @@ export default function NewsPageContent({
                   } ${index % 3 !== 0 ? "lg:border-l" : "lg:border-l-0"}`}
                 >
                   <div className="flex items-center justify-between gap-4">
-                    <h3 className="text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#BA4811]">
+                    <h3 className="text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#16856F]">
                       {group.category}
                     </h3>
                     <span className="font-mono text-[0.65rem] text-[#858984]">
@@ -553,9 +553,9 @@ export default function NewsPageContent({
                       <Link
                         key={`${group.category}-${story.title}`}
                         href={newsHref(story)}
-                        className="group block py-4 first:pt-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                        className="group block py-4 first:pt-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
                       >
-                        <p className="line-clamp-2 text-[0.92rem] font-semibold leading-6 tracking-[-0.015em] transition-colors group-hover:text-[#BA4811]">
+                        <p className="line-clamp-2 text-[0.92rem] font-semibold leading-6 tracking-[-0.015em] transition-colors group-hover:text-[#16856F]">
                           {story.title}
                         </p>
                         <p className="mt-2 font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[#8a8e89]">
@@ -594,7 +594,7 @@ export default function NewsPageContent({
                   transition={{ duration: 0.5, delay: index * 0.06 }}
                   className="grid gap-5 border-b border-[#dedad5] py-6 sm:grid-cols-[8rem_1fr] sm:py-7 lg:grid-cols-[9rem_0.9fr_1.1fr]"
                 >
-                  <div className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-[#BA4811]">
+                  <div className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-[#16856F]">
                     {event.date}
                   </div>
                   <h3 className="text-base font-bold leading-snug tracking-tight">
@@ -622,7 +622,7 @@ export default function NewsPageContent({
               variants={reveal}
               viewport={{ once: true }}
             >
-              <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#BA4811]">
+              <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
                 {t("insightsEyebrow")}
               </p>
               <h2 className="mt-4 max-w-lg text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
@@ -643,7 +643,7 @@ export default function NewsPageContent({
               className="flex min-h-[22rem] flex-col border-b border-[#dedad5] p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10"
             >
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#dedad5] pb-5">
-                <span className="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#BA4811]">
+                <span className="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#16856F]">
                   {t("researchLabel")}
                 </span>
                 <span className="font-mono text-[0.65rem] uppercase tracking-[0.08em] text-[#858984]">
@@ -681,7 +681,7 @@ export default function NewsPageContent({
                 )}
               <Link
                 href={researchHref}
-                className="mt-auto inline-flex w-fit border-b border-[#BA4811] pt-8 pb-1 text-[0.78rem] font-semibold text-[#BA4811] transition-colors hover:border-[#96380d] hover:text-[#96380d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                className="mt-auto inline-flex w-fit border-b border-[#16856F] pt-8 pb-1 text-[0.78rem] font-semibold text-[#16856F] transition-colors hover:border-[#0D5E50] hover:text-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
               >
                 {t("viewResearch")}
               </Link>
@@ -696,7 +696,7 @@ export default function NewsPageContent({
               className="flex min-h-[22rem] flex-col p-6 sm:p-8 lg:p-10"
             >
               <div className="border-b border-[#dedad5] pb-5">
-                <h3 className="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#BA4811]">
+                <h3 className="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#16856F]">
                   {t("achievementsLabel")}
                 </h3>
               </div>
@@ -738,7 +738,7 @@ export default function NewsPageContent({
 
               <Link
                 href={achievementsHref}
-                className="mt-auto inline-flex w-fit border-b border-[#BA4811] pt-6 pb-1 text-[0.78rem] font-semibold text-[#BA4811] transition-colors hover:border-[#96380d] hover:text-[#96380d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                className="mt-auto inline-flex w-fit border-b border-[#16856F] pt-6 pb-1 text-[0.78rem] font-semibold text-[#16856F] transition-colors hover:border-[#0D5E50] hover:text-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
               >
                 {t("viewAchievements")}
               </Link>
@@ -758,7 +758,7 @@ export default function NewsPageContent({
                 variants={reveal}
                 viewport={{ once: true }}
               >
-                <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#BA4811]">
+                <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
                   {t("quickFeedEyebrow")}
                 </p>
                 <h2 className="mt-4 text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
@@ -784,12 +784,12 @@ export default function NewsPageContent({
                   <time className="font-mono text-[0.64rem] uppercase tracking-[0.06em] text-[#858984]">
                     {story.date}
                   </time>
-                  <span className="text-[0.66rem] font-bold uppercase tracking-[0.11em] text-[#BA4811]">
+                  <span className="text-[0.66rem] font-bold uppercase tracking-[0.11em] text-[#16856F]">
                     {story.category}
                   </span>
                   <Link
                     href={newsHref(story)}
-                    className="w-fit text-[0.92rem] font-semibold leading-6 tracking-[-0.015em] transition-colors hover:text-[#BA4811] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+                    className="w-fit text-[0.92rem] font-semibold leading-6 tracking-[-0.015em] transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
                   >
                     {story.title}
                   </Link>
@@ -801,7 +801,7 @@ export default function NewsPageContent({
       )}
 
       <section className="relative border-t border-[#dedad5] bg-white py-14 sm:py-16">
-        <SectionTab label={t("exploreSIT")} />
+        <SectionTab label={t("exploreBiotech")} />
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
             <motion.div
@@ -810,15 +810,15 @@ export default function NewsPageContent({
               variants={reveal}
               viewport={{ once: true }}
             >
-              <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#BA4811]">
+              <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
                 {t("officialChannel")}
               </p>
               <h2 className="mt-4 max-w-md text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
-                {t("exploreSIT")}
+                {t("exploreBiotech")}
               </h2>
             </motion.div>
             <p className="max-w-xl text-sm leading-7 text-[#686c67] lg:justify-self-end">
-              {t("exploreSITDescription")}
+              {t("exploreBiotechDescription")}
             </p>
           </div>
 
@@ -837,21 +837,21 @@ export default function NewsPageContent({
               >
                 <Link
                   href={item.href}
-                  className="group flex min-h-56 flex-col p-6 transition-colors hover:bg-[#f7f4f1] focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#BA4811]"
+                  className="group flex min-h-56 flex-col p-6 transition-colors hover:bg-[#f7f4f1] focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#16856F]"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[0.62rem] font-semibold text-[#BA4811]">
+                    <span className="font-mono text-[0.62rem] font-semibold text-[#16856F]">
                       0{index + 1}
                     </span>
-                    <span className="h-px w-10 bg-[#BA4811]/35 transition-all duration-300 group-hover:w-16 group-hover:bg-[#BA4811]" />
+                    <span className="h-px w-10 bg-[#16856F]/35 transition-all duration-300 group-hover:w-16 group-hover:bg-[#16856F]" />
                   </div>
-                  <h3 className="mt-10 text-base font-bold tracking-tight transition-colors group-hover:text-[#BA4811]">
+                  <h3 className="mt-10 text-base font-bold tracking-tight transition-colors group-hover:text-[#16856F]">
                     {item.title}
                   </h3>
                   <p className="mt-3 text-[0.78rem] leading-6 text-[#686c67]">
                     {item.description}
                   </p>
-                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.75rem] font-semibold text-[#BA4811]">
+                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.75rem] font-semibold text-[#16856F]">
                     {t("exploreLink")}
                     <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                       <ArrowIcon direction="up-right" size={16} />

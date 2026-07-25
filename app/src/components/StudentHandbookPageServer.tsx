@@ -4,11 +4,11 @@ import StudentHandbookPageContent from "@/components/StudentHandbookPageContent"
 
 const emptyByLocale = {
   vi: {
-    eyebrow: "Sổ tay sinh viên SIT",
+    eyebrow: "Sổ tay sinh viên Biotech TTU",
     message: "Sổ tay sinh viên đang được cập nhật. Vui lòng quay lại sau.",
   },
   en: {
-    eyebrow: "SIT student handbook",
+    eyebrow: "Biotech TTU student handbook",
     message: "The student handbook is being updated. Please check back later.",
   },
 } as const;
@@ -39,7 +39,7 @@ export default async function StudentHandbookPageServer({
     return (
       <main className="flex min-h-[60vh] items-center justify-center bg-white px-5 text-center text-[#171b25]">
         <div>
-          <div className="flex items-center justify-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#BA4811]">
+          <div className="flex items-center justify-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
             <span className="h-px w-12 bg-current" />
             {copy.eyebrow}
           </div>
