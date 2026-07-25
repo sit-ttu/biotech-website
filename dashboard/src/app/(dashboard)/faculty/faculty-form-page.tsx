@@ -120,7 +120,7 @@ export default function FacultyFormPage({ facultyId }: { facultyId?: string }) {
       avatarUrl: "",
       academicTitle: "",
       position: "",
-      department: "Khoa Công nghệ Thông tin",
+      department: "Khoa Công nghệ Sinh học",
       quote: "",
       bioShort: "",
       isActive: true,
@@ -375,7 +375,7 @@ export default function FacultyFormPage({ facultyId }: { facultyId?: string }) {
                           <FormLabel>Khoa / Bộ môn</FormLabel>
                           <FormControl>
                             <Input
-                              placeholder="Khoa Công nghệ Thông tin"
+                              placeholder="Khoa Công nghệ Sinh học"
                               {...field}
                             />
                           </FormControl>

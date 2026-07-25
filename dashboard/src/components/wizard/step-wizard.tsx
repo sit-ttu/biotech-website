@@ -41,9 +41,9 @@ export function StepWizard({
   const hiddenSubmitRef = useRef<HTMLButtonElement>(null);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-[#e8e2dc] bg-white">
+    <div className="overflow-hidden rounded-2xl border border-[#D6E5E0] bg-white">
       <div className="grid grid-cols-1 md:grid-cols-[260px_1fr]">
-        <div className="border-b border-[#e8e2dc] bg-[#fdfbf9] p-6 md:border-b-0 md:border-r">
+        <div className="border-b border-[#D6E5E0] bg-[#fdfbf9] p-6 md:border-b-0 md:border-r">
           <nav className="space-y-0">
             {steps.map((step, index) => {
               const isActive = currentStep === step.id;
@@ -54,7 +54,7 @@ export function StepWizard({
                   className="relative flex gap-3 pb-8 last:pb-0"
                 >
                   {index < steps.length - 1 && (
-                    <span className="absolute left-4 top-8 h-[calc(100%-2rem)] w-px bg-[#e8e2dc]" />
+                    <span className="absolute left-4 top-8 h-[calc(100%-2rem)] w-px bg-[#D6E5E0]" />
                   )}
                   <span
                     className={cn(
@@ -103,7 +103,7 @@ export function StepWizard({
 
           {children}
 
-          <div className="mt-8 flex items-center justify-between border-t border-[#eee9e4] pt-6">
+          <div className="mt-8 flex items-center justify-between border-t border-[#E4EFEB] pt-6">
             <Button
               type="button"
               variant="outline"

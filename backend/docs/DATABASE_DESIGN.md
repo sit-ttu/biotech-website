@@ -1,4 +1,4 @@
-# DATABASE DESIGN FOR SIT
+# DATABASE DESIGN FOR BIOTECH
 
 ## Core Entities
 
@@ -215,7 +215,7 @@ Dùng để render bảng **"Cấu trúc và nội dung CTĐT"** trên website.
 | is_active      | Tài khoản có hoạt động không               |
 | last_login_at  | Thời gian đăng nhập gần nhất               |
 
-**Ví dụ**: Email/password user có `email = "student@sit.edu.vn"`; hệ thống chỉ lưu hash scrypt, không lưu mật khẩu gốc.
+**Ví dụ**: Email/password user có `email = "student@ttu.edu.vn"`; hệ thống chỉ lưu hash scrypt, không lưu mật khẩu gốc.
 
 ---
 

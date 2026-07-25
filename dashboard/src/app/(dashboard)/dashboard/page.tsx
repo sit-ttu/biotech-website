@@ -259,12 +259,12 @@ export default function DashboardPage() {
             Tổng quan nội dung
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            Theo dõi và điều phối dữ liệu của Khoa Công nghệ Thông tin.
+            Theo dõi và điều phối dữ liệu của Khoa Công nghệ Sinh học.
           </p>
         </div>
         <Link
           href="/news/create"
-          className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-primary px-4 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(186,72,17,0.18)] transition-all hover:-translate-y-0.5 hover:bg-[#a63f0f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+          className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-primary px-4 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(22, 133, 111,0.18)] transition-all hover:-translate-y-0.5 hover:bg-[#0D5E50] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
         >
           <Plus className="h-4 w-4" />
           Tạo bài viết mới
@@ -275,7 +275,7 @@ export default function DashboardPage() {
         {kpis.map((kpi, index) => (
           <article
             key={kpi.label}
-            className="group rounded-2xl border border-[#e8e2dc] bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d9cec5] hover:shadow-[0_12px_32px_rgba(61,42,30,0.06)]"
+            className="group rounded-2xl border border-[#D6E5E0] bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#C3DED6] hover:shadow-[0_12px_32px_rgba(61,42,30,0.06)]"
             style={{ animationDelay: `${index * 70}ms` }}
           >
             <div className="flex items-start justify-between gap-4">
@@ -310,8 +310,8 @@ export default function DashboardPage() {
       </section>
 
       <section className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_330px]">
-        <article className="overflow-hidden rounded-2xl border border-[#e8e2dc] bg-white">
-          <div className="flex flex-col justify-between gap-4 border-b border-[#eee9e4] px-5 py-4 sm:flex-row sm:items-center sm:px-6">
+        <article className="overflow-hidden rounded-2xl border border-[#D6E5E0] bg-white">
+          <div className="flex flex-col justify-between gap-4 border-b border-[#E4EFEB] px-5 py-4 sm:flex-row sm:items-center sm:px-6">
             <div>
               <h2 className="text-base font-semibold tracking-[-0.02em] text-stone-950">
                 Nhịp xuất bản
@@ -325,9 +325,9 @@ export default function DashboardPage() {
                 <span className="h-2 w-2 rounded-full bg-primary" /> Đã xuất bản
               </span>
               <span className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[#e9a17f]" /> Bản nháp
+                <span className="h-2 w-2 rounded-full bg-[#89C8B9]" /> Bản nháp
               </span>
-              <span className="hidden items-center gap-2 rounded-lg border border-[#e8e2dc] px-2.5 py-1.5 sm:flex">
+              <span className="hidden items-center gap-2 rounded-lg border border-[#D6E5E0] px-2.5 py-1.5 sm:flex">
                 <CalendarDays className="h-3.5 w-3.5" /> 6 tháng
               </span>
             </div>
@@ -348,7 +348,7 @@ export default function DashboardPage() {
                   (value) => (
                     <div key={value} className="flex items-center gap-3">
                       <span className="w-5 text-right">{value}</span>
-                      <span className="h-px flex-1 bg-[#eee9e4]" />
+                      <span className="h-px flex-1 bg-[#E4EFEB]" />
                     </div>
                   ),
                 )}
@@ -365,7 +365,7 @@ export default function DashboardPage() {
                     chartData.months.map((item) => item.published),
                     chartData.maxValue,
                   )} L 688 200 L 8 200 Z`}
-                  fill="rgba(186,72,17,0.06)"
+                  fill="rgba(22, 133, 111,0.06)"
                   stroke="none"
                 />
                 <path
@@ -374,7 +374,7 @@ export default function DashboardPage() {
                     chartData.maxValue,
                   )}
                   fill="none"
-                  stroke="#BA4811"
+                  stroke="#16856F"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="3"
@@ -386,7 +386,7 @@ export default function DashboardPage() {
                     chartData.maxValue,
                   )}
                   fill="none"
-                  stroke="#E9A17F"
+                  stroke="#89C8B9"
                   strokeDasharray="6 7"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -401,7 +401,7 @@ export default function DashboardPage() {
               </div>
             </div>
 
-            <div className="grid gap-3 border-t border-[#eee9e4] py-4 sm:grid-cols-3">
+            <div className="grid gap-3 border-t border-[#E4EFEB] py-4 sm:grid-cols-3">
               <div>
                 <p className="text-[11px] text-muted-foreground">Tổng bài viết</p>
                 {isLoading ? (
@@ -412,7 +412,7 @@ export default function DashboardPage() {
                   </p>
                 )}
               </div>
-              <div className="border-[#eee9e4] sm:border-l sm:pl-5">
+              <div className="border-[#E4EFEB] sm:border-l sm:pl-5">
                 <p className="text-[11px] text-muted-foreground">Đã xuất bản</p>
                 {isLoading ? (
                   <Skeleton className="mt-2 h-6 w-10" />
@@ -425,7 +425,7 @@ export default function DashboardPage() {
                   </p>
                 )}
               </div>
-              <div className="border-[#eee9e4] sm:border-l sm:pl-5">
+              <div className="border-[#E4EFEB] sm:border-l sm:pl-5">
                 <p className="text-[11px] text-muted-foreground">Bản nháp</p>
                 {isLoading ? (
                   <Skeleton className="mt-2 h-6 w-10" />
@@ -439,8 +439,8 @@ export default function DashboardPage() {
           </div>
         </article>
 
-        <aside className="rounded-2xl border border-[#e8e2dc] bg-white">
-          <div className="flex items-center justify-between border-b border-[#eee9e4] px-5 py-[18px]">
+        <aside className="rounded-2xl border border-[#D6E5E0] bg-white">
+          <div className="flex items-center justify-between border-b border-[#E4EFEB] px-5 py-[18px]">
             <div>
               <h2 className="text-base font-semibold tracking-[-0.02em] text-stone-950">
                 Hoạt động gần đây
@@ -451,7 +451,7 @@ export default function DashboardPage() {
             </div>
             <MoreHorizontal className="h-5 w-5 text-stone-400" />
           </div>
-          <div className="divide-y divide-[#eee9e4] px-5">
+          <div className="divide-y divide-[#E4EFEB] px-5">
             {isLoading ? (
               Array.from({ length: 4 }).map((_, index) => (
                 <div key={index} className="flex gap-3 py-4">
@@ -498,8 +498,8 @@ export default function DashboardPage() {
         </aside>
       </section>
 
-      <section className="overflow-hidden rounded-2xl border border-[#e8e2dc] bg-white">
-        <div className="flex items-center justify-between border-b border-[#eee9e4] px-5 py-4 sm:px-6">
+      <section className="overflow-hidden rounded-2xl border border-[#D6E5E0] bg-white">
+        <div className="flex items-center justify-between border-b border-[#E4EFEB] px-5 py-4 sm:px-6">
           <div>
             <h2 className="text-base font-semibold tracking-[-0.02em] text-stone-950">
               Nội dung cập nhật mới nhất
@@ -519,7 +519,7 @@ export default function DashboardPage() {
         <div className="overflow-x-auto">
           <table className="w-full min-w-[720px] text-left">
             <thead>
-              <tr className="border-b border-[#eee9e4] bg-[#fdfbf9] text-[10px] uppercase tracking-[0.12em] text-stone-500">
+              <tr className="border-b border-[#E4EFEB] bg-[#fdfbf9] text-[10px] uppercase tracking-[0.12em] text-stone-500">
                 <th className="px-6 py-3 font-medium">Nội dung</th>
                 <th className="px-4 py-3 font-medium">Loại</th>
                 <th className="px-4 py-3 font-medium">Trạng thái</th>
@@ -575,7 +575,7 @@ export default function DashboardPage() {
                           className={`inline-flex rounded-full border px-2.5 py-1 text-[10px] font-semibold ${
                             isPositive
                               ? "border-[#cfe2cb] bg-[#f2f8f0] text-[#53724d]"
-                              : "border-[#ead8cd] bg-[#fbf5f1] text-[#8f4c2b]"
+                              : "border-[#C3DED6] bg-[#E8F3EF] text-[#0D5E50]"
                           }`}
                         >
                           {statusLabel}
@@ -588,7 +588,7 @@ export default function DashboardPage() {
                         <Link
                           aria-label={`Mở ${item.title}`}
                           href={item.href}
-                          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#e8e2dc] text-stone-500 transition-colors hover:border-primary hover:text-primary"
+                          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#D6E5E0] text-stone-500 transition-colors hover:border-primary hover:text-primary"
                         >
                           <ChevronRight className="h-4 w-4" />
                         </Link>

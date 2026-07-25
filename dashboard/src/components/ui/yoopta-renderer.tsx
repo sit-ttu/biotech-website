@@ -61,7 +61,7 @@ export function YooptaRenderer({ value, className }: Props) {
 
   return (
     <div
-      className={`yoopta-editor-readonly prose prose-slate max-w-none prose-headings:font-bold prose-headings:text-stone-950 [&_h1]:border-b [&_h1]:border-[#eee9e4] [&_h1]:pb-2 [&_h1]:mt-10 [&_h1]:text-3xl [&_h2]:mt-8 [&_h2]:text-2xl [&_h3]:text-xl [&_p]:text-stone-600 [&_p]:leading-7 break-normal ${className || ""}`}
+      className={`yoopta-editor-readonly prose prose-slate max-w-none prose-headings:font-bold prose-headings:text-stone-950 [&_h1]:border-b [&_h1]:border-[#E4EFEB] [&_h1]:pb-2 [&_h1]:mt-10 [&_h1]:text-3xl [&_h2]:mt-8 [&_h2]:text-2xl [&_h3]:text-xl [&_p]:text-stone-600 [&_p]:leading-7 break-normal ${className || ""}`}
     >
       <YooptaEditor
         editor={editor}

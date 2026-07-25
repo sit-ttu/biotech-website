@@ -4,13 +4,13 @@
 -- Preview (rolls back, just prints counts):
 --   psql "$DATABASE_URL" \
 --     -v old='http://localhost:8080/uploads/' \
---     -v new='https://sit-backend.ttu.edu.vn/uploads/' \
+--     -v new='https://biotech-backend.ttu.edu.vn/uploads/' \
 --     -v dry=1 -f scripts/update-image-urls.sql
 --
 -- Apply for real:
 --   psql "$DATABASE_URL" \
 --     -v old='http://localhost:8080/uploads/' \
---     -v new='https://sit-backend.ttu.edu.vn/uploads/' \
+--     -v new='https://biotech-backend.ttu.edu.vn/uploads/' \
 --     -v dry=0 -f scripts/update-image-urls.sql
 
 \if :{?dry} \else \set dry 0 \endif

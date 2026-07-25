@@ -59,7 +59,7 @@ export class CreateResearchDto {
   @MaxLength(255)
   principalInvestigator?: string;
 
-  @ApiPropertyOptional({ description: 'Unit/Faculty (e.g., SIT, TTU)' })
+  @ApiPropertyOptional({ description: 'Unit/Faculty (e.g., Biotech, TTU)' })
   @IsString()
   @IsOptional()
   @MaxLength(255)

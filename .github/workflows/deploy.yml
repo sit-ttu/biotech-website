@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: Deploy
         env:
-          APP_DIR: ${{ github.event.inputs.runner_label == 'local-test' && '/tmp/sit-test' || '/home/dev/dev/sit' }}
+          APP_DIR: ${{ github.event.inputs.runner_label == 'local-test' && '/tmp/biotech-test' || '/home/dev/dev/biotech' }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PM2_HOME: ${{ github.event.inputs.runner_label == 'local-test' && '' || '/root/.pm2' }}
         run: "$APP_DIR/deploy.sh"

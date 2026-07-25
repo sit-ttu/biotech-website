@@ -367,7 +367,7 @@ export default function CreateResearchPage() {
                       <FormLabel>Đơn vị</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="SIT, TTU, ..."
+                          placeholder="Biotech, TTU, ..."
                           {...field}
                           className="shadow-none"
                         />
@@ -627,7 +627,7 @@ export default function CreateResearchPage() {
 
             {currentStep === 3 && (
               <div className="space-y-4">
-                <div className="rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5">
+                <div className="rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5">
                   <h4 className="text-sm font-semibold text-stone-950">
                     Thông tin chung
                   </h4>
@@ -661,7 +661,7 @@ export default function CreateResearchPage() {
                   </dl>
                 </div>
 
-                <div className="rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5">
+                <div className="rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5">
                   <h4 className="text-sm font-semibold text-stone-950">
                     Chi tiết
                   </h4>

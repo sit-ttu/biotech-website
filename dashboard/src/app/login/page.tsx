@@ -104,17 +104,17 @@ function LoginForm() {
   };
 
   return (
-    <div className="grid min-h-[calc(100vh-2rem)] w-full max-w-6xl overflow-hidden rounded-[2rem] border border-[#e8e2dc] bg-white shadow-[0_24px_80px_rgba(61,42,30,0.08)] lg:grid-cols-[0.95fr_1.05fr]">
-      <aside className="relative hidden min-h-[660px] flex-col justify-between overflow-hidden border-r border-[#e8e2dc] bg-[#fbf8f5] p-8 lg:flex">
+    <div className="grid min-h-[calc(100vh-2rem)] w-full max-w-6xl overflow-hidden rounded-[2rem] border border-[#D6E5E0] bg-white shadow-[0_24px_80px_rgba(61,42,30,0.08)] lg:grid-cols-[0.95fr_1.05fr]">
+      <aside className="relative hidden min-h-[660px] flex-col justify-between overflow-hidden border-r border-[#D6E5E0] bg-[#F8FAF7] p-8 lg:flex">
         <div className="absolute -right-24 top-20 h-72 w-72 rounded-full border border-primary/15" />
         <div className="absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-primary/[0.04]" />
-        <div className="absolute bottom-16 right-10 h-28 w-28 rounded-full border border-[#d9cec5]" />
+        <div className="absolute bottom-16 right-10 h-28 w-28 rounded-full border border-[#C3DED6]" />
 
         <div className="relative z-10 flex items-center gap-4">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#ead8cd] bg-white shadow-[0_10px_30px_rgba(186,72,17,0.08)]">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#C3DED6] bg-white shadow-[0_10px_30px_rgba(22, 133, 111,0.08)]">
             <Image
-              src="/assets/logo-sit.png"
-              alt="SIT"
+              src="/assets/logo-biotech.png"
+              alt="Khoa Công nghệ Sinh học"
               width={38}
               height={38}
               className="h-9 w-9 object-contain"
@@ -126,7 +126,7 @@ function LoginForm() {
               Đại học Tân Tạo
             </p>
             <p className="mt-1 text-sm font-semibold tracking-[-0.015em] text-stone-900">
-              Khoa Công nghệ Thông tin
+              Khoa Công nghệ Sinh học
             </p>
           </div>
         </div>
@@ -137,22 +137,22 @@ function LoginForm() {
             Không gian quản trị
           </div>
           <h1 className="max-w-[12ch] text-[50px] font-semibold leading-[0.98] tracking-[-0.06em] text-stone-950">
-            Điều phối nội dung SIT.
+            Điều phối nội dung Biotech.
           </h1>
           <p className="mt-6 max-w-sm text-sm leading-7 text-stone-600">
             Quản lý tin tức, chương trình đào tạo, nghiên cứu và dữ liệu vận hành của Khoa trong một hệ thống tập trung.
           </p>
         </div>
 
-        <div className="relative z-10 grid grid-cols-3 overflow-hidden rounded-2xl border border-[#e8e2dc] bg-white">
+        <div className="relative z-10 grid grid-cols-3 overflow-hidden rounded-2xl border border-[#D6E5E0] bg-white">
           {[
             ["CMS", "Nội dung"],
-            ["SIT", "Học thuật"],
+            ["BIO", "Học thuật"],
             ["2026", "Vận hành"],
           ].map(([value, label], index) => (
             <div
               key={label}
-              className={`p-4 ${index > 0 ? "border-l border-[#eee9e4]" : ""}`}
+              className={`p-4 ${index > 0 ? "border-l border-[#E4EFEB]" : ""}`}
             >
               <p className="text-xl font-semibold tracking-[-0.04em] text-stone-950">
                 {value}
@@ -168,10 +168,10 @@ function LoginForm() {
       <section className="flex min-h-[640px] items-center justify-center p-5 sm:p-8 lg:p-12">
         <div className="w-full max-w-md dashboard-reveal">
           <div className="mb-9 flex items-center gap-4 lg:hidden">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#ead8cd] bg-[#fbf8f5]">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#C3DED6] bg-[#F8FAF7]">
               <Image
-                src="/assets/logo-sit.png"
-                alt="SIT"
+                src="/assets/logo-biotech.png"
+                alt="Khoa Công nghệ Sinh học"
                 width={34}
                 height={34}
                 className="h-8 w-8 object-contain"
@@ -180,16 +180,16 @@ function LoginForm() {
             </div>
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-primary">
-                SIT Dashboard
+                Biotech Dashboard
               </p>
               <p className="text-sm font-semibold text-stone-900">
-                Khoa Công nghệ Thông tin
+                Khoa Công nghệ Sinh học
               </p>
             </div>
           </div>
 
           <div className="mb-8">
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#ead8cd] bg-[#fbf5f1] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#C3DED6] bg-[#E8F3EF] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">
               <ShieldCheck className="h-3.5 w-3.5" />
               Quyền truy cập nội bộ
             </div>
@@ -197,7 +197,7 @@ function LoginForm() {
               Đăng nhập quản trị
             </h2>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Sử dụng tài khoản được cấp để tiếp tục vào dashboard SIT.
+              Sử dụng tài khoản được cấp để tiếp tục vào dashboard Biotech.
             </p>
           </div>
 
@@ -217,7 +217,7 @@ function LoginForm() {
                         <Input
                           placeholder="name@example.com"
                           {...field}
-                          className="h-12 rounded-xl border-[#e8e2dc] bg-[#fdfbf9] pl-11 text-[15px] shadow-none transition-all placeholder:text-stone-400 focus-visible:border-primary focus-visible:ring-primary/20"
+                          className="h-12 rounded-xl border-[#D6E5E0] bg-[#fdfbf9] pl-11 text-[15px] shadow-none transition-all placeholder:text-stone-400 focus-visible:border-primary focus-visible:ring-primary/20"
                         />
                       </div>
                     </FormControl>
@@ -240,7 +240,7 @@ function LoginForm() {
                           type="password"
                           placeholder="••••••••••••"
                           {...field}
-                          className="h-12 rounded-xl border-[#e8e2dc] bg-[#fdfbf9] pl-11 text-[15px] shadow-none transition-all placeholder:text-stone-400 focus-visible:border-primary focus-visible:ring-primary/20"
+                          className="h-12 rounded-xl border-[#D6E5E0] bg-[#fdfbf9] pl-11 text-[15px] shadow-none transition-all placeholder:text-stone-400 focus-visible:border-primary focus-visible:ring-primary/20"
                         />
                       </div>
                     </FormControl>
@@ -250,7 +250,7 @@ function LoginForm() {
               />
               <Button
                 type="submit"
-                className="mt-2 h-12 w-full rounded-xl bg-primary text-[15px] font-semibold text-white shadow-[0_14px_34px_rgba(186,72,17,0.22)] transition-all hover:-translate-y-0.5 hover:bg-[#a63f0f] hover:shadow-[0_18px_40px_rgba(186,72,17,0.26)] focus-visible:ring-primary/30"
+                className="mt-2 h-12 w-full rounded-xl bg-primary text-[15px] font-semibold text-white shadow-[0_14px_34px_rgba(22, 133, 111,0.22)] transition-all hover:-translate-y-0.5 hover:bg-[#0D5E50] hover:shadow-[0_18px_40px_rgba(22, 133, 111,0.26)] focus-visible:ring-primary/30"
                 disabled={isLoading}
               >
                 {isLoading ? (
@@ -263,7 +263,7 @@ function LoginForm() {
             </form>
           </Form>
 
-          <div className="mt-8 border-t border-[#eee9e4] pt-5 text-xs leading-6 text-stone-500">
+          <div className="mt-8 border-t border-[#E4EFEB] pt-5 text-xs leading-6 text-stone-500">
             Nếu không truy cập được, vui lòng liên hệ quản trị viên để kiểm tra quyền tài khoản.
           </div>
         </div>
@@ -274,12 +274,12 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <main className="min-h-screen bg-[#f7f5f3] p-4 text-stone-950 sm:p-6 lg:p-8">
-      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_14%_18%,rgba(186,72,17,0.08),transparent_28%),radial-gradient(circle_at_82%_12%,rgba(122,143,115,0.08),transparent_26%)]" />
+    <main className="min-h-screen bg-[#F1F7F4] p-4 text-stone-950 sm:p-6 lg:p-8">
+      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_14%_18%,rgba(22, 133, 111,0.08),transparent_28%),radial-gradient(circle_at_82%_12%,rgba(122,143,115,0.08),transparent_26%)]" />
       <div className="relative flex min-h-[calc(100vh-2rem)] items-center justify-center">
         <Suspense
           fallback={
-            <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-[#e8e2dc] bg-white shadow-[0_24px_80px_rgba(61,42,30,0.08)]">
+            <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-[#D6E5E0] bg-white shadow-[0_24px_80px_rgba(61,42,30,0.08)]">
               <Loader2 className="h-6 w-6 animate-spin text-primary" />
             </div>
           }

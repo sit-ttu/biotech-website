@@ -137,7 +137,7 @@ export default function CreateFacultyPage() {
       avatarUrl: "",
       academicTitle: "",
       position: "",
-      department: "Khoa Công nghệ Thông tin",
+      department: "Khoa Công nghệ Sinh học",
       quote: "",
       bioShort: "",
       isActive: true,
@@ -355,7 +355,7 @@ export default function CreateFacultyPage() {
                       <FormLabel>Khoa / Bộ môn</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Khoa Công nghệ Thông tin"
+                          placeholder="Khoa Công nghệ Sinh học"
                           {...field}
                           className="shadow-none"
                         />
@@ -1119,7 +1119,7 @@ export default function CreateFacultyPage() {
 
             {currentStep === 7 && (
               <div className="space-y-4">
-                <div className="rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5">
+                <div className="rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5">
                   <h4 className="text-sm font-semibold text-stone-950">
                     Cơ bản
                   </h4>
@@ -1170,7 +1170,7 @@ export default function CreateFacultyPage() {
                   )}
                 </div>
 
-                <div className="rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5">
+                <div className="rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5">
                   <h4 className="text-sm font-semibold text-stone-950">
                     Học vấn, nghiên cứu & giảng dạy
                   </h4>

@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 export class ApiRootResponseDto {
-  @ApiProperty({ example: 'SIT Backend API' })
+  @ApiProperty({ example: 'Biotech TTU API' })
   name: string;
 
   @ApiProperty({ example: 'ok' })

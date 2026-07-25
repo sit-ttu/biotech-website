@@ -1,13 +1,13 @@
 <p align="center">
-  <img src="app/public/assets/logo-sit.png" alt="School of Information Technology, Tan Tao University" width="140">
+  <img src="app/public/assets/biotech/logo-biotech.png" alt="School of Biotechnology, Tan Tao University" width="140">
 </p>
 
-<h1 align="center">SIT Website</h1>
-<p align="center">School of Information Technology &middot; Tan Tao University</p>
+<h1 align="center">Biotech Website</h1>
+<p align="center">School of Biotechnology &middot; Tan Tao University</p>
 
 <p align="center">
-  <a href="https://github.com/sit-ttu/sit-website/actions/workflows/deploy.yml"><img src="https://img.shields.io/github/actions/workflow/status/sit-ttu/sit-website/deploy.yml?style=for-the-badge&label=deploy" alt="Deploy status"></a>
-  <a href="https://sit.ttu.edu.vn"><img src="https://img.shields.io/badge/website-sit.ttu.edu.vn-2ea44f?style=for-the-badge" alt="Website"></a>
+  <a href="https://github.com/biotech-ttu/biotech-website/actions/workflows/deploy.yml"><img src="https://img.shields.io/github/actions/workflow/status/biotech-ttu/biotech-website/deploy.yml?style=for-the-badge&label=deploy" alt="Deploy status"></a>
+  <a href="https://biotech.ttu.edu.vn"><img src="https://img.shields.io/badge/website-biotech.ttu.edu.vn-2ea44f?style=for-the-badge" alt="Website"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="MIT License"></a>
 </p>
 
@@ -20,9 +20,9 @@
   <img src="https://img.shields.io/badge/pnpm-F69220?style=for-the-badge&logo=pnpm&logoColor=white" alt="pnpm">
 </p>
 
-**SIT Website** is the official web platform for the School of Information Technology at Tan Tao University — a Next.js public site, a Next.js admin dashboard, and a NestJS API, managed as one pnpm workspace. It covers programs, courses, majors, research, news, and student activities, fully bilingual (Vietnamese / English).
+**Biotech Website** is the official web platform for the School of Biotechnology at Tan Tao University — a Next.js public site, a Next.js admin dashboard, and a NestJS API, managed as one pnpm workspace. It covers programs, courses, majors, research, news, and student activities, fully bilingual (Vietnamese / English).
 
-[Website](https://sit.ttu.edu.vn) &middot; [Email](mailto:sit@ttu.edu.vn)
+[Website](https://biotech.ttu.edu.vn) &middot; [Email](mailto:secretary.sbio@ttu.edu.vn)
 
 ## Stack
 
@@ -98,6 +98,6 @@ MIT — see [LICENSE](LICENSE).
 
 ## Contact
 
-- Website: [sit.ttu.edu.vn](https://sit.ttu.edu.vn)
-- Email: [sit@ttu.edu.vn](mailto:sit@ttu.edu.vn)
+- Website: [biotech.ttu.edu.vn](https://biotech.ttu.edu.vn)
+- Email: [secretary.sbio@ttu.edu.vn](mailto:secretary.sbio@ttu.edu.vn)
 - Tan Tao University, Long An, Vietnam

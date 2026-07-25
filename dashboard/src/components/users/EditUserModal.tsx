@@ -189,7 +189,7 @@ export function EditUserModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="rounded-2xl border-[#e8e2dc] sm:max-w-[460px]">
+      <DialogContent className="rounded-2xl border-[#D6E5E0] sm:max-w-[460px]">
         <DialogHeader>
           <div className="mb-1 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
             <span className="h-px w-5 bg-primary" />
@@ -228,7 +228,7 @@ export function EditUserModal({
               <div className="flex items-center gap-4">
                 {avatarUpload.preview ? (
                   <div className="relative h-20 w-20">
-                    <div className="relative h-20 w-20 overflow-hidden rounded-full border border-[#e8e2dc]">
+                    <div className="relative h-20 w-20 overflow-hidden rounded-full border border-[#D6E5E0]">
                       <img
                         src={avatarUpload.preview}
                         alt="Avatar"
@@ -333,7 +333,7 @@ export function EditUserModal({
               control={form.control}
               name="isActive"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-center justify-between rounded-lg border border-[#e8e2dc] p-3">
+                <FormItem className="flex flex-row items-center justify-between rounded-lg border border-[#D6E5E0] p-3">
                   <div className="space-y-0.5">
                     <FormLabel>Trạng thái hoạt động</FormLabel>
                     <p className="text-xs text-muted-foreground">

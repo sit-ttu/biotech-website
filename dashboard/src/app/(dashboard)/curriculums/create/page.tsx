@@ -1060,7 +1060,7 @@ export default function CreateCurriculumPage() {
 
                 {currentStep === 5 && (
                   <div className="space-y-4">
-                    <div className="rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5">
+                    <div className="rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5">
                       <h4 className="text-sm font-semibold text-stone-950">
                         Thông tin chung
                       </h4>
@@ -1102,7 +1102,7 @@ export default function CreateCurriculumPage() {
                       </dl>
                     </div>
 
-                    <div className="rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5">
+                    <div className="rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5">
                       <h4 className="text-sm font-semibold text-stone-950">
                         Chi tiết đào tạo
                       </h4>
@@ -1158,7 +1158,7 @@ export default function CreateCurriculumPage() {
                       </dl>
                     </div>
 
-                    <div className="rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5">
+                    <div className="rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5">
                       <h4 className="text-sm font-semibold text-stone-950">
                         Slug, mô tả & Banner
                       </h4>
@@ -1193,7 +1193,7 @@ export default function CreateCurriculumPage() {
                       )}
                     </div>
 
-                    <div className="rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5">
+                    <div className="rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5">
                       <h4 className="text-sm font-semibold text-stone-950">
                         Nội dung chương trình ({fields.length} phần)
                       </h4>
@@ -1202,7 +1202,7 @@ export default function CreateCurriculumPage() {
                           {watchedValues.sections?.map((section, index) => (
                             <li
                               key={index}
-                              className="flex items-center justify-between rounded-lg border border-[#eee9e4] bg-white px-3 py-2 text-sm"
+                              className="flex items-center justify-between rounded-lg border border-[#E4EFEB] bg-white px-3 py-2 text-sm"
                             >
                               <span className="font-medium text-stone-800">
                                 {section.title || `Phần ${index + 1}`}

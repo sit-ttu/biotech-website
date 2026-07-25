@@ -103,9 +103,9 @@ async function bootstrap() {
 
   // Swagger configuration
   const config = new DocumentBuilder()
-    .setTitle('SIT Curriculum Management API')
+    .setTitle('Biotech TTU API')
     .setDescription(
-      'Private REST API for the School of Information Technology website. Every request requires a service API key; protected operations also require a user JWT.',
+      'School of Biotechnology content management API. Every request requires a service API key; protected operations also require a user JWT.',
     )
     .setVersion('1.0')
     .addBearerAuth(
@@ -154,7 +154,7 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document, {
-    customSiteTitle: 'SIT API Documentation',
+    customSiteTitle: 'Biotech TTU API Documentation',
     swaggerOptions: {
       displayRequestDuration: true,
       filter: true,

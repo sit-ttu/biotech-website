@@ -607,7 +607,7 @@ export default function CreateProgramPage() {
 
             {currentStep === 4 && (
               <div className="space-y-4">
-                <div className="rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5">
+                <div className="rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5">
                   <h4 className="text-sm font-semibold text-stone-950">
                     Thông tin chung
                   </h4>
@@ -663,7 +663,7 @@ export default function CreateProgramPage() {
                   </dl>
                 </div>
 
-                <div className="rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5">
+                <div className="rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5">
                   <h4 className="text-sm font-semibold text-stone-950">
                     Slug & Mô tả
                   </h4>
@@ -679,7 +679,7 @@ export default function CreateProgramPage() {
                   </dl>
                 </div>
 
-                <div className="rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5">
+                <div className="rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5">
                   <h4 className="text-sm font-semibold text-stone-950">
                     Banner
                   </h4>

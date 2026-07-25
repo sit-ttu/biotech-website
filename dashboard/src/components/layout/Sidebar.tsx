@@ -105,14 +105,14 @@ export function Sidebar() {
     <div className="flex h-full flex-col border-r border-sidebar-border bg-sidebar py-4 text-sidebar-foreground">
       <div className="flex-1 px-3 py-2">
         <Link href={"/dashboard"} className="flex items-center gap-2 mb-10">
-          <img src="/assets/logo.png" alt="SIT" className="h-12 w-12" />
+          <img src="/assets/logo-biotech.png" alt="Khoa Công nghệ Sinh học" className="h-12 w-12" />
           <div className="flex flex-col gap-y-0.5">
-            <span className="text-base font-semibold uppercase tracking-[0.2em] text-[#ba4911]">
+            <span className="text-base font-semibold uppercase tracking-[0.2em] text-[#16856F]">
               ĐẠI HỌC TÂN TẠO
             </span>
-            <span className="h-[1px] w-full bg-[#ba4911]" />
-            <span className="text-base font-bold text-[#ba4911]">
-              Khoa Công Nghệ Thông Tin
+            <span className="h-[1px] w-full bg-[#16856F]" />
+            <span className="text-base font-bold text-[#16856F]">
+              Khoa Công Nghệ Sinh Học
             </span>
           </div>
         </Link>

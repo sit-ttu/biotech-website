@@ -356,7 +356,7 @@ export default function EditResearchPage() {
                       <FormLabel>Đơn vị</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="SIT, TTU, ..."
+                          placeholder="Biotech, TTU, ..."
                           {...field}
                           className="shadow-none"
                         />

@@ -83,7 +83,7 @@ export default function ViewNewsPage() {
         </Button>
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-[#e8e2dc] bg-white">
+      <div className="overflow-hidden rounded-2xl border border-[#D6E5E0] bg-white">
         {news.coverImage && (
           <div className="aspect-[21/9] w-full overflow-hidden bg-[#fdfbf9]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -124,7 +124,7 @@ export default function ViewNewsPage() {
             </p>
           )}
 
-          <div className="border-t border-[#eee9e4] pt-6">
+          <div className="border-t border-[#E4EFEB] pt-6">
             <YooptaRenderer value={news.content} />
           </div>
         </div>

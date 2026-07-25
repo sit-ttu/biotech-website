@@ -10,7 +10,7 @@ export class AppController {
   @ApiOkResponse({ type: ApiRootResponseDto })
   getRoot(): ApiRootResponseDto {
     return {
-      name: 'SIT Backend API',
+      name: 'Biotech TTU API',
       status: 'ok',
       api: '/api/v1',
       documentation: '/api/docs',

@@ -158,7 +158,7 @@ export function AddUserModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="rounded-2xl border-[#e8e2dc] sm:max-w-[460px]">
+      <DialogContent className="rounded-2xl border-[#D6E5E0] sm:max-w-[460px]">
         <DialogHeader>
           <div className="mb-1 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
             <span className="h-px w-5 bg-primary" />
@@ -197,7 +197,7 @@ export function AddUserModal({
               <div className="flex items-center gap-4">
                 {avatarUpload.preview ? (
                   <div className="relative h-20 w-20">
-                    <div className="relative h-20 w-20 overflow-hidden rounded-full border border-[#e8e2dc]">
+                    <div className="relative h-20 w-20 overflow-hidden rounded-full border border-[#D6E5E0]">
                       <img
                         src={avatarUpload.preview}
                         alt="Avatar preview"
@@ -248,7 +248,7 @@ export function AddUserModal({
                   <FormControl>
                     <Input
                       type="email"
-                      placeholder="student@sit.edu.vn"
+                      placeholder="student@ttu.edu.vn"
                       {...field}
                       className="shadow-none"
                     />

@@ -337,7 +337,7 @@ export default function StudentPortfolioFormPage({
                         />
                       </FormControl>
                       <p className="text-xs text-muted-foreground">
-                        sit.ttu.edu.vn/{field.value || "..."}
+                        biotech.ttu.edu.vn/{field.value || "..."}
                       </p>
                       <FormMessage />
                     </FormItem>
@@ -1243,7 +1243,7 @@ export default function StudentPortfolioFormPage({
 
             {currentStep === 8 && (
               <div className="space-y-4">
-                <div className="rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5">
+                <div className="rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5">
                   <h4 className="text-sm font-semibold text-stone-950">
                     Cơ bản
                   </h4>
@@ -1286,7 +1286,7 @@ export default function StudentPortfolioFormPage({
                   )}
                 </div>
 
-                <div className="rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5">
+                <div className="rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5">
                   <h4 className="text-sm font-semibold text-stone-950">
                     Nội dung portfolio
                   </h4>

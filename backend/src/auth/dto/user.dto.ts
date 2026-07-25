@@ -10,7 +10,7 @@ import {
 import { IsAppUrl } from '../../common/decorators/is-app-url.decorator';
 
 export class CreateUserDto {
-  @ApiProperty({ example: 'admin@sit.edu.vn' })
+  @ApiProperty({ example: 'admin@ttu.edu.vn' })
   @IsEmail()
   email: string;
 
@@ -25,7 +25,7 @@ export class CreateUserDto {
 }
 
 export class LoginDto {
-  @ApiProperty({ example: 'admin@sit.edu.vn' })
+  @ApiProperty({ example: 'admin@ttu.edu.vn' })
   @IsEmail()
   email: string;
 
@@ -74,7 +74,7 @@ export class UserResponseDto {
   @ApiProperty({ format: 'uuid' })
   userId: string;
 
-  @ApiProperty({ example: 'admin@sit.edu.vn' })
+  @ApiProperty({ example: 'admin@ttu.edu.vn' })
   email: string;
 
   @ApiProperty({ example: 'Administrator' })

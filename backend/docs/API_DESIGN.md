@@ -1,8 +1,8 @@
-# SIT Curriculum Management API Documentation
+# Biotech TTU API Documentation
 
 ## Overview
 
-The SIT Curriculum Management API provides RESTful endpoints for managing educational programs, curriculums, curriculum sections, and user authentication. The API follows REST conventions and includes comprehensive Swagger/OpenAPI documentation.
+The Biotech TTU API provides RESTful endpoints for managing educational programs, curriculums, curriculum sections, and user authentication. The API follows REST conventions and includes comprehensive Swagger/OpenAPI documentation.
 
 **Base URL**: `http://localhost:8080/api/v1`  
 **Swagger Documentation**: `http://localhost:8080/api/docs`
@@ -63,7 +63,7 @@ Register a new user account with email and password.
 
 ```json
 {
-  "email": "student@sit.edu.vn",
+  "email": "student@ttu.edu.vn",
   "password": "SecurePassword123!",
   "fullName": "Nguyễn Văn A"
 }
@@ -75,7 +75,7 @@ Register a new user account with email and password.
 {
   "user": {
     "userId": "550e8400-e29b-41d4-a716-446655440000",
-    "email": "student@sit.edu.vn",
+    "email": "student@ttu.edu.vn",
     "fullName": "Nguyễn Văn A",
     "emailVerified": false,
     "isActive": true,
@@ -98,7 +98,7 @@ Login with email and password.
 
 ```json
 {
-  "email": "student@sit.edu.vn",
+  "email": "student@ttu.edu.vn",
   "password": "SecurePassword123!"
 }
 ```
@@ -109,7 +109,7 @@ Login with email and password.
 {
   "user": {
     "userId": "550e8400-e29b-41d4-a716-446655440000",
-    "email": "student@sit.edu.vn",
+    "email": "student@ttu.edu.vn",
     "fullName": "Nguyễn Văn A",
     "avatarUrl": null,
     "roles": ["student"]
@@ -187,7 +187,7 @@ Get the current authenticated user's profile.
 ```json
 {
   "userId": "550e8400-e29b-41d4-a716-446655440000",
-  "email": "student@sit.edu.vn",
+  "email": "student@ttu.edu.vn",
   "fullName": "Nguyễn Văn A",
   "avatarUrl": null,
   "emailVerified": true,
@@ -276,7 +276,7 @@ Get all users with optional filtering.
   "data": [
     {
       "userId": "550e8400-e29b-41d4-a716-446655440000",
-      "email": "student@sit.edu.vn",
+      "email": "student@ttu.edu.vn",
       "fullName": "Nguyễn Văn A",
       "roles": ["student"],
       "isActive": true,

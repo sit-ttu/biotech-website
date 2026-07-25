@@ -20,7 +20,7 @@ export class TranslationController {
     schema: {
       type: 'object',
       properties: {
-        text: { type: 'string', example: 'Welcome to SIT' },
+        text: { type: 'string', example: 'Welcome to the School of Biotechnology' },
         targetLanguage: { type: 'string', enum: ['vi', 'en'], example: 'vi' },
       },
       required: ['text', 'targetLanguage'],

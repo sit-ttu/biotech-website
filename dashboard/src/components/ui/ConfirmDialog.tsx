@@ -50,7 +50,7 @@ export function ConfirmDialog({
       open={open}
       onOpenChange={(nextOpen) => !isPending && onOpenChange(nextOpen)}
     >
-      <DialogContent className="rounded-2xl border-[#e8e2dc] sm:max-w-[425px]">
+      <DialogContent className="rounded-2xl border-[#D6E5E0] sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>{description}</DialogDescription>

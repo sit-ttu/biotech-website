@@ -9,7 +9,7 @@ export function EditPageCard({ children, className }: EditPageCardProps) {
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-2xl border border-[#e8e2dc] bg-white",
+        "overflow-hidden rounded-2xl border border-[#D6E5E0] bg-white",
         className,
       )}
     >

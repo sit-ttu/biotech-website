@@ -325,7 +325,7 @@ export const research = pgTable('research', {
   authors: text('authors'),
   principalInvestigator: varchar('principal_investigator', { length: 255 }),
 
-  unit: varchar('unit', { length: 255 }), // SIT, TTU, Faculty...
+  unit: varchar('unit', { length: 255 }), // Biotech, TTU, Faculty...
   researchField: varchar('research_field', { length: 255 }),
 
   // Project-specific fields
@@ -579,7 +579,7 @@ export const faculty = pgTable('faculty', {
 
   academicTitle: varchar('academic_title', { length: 50 }), // TS., PGS.TS., ThS.
   position: varchar('position', { length: 255 }), // Dean, Associate Professor, Lecturer
-  department: varchar('department', { length: 255 }), // School of Information Technology
+  department: varchar('department', { length: 255 }), // School of Biotechnology
 
   quote: text('quote'), // philosophy quote
   bioShort: text('bio_short'), // 2-3 sentence introduction

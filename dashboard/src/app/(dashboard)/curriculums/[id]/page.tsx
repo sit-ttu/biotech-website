@@ -125,7 +125,7 @@ function SortableSection({
 
   return (
     <div ref={setNodeRef} style={style} className="mb-6">
-      <Card className="rounded-2xl border-[#e8e2dc] p-6 shadow-none min-w-0">
+      <Card className="rounded-2xl border-[#D6E5E0] p-6 shadow-none min-w-0">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <div
@@ -657,7 +657,7 @@ export default function CurriculumDetailPage({
         )}
 
         {(!curriculum.sections || curriculum.sections.length === 0) && (
-          <div className="text-center py-12 border-2 border-dashed border-[#e8e2dc] rounded-2xl text-muted-foreground">
+          <div className="text-center py-12 border-2 border-dashed border-[#D6E5E0] rounded-2xl text-muted-foreground">
             Chưa có phần nội dung nào.
           </div>
         )}
@@ -668,7 +668,7 @@ export default function CurriculumDetailPage({
         open={isEditCurriculumOpen}
         onOpenChange={setIsEditCurriculumOpen}
       >
-        <DialogContent className="rounded-2xl border-[#e8e2dc] sm:max-w-[825px] max-h-[85vh] overflow-y-auto">
+        <DialogContent className="rounded-2xl border-[#D6E5E0] sm:max-w-[825px] max-h-[85vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>Chỉnh sửa thông tin</DialogTitle>
             <DialogDescription>
@@ -1066,7 +1066,7 @@ export default function CurriculumDetailPage({
         open={isDeleteDialogOpen}
         onOpenChange={setIsDeleteDialogOpen}
       >
-        <AlertDialogContent className="rounded-2xl border-[#e8e2dc]">
+        <AlertDialogContent className="rounded-2xl border-[#D6E5E0]">
           <AlertDialogHeader>
             <AlertDialogTitle className="flex items-center gap-2">
               <AlertTriangle className="h-5 w-5 text-destructive" />

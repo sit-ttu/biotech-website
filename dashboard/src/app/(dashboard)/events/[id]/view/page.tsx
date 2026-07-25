@@ -86,7 +86,7 @@ export default function ViewEventPage() {
         </Button>
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-[#e8e2dc] bg-white">
+      <div className="overflow-hidden rounded-2xl border border-[#D6E5E0] bg-white">
         <div className="space-y-5 p-6 sm:p-8">
           <div className="flex flex-wrap items-center gap-2">
             <Badge
@@ -119,7 +119,7 @@ export default function ViewEventPage() {
             )}
           </div>
 
-          <dl className="grid grid-cols-1 gap-4 rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5 sm:grid-cols-2">
+          <dl className="grid grid-cols-1 gap-4 rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5 sm:grid-cols-2">
             <div className="flex items-start gap-2">
               <CalendarDays className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
               <div>
@@ -172,7 +172,7 @@ export default function ViewEventPage() {
           </dl>
 
           {(event.descriptionVi || event.descriptionEn) && (
-            <div className="space-y-4 border-t border-[#eee9e4] pt-6">
+            <div className="space-y-4 border-t border-[#E4EFEB] pt-6">
               {event.descriptionVi && (
                 <div>
                   <h2 className="mb-2 text-sm font-semibold text-stone-950">

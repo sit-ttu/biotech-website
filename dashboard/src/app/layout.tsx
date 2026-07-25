@@ -17,14 +17,14 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
+  title: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
   description:
-    'Khoa Công nghệ Thông tin Đại học Tân Tạo áp dụng triết lí "Khai phóng - học suốt đời" với chương trình tham chiếu từ Đại học Duke (Hoa Kỳ), đồng hành cùng chuyển đổi số.',
+    "Hệ thống quản trị nội dung của Khoa Công nghệ Sinh học, Đại học Tân Tạo.",
   keywords:
-    "Khoa Công nghệ Thông tin, Đại học Tân Tạo, Tan Tao University, SIT, School of Information Technology, IT, Computer Science, Đào tạo, Giáo dục, Công nghệ 4.0",
-  authors: [{ name: "Khoa Công nghệ Thông tin - Đại học Tân Tạo" }],
-  creator: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
-  publisher: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
+    "Khoa Công nghệ Sinh học, Đại học Tân Tạo, Tan Tao University, School of Biotechnology, Công nghệ Sinh học, Nông nghiệp công nghệ cao, Đào tạo, Giáo dục",
+  authors: [{ name: "Khoa Công nghệ Sinh học - Đại học Tân Tạo" }],
+  creator: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
+  publisher: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
   robots: {
     index: true,
     follow: true,
@@ -39,49 +39,49 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "vi_VN",
-    url: "https://sit.ttu.edu.vn",
-    siteName: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
-    title: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
+    url: "https://biotech.ttu.edu.vn",
+    siteName: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
+    title: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
     description:
-      'Khoa Công nghệ Thông tin Đại học Tân Tạo áp dụng triết lí "Khai phóng - học suốt đời" với chương trình tham chiếu từ Đại học Duke (Hoa Kỳ), đồng hành cùng chuyển đổi số.',
-    images: ["/assets/logo-sit.png"],
+      "Hệ thống quản trị nội dung của Khoa Công nghệ Sinh học, Đại học Tân Tạo.",
+    images: ["/assets/logo-biotech.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
+    title: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
     description:
-      'Khoa Công nghệ Thông tin Đại học Tân Tạo áp dụng triết lí "Khai phóng - học suốt đời" với chương trình tham chiếu từ Đại học Duke (Hoa Kỳ), đồng hành cùng chuyển đổi số.',
-    images: ["/assets/logo-sit.png"],
+      "Hệ thống quản trị nội dung của Khoa Công nghệ Sinh học, Đại học Tân Tạo.",
+    images: ["/assets/logo-biotech.png"],
   },
   alternates: {
-    canonical: "https://sit.ttu.edu.vn",
+    canonical: "https://biotech.ttu.edu.vn",
     languages: {
-      "vi-VN": "https://sit.ttu.edu.vn",
-      "en-US": "https://sit.ttu.edu.vn/?lang=en",
+      "vi-VN": "https://biotech.ttu.edu.vn",
+      "en-US": "https://biotech.ttu.edu.vn/?lang=en",
     },
   },
   icons: {
     icon: [
       {
-        url: "/assets/logo-sit.png",
+        url: "/assets/logo-biotech.png",
         sizes: "32x32",
         type: "image/png",
       },
       {
-        url: "/assets/logo-sit.png",
+        url: "/assets/logo-biotech.png",
         sizes: "192x192",
         type: "image/png",
       },
     ],
     apple: [
       {
-        url: "/assets/logo-sit.png",
+        url: "/assets/logo-biotech.png",
         sizes: "180x180",
         type: "image/png",
       },
     ],
   },
-  manifest: "/assets/logo-sit.png",
+  manifest: "/assets/logo-biotech.png",
   category: "education",
 };
 

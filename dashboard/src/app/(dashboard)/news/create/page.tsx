@@ -413,7 +413,7 @@ export default function CreateNewsPage() {
 
             {currentStep === 3 && (
               <div className="space-y-4">
-                <div className="rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5">
+                <div className="rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5">
                   <h4 className="text-sm font-semibold text-stone-950">
                     Thông tin bài viết
                   </h4>
@@ -453,7 +453,7 @@ export default function CreateNewsPage() {
                   </dl>
                 </div>
 
-                <div className="rounded-xl border border-[#e8e2dc] bg-[#fdfbf9] p-5">
+                <div className="rounded-xl border border-[#D6E5E0] bg-[#fdfbf9] p-5">
                   <h4 className="text-sm font-semibold text-stone-950">
                     Ảnh bìa
                   </h4>

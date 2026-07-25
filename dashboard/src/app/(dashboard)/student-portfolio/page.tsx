@@ -157,7 +157,7 @@ export default function StudentPortfolioPage() {
                         {portfolio.isPublished && (
                           <DropdownMenuItem asChild>
                             <a
-                              href={`https://sit.ttu.edu.vn/${portfolio.slug}`}
+                              href={`https://biotech.ttu.edu.vn/${portfolio.slug}`}
                               target="_blank"
                               rel="noopener noreferrer"
                             >

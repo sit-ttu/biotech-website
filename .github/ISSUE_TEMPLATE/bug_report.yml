@@ -41,7 +41,7 @@ body:
     id: url
     attributes:
       label: URL / page
-      placeholder: https://sit.ttu.edu.vn/...
+      placeholder: https://biotech.ttu.edu.vn/...
     validations:
       required: false
 

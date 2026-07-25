@@ -1,5 +1,5 @@
-<h1 align="center">SIT Backend</h1>
-<p align="center">API for the SIT Website &middot; School of Information Technology, Tan Tao University</p>
+<h1 align="center">Biotech Backend</h1>
+<p align="center">API for the Biotech Website &middot; School of Biotechnology, Tan Tao University</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS">

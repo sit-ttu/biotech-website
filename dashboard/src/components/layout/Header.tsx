@@ -167,20 +167,20 @@ export function Header({ onMenuClick }: HeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#e8e2dc] bg-white/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-[#D6E5E0] bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex h-[88px] w-full max-w-[1800px] items-center gap-4 px-4 sm:px-6 lg:px-8">
         <Link
           href="/dashboard"
           className="flex shrink-0 items-center gap-2 xl:mr-2"
         >
-          <img src="/assets/logo.png" alt="SIT" className="h-12 w-12" />
+          <img src="/assets/logo-biotech.png" alt="Khoa Công nghệ Sinh học" className="h-12 w-12" />
           <div className="hidden flex-col gap-y-0.5 sm:flex">
-            <span className="text-base font-semibold uppercase tracking-[0.2em] text-[#ba4911]">
+            <span className="text-base font-semibold uppercase tracking-[0.2em] text-[#16856F]">
               ĐẠI HỌC TÂN TẠO
             </span>
-            <span className="h-[1px] w-full bg-[#ba4911]" />
-            <span className="text-base font-bold text-[#ba4911]">
-              Khoa Công Nghệ Thông Tin
+            <span className="h-[1px] w-full bg-[#16856F]" />
+            <span className="text-base font-bold text-[#16856F]">
+              Khoa Công Nghệ Sinh Học
             </span>
           </div>
         </Link>
@@ -194,8 +194,8 @@ export function Header({ onMenuClick }: HeaderProps) {
             className={cn(
               "inline-flex h-10 items-center gap-2 rounded-full border px-4 text-[13px] font-semibold transition-all",
               pathname === "/dashboard"
-                ? "border-primary bg-[#fffaf7] text-primary shadow-[0_5px_16px_rgba(186,72,17,0.08)]"
-                : "border-[#e8e2dc] bg-white text-stone-600 hover:border-[#d8c8bd] hover:text-primary",
+                ? "border-primary bg-[#fffaf7] text-primary shadow-[0_5px_16px_rgba(22, 133, 111,0.08)]"
+                : "border-[#D6E5E0] bg-white text-stone-600 hover:border-[#d8c8bd] hover:text-primary",
             )}
           >
             <Home className="h-4 w-4" />
@@ -214,8 +214,8 @@ export function Header({ onMenuClick }: HeaderProps) {
                     className={cn(
                       "inline-flex h-10 items-center gap-2 rounded-full border px-4 text-[13px] font-medium outline-none transition-all focus-visible:ring-2 focus-visible:ring-primary/20",
                       isActive
-                        ? "border-primary bg-[#fffaf7] text-primary shadow-[0_5px_16px_rgba(186,72,17,0.08)]"
-                        : "border-[#e8e2dc] bg-white text-stone-600 hover:border-[#d8c8bd] hover:text-primary",
+                        ? "border-primary bg-[#fffaf7] text-primary shadow-[0_5px_16px_rgba(22, 133, 111,0.08)]"
+                        : "border-[#D6E5E0] bg-white text-stone-600 hover:border-[#d8c8bd] hover:text-primary",
                     )}
                   >
                     <group.icon className="h-4 w-4 stroke-[1.8]" />
@@ -225,7 +225,7 @@ export function Header({ onMenuClick }: HeaderProps) {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   align="start"
-                  className="w-56 space-y-1 rounded-xl border-[#e8e2dc] p-2 shadow-[0_18px_50px_rgba(42,31,23,0.12)]"
+                  className="w-56 space-y-1 rounded-xl border-[#D6E5E0] p-2 shadow-[0_18px_50px_rgba(42,31,23,0.12)]"
                 >
                   {group.routes.map((route) => (
                     <DropdownMenuItem key={route.href} asChild>
@@ -253,7 +253,7 @@ export function Header({ onMenuClick }: HeaderProps) {
             <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
             <Input
               placeholder="Tìm kiếm nội dung..."
-              className="h-10 rounded-xl border-[#e8e2dc] bg-[#fdfbf9] pl-10 shadow-none placeholder:text-stone-400 focus-visible:border-primary/40 focus-visible:ring-2 focus-visible:ring-primary/10"
+              className="h-10 rounded-xl border-[#D6E5E0] bg-[#fdfbf9] pl-10 shadow-none placeholder:text-stone-400 focus-visible:border-primary/40 focus-visible:ring-2 focus-visible:ring-primary/10"
             />
           </div>
 
@@ -261,7 +261,7 @@ export function Header({ onMenuClick }: HeaderProps) {
             variant="ghost"
             size="icon"
             aria-label="Thông báo"
-            className="relative rounded-xl border border-[#e8e2dc] bg-white hover:bg-[#fdfbf9]"
+            className="relative rounded-xl border border-[#D6E5E0] bg-white hover:bg-[#fdfbf9]"
           >
             <Bell className="h-[18px] w-[18px]" />
             <span className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-primary ring-2 ring-white" />
@@ -271,7 +271,7 @@ export function Header({ onMenuClick }: HeaderProps) {
             variant="ghost"
             size="icon"
             aria-label="Mở menu"
-            className="rounded-xl border border-[#e8e2dc] xl:hidden"
+            className="rounded-xl border border-[#D6E5E0] xl:hidden"
             onClick={onMenuClick}
           >
             <Menu className="h-5 w-5" />
@@ -290,7 +290,7 @@ export function Header({ onMenuClick }: HeaderProps) {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <button className="flex items-center gap-2.5 rounded-xl px-1.5 py-1 text-left transition-colors hover:bg-[#fdfbf9] lg:pr-2">
-                    <Avatar className="h-9 w-9 border border-[#e8e2dc]">
+                    <Avatar className="h-9 w-9 border border-[#D6E5E0]">
                       <AvatarImage src={user.avatarUrl || undefined} />
                       <AvatarFallback>{getInitials(user.fullName)}</AvatarFallback>
                     </Avatar>
@@ -322,7 +322,7 @@ export function Header({ onMenuClick }: HeaderProps) {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Avatar className="h-9 w-9 border border-[#e8e2dc]">
+              <Avatar className="h-9 w-9 border border-[#D6E5E0]">
                 <AvatarFallback>?</AvatarFallback>
               </Avatar>
             )}

@@ -74,7 +74,7 @@ export class CreateFacultyDto {
 
   @ApiProperty({
     description: 'Department',
-    example: 'School of Information Technology',
+    example: 'School of Biotechnology',
     maxLength: 255,
     required: false,
   })
