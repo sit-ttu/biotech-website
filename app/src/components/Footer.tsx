@@ -54,11 +54,11 @@ const Footer = () => {
     <li>
       <Link
         href={href}
-        className="group inline-flex items-center gap-1.5 text-[13px] text-gray-500 transition-colors hover:text-[#BA4811]"
+        className="group inline-flex items-center gap-1.5 text-[13px] text-gray-500 transition-colors hover:text-[#16856F]"
       >
         <span
           aria-hidden
-          className="w-0 overflow-hidden text-[#BA4811] opacity-0 transition-all duration-300 group-hover:w-3 group-hover:opacity-100"
+          className="w-0 overflow-hidden text-[#16856F] opacity-0 transition-all duration-300 group-hover:w-3 group-hover:opacity-100"
         >
           <ArrowIcon direction="right" size={16} />
         </span>
@@ -84,19 +84,10 @@ const Footer = () => {
               className="group flex items-center gap-3"
             >
               <img
-                src="/assets/logo.png"
-                alt="SIT"
-                className="h-14 w-14 shrink-0 object-contain transition-transform duration-300 group-hover:scale-105"
+                src="/assets/biotech/logo-biotech-footer.png"
+                alt={t("faculty")}
+                className="h-14 w-auto max-w-[19rem] shrink-0 object-contain transition-transform duration-300 group-hover:scale-[1.02]"
               />
-              <div className="flex flex-col">
-                <span className="text-[13px] font-bold uppercase tracking-wider text-[#BA4811]">
-                  {t("university")}
-                </span>
-                <span className="my-1 h-px w-full bg-[#BA4811]/40" />
-                <span className="text-[15px] font-bold uppercase tracking-wide text-[#BA4811]">
-                  {t("faculty")}
-                </span>
-              </div>
             </Link>
 
             <p className="max-w-xs text-[13px] leading-relaxed text-gray-500">
@@ -105,18 +96,18 @@ const Footer = () => {
 
             <div className="flex gap-3">
               <Link
-                href="https://www.facebook.com/sit.ttu.edu.vn"
+                href="https://www.facebook.com/biotechnology.biotechnology.357"
                 target="_blank"
                 aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#ececec] text-gray-500 transition-colors hover:border-[#BA4811] hover:bg-[#BA4811] hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#ececec] text-gray-500 transition-colors hover:border-[#16856F] hover:bg-[#16856F] hover:text-white"
               >
                 <HugeiconsIcon icon={Facebook01Icon} size={17} />
               </Link>
               <Link
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=sit@ttu.edu.vn"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=secretary.sbio@ttu.edu.vn"
                 target="_blank"
                 aria-label="Email"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#ececec] text-gray-500 transition-colors hover:border-[#BA4811] hover:bg-[#BA4811] hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#ececec] text-gray-500 transition-colors hover:border-[#16856F] hover:bg-[#16856F] hover:text-white"
               >
                 <HugeiconsIcon icon={Mail01Icon} size={17} />
               </Link>
@@ -186,34 +177,34 @@ const Footer = () => {
               <a
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(tFooter("address"))}`}
                 target="_blank"
-                className="group flex items-start gap-3 text-[13px] leading-relaxed text-gray-500 transition-colors hover:text-[#BA4811]"
+                className="group flex items-start gap-3 text-[13px] leading-relaxed text-gray-500 transition-colors hover:text-[#16856F]"
               >
                 <HugeiconsIcon
                   icon={Location01Icon}
                   size={17}
-                  className="mt-0.5 shrink-0 text-[#BA4811]"
+                  className="mt-0.5 shrink-0 text-[#16856F]"
                 />
                 {tFooter("address")}
               </a>
               <a
                 href={`tel:${tFooter("phone")}`}
-                className="group flex items-center gap-3 text-[13px] text-gray-500 transition-colors hover:text-[#BA4811]"
+                className="group flex items-center gap-3 text-[13px] text-gray-500 transition-colors hover:text-[#16856F]"
               >
                 <HugeiconsIcon
                   icon={Call02Icon}
                   size={17}
-                  className="shrink-0 text-[#BA4811]"
+                  className="shrink-0 text-[#16856F]"
                 />
                 {tFooter("phone")}
               </a>
               <a
                 href={`mailto:${tFooter("email")}`}
-                className="group flex items-center gap-3 text-[13px] text-gray-500 transition-colors hover:text-[#BA4811]"
+                className="group flex items-center gap-3 text-[13px] text-gray-500 transition-colors hover:text-[#16856F]"
               >
                 <HugeiconsIcon
                   icon={Mail01Icon}
                   size={17}
-                  className="shrink-0 text-[#BA4811]"
+                  className="shrink-0 text-[#16856F]"
                 />
                 {tFooter("email")}
               </a>
@@ -230,7 +221,7 @@ const Footer = () => {
                 ? `/${currentLocale}/chuong-trinh-dao-tao`
                 : `/${currentLocale}/programs`
             }
-            className="group inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#BA4811]"
+            className="group inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#16856F]"
           >
             {tFooter("academicPrograms")}
             <HugeiconsIcon

@@ -286,27 +286,18 @@ const Header = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-        className="sticky top-0 z-50 border-b border-[#b74717]/15 bg-white/95 backdrop-blur-xl"
+        className="sticky top-0 z-50 border-b border-[#16856F]/15 bg-white/95 backdrop-blur-xl"
       >
         <div className="mx-auto grid h-[4.5rem] max-w-7xl grid-cols-[2.25rem_minmax(0,1fr)_2.25rem] items-center gap-2 px-4 sm:flex sm:h-[5.25rem] sm:gap-5 sm:px-8">
           <Link
             href={basePath}
-            className="group order-2 flex min-w-0 items-center justify-self-center gap-1.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b74717] sm:order-none sm:shrink-0 sm:justify-self-auto sm:gap-2"
+            className="group order-2 flex min-w-0 items-center justify-self-center gap-1.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] sm:order-none sm:shrink-0 sm:justify-self-auto sm:gap-2"
           >
             <img
-              src="/assets/logo.png"
-              alt="SIT"
-              className="h-10 w-10 shrink-0 object-contain transition-transform duration-300 group-hover:-rotate-2 sm:h-14 sm:w-12"
+              src="/assets/biotech/logo-biotech.png"
+              alt={t("faculty")}
+              className="h-8 w-auto max-w-[12.5rem] shrink-0 object-contain transition-transform duration-300 group-hover:scale-[1.02] sm:h-10 sm:max-w-[16rem]"
             />
-            <div className="flex min-w-0 flex-col gap-y-0.5 whitespace-nowrap text-left">
-              <span className="block text-[0.58rem] font-black uppercase leading-tight tracking-[0.05em] text-[#ba4911] min-[380px]:text-[0.66rem] sm:text-sm sm:tracking-[0.1em] xl:text-base">
-                {t("university")}
-              </span>
-              <span className="h-px w-full bg-[#ba4911]" />
-              <span className="block text-[0.56rem] font-black uppercase leading-tight tracking-[-0.01em] text-[#ba4911] min-[380px]:text-[0.62rem] sm:text-sm sm:tracking-normal xl:text-base">
-                {t("faculty")}
-              </span>
-            </div>
           </Link>
 
           <nav
@@ -320,15 +311,15 @@ const Header = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative py-2.5 text-sm font-semibold tracking-[-0.01em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b74717] ${
+                  className={`relative py-2.5 text-sm font-semibold tracking-[-0.01em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] ${
                     isActive
-                      ? "text-[#b74717]"
-                      : "text-[#4b4d4b] hover:text-[#b74717]"
+                      ? "text-[#16856F]"
+                      : "text-[#4b4d4b] hover:text-[#16856F]"
                   }`}
                 >
                   {link.label}
                   {isActive && (
-                    <span className="absolute bottom-1 left-1/2 h-0.5 w-10 -translate-x-1/2 bg-[#b74717]" />
+                    <span className="absolute bottom-1 left-1/2 h-0.5 w-10 -translate-x-1/2 bg-[#16856F]" />
                   )}
                 </Link>
               );
@@ -340,14 +331,14 @@ const Header = () => {
               href="https://tuyensinh.ttu.edu.vn/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden min-h-10 items-center bg-[#ba4911] px-4 text-[0.8rem] font-bold uppercase tracking-[0.11em] text-white transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#96380d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ba4911] active:translate-y-0 md:inline-flex"
+              className="hidden min-h-10 items-center rounded-full bg-[#16856F] px-4 text-[0.8rem] font-bold uppercase tracking-[0.11em] text-white transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] active:translate-y-0 md:inline-flex"
             >
               {t("navigation.studentsAdmissions")}
             </a>
             <button
               type="button"
               onClick={() => setIsSearchOpen(true)}
-              className="order-3 inline-flex h-9 w-9 cursor-pointer items-center justify-center justify-self-end border border-[#171b25]/15 text-[#424640] transition-colors hover:border-[#b74717] hover:bg-[#b74717] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b74717] sm:order-none sm:h-10 sm:w-10 sm:justify-self-auto"
+              className="order-3 inline-flex h-9 w-9 cursor-pointer items-center justify-center justify-self-end rounded-full border border-[#171b25]/15 text-[#424640] transition-colors hover:border-[#16856F] hover:bg-[#16856F] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] sm:order-none sm:h-10 sm:w-10 sm:justify-self-auto"
               aria-label={t("search")}
             >
               <Search className="h-4 w-4 sm:h-[1.1rem] sm:w-[1.1rem]" />
@@ -357,7 +348,7 @@ const Header = () => {
               onClick={toggleMenu}
               aria-expanded={isMenuOpen}
               aria-label={t("menu")}
-              className="order-1 inline-flex h-9 w-9 cursor-pointer items-center justify-center justify-self-start border border-[#ba4911]/25 text-[#8d3816] transition-colors hover:border-[#ba4911] hover:bg-[#ba4911] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ba4911] sm:order-none sm:h-10 sm:w-auto sm:justify-self-auto sm:gap-2 sm:px-3"
+              className="order-1 inline-flex h-9 w-9 cursor-pointer items-center justify-center justify-self-start rounded-full border border-[#16856F]/25 text-[#0D5E50] transition-colors hover:border-[#16856F] hover:bg-[#16856F] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] sm:order-none sm:h-10 sm:w-auto sm:justify-self-auto sm:gap-2 sm:px-3"
             >
               <Menu className="h-4 w-4 sm:h-[1.1rem] sm:w-[1.1rem]" />
               <span className="hidden text-[0.8rem] font-bold uppercase tracking-[0.12em] sm:inline">
@@ -369,7 +360,7 @@ const Header = () => {
 
         <div className="absolute inset-x-0 bottom-0 h-px bg-[#171b25]/5">
           <motion.div
-            className="relative h-full origin-left bg-[#b74717]"
+            className="relative h-full origin-left bg-[#16856F]"
             style={{ scaleX }}
           >
             {currentPageName && (
@@ -401,23 +392,14 @@ const Header = () => {
                 <div className="flex items-center justify-between border-b border-[#171b25]/10 px-5 py-3.5 sm:px-8">
                   <div className="flex items-center gap-2.5">
                     <img
-                      src="/assets/logo.png"
-                      alt="SIT"
-                      className="h-11 w-11 object-contain md:h-12 md:w-12"
+                      src="/assets/biotech/logo-biotech.png"
+                      alt={t("faculty")}
+                      className="h-9 w-auto max-w-[14rem] object-contain md:h-11 md:max-w-[18rem]"
                     />
-                    <div className="min-w-0 text-left leading-none">
-                      <span className="block text-[0.7rem] font-black uppercase tracking-[0.1em] text-[#ba4911] sm:text-sm xl:text-base">
-                        {t("university")}
-                      </span>
-                      <span className="my-0.5 block h-px w-full bg-[#ba4911]" />
-                      <span className="block text-[0.7rem] font-black uppercase text-[#ba4911] sm:text-sm xl:text-base">
-                        {t("faculty")}
-                      </span>
-                    </div>
                   </div>
                   <button
                     onClick={closeMenu}
-                    className="group flex h-10 cursor-pointer items-center gap-2.5 border border-[#171b25]/15 px-3 text-[#424640] transition-colors hover:border-[#b74717] hover:bg-[#b74717] hover:text-white active:scale-[0.98]"
+                    className="group flex h-10 cursor-pointer items-center gap-2.5 rounded-full border border-[#171b25]/15 px-3 text-[#424640] transition-colors hover:border-[#16856F] hover:bg-[#16856F] hover:text-white active:scale-[0.98]"
                     aria-label={t("close")}
                   >
                     <span className="text-xs font-bold uppercase tracking-[0.15em] sm:text-sm">
@@ -438,14 +420,14 @@ const Header = () => {
                           onClick={() => setActiveSection(section.id)}
                           whileHover={{
                             x: 10,
-                            backgroundColor: "rgba(186, 73, 17, 0.03)",
+                            backgroundColor: "rgba(22, 133, 111, 0.03)",
                           }}
                           whileTap={{ scale: 0.97 }}
                           className={cn(
                             "relative block w-full cursor-pointer px-4 py-3 text-left text-xl font-semibold transition-all duration-300 md:text-3xl",
                             activeSection === section.id
-                              ? "text-[#ba4911] bg-[#ba4911]/5"
-                              : "text-slate-800 hover:text-[#ba4911]",
+                              ? "text-[#16856F] bg-[#16856F]/5"
+                              : "text-slate-800 hover:text-[#16856F]",
                           )}
                         >
                           <div className="flex items-center justify-between">
@@ -454,8 +436,8 @@ const Header = () => {
                               className={cn(
                                 "h-6 w-6 transition-transform duration-300",
                                 activeSection === section.id
-                                  ? "rotate-90 text-[#ba4911]"
-                                  : "text-slate-300 group-hover:text-[#ba4911]",
+                                  ? "rotate-90 text-[#16856F]"
+                                  : "text-slate-300 group-hover:text-[#16856F]",
                               )}
                             />
                           </div>
@@ -478,10 +460,10 @@ const Header = () => {
                           {activeSection === "programs" && (
                             <div className="space-y-4 md:space-y-6">
                               <div className="flex items-center gap-2">
-                                <h2 className="text-lg md:text-xl font-bold text-[#ba4911]">
+                                <h2 className="text-lg md:text-xl font-bold text-[#16856F]">
                                   {t("navigation.programs")}
                                 </h2>
-                                <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-[#ba4911]" />
+                                <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-[#16856F]" />
                               </div>
                               <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
                                 {t("programsDescription")}
@@ -496,14 +478,14 @@ const Header = () => {
                                     whileHover={{
                                       x: 8,
                                       backgroundColor:
-                                        "rgba(186, 73, 17, 0.05)",
+                                        "rgba(22, 133, 111, 0.05)",
                                     }}
                                     whileTap={{ scale: 0.98 }}
                                     className={cn(
                                       "relative block w-full cursor-pointer px-4 py-3 text-left text-lg font-bold transition-all duration-300 whitespace-normal",
                                       activeProgramCategory === category.id
-                                        ? "text-[#ba4911] bg-[#ba4911]/10 shadow-sm"
-                                        : "text-slate-700 hover:text-[#ba4911]",
+                                        ? "text-[#16856F] bg-[#16856F]/10 shadow-sm"
+                                        : "text-slate-700 hover:text-[#16856F]",
                                     )}
                                   >
                                     <div className="flex items-center justify-between">
@@ -512,8 +494,8 @@ const Header = () => {
                                         className={cn(
                                           "flex h-8 w-8 items-center justify-center transition-colors",
                                           activeProgramCategory === category.id
-                                            ? "bg-[#ba4911] text-white"
-                                            : "bg-slate-100 text-slate-400 group-hover:bg-[#ba4911]/20 group-hover:text-[#ba4911]",
+                                            ? "bg-[#16856F] text-white"
+                                            : "bg-slate-100 text-slate-400 group-hover:bg-[#16856F]/20 group-hover:text-[#16856F]",
                                         )}
                                       >
                                         <ChevronRight className="h-4 w-4" />
@@ -528,10 +510,10 @@ const Header = () => {
                           {activeSection === "students" && (
                             <div className="space-y-4 md:space-y-6">
                               <div className="flex items-center gap-2">
-                                <h2 className="text-lg md:text-xl font-bold text-[#ba4911]">
+                                <h2 className="text-lg md:text-xl font-bold text-[#16856F]">
                                   {t("navigation.students")}
                                 </h2>
-                                <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-[#ba4911]" />
+                                <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-[#16856F]" />
                               </div>
                               <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
                                 {t("studentsDescription")}
@@ -547,12 +529,12 @@ const Header = () => {
                                         href={link.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="block text-slate-700 hover:text-[#ba4911] transition-colors font-medium pb-1 whitespace-normal break-normal"
+                                        className="block text-slate-700 hover:text-[#16856F] transition-colors font-medium pb-1 whitespace-normal break-normal"
                                         onClick={closeMenu}
                                       >
                                         {link.label}
                                         <motion.div
-                                          className="absolute bottom-0 left-0 h-0.5 bg-[#ba4911]"
+                                          className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
                                           initial={{ width: 0 }}
                                           whileHover={{ width: "100%" }}
                                           transition={{
@@ -564,12 +546,12 @@ const Header = () => {
                                     ) : (
                                       <Link
                                         href={link.href}
-                                        className="block text-slate-700 hover:text-[#ba4911] transition-colors font-medium pb-1 whitespace-normal break-normal"
+                                        className="block text-slate-700 hover:text-[#16856F] transition-colors font-medium pb-1 whitespace-normal break-normal"
                                         onClick={closeMenu}
                                       >
                                         {link.label}
                                         <motion.div
-                                          className="absolute bottom-0 left-0 h-0.5 bg-[#ba4911]"
+                                          className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
                                           initial={{ width: 0 }}
                                           whileHover={{ width: "100%" }}
                                           transition={{
@@ -588,10 +570,10 @@ const Header = () => {
                           {activeSection === "research" && (
                             <div className="space-y-4 md:space-y-6">
                               <div className="flex items-center gap-2">
-                                <h2 className="text-lg md:text-xl font-bold text-[#ba4911]">
+                                <h2 className="text-lg md:text-xl font-bold text-[#16856F]">
                                   {t("navigation.research")}
                                 </h2>
-                                <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-[#ba4911]" />
+                                <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-[#16856F]" />
                               </div>
                               <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
                                 {t("researchDescription")}
@@ -604,12 +586,12 @@ const Header = () => {
                                   >
                                     <Link
                                       href={link.href}
-                                      className="block text-slate-800 hover:text-[#ba4911] transition-colors pb-1 whitespace-normal break-normal"
+                                      className="block text-slate-800 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
                                       onClick={closeMenu}
                                     >
                                       {link.label}
                                       <motion.div
-                                        className="absolute bottom-0 left-0 h-0.5 bg-[#ba4911]"
+                                        className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
                                         initial={{ width: 0 }}
                                         whileHover={{ width: "100%" }}
                                         transition={{
@@ -627,10 +609,10 @@ const Header = () => {
                           {activeSection === "explore" && (
                             <div className="space-y-4 md:space-y-6">
                               <div className="flex items-center gap-2">
-                                <h2 className="text-lg md:text-xl font-bold text-[#ba4911]">
+                                <h2 className="text-lg md:text-xl font-bold text-[#16856F]">
                                   {t("exploreSit")}
                                 </h2>
-                                <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-[#ba4911]" />
+                                <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-[#16856F]" />
                               </div>
                               <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
                                 {t("exploreDescription")}
@@ -643,12 +625,12 @@ const Header = () => {
                                   >
                                     <Link
                                       href={link.href}
-                                      className="block text-slate-800 hover:text-[#ba4911] transition-colors pb-1 whitespace-normal break-normal"
+                                      className="block text-slate-800 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
                                       onClick={closeMenu}
                                     >
                                       {link.label}
                                       <motion.div
-                                        className="absolute bottom-0 left-0 h-0.5 bg-[#ba4911]"
+                                        className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
                                         initial={{ width: 0 }}
                                         whileHover={{ width: "100%" }}
                                         transition={{
@@ -688,7 +670,7 @@ const Header = () => {
                                 key={category.id}
                                 className="space-y-4 md:space-y-6"
                               >
-                                <h2 className="text-lg md:text-xl font-bold text-[#ba4911]">
+                                <h2 className="text-lg md:text-xl font-bold text-[#16856F]">
                                   {category.title}
                                 </h2>
                                 <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
@@ -701,14 +683,14 @@ const Header = () => {
                                         whileHover={{
                                           x: 6,
                                           backgroundColor:
-                                            "rgba(186, 73, 17, 0.05)",
+                                            "rgba(22, 133, 111, 0.05)",
                                         }}
                                         whileTap={{ scale: 0.98 }}
                                         className="transition-all duration-200"
                                       >
                                         <Link
                                           href={group.href}
-                                          className="flex items-center justify-between p-3 text-slate-800 font-bold hover:text-[#ba4911] transition-colors text-base whitespace-normal break-normal"
+                                          className="flex items-center justify-between p-3 text-slate-800 font-bold hover:text-[#16856F] transition-colors text-base whitespace-normal break-normal"
                                           onClick={closeMenu}
                                         >
                                           <span>{group.title}</span>
@@ -731,10 +713,10 @@ const Header = () => {
                                             >
                                               <Link
                                                 href={item.href}
-                                                className="flex items-center gap-3 px-3 py-1.5 text-slate-600 hover:text-[#ba4911] transition-colors text-sm font-medium whitespace-normal break-normal"
+                                                className="flex items-center gap-3 px-3 py-1.5 text-slate-600 hover:text-[#16856F] transition-colors text-sm font-medium whitespace-normal break-normal"
                                                 onClick={closeMenu}
                                               >
-                                                <div className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-[#ba4911] transition-colors" />
+                                                <div className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-[#16856F] transition-colors" />
                                                 {item.title}
                                               </Link>
                                             </motion.div>
@@ -769,11 +751,11 @@ const Header = () => {
                               ? `${basePath}/gioi-thieu-chung`
                               : `${basePath}/about-us`
                           }
-                          className="text-slate-600 hover:text-[#ba4911] transition-colors pb-1 whitespace-normal break-normal"
+                          className="text-slate-600 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
                         >
                           {t("about")}
                           <motion.div
-                            className="absolute bottom-0 left-0 h-0.5 bg-[#ba4911]"
+                            className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
                             initial={{ width: 0 }}
                             whileHover={{ width: "100%" }}
                             transition={{
@@ -790,11 +772,11 @@ const Header = () => {
                               ? `${basePath}/tin-tuc`
                               : `${basePath}/news`
                           }
-                          className="text-slate-600 hover:text-[#ba4911] transition-colors pb-1 whitespace-normal break-normal"
+                          className="text-slate-600 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
                         >
                           {t("news")}
                           <motion.div
-                            className="absolute bottom-0 left-0 h-0.5 bg-[#ba4911]"
+                            className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
                             initial={{ width: 0 }}
                             whileHover={{ width: "100%" }}
                             transition={{
@@ -811,11 +793,11 @@ const Header = () => {
                               ? `${basePath}/nghien-cuu`
                               : `${basePath}/research`
                           }
-                          className="text-slate-600 hover:text-[#ba4911] transition-colors pb-1 whitespace-normal break-normal"
+                          className="text-slate-600 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
                         >
                           {t("research")}
                           <motion.div
-                            className="absolute bottom-0 left-0 h-0.5 bg-[#ba4911]"
+                            className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
                             initial={{ width: 0 }}
                             whileHover={{ width: "100%" }}
                             transition={{
@@ -832,11 +814,11 @@ const Header = () => {
                               ? `${basePath}/sinh-vien`
                               : `${basePath}/students`
                           }
-                          className="text-slate-600 hover:text-[#ba4911] transition-colors pb-1 whitespace-normal break-normal"
+                          className="text-slate-600 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
                         >
                           {t("students")}
                           <motion.div
-                            className="absolute bottom-0 left-0 h-0.5 bg-[#ba4911]"
+                            className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
                             initial={{ width: 0 }}
                             whileHover={{ width: "100%" }}
                             transition={{
@@ -853,11 +835,11 @@ const Header = () => {
                               ? `${basePath}/lien-he`
                               : `${basePath}/contact`
                           }
-                          className="text-slate-600 hover:text-[#ba4911] transition-colors pb-1 whitespace-normal break-normal"
+                          className="text-slate-600 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
                         >
                           {t("contactLink")}
                           <motion.div
-                            className="absolute bottom-0 left-0 h-0.5 bg-[#ba4911]"
+                            className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
                             initial={{ width: 0 }}
                             whileHover={{ width: "100%" }}
                             transition={{
@@ -874,11 +856,11 @@ const Header = () => {
                               ? `${basePath}/hoi-dap`
                               : `${basePath}/faq`
                           }
-                          className="text-slate-600 hover:text-[#ba4911] transition-colors pb-1 whitespace-normal break-normal"
+                          className="text-slate-600 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
                         >
                           {t("faqLink")}
                           <motion.div
-                            className="absolute bottom-0 left-0 h-0.5 bg-[#ba4911]"
+                            className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
                             initial={{ width: 0 }}
                             whileHover={{ width: "100%" }}
                             transition={{
@@ -892,16 +874,16 @@ const Header = () => {
                         <button
                           onClick={() =>
                             window.open(
-                              "https://www.facebook.com/sit.ttu.edu.vn",
+                              "https://www.facebook.com/biotechnology.biotechnology.357",
                               "_blank",
                               "noopener,noreferrer",
                             )
                           }
-                          className="text-slate-600 hover:text-[#ba4911] transition-colors pb-1 whitespace-normal break-normal"
+                          className="text-slate-600 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
                         >
                           {t("messengerLink")}
                           <motion.div
-                            className="absolute bottom-0 left-0 h-0.5 bg-[#ba4911]"
+                            className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
                             initial={{ width: 0 }}
                             whileHover={{ width: "100%" }}
                             transition={{

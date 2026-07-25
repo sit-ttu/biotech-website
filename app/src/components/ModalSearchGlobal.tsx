@@ -110,7 +110,7 @@ export function ModalSearchGlobal({
     >
       <DialogContent
         showCloseButton={false}
-        className="!top-[12vh] !translate-y-0 w-full max-w-[calc(100%-1rem)] gap-0 overflow-hidden rounded-none border border-[#d8d3ce] border-t-2 border-t-[#BA4811] bg-white p-0 shadow-[0_24px_70px_rgba(28,24,20,0.22)] sm:max-w-xl md:max-w-2xl"
+        className="!top-[12vh] !translate-y-0 w-full max-w-[calc(100%-1rem)] gap-0 overflow-hidden rounded-none border border-[#d8d3ce] border-t-2 border-t-[#16856F] bg-white p-0 shadow-[0_24px_70px_rgba(28,24,20,0.22)] sm:max-w-xl md:max-w-2xl"
       >
         <DialogTitle className="sr-only">{t("search")}</DialogTitle>
         <Command className="flex max-h-[76dvh] flex-col bg-white text-[#171b25] [&_[cmdk-group-heading]]:mb-1.5 [&_[cmdk-group-heading]]:mt-3 [&_[cmdk-group-heading]]:px-3 sm:[&_[cmdk-group-heading]]:px-4 [&_[cmdk-group-heading]]:font-mono [&_[cmdk-group-heading]]:text-[9px] [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-[0.15em] [&_[cmdk-group-heading]]:text-[#858b96] [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:border-t [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:border-[#ece8e4] [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-2 [&_[cmdk-group]]:px-2 [&_[cmdk-item]]:rounded-none [&_[cmdk-item]]:text-sm [&_[cmdk-item]_svg]:h-4 [&_[cmdk-item]_svg]:w-4">
@@ -118,7 +118,7 @@ export function ModalSearchGlobal({
             className="flex h-16 shrink-0 items-center border-b border-[#e5e1dd] bg-white px-4 sm:px-5"
             cmdk-input-wrapper=""
           >
-            <Search className="mr-3 h-[18px] w-[18px] shrink-0 text-[#BA4811]" />
+            <Search className="mr-3 h-[18px] w-[18px] shrink-0 text-[#16856F]" />
             <Command.Input
               className="h-full min-w-0 flex-1 rounded-none bg-transparent text-[15px] font-medium tracking-tight text-[#171b25] outline-none placeholder:font-normal placeholder:text-[#a0a5ae] disabled:cursor-not-allowed disabled:opacity-50 sm:text-base"
               placeholder={t("searchPlaceholder") || "Search anything..."}
@@ -126,7 +126,7 @@ export function ModalSearchGlobal({
               onValueChange={setQuery}
             />
             {loading && (
-              <Loader2 className="mr-3 h-4 w-4 animate-spin text-[#BA4811]" />
+              <Loader2 className="mr-3 h-4 w-4 animate-spin text-[#16856F]" />
             )}
             <kbd className="mr-3 hidden h-7 items-center border border-[#dedad5] bg-[#faf9f8] px-2 font-mono text-[9px] font-semibold text-[#7b8290] sm:inline-flex">
               ⌘ K
@@ -134,7 +134,7 @@ export function ModalSearchGlobal({
             <button
               type="button"
               onClick={() => onOpenChange(false)}
-              className="flex h-8 w-8 shrink-0 items-center justify-center border border-transparent text-[#858b96] transition-colors hover:border-[#dedad5] hover:bg-[#f7f4f1] hover:text-[#BA4811] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BA4811]"
+              className="flex h-8 w-8 shrink-0 items-center justify-center border border-transparent text-[#858b96] transition-colors hover:border-[#dedad5] hover:bg-[#f7f4f1] hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F]"
               aria-label={t("footerClose")}
             >
               <X className="h-4 w-4" />
@@ -170,8 +170,8 @@ export function ModalSearchGlobal({
                 <div className="px-4 pb-2 pt-3 sm:px-5">
                   <p className="max-w-lg text-[12px] leading-5 text-[#7b8290]">
                     {locale === "vi"
-                      ? "Tìm kiếm chương trình đào tạo, tin tức và các hoạt động nghiên cứu của SIT."
-                      : "Search SIT programs, news and research activities."}
+                      ? "Tìm kiếm chương trình đào tạo, tin tức và hoạt động nghiên cứu của Khoa Công nghệ Sinh học."
+                      : "Search Biotechnology Faculty programs, news, and research activities."}
                   </p>
                 </div>
                 <Command.Group heading={t("quickActions")}>
@@ -185,15 +185,15 @@ export function ModalSearchGlobal({
                         ),
                       )
                     }
-                    className="group relative flex cursor-pointer select-none items-center border-l-2 border-transparent px-3 py-3 outline-none transition-colors aria-selected:border-[#BA4811] aria-selected:bg-[#f7f0eb] aria-selected:text-[#BA4811] data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 sm:px-4"
+                    className="group relative flex cursor-pointer select-none items-center border-l-2 border-transparent px-3 py-3 outline-none transition-colors aria-selected:border-[#16856F] aria-selected:bg-[#f7f0eb] aria-selected:text-[#16856F] data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 sm:px-4"
                   >
-                    <div className="mr-3 text-slate-400 group-aria-selected:text-[#ba4911]">
+                    <div className="mr-3 text-slate-400 group-aria-selected:text-[#16856F]">
                       <Search className="h-4 w-4" />
                     </div>
-                    <span className="font-medium text-slate-700 group-aria-selected:text-[#ba4911]">
+                    <span className="font-medium text-slate-700 group-aria-selected:text-[#16856F]">
                       {t("searchPosts")}
                     </span>
-                    <span className="ml-auto font-mono text-[11px] text-[#a0a5ae] group-aria-selected:text-[#BA4811]">
+                    <span className="ml-auto font-mono text-[11px] text-[#a0a5ae] group-aria-selected:text-[#16856F]">
                       <ArrowIcon direction="right" size={16} />
                     </span>
                   </Command.Item>
@@ -226,7 +226,7 @@ export function ModalSearchGlobal({
                           })
                         }
                         value={program.nameVi + program.nameEn}
-                        className="group relative flex cursor-pointer select-none items-center border-l-2 border-transparent px-3 py-3 outline-none transition-colors aria-selected:border-[#7b2d0d] aria-selected:bg-[#BA4811] aria-selected:text-white data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 sm:px-4"
+                        className="group relative flex cursor-pointer select-none items-center border-l-2 border-transparent px-3 py-3 outline-none transition-colors aria-selected:border-[#0D5E50] aria-selected:bg-[#16856F] aria-selected:text-white data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 sm:px-4"
                       >
                         <div className="mr-3 text-slate-500 group-aria-selected:text-white">
                           <svg
@@ -259,7 +259,7 @@ export function ModalSearchGlobal({
                         key={curriculum.curriculumId}
                         onSelect={() => runCommand(() => {})}
                         value={curriculum.nameVi + curriculum.nameEn}
-                        className="group relative flex cursor-pointer select-none items-center border-l-2 border-transparent px-3 py-3 outline-none transition-colors aria-selected:border-[#7b2d0d] aria-selected:bg-[#BA4811] aria-selected:text-white data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 sm:px-4"
+                        className="group relative flex cursor-pointer select-none items-center border-l-2 border-transparent px-3 py-3 outline-none transition-colors aria-selected:border-[#0D5E50] aria-selected:bg-[#16856F] aria-selected:text-white data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 sm:px-4"
                       >
                         <div className="mr-3 text-slate-500 group-aria-selected:text-white">
                           <svg
@@ -302,7 +302,7 @@ export function ModalSearchGlobal({
                           })
                         }
                         value={newsItem.title + (newsItem.summary || "")}
-                        className="group relative flex cursor-pointer select-none items-start border-l-2 border-transparent px-3 py-3 outline-none transition-colors aria-selected:border-[#7b2d0d] aria-selected:bg-[#BA4811] aria-selected:text-white data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 sm:px-4"
+                        className="group relative flex cursor-pointer select-none items-start border-l-2 border-transparent px-3 py-3 outline-none transition-colors aria-selected:border-[#0D5E50] aria-selected:bg-[#16856F] aria-selected:text-white data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 sm:px-4"
                       >
                         <div className="mr-3 text-slate-500 group-aria-selected:text-white">
                           <svg
@@ -356,7 +356,7 @@ export function ModalSearchGlobal({
                           (researchItem.abstract || "") +
                           (researchItem.authors || "")
                         }
-                        className="group relative flex cursor-pointer select-none items-start border-l-2 border-transparent px-3 py-3 outline-none transition-colors aria-selected:border-[#7b2d0d] aria-selected:bg-[#BA4811] aria-selected:text-white data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 sm:px-4"
+                        className="group relative flex cursor-pointer select-none items-start border-l-2 border-transparent px-3 py-3 outline-none transition-colors aria-selected:border-[#0D5E50] aria-selected:bg-[#16856F] aria-selected:text-white data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 sm:px-4"
                       >
                         <div className="mr-3 text-slate-500 group-aria-selected:text-white">
                           <svg
