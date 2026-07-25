@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://sit.ttu.edu.vn";
-export const DEFAULT_CONTENT_IMAGE = "/assets/banner-KT2.png";
+export const SITE_URL = "https://biotech.ttu.edu.vn";
+export const DEFAULT_CONTENT_IMAGE =
+  "/assets/biotech/hero-biotechnology.png";
 
 export type SeoLocale = "vi" | "en";
 
@@ -10,8 +11,8 @@ const openGraphLocale = (locale: SeoLocale) =>
 
 export const siteName = (locale: SeoLocale) =>
   locale === "vi"
-    ? "Khoa Công nghệ Thông tin - Đại học Tân Tạo"
-    : "School of Information Technology - Tan Tao University";
+    ? "Khoa Công nghệ Sinh học - Đại học Tân Tạo"
+    : "School of Biotechnology - Tan Tao University";
 
 export const absoluteUrl = (path: string) =>
   path.startsWith("http://") || path.startsWith("https://")

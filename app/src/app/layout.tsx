@@ -18,15 +18,15 @@ const robotoMono = Roboto_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  applicationName: "SIT - Đại học Tân Tạo",
-  title: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
+  applicationName: "Biotech TTU",
+  title: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
   description:
-    "Khoa Công nghệ Thông tin Đại học Tân Tạo đào tạo Khoa học Máy tính, Khoa học Dữ liệu, Trí tuệ nhân tạo và Công nghệ thông tin gắn với thực hành, nghiên cứu.",
+    "Khoa Công nghệ Sinh học Đại học Tân Tạo đào tạo Công nghệ Sinh học và Nông nghiệp công nghệ cao gắn với thực hành, nghiên cứu và ứng dụng.",
   keywords:
-    "Khoa Công nghệ Thông tin Đại học Tân Tạo, Khoa học Máy tính, Khoa học Dữ liệu, Trí tuệ nhân tạo, Công nghệ thông tin, SIT, TTU",
-  authors: [{ name: "Khoa Công nghệ Thông tin - Đại học Tân Tạo" }],
-  creator: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
-  publisher: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
+    "Khoa Công nghệ Sinh học Đại học Tân Tạo, Công nghệ Sinh học, Nông nghiệp công nghệ cao, nghiên cứu sinh học, Biotech TTU",
+  authors: [{ name: "Khoa Công nghệ Sinh học - Đại học Tân Tạo" }],
+  creator: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
+  publisher: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
   robots: {
     index: true,
     follow: true,
@@ -41,45 +41,40 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "vi_VN",
-    siteName: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
-    title: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
+    siteName: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
+    title: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
     description: truncateText(
-      "Khoa Công nghệ Thông tin Đại học Tân Tạo đào tạo Khoa học Máy tính, Khoa học Dữ liệu, Trí tuệ nhân tạo và Công nghệ thông tin gắn với thực hành, nghiên cứu.",
+      "Khoa Công nghệ Sinh học Đại học Tân Tạo đào tạo Công nghệ Sinh học và Nông nghiệp công nghệ cao gắn với thực hành, nghiên cứu và ứng dụng.",
       125,
     ),
     images: [
       {
-        url: absoluteUrl("/assets/logo-sit.png"),
-        width: 1200,
-        height: 1200,
-        alt: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
+        url: absoluteUrl("/assets/biotech/hero-biotechnology.png"),
+        width: 1920,
+        height: 1080,
+        alt: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
+    title: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
     description:
-      "Đào tạo Công nghệ Thông tin, Khoa học Máy tính, Khoa học Dữ liệu và Trí tuệ nhân tạo tại Đại học Tân Tạo.",
-    images: [absoluteUrl("/assets/logo-sit.png")],
+      "Đào tạo Công nghệ Sinh học và Nông nghiệp công nghệ cao tại Đại học Tân Tạo.",
+    images: [absoluteUrl("/assets/biotech/hero-biotechnology.png")],
   },
   icons: {
     icon: [
       {
-        url: "/assets/logo-sit.png",
-        sizes: "32x32",
-        type: "image/png",
-      },
-      {
-        url: "/assets/logo-sit.png",
-        sizes: "192x192",
+        url: "/assets/biotech/logo-biotech.png",
+        sizes: "737x111",
         type: "image/png",
       },
     ],
     apple: [
       {
-        url: "/assets/logo-sit.png",
-        sizes: "180x180",
+        url: "/assets/biotech/logo-biotech.png",
+        sizes: "737x111",
         type: "image/png",
       },
     ],

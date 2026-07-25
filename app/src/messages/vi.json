@@ -1,27 +1,27 @@
 {
   "metadata": {
-    "title": "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
-    "description": "Khoa Công nghệ Thông tin Đại học Tân Tạo đào tạo Khoa học Máy tính, Khoa học Dữ liệu, Trí tuệ nhân tạo và Công nghệ thông tin gắn với thực hành, nghiên cứu.",
-    "keywords": "Khoa Công nghệ Thông tin Đại học Tân Tạo, Khoa học Máy tính, Khoa học Dữ liệu, Trí tuệ nhân tạo, Công nghệ thông tin, SIT, TTU"
+    "title": "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
+    "description": "Khoa Công nghệ Sinh học Đại học Tân Tạo đào tạo Công nghệ Sinh học và Nông nghiệp công nghệ cao theo định hướng nghiên cứu, thực hành và hội nhập quốc tế.",
+    "keywords": "Khoa Công nghệ Sinh học Đại học Tân Tạo, Công nghệ Sinh học, Nông nghiệp công nghệ cao, nghiên cứu sinh học, Biotech TTU"
   },
   "header": {
-    "phone": "+84 272 376 9216",
-    "email": "sit@ttu.edu.vn",
-    "slogan": "Đồng hành cùng cách mạng công nghệ 4.0",
+    "phone": "(+84) 076 436 2098",
+    "email": "secretary.sbio@ttu.edu.vn",
+    "slogan": "Nuôi dưỡng tri thức, kiến tạo sự sống",
     "university": "Đại học Tân Tạo",
-    "faculty": "Khoa Công nghệ Thông tin",
+    "faculty": "Khoa Công nghệ Sinh học",
     "navigation": {
       "about": "Giới thiệu",
-      "programs": "Đào tạo",
+      "programs": "Chương trình đào tạo",
       "students": "Sinh viên",
       "research": "Nghiên cứu",
       "news": "Tin tức",
       "faculty": "Giảng viên",
       "researchOverview": "Tổng quan nghiên cứu",
       "scientificProjects": "Đề tài khoa học",
-      "scientificPublications": "Bài báo khoa học",
+      "scientificPublications": "Công bố khoa học",
       "studentsOverview": "Đời sống sinh viên",
-      "studentsAdmissions": "Cổng tuyển sinh",
+      "studentsAdmissions": "Tuyển sinh",
       "studentsHandbook": "Sổ tay sinh viên",
       "studentsActivities": "Hoạt động sinh viên",
       "studentsInternships": "Thực tập & việc làm",
@@ -29,7 +29,7 @@
     },
     "contact": "Liên hệ tư vấn",
     "close": "Đóng",
-    "exploreSit": "Khám phá SIT",
+    "exploreSit": "Khám phá Biotech TTU",
     "quickLinks": "Liên kết nhanh",
     "about": "Giới thiệu",
     "news": "Tin tức",
@@ -39,11 +39,11 @@
     "contactLink": "Liên hệ",
     "faqLink": "Hỏi đáp",
     "messengerLink": "Nhắn Messenger",
-    "programsDescription": "Khám phá các chương trình đào tạo toàn diện được thiết kế cho mọi loại người học.",
-    "studentsDescription": "Mọi thông tin bạn cần biết về đời sống sinh viên, tuyển sinh và cơ hội.",
-    "researchDescription": "Khám phá các sáng kiến nghiên cứu tiên tiến và đóng góp khoa học của chúng tôi.",
-    "exploreDescription": "Khám phá mọi thứ mà SIT mang lại cho sinh viên và nhà nghiên cứu.",
-    "programsBrowseDescription": "Duyệt tất cả các chương trình và chuyên ngành của chúng tôi.",
+    "programsDescription": "Khám phá các chương trình Công nghệ Sinh học và Nông nghiệp công nghệ cao gắn với thực hành và nghiên cứu.",
+    "studentsDescription": "Thông tin tuyển sinh, học tập, hoạt động và cơ hội dành cho sinh viên Biotech TTU.",
+    "researchDescription": "Tìm hiểu các hướng nghiên cứu, công bố khoa học và hệ thống phòng thực hành của Khoa.",
+    "exploreDescription": "Khám phá môi trường học thuật và nghiên cứu của Khoa Công nghệ Sinh học.",
+    "programsBrowseDescription": "Xem chương trình đào tạo và lộ trình học tập tại Biotech TTU.",
     "language": {
       "vi": "Tiếng Việt",
       "en": "English"
@@ -64,61 +64,52 @@
     "footerClose": "đóng"
   },
   "textRibbon": {
-    "messages": [
-      "Nhóm Meme Trade Co. (SIT & SEB) đoạt giải Ba Ancient8 Builder Jam (13/01/2025)",
-      "Công bố thời khóa biểu học kỳ Xuân 2025 dành cho sinh viên năm 2-4",
-      "Workshop “Bước đầu phát triển Web3 App” diễn ra ngày 18/12/2024",
-      "Đoàn đánh giá ngoài CTĐT Khoa học Máy tính làm việc tại SIT (11-15/01/2025)",
-      "Seminar: Giao tiếp trên các nền tảng mạng xã hội (07/01/2025)",
-      "Open House 01 – Hành trình định hướng tương lai (05/01/2025)"
-    ]
+    "messages": []
   },
   "hero": {
-    "welcome": "Chào mừng đến với SIT",
-    "title": "Khám phá thế giới",
+    "welcome": "Khoa Công nghệ Sinh học · Đại học Tân Tạo",
+    "title": "Nuôi dưỡng tri thức",
     "dynamicTexts": [
-      "Công nghệ Thông tin",
-      "Trí tuệ Nhân tạo",
-      "Khoa học Dữ liệu",
-      "Kỹ thuật Phần mềm",
-      "Ứng dụng Web3",
-      "Chuyển đổi số"
+      "Kiến tạo sự sống",
+      "Công nghệ Sinh học",
+      "Nông nghiệp công nghệ cao",
+      "Nghiên cứu ứng dụng"
     ],
-    "subtitle": "Khoa Công nghệ Thông tin TTU vận hành theo triết lí Khai phóng - Học suốt đời, trang bị cho sinh viên năng lực dẫn dắt chuyển đổi số Việt Nam.",
-    "explore": "Khám phá ngay",
-    "watchVideo": "Tìm hiểu về SIT",
-    "imageEyebrow": "Trải nghiệm học tập tại SIT",
-    "imageTitle": "Học qua dự án, trưởng thành qua trải nghiệm.",
-    "imageDescription": "Kết nối nền tảng công nghệ, nghiên cứu và những bài toán thực tế."
+    "subtitle": "Chương trình đào tạo hiện đại, hội nhập quốc tế và dựa trên chuẩn đầu ra, giúp người học xây dựng nền tảng khoa học vững chắc, kỹ năng thực hành và phẩm chất nghề nghiệp.",
+    "explore": "Khám phá chương trình",
+    "watchVideo": "Tìm hiểu về Khoa",
+    "imageEyebrow": "Mã ngành 7420201",
+    "imageTitle": "Công nghệ Sinh học cho một tương lai khỏe mạnh và bền vững.",
+    "imageDescription": "Học tập gắn với phòng thí nghiệm, nghiên cứu khoa học và những bài toán thực tiễn."
   },
   "stats": {
-    "title": "Dấu mốc chính",
-    "subtitle": "Thông tin chính thức từ Đại học Tân Tạo và Khoa CNTT",
+    "title": "Dấu mốc đào tạo",
+    "subtitle": "Thông tin chính thức của chương trình Công nghệ Sinh học",
     "items": [
       {
-        "number": "2011",
-        "label": "Khoa Công nghệ Thông tin thành lập"
+        "number": "4",
+        "label": "Năm đào tạo"
       },
       {
-        "number": "—",
-        "label": "Đề tài khoa học"
+        "number": "130",
+        "label": "Tín chỉ Công nghệ Sinh học"
       },
       {
-        "number": "—",
-        "label": "Bài báo khoa học"
+        "number": "2",
+        "label": "Chương trình trọng tâm"
       },
       {
-        "number": "120+",
-        "label": "Người học"
+        "number": "8",
+        "label": "Học kỳ theo lộ trình chuẩn"
       }
     ]
   },
   "programs": {
     "badge": "Chương trình đào tạo",
-    "title": "Các chương trình đào tạo",
-    "titleHighlight": "Các lộ trình Công nghệ Thông tin",
-    "subtitle": "Khoa Công nghệ Thông tin, Trường Đại học Tân Tạo đào tạo Khoa học Máy tính, Khoa học Dữ liệu, Trí tuệ nhân tạo và Công nghệ thông tin, kết hợp nền tảng chuyên môn với thực hành và nghiên cứu.",
-    "programsSubtitle": "Từ bậc đại học đến sau đại học, mỗi lộ trình được thiết kế để bạn làm chủ công nghệ và sẵn sàng cho nghề nghiệp tương lai.",
+    "title": "Học để hiểu sự sống",
+    "titleHighlight": "Hai lộ trình khoa học ứng dụng",
+    "subtitle": "Đào tạo theo định hướng nghiên cứu và ứng dụng trong y sinh, nông nghiệp, môi trường, thực phẩm và khoa học dữ liệu.",
+    "programsSubtitle": "Mỗi chương trình kết hợp nền tảng khoa học, kỹ năng phòng thí nghiệm và khả năng giải quyết vấn đề thực tiễn.",
     "viewAll": "Xem tất cả chương trình",
     "viewDetails": "Xem chi tiết",
     "relatedPrograms": "Chương trình liên quan",
@@ -126,22 +117,22 @@
     "exploreOtherProgramsDescription": "Xem các chương trình khác trong cùng lĩnh vực",
     "undergraduate": "Đại học",
     "graduate": "Sau đại học",
-    "whyChoose": "Vì sao chọn Khoa CNTT?",
+    "whyChoose": "Vì sao chọn Biotech TTU?",
     "features": [
       {
-        "title": "Lộ trình đào tạo rõ ràng",
-        "description": "Sinh viên lựa chọn chương trình phù hợp với định hướng học tập và nghề nghiệp trong các lĩnh vực máy tính, dữ liệu, trí tuệ nhân tạo và công nghệ thông tin."
+        "title": "Học qua thực hành",
+        "description": "Tiếp cận kỹ thuật sinh học trong phòng thí nghiệm và vận dụng kiến thức qua học phần thực hành."
       },
       {
-        "title": "Giảng viên đồng hành",
-        "description": "Đội ngũ giảng viên có kinh nghiệm giảng dạy và nghiên cứu hướng dẫn sinh viên xây dựng nền tảng chuyên môn, thực hiện đồ án và tiếp cận nghiên cứu khoa học."
+        "title": "Nghiên cứu ứng dụng",
+        "description": "Phát triển tư duy khoa học và giải pháp cho y sinh, nông nghiệp, môi trường và công nghệ thực phẩm."
       },
       {
-        "title": "Học tập gắn với thực hành",
-        "description": "Phòng lab, hệ thống máy tính và các học phần thực hành tạo điều kiện để sinh viên vận dụng kiến thức vào những bài toán công nghệ cụ thể."
+        "title": "Hội nhập quốc tế",
+        "description": "Rèn luyện tiếng Anh chuyên ngành, kỹ năng trình bày, phản biện và làm việc trong môi trường đa ngành."
       }
     ],
-    "financialSupport": "Học bổng và lộ trình sau đại học trong nước & quốc tế",
+    "financialSupport": "Học bổng, thực tập và cơ hội nghiên cứu trong nước và quốc tế",
     "details": {
       "shared": {
         "keyDetailsTitle": "Thông tin chính",
@@ -159,11 +150,11 @@
             "Đại học"
           ],
           "title": "Chương trình Đại học",
-          "highlight": "CNTT & Đổi mới dữ liệu",
-          "subtitle": "Biến ý tưởng của bạn thành hiện thực với chương trình khai phóng kết hợp công nghệ, sáng tạo và tinh thần khởi nghiệp.",
+          "highlight": "Công nghệ Sinh học & Đổi mới dữ liệu",
+          "subtitle": "Biến ý tưởng của bạn thành hiện thực với chương trình khai phóng kết hợp khoa học, đổi mới và tinh thần khởi nghiệp.",
           "ctaPrimary": "Đăng ký xét tuyển",
           "ctaSecondary": "Xem các ngành học",
-          "image": "/assets/banner-KT2.png",
+          "image": "/assets/biotech/hero-biotechnology.png",
           "alt": "Sinh viên đại học khám phá các lộ trình công nghệ"
         },
         "keyDetails": [
@@ -191,11 +182,11 @@
         "overview": {
           "badge": "Hành trình học tập",
           "title": "Định hình trải nghiệm đại học của bạn",
-          "description": "Chọn lộ trình kết nối nền tảng khai phóng với chuyên ngành CNTT và trải nghiệm doanh nghiệp.",
+          "description": "Chọn lộ trình kết nối nền tảng khai phóng với chuyên ngành Công nghệ Sinh học và trải nghiệm doanh nghiệp.",
           "points": [
-            "Năm nhất củng cố giải thuật, lập trình và kỹ năng khai phóng",
-            "Chuyên sâu Kỹ thuật Phần mềm, Khoa học Dữ liệu hoặc AI",
-            "Thực tập doanh nghiệp và nghiên cứu cùng giảng viên SIT",
+            "Năm nhất củng cố giải thuật, thực hành phòng thí nghiệm và kỹ năng khai phóng",
+            "Chuyên sâu Kỹ thuật Công nghệ Sinh học, Tin sinh học hoặc AI",
+            "Thực tập doanh nghiệp và nghiên cứu cùng giảng viên Biotech TTU",
             "Đồ án tốt nghiệp giải quyết bài toán thực tế với đối tác"
           ]
         }
@@ -208,8 +199,8 @@
             "Sau đại học"
           ],
           "title": "Chương trình Sau đại học",
-          "highlight": "Khoa học Máy tính nâng cao",
-          "subtitle": "Nâng cao chuyên môn với các học phần định hướng nghiên cứu cùng đội ngũ giảng viên và doanh nghiệp đối tác của SIT.",
+          "highlight": "Công nghệ Sinh học nâng cao",
+          "subtitle": "Nâng cao chuyên môn với các học phần định hướng nghiên cứu cùng đội ngũ giảng viên và doanh nghiệp đối tác của Biotech TTU.",
           "ctaPrimary": "Nhận đề cương chương trình",
           "ctaSecondary": "Trao đổi với giảng viên",
           "image": "/assets/meeting.png",
@@ -244,7 +235,7 @@
           "points": [
             "Seminar chuyên sâu cập nhật xu hướng điện toán mới",
             "Hướng dẫn nghiên cứu cá nhân gắn với nhu cầu doanh nghiệp",
-            "Cơ hội công bố cùng nhóm nghiên cứu SIT",
+            "Cơ hội công bố cùng nhóm nghiên cứu Biotech TTU",
             "Khai thác phòng thí nghiệm hiện đại và hệ sinh thái đổi mới ĐHTT"
           ]
         }
@@ -258,7 +249,7 @@
         "actions": [
           {
             "label": "Nhận brochure",
-            "description": "Tải brochure mới nhất của SIT"
+            "description": "Tải brochure mới nhất của Biotech TTU"
           },
           {
             "label": "Đăng ký tham quan",
@@ -269,9 +260,9 @@
         "overview": {
           "badge": "Tổng quan chương trình",
           "title": "Dẫn dắt công nghệ và sáng tạo",
-          "description": "SIT kết hợp nền tảng khai phóng với phòng studio công nghệ giúp bạn xây dựng sự nghiệp ý nghĩa.",
+          "description": "Biotech TTU kết hợp nền tảng khai phóng với phòng studio công nghệ giúp bạn xây dựng sự nghiệp ý nghĩa.",
           "points": [
-            "Phòng studio hợp tác cùng giảng viên SIT",
+            "Phòng studio hợp tác cùng giảng viên Biotech TTU",
             "Workshop doanh nghiệp và thử thách đổi mới",
             "Tư duy toàn cầu, tác động cộng đồng địa phương",
             "Cố vấn cá nhân và định hướng nghiên cứu"
@@ -287,16 +278,16 @@
           "badge": "Lộ trình nghề nghiệp",
           "title": "Chương trình mở ra điều gì",
           "points": [
-            "Kỹ sư phần mềm và dữ liệu",
+            "chuyên viên R&D và dữ liệu",
             "Chuyên viên nghiên cứu AI & phân tích",
             "Quản lý sản phẩm và đổi mới số",
-            "Khởi nghiệp trong hệ sinh thái SIT"
+            "Khởi nghiệp trong hệ sinh thái Biotech TTU"
           ]
         }
       },
       "undergraduate": {
         "heroTagline": "Biến ý tưởng thành sản phẩm trong môi trường studio năng động.",
-        "heroImage": "/assets/banner-KT2.png",
+        "heroImage": "/assets/biotech/hero-biotechnology.png",
         "keyFacts": [
           {
             "label": "Mã ngành",
@@ -304,7 +295,7 @@
           },
           {
             "label": "Điều kiện tuyển sinh",
-            "value": "Tốt nghiệp THPT & phỏng vấn tuyển sinh SIT"
+            "value": "Tốt nghiệp THPT & phỏng vấn tuyển sinh Biotech TTU"
           },
           {
             "label": "Thời lượng",
@@ -312,7 +303,7 @@
           },
           {
             "label": "Đơn vị quản lý",
-            "value": "Khoa Công nghệ Thông tin"
+            "value": "Khoa Công nghệ Sinh học"
           }
         ]
       },
@@ -326,7 +317,7 @@
           },
           {
             "label": "Điều kiện tuyển sinh",
-            "value": "Tốt nghiệp đại học CNTT hoặc ngành gần"
+            "value": "Tốt nghiệp đại học Công nghệ Sinh học hoặc ngành gần"
           },
           {
             "label": "Thời lượng",
@@ -334,7 +325,7 @@
           },
           {
             "label": "Đơn vị quản lý",
-            "value": "Khoa Sau đại học CNTT"
+            "value": "Khoa Sau đại học Công nghệ Sinh học"
           }
         ]
       }
@@ -354,12 +345,12 @@
         },
         "overview": {
           "title": "Thông tin chương trình",
-          "description": "Khám phá cấu trúc học phần, trải nghiệm thực hành và các cột mốc học thuật tại SIT.",
+          "description": "Khám phá cấu trúc học phần, trải nghiệm thực hành và các cột mốc học thuật tại Biotech TTU.",
           "sections": [
             {
               "title": "Tổng quan nhanh",
               "points": [
-                "Học phần theo chuẩn đầu ra gắn chuyển đổi số Việt Nam",
+                "Học phần theo chuẩn đầu ra gắn phát triển bền vững Việt Nam",
                 "Tùy chọn môn học linh hoạt giữa khối kỹ thuật và kinh doanh",
                 "Phòng lab studio và dự án liên ngành",
                 "Cố vấn học thuật và chuyên gia doanh nghiệp đồng hành"
@@ -369,7 +360,7 @@
               "title": "Năng lực sau tốt nghiệp",
               "points": [
                 "Thiết kế và triển khai sản phẩm phần mềm end-to-end",
-                "Ứng dụng AI, khoa học dữ liệu và điện toán đám mây",
+                "Ứng dụng sinh học phân tử, tin sinh học và công nghệ tế bào",
                 "Làm việc nhóm đa văn hóa theo quy trình agile",
                 "Dẫn dắt sáng kiến đổi mới trong nhiều lĩnh vực"
               ]
@@ -383,7 +374,7 @@
         },
         "ctaBanner": {
           "title": "Sẵn sàng dẫn đầu tương lai?",
-          "description": "Liên hệ đội ngũ tuyển sinh SIT để tìm hiểu học bổng, cố vấn và cơ hội nghiên cứu.",
+          "description": "Liên hệ đội ngũ tuyển sinh Biotech TTU để tìm hiểu học bổng, cố vấn và cơ hội nghiên cứu.",
           "primary": "Liên hệ",
           "secondary": "Tải brochure"
         },
@@ -393,30 +384,30 @@
             {
               "title": "1. Giới thiệu về Chương trình đào tạo năm 2022",
               "content": [
-                "Chương trình đào tạo được thiết kế nhằm cung cấp cho sinh viên nền tảng kiến thức vững chắc và kỹ năng thực hành trong lĩnh vực công nghệ thông tin. Chương trình kết hợp giữa lý thuyết và thực hành, giúp sinh viên phát triển toàn diện các kỹ năng cần thiết cho nghề nghiệp tương lai.",
-                "Sinh viên sẽ được trang bị các kiến thức cơ bản về khoa học máy tính, lập trình, cơ sở dữ liệu, mạng máy tính và các công nghệ hiện đại. Bên cạnh đó, chương trình cũng chú trọng phát triển kỹ năng mềm như tư duy phản biện, giải quyết vấn đề và làm việc nhóm.",
-                "Chương trình Cử nhân Khoa học Máy tính được thiết kế để đáp ứng nhu cầu của thị trường lao động, đảm bảo sinh viên tốt nghiệp có đủ năng lực để làm việc trong các lĩnh vực công nghệ thông tin đa dạng."
+                "Chương trình đào tạo được thiết kế nhằm cung cấp cho sinh viên nền tảng kiến thức vững chắc và kỹ năng thực hành trong lĩnh vực công nghệ sinh học. Chương trình kết hợp giữa lý thuyết và thực hành, giúp sinh viên phát triển toàn diện các kỹ năng cần thiết cho nghề nghiệp tương lai.",
+                "Sinh viên sẽ được trang bị các kiến thức cơ bản về sinh học phân tử, thực hành phòng thí nghiệm, dữ liệu sinh học, thiết bị phòng thí nghiệm và các công nghệ hiện đại. Bên cạnh đó, chương trình cũng chú trọng phát triển kỹ năng mềm như tư duy phản biện, giải quyết vấn đề và làm việc nhóm.",
+                "Chương trình Cử nhân Công nghệ Sinh học được thiết kế để đáp ứng nhu cầu của thị trường lao động, đảm bảo sinh viên tốt nghiệp có đủ năng lực để làm việc trong các lĩnh vực công nghệ sinh học đa dạng."
               ],
               "defaultOpen": true
             },
             {
               "title": "2. Thông tin về Chương trình đào tạo năm 2022",
               "content": [
-                "Chương trình đào tạo được cập nhật và điều chỉnh theo chuẩn quốc tế, đảm bảo tính cập nhật và phù hợp với xu hướng phát triển của ngành công nghệ thông tin."
+                "Chương trình đào tạo được cập nhật và điều chỉnh theo chuẩn quốc tế, đảm bảo tính cập nhật và phù hợp với xu hướng phát triển của ngành công nghệ sinh học."
               ],
               "defaultOpen": false
             },
             {
               "title": "3. Sứ mạng - Tầm nhìn – Giá trị cốt lõi – Triết lý giáo dục",
               "content": [
-                "Sứ mạng của chương trình là đào tạo nguồn nhân lực chất lượng cao trong lĩnh vực công nghệ thông tin, góp phần phát triển nền kinh tế số và xã hội thông minh."
+                "Sứ mạng của chương trình là đào tạo nguồn nhân lực chất lượng cao trong lĩnh vực công nghệ sinh học, góp phần phát triển nền kinh tế sinh học và xã hội thông minh."
               ],
               "defaultOpen": false
             },
             {
               "title": "4. Mục tiêu của chương trình đào tạo",
               "content": [
-                "Mục tiêu của chương trình là đào tạo sinh viên trở thành những chuyên gia công nghệ thông tin có năng lực, đạo đức nghề nghiệp và khả năng thích ứng với sự thay đổi nhanh chóng của công nghệ."
+                "Mục tiêu của chương trình là đào tạo sinh viên trở thành những chuyên gia công nghệ sinh học có năng lực, đạo đức nghề nghiệp và khả năng thích ứng với sự thay đổi nhanh chóng của công nghệ."
               ],
               "defaultOpen": false
             },
@@ -430,7 +421,7 @@
             {
               "title": "6. Chuẩn đầu vào",
               "content": [
-                "Chuẩn đầu vào của chương trình là sinh viên đã hoàn thành chương trình đại học hoặc cao đẳng có đủ kiến thức và kỹ năng cơ bản về công nghệ thông tin."
+                "Chuẩn đầu vào của chương trình là sinh viên đã hoàn thành chương trình đại học hoặc cao đẳng có đủ kiến thức và kỹ năng cơ bản về công nghệ sinh học."
               ],
               "defaultOpen": false
             },
@@ -444,7 +435,7 @@
             {
               "title": "8. Cấu trúc và nội dung của chương trình đào tạo",
               "content": [
-                "Cấu trúc và nội dung của chương trình là các học phần cơ bản về công nghệ thông tin, các học phần chuyên sâu về công nghệ thông tin và các học phần thực hành về công nghệ thông tin."
+                "Cấu trúc và nội dung của chương trình là các học phần cơ bản về công nghệ sinh học, các học phần chuyên sâu về công nghệ sinh học và các học phần thực hành về công nghệ sinh học."
               ],
               "defaultOpen": false
             },
@@ -479,7 +470,7 @@
             {
               "title": "13. Về vị trí làm việc sau tốt nghiệp",
               "content": [
-                "Sinh viên tốt nghiệp có thể làm việc ở nhiều vị trí khác nhau trong lĩnh vực công nghệ thông tin như lập trình viên, kỹ sư phần mềm, chuyên viên phân tích dữ liệu, quản trị hệ thống và nhiều vị trí khác."
+                "Sinh viên tốt nghiệp có thể làm việc ở nhiều vị trí khác nhau trong lĩnh vực công nghệ sinh học như thực hành phòng thí nghiệm viên, chuyên viên R&D, chuyên viên phân tích dữ liệu, quản lý phòng thí nghiệm và nhiều vị trí khác."
               ],
               "defaultOpen": false
             },
@@ -493,7 +484,7 @@
             {
               "title": "15. Cơ sở làm việc sau tốt nghiệp",
               "content": [
-                "Sinh viên tốt nghiệp có thể làm việc tại các công ty công nghệ, tổ chức chính phủ, các trường đại học, viện nghiên cứu và các doanh nghiệp trong nhiều lĩnh vực khác nhau."
+                "Sinh viên tốt nghiệp có thể làm việc tại các công ty công nghệ sinh học, tổ chức chính phủ, các trường đại học, viện nghiên cứu và các doanh nghiệp trong nhiều lĩnh vực khác nhau."
               ],
               "defaultOpen": false
             },
@@ -521,7 +512,7 @@
             {
               "title": "19. Tóm tắt nội dung học phần",
               "content": [
-                "Chương trình bao gồm các học phần cơ bản về toán học, khoa học máy tính, lập trình, cơ sở dữ liệu, mạng máy tính, trí tuệ nhân tạo và các học phần chuyên sâu theo từng chuyên ngành."
+                "Chương trình bao gồm các học phần cơ bản về toán học, sinh học phân tử, thực hành phòng thí nghiệm, dữ liệu sinh học, thiết bị phòng thí nghiệm, trí tuệ nhân tạo và các học phần chuyên sâu theo từng chuyên ngành."
               ],
               "defaultOpen": false
             }
@@ -571,10 +562,10 @@
       "undergraduate": {
         "hero": {
           "badge": "Chương trình Đại học",
-          "fallbackImage": "/assets/banner-KT2.png"
+          "fallbackImage": "/assets/biotech/hero-biotechnology.png"
         },
         "meta": {
-          "school": "Khoa Công nghệ Thông tin",
+          "school": "Khoa Công nghệ Sinh học",
           "division": "Đại học Tân Tạo",
           "level": "Cử nhân"
         }
@@ -585,7 +576,7 @@
           "fallbackImage": "/assets/meeting.png"
         },
         "meta": {
-          "school": "Khoa Công nghệ Thông tin",
+          "school": "Khoa Công nghệ Sinh học",
           "division": "Khối Sau đại học",
           "level": "Thạc sĩ"
         }
@@ -593,77 +584,42 @@
     },
     "programs": {
       "undergraduate": {
-        "computerScience": {
-          "title": "Cử nhân Khoa học Máy tính",
+        "biotechnology": {
+          "title": "Cử nhân Công nghệ Sinh học",
           "programs": [
             {
-              "title": "Cử nhân Khoa học Máy tính (CTDT năm 2025)",
-              "code": "7480101",
-              "description": "Các hướng Kỹ thuật Dữ liệu và Kỹ thuật Phần mềm với nền tảng giải thuật và thiết kế hệ thống vững chắc.",
-              "features": "Java, Python, C++, Web Development, Mobile Apps, Software Architecture, Data Engineering"
-            },
-            {
-              "title": "Cử nhân Khoa học Máy tính (CTDT năm 2025 – tiếng Việt)",
-              "code": "7480101-VN",
-              "description": "Đào tạo bằng tiếng Việt, gắn nhu cầu doanh nghiệp với định hướng Kỹ thuật Dữ liệu và Kỹ thuật Phần mềm.",
-              "features": "Java, Python, C++, Web Development, Mobile Apps, Software Architecture, Data Engineering"
-            },
-            {
-              "title": "Cử nhân Khoa học Máy tính (CTDT năm 2021 – tiếng Anh)",
-              "code": "7480101-EN",
-              "description": "Chương trình tiếng Anh chuẩn bị cho sinh viên học cao học và làm việc trong môi trường quốc tế.",
-              "features": "Java, Python, C++, Web Development, Mobile Apps, Software Architecture, Data Engineering"
+              "title": "Công nghệ Sinh học",
+              "code": "7420201",
+              "description": "Chương trình 4 năm, 130 tín chỉ, định hướng nghiên cứu và ứng dụng trong y sinh, nông nghiệp, môi trường, thực phẩm và khoa học dữ liệu.",
+              "features": "Sinh học phân tử, Di truyền, Vi sinh, Hóa sinh, Tin sinh học, Công nghệ tế bào"
             }
           ]
         },
-        "dataScience": {
-          "title": "Cử nhân Khoa học Dữ liệu",
+        "highTechAgriculture": {
+          "title": "Nông nghiệp công nghệ cao",
           "programs": [
             {
-              "title": "Cử nhân Khoa học Dữ liệu (CTDT năm 2025)",
-              "code": "7480104",
-              "description": "Chuyên sâu Tin sinh học và Phân tích kinh doanh kết hợp thống kê, lập trình và kiến thức ngành.",
-              "features": "Data Analytics, Business Intelligence, Bioinformatics, Statistical Modeling, Big Data"
-            }
-          ]
-        },
-        "artificialIntelligence": {
-          "title": "Cử nhân Trí tuệ Nhân tạo",
-          "programs": [
-            {
-              "title": "Cử nhân Trí tuệ Nhân tạo (CTDT năm 2025)",
-              "code": "7480109",
-              "description": "Định hướng Thị giác máy tính và Xử lý ngôn ngữ tự nhiên với các dự án học máy thực hành.",
-              "features": "Machine Learning, Deep Learning, Computer Vision, Natural Language Processing, Neural Networks"
+              "title": "Nông nghiệp công nghệ cao",
+              "code": "",
+              "description": "Lộ trình ứng dụng sinh học, công nghệ và dữ liệu để phát triển nông nghiệp hiện đại, hiệu quả và bền vững.",
+              "features": "Công nghệ giống, Nông nghiệp thông minh, Sinh học ứng dụng, Quản lý chất lượng"
             }
           ]
         }
       },
-      "graduate": {
-        "computerScience": {
-          "title": "Thạc sĩ Khoa học Máy tính",
-          "programs": [
-            {
-              "title": "Thạc sĩ Khoa học Máy tính (CTDT năm 2025)",
-              "code": "7480102",
-              "description": "Đào tạo sau đại học về công nghệ tiên tiến, đổi mới sáng tạo và hợp tác trong hệ sinh thái học thuật ĐHTT.",
-              "features": "Advanced Algorithms, Research Methods, Thesis Project, Industry Collaboration, Innovation"
-            }
-          ]
-        }
-      }
+      "graduate": {}
     }
   },
   "about": {
-    "title": "Giới thiệu SIT",
-    "subtitle": "Khoa Công nghệ Thông tin Đại học Tân Tạo",
-    "description": "Thành lập năm 2011, Khoa Công nghệ Thông tin đào tạo và nghiên cứu trong các lĩnh vực Khoa học Máy tính, Khoa học Dữ liệu, Trí tuệ nhân tạo và Công nghệ thông tin tại Trường Đại học Tân Tạo.",
-    "heroImageAlt": "Sinh viên Khoa Công nghệ Thông tin tại Trường Đại học Tân Tạo",
-    "heroMediaEyebrow": "Đào tạo và nghiên cứu",
-    "heroMediaTitle": "Xây dựng nền tảng chuyên môn cho các lĩnh vực công nghệ",
-    "heroMediaDescription": "Khoa học Máy tính · Khoa học Dữ liệu · Trí tuệ nhân tạo · Công nghệ thông tin",
-    "whatWeDo": "CHÚNG TÔI LÀM GÌ",
-    "ourApproach": "PHƯƠNG PHÁP CỦA CHÚNG TÔI",
+    "title": "Khoa Công nghệ Sinh học",
+    "subtitle": "Đào tạo khoa học sự sống gắn với nghiên cứu và ứng dụng",
+    "description": "Khoa Công nghệ Sinh học - Đại học Tân Tạo đào tạo người học có nền tảng kiến thức vững chắc, kỹ năng chuyên môn và phẩm chất nghề nghiệp để góp phần nâng cao chất lượng cuộc sống.",
+    "heroImageAlt": "Sinh viên Khoa Công nghệ Sinh học Đại học Tân Tạo",
+    "heroMediaEyebrow": "Biotech TTU",
+    "heroMediaTitle": "Học trong phòng thí nghiệm, trưởng thành qua nghiên cứu.",
+    "heroMediaDescription": "Môi trường học thuật kết nối kiến thức nền tảng, kỹ năng thực hành và các vấn đề thực tiễn.",
+    "whatWeDo": "Khoa học sự sống vì cộng đồng",
+    "ourApproach": "Định hướng nghiên cứu và ứng dụng",
     "howWeDoIt": "CHÚNG TÔI LÀM NHƯ THẾ NÀO",
     "howWeEducate": "CHÚNG TÔI GIÁO DỤC NHƯ THẾ NÀO",
     "howWeOperate": "CHÚNG TÔI VẬN HÀNH NHƯ THẾ NÀO",
@@ -683,19 +639,19 @@
     "technologyIntegrationTitle": "Tích hợp công nghệ",
     "technologyIntegrationDescription": "Ngoại ngữ và công nghệ được tích hợp vào dạy - học và quản trị nhằm đáp ứng nhu cầu của người học, nhà tuyển dụng và cộng đồng.",
     "transparentEnvironmentTitle": "Môi trường minh bạch",
-    "transparentEnvironmentDescription": "SIT duy trì môi trường làm việc cởi mở, minh bạch, tạo điều kiện để mỗi thành viên phát huy năng lực với sinh viên là trung tâm.",
+    "transparentEnvironmentDescription": "Biotech TTU duy trì môi trường làm việc cởi mở, minh bạch, tạo điều kiện để mỗi thành viên phát huy năng lực với sinh viên là trung tâm.",
     "readyToStart": "Sẵn sàng bắt đầu cùng chúng tôi?",
-    "joinEcosystem": "Tham gia hệ sinh thái học tập của SIT. Liên hệ ngay",
+    "joinEcosystem": "Tham gia hệ sinh thái học tập của Biotech TTU. Liên hệ ngay",
     "explorePrograms": "Khám phá chương trình",
     "contactUs": "Liên hệ tư vấn",
     "history": "Lịch sử hình thành",
-    "historyText": "Khoa Công nghệ Thông tin tiền thân là Khoa Kỹ thuật, thành lập theo Quyết định 82/QĐ.TTU.11 ngày 04.01.2011 để đào tạo ngành Khoa học Máy tính. Từ ngày 01.06.2023, tên gọi “Khoa Công nghệ Thông tin” được chính thức áp dụng theo Quyết định 70/QĐ-TTU.23 của Hiệu trưởng ĐHTT.",
-    "faculty": "Đội ngũ giảng viên",
-    "facultyText": "Theo báo cáo tự đánh giá chương trình Khoa học Máy tính năm 2024, Khoa có 06 giảng viên cơ hữu và 100% có trình độ tiến sĩ; đội ngũ tham gia giảng dạy, nghiên cứu và hướng dẫn người học.",
-    "mission": "Sứ Mệnh",
-    "missionText": "Đào tạo và bồi dưỡng nguồn nhân lực trình độ đại học trong lĩnh vực Công nghệ Thông tin và Máy tính; nghiên cứu, ứng dụng Khoa học Máy tính, Công nghệ Thông tin và Truyền thông vào thực tiễn; tiếp cận giáo dục khai phóng và học tập suốt đời.",
+    "historyText": "Khoa Công nghệ Sinh học - Đại học Tân Tạo được phát triển nhằm đào tạo nguồn nhân lực có năng lực nghiên cứu, ứng dụng khoa học sự sống và đóng góp cho cộng đồng.",
+    "faculty": "Khoa Công nghệ Sinh học",
+    "facultyText": "Nơi kết nối giảng dạy, nghiên cứu khoa học và ứng dụng công nghệ sinh học.",
+    "mission": "Sứ mệnh",
+    "missionText": "Đào tạo cử nhân có nền tảng khoa học vững chắc, kỹ năng chuyên môn thành thạo, đạo đức nghề nghiệp và năng lực học tập suốt đời.",
     "vision": "Tầm nhìn",
-    "visionText": "Đến năm 2030, Khoa hướng tới trở thành đơn vị đào tạo nguồn nhân lực chất lượng cao, đáp ứng thị trường lao động và thuộc nhóm dẫn đầu trong nước về đào tạo, nghiên cứu, chuyển giao công nghệ trong lĩnh vực Công nghệ Thông tin và Máy tính.",
+    "visionText": "Xây dựng môi trường đào tạo Công nghệ Sinh học hiện đại, hội nhập quốc tế và tạo ra giá trị thiết thực cho xã hội.",
     "values": "Giá trị cốt lõi",
     "valuesText": "Bảy giá trị cốt lõi của Đại học Tân Tạo định hướng hoạt động đào tạo, nghiên cứu và xây dựng cộng đồng học thuật.",
     "valuesList": [
@@ -722,18 +678,18 @@
     "organization": "Cơ cấu tổ chức",
     "organizationText": "Cơ cấu gồm: (1) Hội đồng Khoa, (2) Ban lãnh đạo Khoa, (3) Bộ phận Văn phòng, (4) Các bộ môn chuyên môn.",
     "qualityPolicy": "Chính sách chất lượng",
-    "qualityPolicyText": "SIT cam kết đào tạo theo chuẩn đầu ra, cải tiến phương pháp dạy - học, đánh giá lấy người học làm trung tâm, ứng dụng công nghệ và xây dựng môi trường minh bạch, chuyên nghiệp.",
-    "dean": "Trưởng Khoa",
-    "deanName": "TS. Cao Tiến Dũng",
+    "qualityPolicyText": "Khoa cam kết đào tạo theo chuẩn đầu ra, cải tiến liên tục, tăng cường thực hành phòng thí nghiệm và xây dựng môi trường học thuật minh bạch, lấy người học làm trung tâm.",
+    "dean": "Phụ trách Khoa",
+    "deanName": "TS. Tạ Văn Quang",
     "contact": "Thông tin liên hệ",
-    "phone": "+84 272 376 9216",
-    "email": "sit@ttu.edu.vn"
+    "phone": "(+84) 076 436 2098",
+    "email": "secretary.sbio@ttu.edu.vn"
   },
   "students": {
     "badge": "Đời sống sinh viên",
-    "title": "Đời sống sinh viên",
-    "subtitle": "Trao quyền cho các nhà lãnh đạo công nghệ tương lai",
-    "description": "SIT đồng hành cùng sinh viên qua cố vấn học tập, nghiên cứu, cuộc thi và hoạt động cộng đồng, giúp mỗi bạn phát triển toàn diện.",
+    "title": "Sinh viên Biotech TTU",
+    "subtitle": "Học tập, trải nghiệm và trưởng thành trong môi trường khoa học sự sống",
+    "description": "Thông tin học tập và hoạt động sinh viên sẽ được cập nhật qua hệ thống quản trị nội dung.",
     "studentSupport": "Dịch vụ hỗ trợ sinh viên",
     "supportServices": [
       {
@@ -754,96 +710,23 @@
       }
     ],
     "achievements": "Dấu ấn gần đây",
-    "achievementStats": [
-      {
-        "number": "2025",
-        "label": "Giải Ba Ancient8 Builder Jam – đội Meme Trade Co."
-      },
-      {
-        "number": "2024",
-        "label": "Workshop Web3 cùng MetaCyber8"
-      },
-      {
-        "number": "2024",
-        "label": "Tham quan doanh nghiệp Simpson Strong-Tie"
-      },
-      {
-        "number": "2024",
-        "label": "Giảng viên được khen thưởng hỗ trợ nghiên cứu sinh viên"
-      }
-    ],
-    "testimonials": "Tin tức nổi bật từ SIT",
-    "testimonialsList": [
-      {
-        "name": "Ban Truyền thông SIT",
-        "program": "Ancient8 Builder Jam 2025",
-        "quote": "Ngày 13/01/2025: đội Meme Trade Co. gồm sinh viên SIT và SEB đạt giải Ba và học bổng tại Ancient8 Builder Jam."
-      },
-      {
-        "name": "Ban Truyền thông SIT",
-        "program": "Hợp tác Simpson Strong-Tie",
-        "quote": "Ngày 13/12/2024: sinh viên SIT tham quan Simpson Strong-Tie Vietnam, tìm hiểu quy trình kỹ thuật thực tế và cơ hội nghề nghiệp."
-      }
-    ],
-    "ctaTitle": "Gia nhập cộng đồng sinh viên SIT",
-    "ctaDescription": "Trở thành một phần của hệ sinh thái công nghệ, sáng tạo và phụng sự cộng đồng tại SIT.",
+    "achievementStats": [],
+    "testimonials": "Câu chuyện sinh viên",
+    "testimonialsList": [],
+    "ctaTitle": "Bắt đầu hành trình tại Biotech TTU",
+    "ctaDescription": "Tìm hiểu chương trình, tuyển sinh và môi trường học tập của Khoa Công nghệ Sinh học.",
     "ctaPrimary": "Nộp hồ sơ ngay",
     "ctaSecondary": "Khám phá dịch vụ hỗ trợ"
   },
   "studentsActivities": {
     "badge": "Hoạt động sinh viên",
-    "title": "Trải nghiệm năng động ngoài giảng đường",
-    "subtitle": "Câu lạc bộ, cuộc thi và dự án cộng đồng giúp sinh viên SIT dẫn dắt và hợp tác.",
-    "description": "Chúng tôi nuôi dưỡng trải nghiệm đa ngành, khơi nguồn sáng tạo, tinh thần đội nhóm và trách nhiệm xã hội.",
-    "highlights": [
-      {
-        "title": "Câu lạc bộ đổi mới",
-        "description": "CLB AI, Web3, Robotics, truyền thông và khởi nghiệp sinh hoạt hằng tuần với dự án sản phẩm."
-      },
-      {
-        "title": "Phục vụ cộng đồng",
-        "description": "Sinh viên hướng dẫn học sinh phổ thông, dạy kỹ năng số và hỗ trợ chiến dịch chuyển đổi số."
-      },
-      {
-        "title": "Cuộc thi & hackathon",
-        "description": "Nhóm SIT luyện thi quốc gia, khu vực với sự cố vấn của giảng viên và cựu sinh viên."
-      }
-    ],
-    "programs": [
-      {
-        "title": "Chuỗi hoạt động tiêu biểu",
-        "summary": "Chọn lộ trình phù hợp với sở thích và mục tiêu nghề nghiệp.",
-        "details": [
-          "Phòng lab maker studio cho thử nghiệm sản phẩm, sáng tạo lập trình",
-          "Workshop kỹ năng mềm về lãnh đạo, giao tiếp và tư duy thiết kế",
-          "Ngày trải nghiệm doanh nghiệp và tham quan nhà máy mỗi học kỳ"
-        ]
-      },
-      {
-        "title": "Sáng kiến do sinh viên dẫn dắt",
-        "summary": "Trình bày ý tưởng và nhận hỗ trợ để xây dựng cộng đồng mới.",
-        "details": [
-          "Nhóm truyền thông kể câu chuyện SIT trên đa nền tảng",
-          "Đội tình nguyện công nghệ hỗ trợ NGO và trường học địa phương",
-          "Đại sứ sức khỏe tinh thần xây dựng môi trường học tập bao trùm"
-        ]
-      }
-    ],
-    "storiesTitle": "Điểm nhấn hoạt động gần đây",
-    "stories": [
-      {
-        "title": "Ancient8 Builder Jam",
-        "description": "Đội Meme Trade Co. của SIT & SEB giành giải Ba cùng học bổng."
-      },
-      {
-        "title": "Tham quan Simpson Strong-Tie",
-        "description": "Sinh viên tìm hiểu quy trình kỹ thuật, an toàn và cơ hội nghề nghiệp tại Long An."
-      },
-      {
-        "title": "Workshop Web3 mở đầu",
-        "description": "MetaCyber8 hướng dẫn phát triển dApp, ví và chuẩn bị hackathon."
-      }
-    ],
+    "title": "Hoạt động sinh viên",
+    "subtitle": "Học hỏi ngoài phòng học, kết nối trong cộng đồng",
+    "description": "Các hoạt động mới sẽ được Khoa cập nhật qua hệ thống quản trị nội dung.",
+    "highlights": [],
+    "programs": [],
+    "storiesTitle": "Câu chuyện hoạt động",
+    "stories": [],
     "ctaTitle": "Biến ý tưởng thành hiện thực",
     "ctaDescription": "Đề xuất CLB, tổ chức workshop cộng đồng hoặc xin hỗ trợ cho đội thi của bạn.",
     "ctaPrimary": "Gửi đề xuất hoạt động",
@@ -851,9 +734,9 @@
   },
   "studentsInternships": {
     "badge": "Thực tập & việc làm",
-    "title": "Sẵn sàng nghề nghiệp ngay từ năm nhất",
-    "subtitle": "SIT kết hợp nền tảng khai phóng với trải nghiệm doanh nghiệp và cố vấn cá nhân hóa.",
-    "description": "Sinh viên thực hành quy trình doanh nghiệp thông qua chương trình thực tập, dự án đồng sáng tạo và freelance lab.",
+    "title": "Thực tập & Cơ hội nghề nghiệp",
+    "subtitle": "Kết nối kiến thức sinh học với môi trường nghề nghiệp",
+    "description": "Cơ hội thực tập và việc làm mới sẽ được cập nhật qua hệ thống quản trị nội dung.",
     "pillars": [
       {
         "title": "Cố vấn nghề nghiệp",
@@ -868,39 +751,9 @@
         "description": "Tham gia phòng lab cùng giảng viên để phát triển prototype, công bố hoặc giải pháp ứng dụng."
       }
     ],
-    "tracks": [
-      {
-        "title": "Hành trình thực tập",
-        "points": [
-          "Năm 2 dự án khám phá rèn luyện teamwork và giao tiếp khách hàng",
-          "Năm 3 thực tập chuyên nghiệp 10-12 tuần với mục tiêu sản phẩm rõ ràng",
-          "Năm 4 thực tập capstone tích hợp nghiên cứu, kinh doanh và đổi mới"
-        ]
-      },
-      {
-        "title": "Bộ công cụ hướng nghiệp",
-        "points": [
-          "Bảng tin việc làm lĩnh vực phần mềm, AI, dữ liệu, sản phẩm",
-          "Sự kiện kết nối với cựu sinh viên, nhà tuyển dụng, nhà sáng lập",
-          "Tư vấn visa và khởi nghiệp cho lộ trình quốc tế"
-        ]
-      }
-    ],
+    "tracks": [],
     "resourcesTitle": "Cơ hội tiêu biểu",
-    "resources": [
-      {
-        "title": "Simpson Strong-Tie Vietnam",
-        "description": "Thực tập phần mềm kết cấu, quy trình BIM và hỗ trợ sản xuất số."
-      },
-      {
-        "title": "MAAZ AI – FPT Automotive",
-        "description": "Dự án machine learning cho hệ thống cảm nhận và sản xuất thông minh."
-      },
-      {
-        "title": "SIT Innovation Lab",
-        "description": "Studio trong trường giải quyết bài toán fintech, healthtech, đô thị thông minh."
-      }
-    ],
+    "resources": [],
     "ctaTitle": "Định hình hành trình nghề nghiệp",
     "ctaDescription": "Làm việc cùng đội ngũ career để lập kế hoạch thực tập, nghiên cứu hoặc khởi nghiệp.",
     "ctaPrimary": "Đặt lịch tư vấn",
@@ -908,66 +761,26 @@
   },
   "studentsAlumni": {
     "badge": "Cựu sinh viên",
-    "title": "Kết nối học tập suốt đời",
-    "subtitle": "Cựu sinh viên SIT dẫn dắt đổi mới trong công nghệ, kinh doanh và cộng đồng.",
-    "description": "Mạng lưới alumni cố vấn sinh viên, đồng xây dựng học phần và mở rộng cơ hội toàn cầu.",
-    "impact": [
-      {
-        "value": "20+",
-        "label": "Cựu sinh viên hoạt động",
-        "description": "Tại Việt Nam, Singapore, Hoa Kỳ và châu Âu"
-      },
-      {
-        "value": "60%",
-        "label": "Giữ vị trí lãnh đạo",
-        "description": "Trong các đội ngũ sản phẩm, kỹ thuật, dữ liệu, đổi mới"
-      },
-      {
-        "value": "40%",
-        "label": "Học tiếp sau đại học",
-        "description": "Tại các trường ở châu Á, Úc, châu Âu và Bắc Mỹ"
-      }
-    ],
-    "initiatives": [
-      {
-        "title": "Vòng tròn cố vấn",
-        "description": "Hàng tháng cựu sinh viên đồng hành cùng sinh viên về nghề nghiệp và portfolio."
-      },
-      {
-        "title": "Điểm hẹn toàn cầu",
-        "description": "Cộng đồng tổ chức gặp mặt tại TP.HCM, Hà Nội, Singapore, Silicon Valley."
-      },
-      {
-        "title": "Đóng góp trở lại",
-        "description": "Alumni tài trợ học bổng, làm giám khảo, hỗ trợ hợp tác nghiên cứu."
-      }
-    ],
+    "title": "Cựu sinh viên",
+    "subtitle": "Kết nối cộng đồng Biotech TTU",
+    "description": "Thông tin cựu sinh viên sẽ được cập nhật qua hệ thống quản trị nội dung.",
+    "impact": [],
+    "initiatives": [],
     "storiesTitle": "Gương mặt cựu sinh viên",
-    "stories": [
-      {
-        "name": "Lê Hoàng Linh",
-        "role": "Senior Data Scientist, Singapore",
-        "quote": "Mô hình studio tại SIT giúp tôi dẫn dắt đội ngũ đa chức năng triển khai sản phẩm AI."
-      },
-      {
-        "name": "Trần Gia Hân",
-        "role": "Product Manager, Fintech",
-        "quote": "Mentor doanh nghiệp và học phần khai phóng cân bằng chiều sâu kỹ thuật với chiến lược kinh doanh."
-      }
-    ],
-    "ctaTitle": "Đồng hành cùng SIT",
+    "stories": [],
+    "ctaTitle": "Giữ kết nối với Biotech TTU",
     "ctaDescription": "Cập nhật thông tin, cố vấn sinh viên hoặc hợp tác trong dự án đổi mới.",
     "ctaPrimary": "Tham gia danh bạ alumni",
     "ctaSecondary": "Chia sẻ câu chuyện"
   },
   "research": {
-    "title": "Nghiên cứu & Đổi mới",
-    "subtitle": "Kết nối nghiên cứu với chuyển đổi số",
-    "description": "Giảng viên, sinh viên SIT theo đuổi các hướng nghiên cứu phù hợp chiến lược ĐHTT và nhu cầu chuyển đổi số quốc gia.",
-    "heroBadge": "Danh mục nghiên cứu",
+    "title": "Nghiên cứu",
+    "subtitle": "Khoa học sự sống từ phòng thí nghiệm đến ứng dụng",
+    "description": "Các hướng nghiên cứu tập trung vào y sinh, sinh học phân tử, nông nghiệp công nghệ cao, môi trường, thực phẩm và dữ liệu sinh học.",
+    "heroBadge": "Nghiên cứu tại Biotech TTU",
     "heroCtaPrimary": "Khám phá sáng kiến",
     "heroCtaSecondary": "Gặp gỡ đội ngũ nghiên cứu",
-    "highlightsTitle": "Ưu tiên nghiên cứu",
+    "highlightsTitle": "Hướng nghiên cứu trọng tâm",
     "highlights": [
       {
         "value": "05",
@@ -977,12 +790,12 @@
       {
         "value": "—",
         "label": "Đề tài khoa học",
-        "description": "Kết nối nhóm SIT với đối tác trong và ngoài trường theo hướng liên ngành."
+        "description": "Kết nối nhóm Biotech TTU với đối tác trong và ngoài trường theo hướng liên ngành."
       },
       {
         "value": "—",
         "label": "Bài báo khoa học",
-        "description": "Các công bố khoa học được cập nhật trực tiếp từ kho dữ liệu nghiên cứu của SIT."
+        "description": "Các công bố khoa học được cập nhật trực tiếp từ kho dữ liệu nghiên cứu của Biotech TTU."
       },
       {
         "value": "30+",
@@ -993,71 +806,32 @@
     "researchAreas": "Lĩnh vực nghiên cứu",
     "areas": [
       {
-        "title": "Trí tuệ Nhân tạo & Machine Learning",
-        "description": "Phát triển hệ thống thông minh và thuật toán cho các ứng dụng khác nhau",
-        "projects": [
-          "Dự án Ancient8 Builder Jam",
-          "Thị giác máy tính",
-          "Xử lý ngôn ngữ tự nhiên",
-          "Robot"
-        ]
+        "title": "Sinh học phân tử & Y sinh",
+        "description": "Nghiên cứu gene, protein, dấu ấn sinh học và các ứng dụng hỗ trợ sức khỏe.",
+        "projects": []
       },
       {
-        "title": "Khoa học Dữ liệu & Phân tích",
-        "description": "Trích xuất thông tin từ các tập dữ liệu phức tạp để thúc đẩy ra quyết định",
-        "projects": [
-          "Tin sinh học",
-          "Phân tích kinh doanh",
-          "Phân tích dự đoán",
-          "Trực quan hóa dữ liệu"
-        ]
+        "title": "Nông nghiệp công nghệ cao",
+        "description": "Ứng dụng sinh học và công nghệ để phát triển giống, chẩn đoán bệnh và sản xuất bền vững.",
+        "projects": []
       },
       {
-        "title": "An ninh mạng",
-        "description": "Bảo vệ tài sản số và đảm bảo an toàn thông tin",
-        "projects": [
-          "An ninh mạng",
-          "Mật mã học",
-          "Điều tra số",
-          "Giao thức bảo mật"
-        ]
+        "title": "Vi sinh & Môi trường",
+        "description": "Khai thác vi sinh vật trong xử lý môi trường, thực phẩm và các quy trình sinh học.",
+        "projects": []
       },
       {
-        "title": "Kỹ thuật Phần mềm",
-        "description": "Thiết kế và phát triển hệ thống phần mềm mạnh mẽ",
-        "projects": [
-          "Kiến trúc phần mềm",
-          "Phát triển di động",
-          "Công nghệ web",
-          "Điện toán đám mây"
-        ]
+        "title": "Tin sinh học & Dữ liệu",
+        "description": "Phân tích dữ liệu sinh học để hỗ trợ nghiên cứu, dự báo và ra quyết định khoa học.",
+        "projects": []
       }
     ],
-    "publications": "Hoạt động nổi bật",
-    "publicationsList": [
-      {
-        "title": "Workshop “Bước đầu phát triển Web3 App”",
-        "authors": "SIT & MetaCyber8",
-        "journal": "SIT News",
-        "year": "2024"
-      },
-      {
-        "title": "Kết nối doanh nghiệp Simpson Strong-Tie Vietnam",
-        "authors": "Khoa Công nghệ Thông tin",
-        "journal": "SIT News",
-        "year": "2024"
-      }
-    ],
-    "collaborations": "Hợp tác công nghiệp",
-    "collaborationList": [
-      "MetaCyber8",
-      "Ancient8",
-      "Simpson Strong-Tie Vietnam",
-      "MAAZ AI – FPT Automotive",
-      "Hệ sinh thái Đại học Tân Tạo"
-    ],
-    "impactTitle": "Đổi mới trong hành động",
-    "impactDescription": "SIT kết hợp nền tảng khai phóng với nghiên cứu ứng dụng để mang đến giải pháp cho kỷ nguyên số.",
+    "publications": "Công bố khoa học",
+    "publicationsList": [],
+    "collaborations": "Hợp tác nghiên cứu",
+    "collaborationList": [],
+    "impactTitle": "Nghiên cứu tạo giá trị thực tiễn",
+    "impactDescription": "Kết nối kiến thức khoa học với các vấn đề trong y sinh, nông nghiệp, môi trường và chất lượng cuộc sống.",
     "impactCards": [
       {
         "title": "AI lấy con người làm trung tâm",
@@ -1072,15 +846,15 @@
         "description": "Thiết kế hệ thống bền vững bảo vệ dữ liệu, con người và tổ chức."
       }
     ],
-    "ctaTitle": "Kết nối cùng đội ngũ nghiên cứu SIT",
-    "ctaDescription": "Đồng hành cùng chúng tôi để đồng cố vấn sinh viên, tài trợ dữ liệu hoặc hỗ trợ các thử thách đổi mới.",
+    "ctaTitle": "Cùng khám phá nghiên cứu tại Biotech TTU",
+    "ctaDescription": "Theo dõi các công bố, đề tài và hoạt động phòng thí nghiệm được cập nhật từ CMS.",
     "ctaPrimary": "Đề xuất hợp tác",
     "ctaSecondary": "Tải thông tin nghiên cứu"
   },
   "researchProjects": {
     "badge": "Đề tài khoa học",
     "title": "Các sáng kiến nghiên cứu trọng điểm",
-    "subtitle": "Khám phá đề tài do giảng viên dẫn dắt, giúp sinh viên SIT đóng góp cho chuyển đổi số Việt Nam.",
+    "subtitle": "Khám phá đề tài do giảng viên dẫn dắt, giúp sinh viên Biotech TTU đóng góp cho phát triển bền vững Việt Nam.",
     "labels": {
       "totalProjects": "Tổng số đề tài",
       "ongoing": "Đang thực hiện",
@@ -1091,93 +865,14 @@
     "filters": [
       "AI & ML",
       "Khoa học dữ liệu",
-      "An ninh mạng",
+      "An toàn sinh học",
       "Kỹ thuật phần mềm"
     ],
     "spotlight": {
       "title": "Nhóm đề tài ưu tiên",
       "description": "Chúng tôi kết nối sinh viên, giảng viên và doanh nghiệp để tạo ra nguyên mẫu và công bố học thuật."
     },
-    "projects": [
-      {
-        "title": "AI giải thích hỗ trợ chẩn đoán y khoa",
-        "leaders": "Chủ nhiệm: TS. Nguyễn Minh Châu",
-        "focus": "Lĩnh vực: AI & ML",
-        "summary": "Thiết kế quy trình deep learning có thể giải thích giúp bác sĩ phát hiện bệnh hiếm với dữ liệu hạn chế.",
-        "timeline": "2024 – 2026",
-        "status": "Đang thực hiện",
-        "tags": [
-          "Y tế",
-          "Thị giác máy tính",
-          "AI đạo đức"
-        ]
-      },
-      {
-        "title": "Nền tảng tin sinh học cho nông nghiệp Mekong",
-        "leaders": "Chủ nhiệm: TS. Trần Phương Anh",
-        "focus": "Lĩnh vực: Khoa học dữ liệu",
-        "summary": "Xây dựng quy trình tin sinh học theo dõi sức khỏe cây trồng, chất lượng nước và rủi ro khí hậu cho nông dân Đồng bằng Mekong.",
-        "timeline": "2023 – 2025",
-        "status": "Thử nghiệm pilot",
-        "tags": [
-          "AgriTech",
-          "Phân tích dự đoán",
-          "Bền vững"
-        ]
-      },
-      {
-        "title": "Kiến trúc zero-trust cho campus thông minh",
-        "leaders": "Chủ nhiệm: ThS. Nguyễn Thị Bảo Trân",
-        "focus": "Lĩnh vực: An ninh mạng",
-        "summary": "Ứng dụng phân đoạn vi mô, quản trị danh tính và giám sát AI để bảo vệ hạ tầng đại học.",
-        "timeline": "2024 – 2025",
-        "status": "Đang triển khai",
-        "tags": [
-          "Bảo mật",
-          "Đám mây",
-          "Chính sách"
-        ]
-      },
-      {
-        "title": "Phân tích học tập thích ứng cho studio SIT",
-        "leaders": "Chủ nhiệm: TS. Hoàng Quang Minh",
-        "focus": "Lĩnh vực: Kỹ thuật phần mềm",
-        "summary": "Phát triển dashboard trực quan hóa mức độ tham gia của sinh viên và cá nhân hóa học tập trong các học phần studio.",
-        "timeline": "2022 – 2024",
-        "status": "Hoàn thành",
-        "tags": [
-          "EdTech",
-          "Trực quan dữ liệu",
-          "Thiết kế sản phẩm"
-        ]
-      },
-      {
-        "title": "Robot hỗ trợ chăm sóc sức khỏe cộng đồng",
-        "leaders": "Chủ nhiệm: Nhóm Robotics SIT",
-        "focus": "Lĩnh vực: AI & ML",
-        "summary": "Phát triển robot giá thành thấp hỗ trợ phục hồi chức năng và chăm sóc người cao tuổi tại phòng khám địa phương.",
-        "timeline": "2025 – tiếp tục",
-        "status": "Khởi động",
-        "tags": [
-          "Robotics",
-          "Cộng đồng",
-          "Nguyên mẫu"
-        ]
-      },
-      {
-        "title": "Sổ cái chứng chỉ blockchain cho đại học",
-        "leaders": "Chủ nhiệm: Phòng thí nghiệm Web3 SIT",
-        "focus": "Lĩnh vực: Kỹ thuật phần mềm",
-        "summary": "Phối hợp Phòng Đào tạo cấp phát chứng chỉ số an toàn trên blockchain liên minh.",
-        "timeline": "2024 – 2026",
-        "status": "Hợp tác doanh nghiệp",
-        "tags": [
-          "Web3",
-          "Quản trị",
-          "Đổi mới"
-        ]
-      }
-    ],
+    "projects": [],
     "cta": {
       "title": "Cùng kiến tạo cột mốc nghiên cứu mới",
       "description": "Mời đối tác đồng cố vấn nhóm sinh viên, chia sẻ bộ dữ liệu hoặc đặt bài toán thực tiễn.",
@@ -1187,7 +882,7 @@
   },
   "researchPublications": {
     "badge": "Bài báo khoa học",
-    "title": "Lan tỏa tri thức từ SIT",
+    "title": "Lan tỏa tri thức từ Biotech TTU",
     "subtitle": "Các công bố quốc tế, kỷ yếu hội thảo và báo cáo hợp tác cùng đối tác.",
     "labels": {
       "totalPublications": "Tổng số bài báo",
@@ -1199,163 +894,69 @@
       "statusOngoing": "Đang thực hiện",
       "statusCompleted": "Đã hoàn thành"
     },
-    "metrics": [
-      {
-        "value": "35+",
-        "label": "Công bố từ 2021"
-      },
-      {
-        "value": "12",
-        "label": "Tạp chí được lập chỉ mục"
-      },
-      {
-        "value": "08",
-        "label": "Hội nghị quốc tế"
-      }
-    ],
-    "sections": [
-      {
-        "title": "Bài báo tạp chí",
-        "items": [
-          {
-            "title": "Học liên kết với ngân sách bảo mật cho ảnh y khoa",
-            "authors": "Cao Tiến Dũng, Nguyễn Minh Châu",
-            "where": "Journal of Medical Systems, 2024",
-            "linkLabel": "Xem tóm tắt"
-          },
-          {
-            "title": "Phát hiện xâm nhập giải thích được cho campus đám mây lai",
-            "authors": "Nguyễn Thị Bảo Trân, Hoàng Quang Minh",
-            "where": "IEEE Access, 2023",
-            "linkLabel": "Đọc tóm lược"
-          }
-        ]
-      },
-      {
-        "title": "Kỷ yếu hội thảo",
-        "items": [
-          {
-            "title": "Digital twins cho nông nghiệp thông minh Mekong",
-            "authors": "Trần Phương Anh và cộng sự",
-            "where": "ICICT 2024, TP.HCM",
-            "linkLabel": "Tải slide"
-          },
-          {
-            "title": "Robot hỗ trợ phục hồi chức năng chi phí thấp",
-            "authors": "Nhóm Robotics SIT",
-            "where": "ROBIO 2024, Singapore",
-            "linkLabel": "Xem poster"
-          }
-        ]
-      },
-      {
-        "title": "Báo cáo & lan tỏa cộng đồng",
-        "items": [
-          {
-            "title": "Sẵn sàng an ninh mạng cho doanh nghiệp sản xuất",
-            "authors": "Phòng thí nghiệm An ninh mạng SIT",
-            "where": "Whitepaper cùng Simpson Strong-Tie Vietnam, 2024",
-            "linkLabel": "Tải báo cáo"
-          },
-          {
-            "title": "Đào tạo kiến thức AI cho trường học nông thôn",
-            "authors": "Nhóm Đổi mới Giáo dục SIT",
-            "where": "Chuỗi workshop cộng đồng, 2023",
-            "linkLabel": "Xem bộ công cụ"
-          }
-        ]
-      }
-    ],
+    "metrics": [],
+    "sections": [],
     "cta": {
-      "title": "Hợp tác xuất bản cùng SIT",
-      "description": "Cùng giảng viên SIT đồng tác giả bài báo, chia sẻ dữ liệu hoặc hướng dẫn nhóm nghiên cứu sinh viên.",
+      "title": "Hợp tác xuất bản cùng Biotech TTU",
+      "description": "Cùng giảng viên Biotech TTU đồng tác giả bài báo, chia sẻ dữ liệu hoặc hướng dẫn nhóm nghiên cứu sinh viên.",
       "primary": "Chia sẻ ý tưởng công bố",
       "secondary": "Yêu cầu danh mục công bố"
     }
   },
   "news": {
     "title": "Tin tức & Sự kiện",
-    "subtitle": "Cập nhật Sự kiện mới nhất",
-    "description": "Tin tức, sự kiện và thành tích được công bố trên kênh chính thức của Khoa Công nghệ Thông tin.",
+    "subtitle": "Hoạt động học thuật và đời sống Biotech TTU",
+    "description": "Tin tức mới từ Khoa Công nghệ Sinh học sẽ được cập nhật qua hệ thống quản trị nội dung.",
     "latestNews": "Tin Tức Mới Nhất",
     "viewDetails": "Xem chi tiết",
     "viewAllNews": "Xem tất cả tin tức",
-    "newsroom": "SIT / Bản tin",
+    "newsroom": "Bản tin Biotech TTU",
     "featuredStory": "Tiêu điểm",
     "browseByTopic": "Lọc tin theo chủ đề",
     "allCategories": "Tất cả",
-    "noNews": "Chưa có bài viết phù hợp.",
+    "noNews": "Chưa có tin tức được xuất bản.",
     "breadcrumbLabel": "Đường dẫn trang",
     "home": "Trang chủ",
     "topicsEyebrow": "Bản tin theo chủ đề",
     "topicsTitle": "Tin theo chuyên mục",
-    "topicsDescription": "Theo dõi nhanh các nhóm nội dung đang được quan tâm tại SIT mà không phải duyệt qua những thẻ tin lớn.",
+    "topicsDescription": "Theo dõi nhanh các nhóm nội dung đang được quan tâm tại Biotech TTU mà không phải duyệt qua những thẻ tin lớn.",
     "storyCount": "{count} bài",
-    "insightsEyebrow": "Từ hệ sinh thái SIT",
+    "insightsEyebrow": "Từ hệ sinh thái Biotech TTU",
     "insightsTitle": "Nghiên cứu & thành tích nổi bật",
-    "insightsDescription": "Một điểm truy cập tập trung tới các đề tài, công bố khoa học và dấu ấn mới của sinh viên SIT.",
+    "insightsDescription": "Một điểm truy cập tập trung tới các đề tài, công bố khoa học và dấu ấn mới của sinh viên Biotech TTU.",
     "researchLabel": "Nghiên cứu",
     "achievementsLabel": "Thành tích",
     "publicationLabel": "Công bố",
     "projectLabel": "Đề tài",
     "researchArchiveLabel": "Kho nghiên cứu",
-    "researchFallbackTitle": "Đề tài và công bố khoa học tại SIT",
-    "researchFallbackDescription": "Khám phá các hướng nghiên cứu, đề tài khoa học và công bố học thuật đang được cập nhật trong kho nghiên cứu của Khoa.",
-    "achievementsFallbackTitle": "Dấu ấn sinh viên SIT",
-    "achievementsFallbackDescription": "Theo dõi thành tích học thuật, cuộc thi và các dự án nổi bật của sinh viên Khoa Công nghệ Thông tin.",
+    "researchFallbackTitle": "Chưa có công bố mới",
+    "researchFallbackDescription": "Các công bố khoa học sẽ được cập nhật từ hệ thống quản trị.",
+    "achievementsFallbackTitle": "Chưa có thành tích mới",
+    "achievementsFallbackDescription": "Các thành tích sẽ được cập nhật từ hệ thống quản trị.",
     "viewResearch": "Khám phá nghiên cứu",
     "viewAchievements": "Xem thành tích sinh viên",
     "quickFeedEyebrow": "Cập nhật liên tục",
     "quickFeedTitle": "Dòng tin nhanh",
-    "quickFeedDescription": "Danh sách cô đọng giúp bạn quét nhanh những thông báo và câu chuyện mới nhất từ SIT.",
+    "quickFeedDescription": "Danh sách cô đọng giúp bạn quét nhanh những thông báo và câu chuyện mới nhất từ Biotech TTU.",
     "officialChannel": "Kênh thông tin chính thức",
-    "exploreSIT": "Khám phá thêm về SIT",
-    "exploreSITDescription": "Từ bản tin của Khoa, bạn có thể tiếp tục tìm hiểu chương trình đào tạo, hoạt động nghiên cứu, môi trường sinh viên và đội ngũ giảng viên tại Khoa Công nghệ Thông tin.",
+    "exploreSIT": "Khám phá thêm về Biotech TTU",
+    "exploreSITDescription": "Tìm hiểu chương trình đào tạo, nghiên cứu và đời sống sinh viên tại Khoa Công nghệ Sinh học.",
     "exploreProgramsTitle": "Chương trình đào tạo",
-    "exploreProgramsDescription": "Tìm hiểu ngành học, cấu trúc chương trình và định hướng đào tạo tại SIT.",
-    "exploreResearchTitle": "Nghiên cứu tại SIT",
+    "exploreProgramsDescription": "Tìm hiểu ngành học, cấu trúc chương trình và định hướng đào tạo tại Biotech TTU.",
+    "exploreResearchTitle": "Nghiên cứu tại Biotech TTU",
     "exploreResearchDescription": "Khám phá các hướng nghiên cứu, công bố khoa học và hoạt động học thuật.",
     "exploreStudentsTitle": "Đời sống sinh viên",
     "exploreStudentsDescription": "Theo dõi hoạt động, trải nghiệm học tập và các nguồn lực dành cho sinh viên.",
     "exploreFacultyTitle": "Đội ngũ giảng viên",
-    "exploreFacultyDescription": "Tìm hiểu chuyên môn và hồ sơ của đội ngũ giảng viên Khoa Công nghệ Thông tin.",
+    "exploreFacultyDescription": "Tìm hiểu chuyên môn và hồ sơ của đội ngũ giảng viên Khoa Công nghệ Sinh học.",
     "exploreLink": "Xem nội dung",
-    "newsList": [
-      {
-        "title": "Nhóm Meme Trade Co. (SIT & SEB) giành giải Ba Ancient8 Builder Jam",
-        "date": "13 tháng 01, 2025",
-        "category": "Thành tích",
-        "summary": "Đại học Tân Tạo chúc mừng đội Meme Trade Co. đạt giải Ba và học bổng tại cuộc thi Ancient8 Builder Jam.",
-        "image": "https://sit.ttu.edu.vn/wp-content/uploads/2025/01/473424504_1180055627459565_2810717273122808976_n-340x226.jpg"
-      },
-      {
-        "title": "[TKB] Thời khóa biểu học kỳ Xuân 2025 cho sinh viên năm 2-4",
-        "date": "29 tháng 12, 2024",
-        "category": "Học vụ",
-        "summary": "Phòng Đào tạo thông báo thời khóa biểu học kỳ Xuân 2025 trên website chính thức của Khoa CNTT.",
-        "image": "https://sit.ttu.edu.vn/wp-content/uploads/2018/03/books-2463779_1280-340x226.jpg"
-      },
-      {
-        "title": "Workshop “Bước đầu phát triển Web3 App”",
-        "date": "19 tháng 12, 2024",
-        "category": "Workshop",
-        "summary": "SIT phối hợp MetaCyber8 hướng dẫn sinh viên sử dụng Ancient8 Chain và chuẩn bị cho các cuộc thi Web3.",
-        "image": "https://sit.ttu.edu.vn/wp-content/uploads/2024/12/470793824_987813683370530_7292304698480494764_n-340x226.jpg"
-      },
-      {
-        "title": "Sinh viên SIT tham quan Simpson Strong-Tie Vietnam",
-        "date": "13 tháng 12, 2024",
-        "category": "Hợp tác doanh nghiệp",
-        "summary": "Chuyến tham quan giúp sinh viên tìm hiểu quy trình kỹ thuật và mở rộng kết nối nghề nghiệp với Simpson Strong-Tie.",
-        "image": "https://sit.ttu.edu.vn/wp-content/uploads/2024/12/470148868_1088422436626890_8508387190436474761_n-1170x1170.jpg"
-      }
-    ],
-    "upcomingEvents": "Sự kiện sắp tới"
+    "newsList": [],
+    "upcomingEvents": []
   },
   "achievements": {
     "badge": "Thành tích nổi bật",
-    "title": "Dấu ấn của sinh viên SIT",
-    "subtitle": "Những giải thưởng và cột mốc ghi nhận nỗ lực của sinh viên và giảng viên Khoa CNTT.",
+    "title": "Dấu ấn của sinh viên Biotech TTU",
+    "subtitle": "Những giải thưởng và cột mốc ghi nhận nỗ lực của sinh viên và giảng viên Khoa Công nghệ Sinh học.",
     "viewAll": "Xem tất cả thành tích",
     "levels": {
       "UNIVERSITY": "Cấp trường",
@@ -1377,26 +978,24 @@
       "Hỏi đáp"
     ],
     "programs": [
-      "Cử nhân Khoa học Máy tính",
-      "Cử nhân Trí tuệ Nhân tạo",
-      "Cử nhân Khoa học Dữ liệu",
-      "Thạc sĩ Khoa học Máy tính"
+      "Công nghệ Sinh học",
+      "Nông nghiệp công nghệ cao"
     ],
     "address": "Đại lộ Đại học Tân Tạo, Tân Đức E.City, Xã Đức Hòa, Tỉnh Tây Ninh",
-    "phone": "+84 272 376 9216",
-    "email": "sit@ttu.edu.vn",
-    "mission": "TTU cam kết cung cấp giáo dục chất lượng cao trong lĩnh vực công nghệ thông tin với triết lí \"Khai phóng - học suốt đời\".",
-    "copyright": "© 2026 Khoa Công nghệ Thông tin."
+    "phone": "(+84) 076 436 2098 · (+84) 272 376 9216",
+    "email": "secretary.sbio@ttu.edu.vn",
+    "mission": "đào tạo khoa học sự sống gắn với thực hành, nghiên cứu và phục vụ cộng đồng.",
+    "copyright": "© Khoa Công nghệ Sinh học - Đại học Tân Tạo"
   },
   "contact": {
-    "eyebrow": "LIÊN HỆ",
-    "title": "Luôn sẵn sàng lắng nghe bạn",
-    "lede": "Có câu hỏi về tuyển sinh, chương trình học hay đời sống sinh viên? Đội ngũ Khoa Công nghệ Thông tin phản hồi trong giờ hành chính.",
+    "eyebrow": "Liên hệ Biotech TTU",
+    "title": "Kết nối với Khoa Công nghệ Sinh học",
+    "lede": "Liên hệ để được tư vấn chương trình đào tạo, tuyển sinh, học thuật và hợp tác nghiên cứu.",
     "officeHoursLabel": "Giờ làm việc",
     "officeHours": "Thứ Hai – Thứ Sáu, 08:00 – 17:00",
-    "addressLabel": "Địa chỉ",
-    "phoneLabel": "Điện thoại",
-    "emailLabel": "Email",
+    "addressLabel": "Đại lộ Đại học Tân Tạo, Tân Đức E.City, Xã Đức Hòa, Tỉnh Tây Ninh",
+    "phoneLabel": "(+84) 076 436 2098 · (+84) 272 376 9216",
+    "emailLabel": "secretary.sbio@ttu.edu.vn",
     "mapCta": "Chỉ đường",
     "channelsTitle": "Chọn cách bạn muốn liên hệ",
     "channelAdmissions": {
@@ -1404,11 +1003,7 @@
       "desc": "Học phí, học bổng, hồ sơ xét tuyển, lịch nhập học.",
       "cta": "Đến Cổng tuyển sinh"
     },
-    "channelAcademic": {
-      "title": "Câu hỏi học thuật & môn học",
-      "desc": "Chương trình đào tạo, cố vấn học tập, chuyển đổi tín chỉ.",
-      "cta": "Gửi email cho Khoa"
-    },
+    "channelAcademic": "Học thuật & nghiên cứu",
     "channelFast": {
       "title": "Cần trả lời nhanh",
       "desc": "Nhắn tin qua Fanpage, đội ngũ Khoa phản hồi trong ngày.",
@@ -1420,11 +1015,11 @@
   "faq": {
     "eyebrow": "HỎI & ĐÁP",
     "title": "Câu hỏi thường gặp",
-    "lede": "Tổng hợp những câu hỏi sinh viên và thí sinh hay hỏi nhất về Khoa Công nghệ Thông tin. Không tìm thấy câu trả lời? Liên hệ trực tiếp với Khoa.",
+    "lede": "Tổng hợp những câu hỏi sinh viên và thí sinh hay hỏi nhất về Khoa Công nghệ Sinh học. Không tìm thấy câu trả lời? Liên hệ trực tiếp với Khoa.",
     "items": [
       {
-        "q": "Khoa Công nghệ Thông tin đang đào tạo những ngành nào?",
-        "a": "Khoa đào tạo Cử nhân Khoa học Máy tính, Cử nhân Trí tuệ Nhân tạo, Cử nhân Khoa học Dữ liệu, Kỹ sư Công nghệ Thông tin và bậc Thạc sĩ Khoa học Máy tính. Xem chi tiết từng ngành tại mục Chương trình đào tạo."
+        "q": "Khoa Công nghệ Sinh học đang đào tạo những ngành nào?",
+        "a": "Khoa tập trung đào tạo Công nghệ Sinh học và Nông nghiệp công nghệ cao. Thông tin chi tiết được trình bày tại mục Chương trình đào tạo."
       },
       {
         "q": "Học phí và học bổng của Khoa như thế nào?",

@@ -66,35 +66,10 @@ export const stripProgramHtml = (html?: string) =>
     .replace(/\s+/g, " ")
     .trim();
 
-const TOPIC_IMAGES = [
-  { keywords: ["dữ liệu", "data"], src: "/assets/programs/data.jpg" },
-  {
-    keywords: ["trí tuệ", "intelligence", "ttnt"],
-    src: "/assets/programs/ai.jpg",
-  },
-  {
-    keywords: ["an ninh", "bảo mật", "security", "mạng", "network"],
-    src: "/assets/programs/security.jpg",
-  },
-  {
-    keywords: ["phần mềm", "software", "kỹ sư", "engineer"],
-    src: "/assets/programs/software.jpg",
-  },
-  {
-    keywords: ["máy tính", "computer"],
-    src: "/assets/programs/computer.jpg",
-  },
-];
-
 export const programImage = (
   program: Pick<Program, "banner" | "nameVi" | "nameEn" | "code">,
 ) => {
   if (program.banner) return program.banner;
 
-  const searchable = `${program.nameVi} ${program.nameEn || ""} ${program.code}`.toLowerCase();
-  return (
-    TOPIC_IMAGES.find(({ keywords }) =>
-      keywords.some((keyword) => searchable.includes(keyword)),
-    )?.src || "/assets/programs/it.jpg"
-  );
+  return "/assets/biotech/research-biotechnology.png";
 };

@@ -2,19 +2,19 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
-    short_name: "SIT - TTU",
+    name: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
+    short_name: "Biotech TTU",
     description:
-      "Website chính thức của Khoa Công nghệ Thông tin, Đại học Tân Tạo.",
+      "Website chính thức của Khoa Công nghệ Sinh học, Đại học Tân Tạo.",
     start_url: "/vi",
     display: "standalone",
     background_color: "#ffffff",
-    theme_color: "#ba4811",
+    theme_color: "#16856f",
     lang: "vi",
     icons: [
       {
-        src: "/assets/logo-sit.png",
-        sizes: "1875x1875",
+        src: "/assets/biotech/logo-biotech.png",
+        sizes: "737x111",
         type: "image/png",
         purpose: "any",
       },

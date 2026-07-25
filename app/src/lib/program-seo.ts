@@ -41,12 +41,12 @@ export const buildEducationLevelMetadata = (
   const isGraduate = level === "graduate";
   const title =
     locale === "vi"
-      ? `${isGraduate ? "Chương trình sau đại học" : "Chương trình đại học"} ngành Công nghệ Thông tin`
-      : `${isGraduate ? "Postgraduate" : "Undergraduate"} Information Technology Programs`;
+      ? `${isGraduate ? "Chương trình sau đại học" : "Chương trình đại học"} Khoa Công nghệ Sinh học`
+      : `${isGraduate ? "Postgraduate" : "Undergraduate"} Biotechnology Programs`;
   const description =
     locale === "vi"
-      ? `Khám phá ${isGraduate ? "chương trình sau đại học" : "các chương trình đại học"} về Công nghệ Thông tin, Khoa học Máy tính, Dữ liệu và AI tại Đại học Tân Tạo.`
-      : `Explore ${isGraduate ? "postgraduate" : "undergraduate"} programs in Information Technology, Computer Science, Data Science and AI at Tan Tao University.`;
+      ? `Khám phá ${isGraduate ? "chương trình sau đại học" : "các chương trình đại học"} về Công nghệ Sinh học và Nông nghiệp công nghệ cao tại Đại học Tân Tạo.`
+      : `Explore ${isGraduate ? "postgraduate" : "undergraduate"} programs in Biotechnology and High-Tech Agriculture at Tan Tao University.`;
 
   return buildPageMetadata({
     locale,
@@ -54,7 +54,7 @@ export const buildEducationLevelMetadata = (
     description,
     path: locale === "vi" ? viPath : enPath,
     alternatePath: locale === "vi" ? enPath : viPath,
-    image: "/assets/ttu/programs-academic-partnership.jpg",
+    image: "/assets/biotech/hero-biotechnology.png",
   });
 };
 
@@ -82,7 +82,7 @@ export async function buildProgramMetadata(
 
     return buildPageMetadata({
       locale,
-      title: `${title} | SIT - ${locale === "vi" ? "Đại học Tân Tạo" : "Tan Tao University"}`,
+      title: `${title} | ${locale === "vi" ? "Khoa Công nghệ Sinh học - Đại học Tân Tạo" : "School of Biotechnology - Tan Tao University"}`,
       description,
       path: locale === "vi" ? viPath : enPath,
       alternatePath: locale === "vi" ? enPath : viPath,
@@ -126,7 +126,7 @@ export async function buildCurriculumMetadata(
 
     return buildPageMetadata({
       locale,
-      title: `${title} | SIT - ${locale === "vi" ? "Đại học Tân Tạo" : "Tan Tao University"}`,
+      title: `${title} | ${locale === "vi" ? "Khoa Công nghệ Sinh học - Đại học Tân Tạo" : "School of Biotechnology - Tan Tao University"}`,
       description,
       path: locale === "vi" ? viPath : enPath,
       alternatePath: locale === "vi" ? enPath : viPath,
@@ -171,9 +171,9 @@ export async function buildProgramStructuredData(
         "@type": "CollegeOrUniversity",
         name:
           locale === "vi"
-            ? "Khoa Công nghệ Thông tin - Đại học Tân Tạo"
-            : "School of Information Technology - Tan Tao University",
-        url: "https://sit.ttu.edu.vn",
+            ? "Khoa Công nghệ Sinh học - Đại học Tân Tạo"
+            : "School of Biotechnology - Tan Tao University",
+        url: "https://biotech.ttu.edu.vn",
       },
     };
   } catch {
@@ -238,9 +238,9 @@ export async function buildCurriculumStructuredData(
         "@type": "CollegeOrUniversity",
         name:
           locale === "vi"
-            ? "Khoa Công nghệ Thông tin - Đại học Tân Tạo"
-            : "School of Information Technology - Tan Tao University",
-        url: "https://sit.ttu.edu.vn",
+            ? "Khoa Công nghệ Sinh học - Đại học Tân Tạo"
+            : "School of Biotechnology - Tan Tao University",
+        url: "https://biotech.ttu.edu.vn",
       },
     };
   } catch {

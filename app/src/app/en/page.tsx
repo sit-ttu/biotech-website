@@ -1,9 +1,9 @@
 import HomePageContent from "@/components/HomePageContent";
 import { buildPageMetadata } from "@/lib/seo";
 
-const title = "School of Information Technology - Tan Tao University";
+const title = "School of Biotechnology - Tan Tao University";
 const description =
-  "The School of Information Technology — formerly the School of Engineering, founded in 2011 — offers Computer Science, Data Science, AI and Information Technology programs at Tan Tao University.";
+  "The School of Biotechnology at Tan Tao University offers Biotechnology and High-Tech Agriculture programs with research-led, practice-based learning.";
 
 export const metadata = buildPageMetadata({
   locale: "en",
@@ -11,7 +11,7 @@ export const metadata = buildPageMetadata({
   description,
   path: "/en",
   alternatePath: "/vi",
-  image: "/assets/ttu/home-students-campus.jpg",
+  image: "/assets/biotech/hero-biotechnology.png",
 });
 
 export default function HomePage() {
