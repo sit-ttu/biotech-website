@@ -1,68 +1,46 @@
 "use client";
 
-import { Target, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 
 const Mission = () => {
   const t = useTranslations("about");
-  const params = useParams();
-  const locale = params.locale as string;
+  const locale = useLocale();
+  const aboutHref =
+    locale === "vi" ? `/${locale}/gioi-thieu-chung` : `/${locale}/about-us`;
 
   return (
-    <section className="bg-white">
-      <div className="w-full px-3 sm:px-6 lg:px-10 py-10 sm:py-14 pt-16 sm:pt-20 container flex flex-col gap-8 sm:gap-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-left mb-6 sm:mb-8 flex flex-col gap-5"
-        >
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-snug"
-          >
+    <section className="bg-white px-5 py-14 sm:px-8 sm:py-20">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="mx-auto grid max-w-7xl gap-8 rounded-[1.75rem] bg-[#E8F3EF] p-7 sm:p-10 lg:grid-cols-[0.65fr_1.35fr] lg:p-14"
+      >
+        <div>
+          <span className="inline-flex rounded-full bg-white px-4 py-2 text-[0.66rem] font-bold uppercase tracking-[0.18em] text-[#16856F]">
+            {t("title")}
+          </span>
+          <h2 className="mt-5 text-3xl font-semibold tracking-[-0.045em] text-[#12312B] sm:text-4xl">
             {t("mission")}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="text-base sm:text-2xl text-muted-foreground leading-relaxed max-w-[95vw] text-left"
-          >
+          </h2>
+        </div>
+        <div>
+          <p className="max-w-3xl text-lg leading-8 text-[#36564E] sm:text-2xl sm:leading-10">
             {t("missionText").replace(/\u00a0/g, " ")}
-          </motion.p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          viewport={{ once: true }}
-          className="flex justify-center"
-        >
+          </p>
           <Link
-            href={`/${locale}/about`}
-            className="w-full flex justify-center"
+            href={aboutHref}
+            className="mt-8 inline-flex min-h-11 items-center gap-3 rounded-full bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50]"
           >
-            <Button
-              size="lg"
-              className="w-full sm:w-auto px-6 sm:px-16 lg:px-20 py-4 sm:py-5 bg-[#BA4811] hover:bg-[#BA4811]/80 text-white font-semibold text-base sm:text-xl transition-all duration-300 group cursor-pointer"
-            >
-              {t("explorePrograms")}
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
+            {t("explorePrograms")}
+            <ArrowRight className="h-4 w-4" />
           </Link>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </section>
   );
 };

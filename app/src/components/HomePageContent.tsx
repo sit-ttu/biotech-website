@@ -3,14 +3,13 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import Achievements from "@/components/Achievements";
 import CtaBanner from "@/components/CtaBanner";
 import FacultyHighlight from "@/components/FacultyHighlight";
 import Hero from "@/components/Hero";
+import Mission from "@/components/Mission";
 import News from "@/components/News";
 import Programs from "@/components/Programs";
 import ResearchAreas from "@/components/ResearchAreas";
-import TextRibbon from "@/components/TextRibbon";
 
 export default function HomePageContent({
   revealOffset,
@@ -37,7 +36,7 @@ export default function HomePageContent({
           <Hero />
         </div>
         <div className="gsap-fade-in">
-          <TextRibbon />
+          <Mission />
         </div>
         <div className="gsap-fade-in">
           <Programs />
@@ -50,9 +49,6 @@ export default function HomePageContent({
         </div>
         <div className="gsap-fade-in">
           <News />
-        </div>
-        <div className="gsap-fade-in">
-          <Achievements />
         </div>
         <div className="gsap-fade-in mt-10">
           <CtaBanner />

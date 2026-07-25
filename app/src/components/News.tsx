@@ -32,6 +32,7 @@ export default function News() {
   const locale = useLocale();
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [events, setEvents] = useState<ApiEvent[]>([]);
+  const [loaded, setLoaded] = useState(false);
 
   const fallbackNews = useMemo(
     () => (t.raw("newsList") as NewsItem[]) ?? [],
@@ -80,6 +81,7 @@ export default function News() {
         console.error("Failed to fetch upcoming events", eventsResult.reason);
         setEvents([]);
       }
+      setLoaded(true);
     }
     fetchHomeContent();
   }, [locale, fallbackNews]);
@@ -120,6 +122,8 @@ export default function News() {
       : "#";
   const newsIndexHref = locale === "vi" ? "/vi/tin-tuc" : "/en/news";
 
+  if (loaded && newsItems.length === 0 && events.length === 0) return null;
+
   return (
     <section className="relative bg-white py-14 sm:py-16">
       <SectionTab label={tNav("news")} />
@@ -151,7 +155,7 @@ export default function News() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
               viewport={{ once: true }}
-              className={`group relative flex flex-col overflow-hidden border border-[#dedad5] bg-white transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-1 hover:border-[#BA4811] hover:shadow-[0_12px_26px_rgba(55,34,23,0.07)] ${
+              className={`group relative flex flex-col overflow-hidden rounded-[1.35rem] border border-[#D6E5E0] bg-white transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-1 hover:border-[#16856F] hover:shadow-[0_12px_26px_rgba(18,49,43,0.08)] ${
                 index === 0 ? "md:col-span-2 md:flex-row" : ""
               }`}
             >
@@ -161,7 +165,7 @@ export default function News() {
                 }`}
               >
                 <NewsVisual item={item} index={index} featured={index === 0} />
-                <span className="absolute bottom-0 left-0 bg-[#BA4811] px-3.5 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.13em] text-white">
+                <span className="absolute bottom-0 left-0 bg-[#16856F] px-3.5 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.13em] text-white">
                   {item.category}
                 </span>
               </div>
@@ -171,7 +175,7 @@ export default function News() {
                   <HugeiconsIcon icon={Calendar03Icon} size={13} strokeWidth={1.5} />
                   <span>{item.date}</span>
                 </div>
-                <h3 className="mt-4 line-clamp-2 text-[1rem] font-bold leading-[1.4] tracking-[-0.025em] text-gray-900 transition-colors group-hover:text-[#BA4811] sm:text-[1.08rem]">
+                <h3 className="mt-4 line-clamp-2 text-[1rem] font-bold leading-[1.4] tracking-[-0.025em] text-gray-900 transition-colors group-hover:text-[#16856F] sm:text-[1.08rem]">
                   {item.title}
                 </h3>
                 {item.summary && (
@@ -179,9 +183,9 @@ export default function News() {
                     {item.summary}
                   </p>
                 )}
-                <div className="mt-auto flex items-center justify-between border-t border-[#e6e1dc] pt-5 text-[0.78rem] font-semibold text-[#BA4811]">
+                <div className="mt-auto flex items-center justify-between border-t border-[#D6E5E0] pt-5 text-[0.78rem] font-semibold text-[#16856F]">
                   <span>{t("viewDetails")}</span>
-                  <span className="flex h-9 w-9 items-center justify-center border border-[#BA4811]/35 transition-colors group-hover:border-[#BA4811] group-hover:bg-[#BA4811] group-hover:text-white">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#16856F]/35 transition-colors group-hover:border-[#16856F] group-hover:bg-[#16856F] group-hover:text-white">
                     <HugeiconsIcon
                       icon={ArrowUpRight01Icon}
                       size={16}
@@ -204,7 +208,7 @@ export default function News() {
         >
           <Link
             href={newsIndexHref}
-            className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#BA4811] underline underline-offset-4 transition-colors hover:text-[#9c3c0e] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#BA4811]"
+            className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#16856F] underline underline-offset-4 transition-colors hover:text-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
           >
             {t("viewAllNews")}
           </Link>
@@ -229,9 +233,9 @@ export default function News() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="border-l-2 border-[#BA4811] py-1 pl-5"
+                  className="border-l-2 border-[#16856F] py-1 pl-5"
                 >
-                  <div className="mb-2 inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#BA4811]">
+                  <div className="mb-2 inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#16856F]">
                     <HugeiconsIcon icon={Calendar03Icon} size={13} />
                     {formatEventDate(event.startAt)}
                   </div>
@@ -258,7 +262,7 @@ export default function News() {
                       href={event.registrationUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold text-[#BA4811] underline decoration-[#BA4811]/35 underline-offset-4 transition-colors hover:decoration-[#BA4811]"
+                      className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold text-[#16856F] underline decoration-[#16856F]/35 underline-offset-4 transition-colors hover:decoration-[#16856F]"
                     >
                       {t("viewDetails")}
                       <HugeiconsIcon icon={ArrowUpRight01Icon} size={14} />
