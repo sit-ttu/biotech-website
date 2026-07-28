@@ -123,11 +123,10 @@ export default function StudentActivitiesPageContent({
       <section className="border-b border-[#171b25]/15 bg-white">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-14 pt-10 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-16 lg:pb-20 lg:pt-16">
           <div>
-            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
-              <span className="h-px w-12 bg-current" />
+            <div className="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#777b77]">
               {copy.eyebrow}
             </div>
-            <h1 className="mt-7 max-w-[13ch] text-[2.8rem] font-bold leading-[1.03] tracking-[-0.045em] text-balance sm:text-[3.6rem] lg:text-[4rem]">
+            <h1 className="mt-7 max-w-[12ch] text-[3rem] font-semibold leading-[0.96] tracking-[-0.065em] text-balance sm:text-[4rem] lg:text-[4.8rem]">
               {copy.title}
             </h1>
             <p className="mt-7 max-w-xl text-base leading-8 text-[#626661] sm:text-lg">
@@ -136,20 +135,20 @@ export default function StudentActivitiesPageContent({
             <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
               <a
                 href="#lich-su-kien"
-                className="inline-flex min-h-12 items-center bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                className="inline-flex min-h-12 items-center rounded-full bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
               >
                 {copy.upcomingLink}
               </a>
               <a
                 href="#cau-chuyen"
-                className="text-sm font-semibold text-[#12312B] underline decoration-[#16856F]/35 underline-offset-8 transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                className="text-sm font-semibold text-[#12312B] underline decoration-[#139C48]/35 underline-offset-8 transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
               >
                 {copy.storiesLink}
               </a>
             </div>
           </div>
 
-          <figure className="group relative aspect-[16/10] overflow-hidden border-b-4 border-[#16856F] bg-[#eee5de]">
+          <figure className="group relative aspect-[16/10] overflow-hidden rounded-[0.75rem] bg-[#eee5de]">
             <img
               src={featuredImage}
               alt={featuredStory?.title || copy.fallbackCaption}
@@ -182,14 +181,14 @@ export default function StudentActivitiesPageContent({
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-7 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-20">
             <div>
-              <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#16856F]">
+              <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#139C48]">
                 {copy.upcomingEyebrow}
               </p>
               <h2 className="mt-4 text-[2.25rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[3rem]">
                 {copy.upcomingTitle}
               </h2>
             </div>
-            <div className="flex items-end justify-between gap-6 border-l-2 border-[#16856F] pl-5">
+            <div className="flex items-end justify-between gap-6 border-l-2 border-[#139C48] pl-5">
               <p className="max-w-lg text-sm leading-7 text-[#686c67]">
                 {copy.upcomingDescription}
               </p>
@@ -218,7 +217,7 @@ export default function StudentActivitiesPageContent({
                     className="grid gap-5 border-b border-[#d8d3ce] py-7 sm:grid-cols-[6rem_1fr] lg:grid-cols-[7rem_minmax(0,1fr)_17rem] lg:items-center lg:gap-10"
                   >
                     <time dateTime={event.startAt} className="flex items-baseline gap-2 sm:block">
-                      <span className="font-mono text-[2.4rem] font-medium leading-none tracking-[-0.07em] text-[#16856F]">
+                      <span className="font-mono text-[2.4rem] font-medium leading-none tracking-[-0.07em] text-[#139C48]">
                         {String(date.getDate()).padStart(2, "0")}
                       </span>
                       <span className="font-mono text-[0.55rem] uppercase tracking-[0.12em] text-[#8a8d88] sm:mt-2 sm:block">
@@ -254,7 +253,7 @@ export default function StudentActivitiesPageContent({
                           href={event.registrationUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="ml-5 inline-flex text-sm font-semibold text-[#16856F] underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] lg:ml-0 lg:mt-3"
+                          className="ml-5 inline-flex text-sm font-semibold text-[#139C48] underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48] lg:ml-0 lg:mt-3"
                         >
                           {copy.register} <ArrowIcon direction="up-right" size={16} />
                         </a>
@@ -268,18 +267,18 @@ export default function StudentActivitiesPageContent({
         </div>
       </section>
 
-      <section id="cau-chuyen" className="scroll-mt-24 border-y border-[#171b25]/15 bg-[#f7f4f1] py-14 sm:py-20 lg:py-24">
+      <section id="cau-chuyen" className="scroll-mt-24 border-y border-[#171b25]/15 bg-[#f5f7f4] py-14 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="mb-10 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-20">
             <div>
-              <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#16856F]">
+              <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#139C48]">
                 {copy.storyEyebrow}
               </p>
               <h2 className="mt-4 text-[2.25rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[3rem]">
                 {copy.storyTitle}
               </h2>
             </div>
-            <p className="max-w-xl border-l-2 border-[#16856F] pl-5 text-sm leading-7 text-[#686c67]">
+            <p className="max-w-xl border-l-2 border-[#139C48] pl-5 text-sm leading-7 text-[#686c67]">
               {copy.storyDescription}
             </p>
           </div>
@@ -294,7 +293,7 @@ export default function StudentActivitiesPageContent({
                 <article key={story.id} className="group border-t-2 border-[#171b25] pt-4">
                   <Link
                     href={`${newsPath}/${story.slug}`}
-                    className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                    className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                   >
                     <div className="relative aspect-[16/10] overflow-hidden bg-[#eee5de]">
                       {story.coverImage ? (
@@ -306,13 +305,13 @@ export default function StudentActivitiesPageContent({
                         />
                       ) : (
                         <div className="relative flex h-full flex-col justify-between overflow-hidden p-5">
-                          <span className="font-mono text-[0.58rem] uppercase tracking-[0.15em] text-[#16856F]">
+                          <span className="font-mono text-[0.58rem] uppercase tracking-[0.15em] text-[#139C48]">
                             Biotech TTU Activity
                           </span>
-                          <span className="font-mono text-[3.25rem] font-medium tracking-[-0.08em] text-[#16856F]">
+                          <span className="font-mono text-[3.25rem] font-medium tracking-[-0.08em] text-[#139C48]">
                             {String(index + 1).padStart(2, "0")}
                           </span>
-                          <span className="absolute -bottom-12 -right-8 h-44 w-44 rounded-full border border-[#16856F]/20" />
+                          <span className="absolute -bottom-12 -right-8 h-44 w-44 rounded-full border border-[#139C48]/20" />
                         </div>
                       )}
                     </div>
@@ -323,7 +322,7 @@ export default function StudentActivitiesPageContent({
                       >
                         {formatDate(story.publishedAt || story.createdAt, locale)}
                       </time>
-                      <h3 className="mt-3 text-lg font-bold leading-[1.35] tracking-[-0.025em] text-balance transition-colors group-hover:text-[#16856F]">
+                      <h3 className="mt-3 text-lg font-bold leading-[1.35] tracking-[-0.025em] text-balance transition-colors group-hover:text-[#139C48]">
                         {story.title}
                       </h3>
                       {story.summary && (
@@ -331,7 +330,7 @@ export default function StudentActivitiesPageContent({
                           {story.summary}
                         </p>
                       )}
-                      <span className="mt-5 inline-flex text-xs font-semibold text-[#16856F] underline underline-offset-4">
+                      <span className="mt-5 inline-flex text-xs font-semibold text-[#139C48] underline underline-offset-4">
                         {copy.readMore}
                       </span>
                     </div>
@@ -364,12 +363,12 @@ export default function StudentActivitiesPageContent({
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className={`group flex min-h-28 items-center justify-between gap-4 border-b border-[#d8d3ce] px-4 py-5 transition-colors hover:bg-[#fbf6f2] focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#16856F] sm:border-r ${index === 2 ? "sm:border-r-0" : ""}`}
+                className={`group flex min-h-28 items-center justify-between gap-4 border-b border-[#d8d3ce] px-4 py-5 transition-colors hover:bg-[#fbf6f2] focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#139C48] sm:border-r ${index === 2 ? "sm:border-r-0" : ""}`}
               >
-                <span className="text-sm font-semibold transition-colors group-hover:text-[#16856F]">
+                <span className="text-sm font-semibold transition-colors group-hover:text-[#139C48]">
                   {label}
                 </span>
-                <span aria-hidden className="text-[#16856F] transition-transform group-hover:translate-x-1">
+                <span aria-hidden className="text-[#139C48] transition-transform group-hover:translate-x-1">
                   <ArrowIcon direction="right" size={16} />
                 </span>
               </Link>

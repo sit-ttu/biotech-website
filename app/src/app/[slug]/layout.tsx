@@ -55,7 +55,7 @@ export default async function StudentPortfolioLayout({
           <a
             href="#top"
             aria-label={`Về đầu portfolio của ${portfolio.fullName}`}
-            className="flex items-center gap-3 text-sm font-semibold tracking-[-0.02em] text-[#111318] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+            className="flex items-center gap-3 text-sm font-semibold tracking-[-0.02em] text-[#111318] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
           >
             <span className="flex size-8 items-center justify-center rounded-full bg-[#111318] font-roboto-mono text-[0.62rem] tracking-[0.08em] text-white">
               {getInitials(portfolio.fullName)}
@@ -72,7 +72,7 @@ export default async function StudentPortfolioLayout({
                 <a
                   key={item.href}
                   href={item.href}
-                  className="py-2 text-[0.7rem] font-medium text-[#555852] transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                  className="py-2 text-[0.7rem] font-medium text-[#555852] transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                 >
                   {item.label}
                 </a>
@@ -83,14 +83,14 @@ export default async function StudentPortfolioLayout({
           {emailHref ? (
             <a
               href={emailHref}
-              className="rounded-full border border-[#bfc0bb] px-4 py-2.5 text-[0.7rem] font-semibold text-[#2f322e] transition-colors hover:border-[#16856F] hover:bg-[#16856F] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+              className="rounded-full border border-[#bfc0bb] px-4 py-2.5 text-[0.7rem] font-semibold text-[#2f322e] transition-colors hover:border-[#139C48] hover:bg-[#139C48] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
             >
               Liên hệ
             </a>
           ) : (
             <Link
               href="/vi"
-              className="rounded-full border border-[#d1d1cc] px-4 py-2.5 font-roboto-mono text-[0.6rem] uppercase tracking-[0.1em] text-[#666963] transition-colors hover:border-[#16856F] hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+              className="rounded-full border border-[#d1d1cc] px-4 py-2.5 font-roboto-mono text-[0.6rem] uppercase tracking-[0.1em] text-[#666963] transition-colors hover:border-[#139C48] hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
             >
               Biotech TTU
             </Link>

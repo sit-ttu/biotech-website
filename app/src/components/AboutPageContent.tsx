@@ -1,39 +1,23 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import {
-  Target02Icon,
-  VisionIcon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import SectionTab from "@/components/SectionTab";
 
+import EditorialCta from "@/components/EditorialCta";
 import { ArrowIcon } from "@/components/icons/ArrowIcon";
 
 const AboutPageContent = () => {
   const t = useTranslations("about");
   const locale = useLocale();
   const reduceMotion = useReducedMotion();
-
   const programsHref =
     locale === "vi" ? `/${locale}/chuong-trinh-dao-tao` : `/${locale}/programs`;
-  const educationItems = [
-    {
-      title: t("liberalArtsTitle"),
-      description: t("liberalArtsDescription"),
-    },
-    {
-      title: t("lifelongLearningTitle"),
-      description: t("lifelongLearningDescription"),
-    },
-    {
-      title: t("qualityAssuranceTitle"),
-      description: t("qualityAssuranceDescription"),
-    },
-  ];
+  const facultyHref =
+    locale === "vi" ? `/${locale}/giang-vien` : `/${locale}/faculty`;
+  const values = t.raw("valuesList") as string[];
+
   const operatingItems = [
     {
       title: t("organizationalStructureTitle"),
@@ -52,204 +36,184 @@ const AboutPageContent = () => {
       description: t("transparentEnvironmentDescription"),
     },
   ];
-  const values = t.raw("valuesList") as string[];
+
+  const educationItems = [
+    {
+      title: t("liberalArtsTitle"),
+      description: t("liberalArtsDescription"),
+    },
+    {
+      title: t("lifelongLearningTitle"),
+      description: t("lifelongLearningDescription"),
+    },
+    {
+      title: t("qualityAssuranceTitle"),
+      description: t("qualityAssuranceDescription"),
+    },
+  ];
+
   const reveal = {
-    hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 },
+    hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 22 },
     visible: { opacity: 1, y: 0 },
   };
 
   return (
-    <main className="overflow-hidden bg-white text-[#171b25]">
-      <section className="relative bg-white">
-        <SectionTab label={t("title")} />
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:py-16 2xl:grid-cols-[0.98fr_1.02fr] 2xl:gap-20 2xl:py-20">
+    <main className="overflow-hidden bg-white text-[#101210]">
+      <section className="px-5 pb-20 pt-10 sm:px-8 md:pb-28 md:pt-16">
+        <div className="mx-auto max-w-7xl">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={reveal}
-            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="grid gap-8 md:grid-cols-12 md:items-end"
           >
-            <div className="mb-6 flex items-center gap-4 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#16856F]">
-              <span className="h-px w-10 bg-current" />
-              {t("title")}
+            <div className="md:col-span-5 md:pb-8">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#6f746f]">
+                {locale === "vi" ? "Giới thiệu Khoa" : "About the School"}
+              </p>
+              <h1 className="mt-7 max-w-[9ch] text-[clamp(3.3rem,6.5vw,6.3rem)] font-semibold leading-[0.88] tracking-[-0.075em]">
+                {t("title")}
+              </h1>
             </div>
-            <h1 className="max-w-[13ch] text-[2.35rem] font-bold leading-[1.06] tracking-[-0.04em] text-balance sm:text-[2.75rem] lg:text-[3.15rem] 2xl:text-[3.6rem]">
-              {t("subtitle")}
-            </h1>
-            <p className="mt-6 max-w-[38rem] text-sm leading-7 text-[#60645f] sm:text-[0.95rem] 2xl:text-base 2xl:leading-8">
+
+            <figure className="md:col-span-7">
+              <div className="relative aspect-[1.38/1] overflow-hidden rounded-[0.8rem] bg-[#e9ebe8]">
+                <Image
+                  src="/assets/ttu/about-tan-tao-campus.jpg"
+                  alt={t("heroImageAlt")}
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 58vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
+          </motion.div>
+
+          <div className="mt-8 grid gap-8 border-b border-t border-[#d9ddd8] py-8 md:grid-cols-12 md:py-10">
+            <p className="max-w-[17rem] text-[0.68rem] leading-[1.65] text-[#747974] md:col-span-3">
+              {t("heroMediaDescription")}
+            </p>
+            <p className="max-w-[34rem] text-[1.35rem] font-medium leading-[1.42] tracking-[-0.03em] text-[#3e433e] md:col-start-5 md:col-span-5">
               {t("description")}
             </p>
-
-            <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-4">
+            <div className="flex items-start md:col-span-4 md:justify-end">
               <Link
                 href={programsHref}
-                className="group inline-flex min-h-12 items-center gap-4 bg-[#16856F] px-6 text-sm font-semibold text-white transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] active:translate-y-0"
+                className="group inline-flex min-h-11 items-center gap-3 rounded-full border border-[#cbd0ca] px-5 text-[0.72rem] font-semibold text-[#4e544e] transition-[border-color,color,transform] hover:-translate-y-0.5 hover:border-[#139C48] hover:text-[#139C48]"
               >
                 {t("explorePrograms")}
-                <span className="text-lg transition-transform group-hover:translate-x-1"><ArrowIcon direction="up-right" size={16} /></span>
+                <ArrowIcon direction="right" size={12} />
               </Link>
-              <a
-                href="#history"
-                className="group inline-flex min-h-12 items-center gap-3 text-sm font-semibold text-[#12312B] underline decoration-[#16856F]/40 underline-offset-8 transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
-              >
-                {t("history")}
-                <span className="transition-transform group-hover:translate-x-1"><ArrowIcon direction="down" size={16} /></span>
-              </a>
             </div>
+          </div>
 
-            <div className="mt-9 flex flex-wrap gap-x-6 gap-y-2 border-t border-[#171b25]/15 pt-5">
-              {[t("philosophyText"), t("values"), t("vision")].map(
-                (topic, index) => (
-                  <span
-                    key={topic}
-                    className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-[#70736f]"
-                  >
-                    <span className="mr-2 font-mono text-[#16856F]">0{index + 1}</span>
-                    {topic}
-                  </span>
-                ),
-              )}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={
-              reduceMotion
-                ? { opacity: 1 }
-                : { opacity: 0, clipPath: "inset(0 0 0 18%)" }
-            }
-            animate={{ opacity: 1, clipPath: "inset(0 0 0 0%)" }}
-            transition={{
-              duration: 0.85,
-              delay: 0.08,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-            className="relative isolate mx-auto aspect-[4/3] w-full max-w-[34rem] lg:justify-self-end 2xl:max-w-[40rem]"
-          >
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 -translate-y-3 translate-x-3 bg-[#16856F] [clip-path:polygon(12%_0,100%_0,100%_82%,88%_100%,0_100%,0_18%)]"
-            />
-            <div className="absolute inset-0 overflow-hidden bg-[#16856F] [clip-path:polygon(12%_0,100%_0,100%_82%,88%_100%,0_100%,0_18%)]">
-              <Image
-                src="/assets/ttu/about-tan-tao-campus.jpg"
-                alt={t("heroImageAlt")}
-                fill
-                priority
-                sizes="(min-width: 1024px) 48vw, 100vw"
-                className="object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,16,24,0.02)_38%,rgba(12,16,24,0.68)_100%)]" />
-              <div className="absolute inset-x-6 bottom-6 text-white sm:inset-x-8 sm:bottom-8">
-                <div className="max-w-[27rem] border-l-2 border-[#16856F] pl-4 sm:pl-5">
-                  <p className="font-mono text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-white/70">
-                    {t("heroMediaEyebrow")}
-                  </p>
-                  <p className="mt-2 text-xl font-semibold leading-tight tracking-[-0.025em] text-balance sm:text-2xl">
-                    {t("heroMediaTitle")}
-                  </p>
-                  <p className="mt-3 text-[0.7rem] leading-5 text-white/75 sm:text-xs">
-                    {t("heroMediaDescription")}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        <div className="border-y border-[#171b25]/15 bg-white">
-          <div className="mx-auto grid max-w-7xl grid-cols-2 sm:grid-cols-4">
+          <div className="grid border-b border-[#d9ddd8] sm:grid-cols-3">
             {[
               ["2011", t("founded")],
-              ["100%", t("facultyLevel")],
-              ["05", t("programs")],
+              ["02", t("programs")],
               ["2030", t("visionYear")],
             ].map(([value, label], index) => (
               <div
                 key={label}
-                className={`px-5 py-6 sm:px-7 lg:px-8 ${
-                  index % 2 !== 0 ? "border-l border-[#171b25]/15" : ""
-                } ${index > 1 ? "border-t border-[#171b25]/15 sm:border-t-0" : ""} ${
-                  index > 0 ? "sm:border-l sm:border-[#171b25]/15" : ""
-                }`}
+                className="flex items-end justify-between border-b border-[#d9ddd8] py-6 sm:border-b-0 sm:border-r sm:px-6 sm:first:pl-0 sm:last:border-r-0 sm:last:pr-0"
               >
-                <div className="text-2xl font-bold tracking-[-0.04em] sm:text-3xl">
+                <span className="text-[2.5rem] font-semibold leading-none tracking-[-0.065em]">
                   {value}
-                </div>
-                <p className="mt-2 text-[0.7rem] leading-5 text-[#70716c]">{label}</p>
+                </span>
+                <span className="max-w-[8rem] pb-1 text-right text-[0.62rem] leading-5 text-[#747974]">
+                  {label}
+                </span>
+                <span className="sr-only">{index + 1}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="history" className="relative bg-[#f7f4f1] py-14 sm:py-16">
-        <SectionTab label={t("history")} />
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={reveal}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="max-w-sm text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
-              {t("history")}
-            </h2>
-            <div className="mt-8 text-[4.5rem] font-bold leading-none tracking-[-0.07em] text-[#16856F] sm:text-[6rem]">
-              2011
+      <section className="border-y border-[#d9ddd8] bg-[#f5f6f3] px-5 py-20 sm:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#6f746f]">
+                {locale === "vi" ? "Cấu trúc học thuật" : "Academic structure"}
+              </p>
+              <h2 className="mt-7 max-w-[10ch] text-[clamp(2.7rem,4.5vw,4.6rem)] font-semibold leading-[0.93] tracking-[-0.065em]">
+                {t("howWeOperate")}
+              </h2>
+              <p className="mt-7 max-w-[18rem] text-sm leading-7 text-[#707570]">
+                {t("valuesText")}
+              </p>
             </div>
-          </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={reveal}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.08 }}
-            className="border-t-2 border-[#16856F] pt-6"
-          >
-            <p className="max-w-3xl text-base leading-8 text-[#343a43] sm:text-lg">
-              {t("historyText")}
-            </p>
-            <div className="mt-8 grid gap-5 border-t border-[#d9d4cf] pt-6 sm:grid-cols-2">
-              <div>
-                <p className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-[#8b8f96]">
-                  {t("whatWeDo")}
-                </p>
-                <p className="mt-3 text-sm leading-7 text-[#646863]">{t("description")}</p>
-              </div>
-              <div>
-                <p className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-[#8b8f96]">
-                  {t("faculty")}
-                </p>
-                <p className="mt-3 text-sm leading-7 text-[#646863]">{t("facultyText")}</p>
-              </div>
+            <div className="md:col-start-6 md:col-span-7">
+              {operatingItems.map((item, index) => (
+                <motion.article
+                  key={item.title}
+                  initial="hidden"
+                  whileInView="visible"
+                  variants={reveal}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: index * 0.06 }}
+                  className="group grid gap-4 border-t border-[#cfd3ce] py-7 sm:grid-cols-[3.5rem_0.8fr_1.2fr]"
+                >
+                  <span className="font-mono text-[0.62rem] text-[#139C48]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-lg font-semibold leading-[1.15] tracking-[-0.035em]">
+                    {item.title}
+                  </h3>
+                  <p className="max-w-[27rem] text-[0.74rem] leading-[1.7] text-[#6d726d]">
+                    {item.description}
+                  </p>
+                </motion.article>
+              ))}
             </div>
-          </motion.div>
+          </div>
+
+          <div className="mt-16 grid gap-5 md:grid-cols-12 md:items-end">
+            <figure className="md:col-span-7">
+              <div className="relative aspect-[1.7/1] overflow-hidden rounded-[0.8rem] bg-[#e3e6e2]">
+                <Image
+                  src="/assets/biotech/biotech-hackathon-2026.jpg"
+                  alt={t("heroMediaTitle")}
+                  fill
+                  sizes="(min-width: 768px) 58vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
+            <figure className="md:col-start-9 md:col-span-4">
+              <div className="relative aspect-[1.18/1] overflow-hidden rounded-[0.8rem] bg-[#e3e6e2]">
+                <Image
+                  src="/assets/biotech/program-biotechnology-lab.webp"
+                  alt={t("faculty")}
+                  fill
+                  sizes="(min-width: 768px) 32vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="mt-4 text-[0.68rem] leading-6 text-[#707570]">
+                {t("facultyText")}
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
-      <section className="relative bg-white py-14 sm:py-16">
-        <SectionTab label={t("howWeEducate")} />
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={reveal}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-10 grid gap-5 lg:grid-cols-[1fr_0.7fr] lg:items-end"
-          >
-            <h2 className="max-w-xl text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
-              {t("howWeDoIt")}
+      <section className="px-5 py-20 sm:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-8 border-b border-[#d9ddd8] pb-8 md:grid-cols-12 md:items-end">
+            <h2 className="max-w-[10ch] text-[clamp(2.8rem,4.8vw,4.8rem)] font-semibold leading-[0.92] tracking-[-0.065em] md:col-span-5">
+              {t("howWeEducate")}
             </h2>
-            <p className="max-w-md text-sm leading-7 text-[#686c67] lg:justify-self-end">
+            <p className="max-w-[34rem] text-base leading-8 text-[#646a64] md:col-start-7 md:col-span-6">
               {t("philosophyDetails.liberalArts.description")}
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid md:grid-cols-3">
             {educationItems.map((item, index) => (
               <motion.article
                 key={item.title}
@@ -258,149 +222,128 @@ const AboutPageContent = () => {
                 variants={reveal}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="group flex min-h-64 flex-col border border-[#dedad5] bg-white p-6 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-[#16856F] hover:shadow-[8px_8px_0_#eadfd6]"
+                className="border-b border-[#d9ddd8] py-9 md:min-h-[19rem] md:border-r md:px-8 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
               >
-                <div className="mb-10 flex items-center justify-between">
-                  <span className="font-mono text-[0.68rem] font-semibold text-[#16856F]">
-                    0{index + 1}
-                  </span>
-                  <span className="h-px w-10 bg-[#16856F]/45 transition-all duration-300 group-hover:w-16" />
-                </div>
-                <h3 className="text-lg font-bold tracking-tight">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-[#686c67]">{item.description}</p>
+                <span className="font-mono text-[0.62rem] text-[#139C48]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-12 max-w-[15rem] text-[1.6rem] font-semibold leading-[1.08] tracking-[-0.045em]">
+                  {item.title}
+                </h3>
+                <p className="mt-5 max-w-[23rem] text-sm leading-7 text-[#6d726d]">
+                  {item.description}
+                </p>
               </motion.article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="relative bg-[#f7f4f1] py-14 sm:py-16">
-        <SectionTab label={t("mission")} />
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="mb-10 grid gap-5 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
-            <h2 className="text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
-              {t("mission")} &amp; {t("vision")}
-            </h2>
-            <p className="max-w-xl text-sm leading-7 text-[#686c67] lg:justify-self-end">
-              {t("valuesText")}
-            </p>
-          </div>
-
-          <div className="grid gap-5 lg:grid-cols-2">
-            <motion.article
-              initial="hidden"
-              whileInView="visible"
-              variants={reveal}
-              viewport={{ once: true }}
-              className="border border-[#dedad5] bg-white p-7 sm:p-9"
-            >
-              <div className="flex h-11 w-11 items-center justify-center border border-[#16856F]/50 text-[#16856F]">
-                <HugeiconsIcon icon={Target02Icon} size={20} strokeWidth={1.5} />
-              </div>
-              <h3 className="mt-8 text-xl font-bold tracking-tight">{t("mission")}</h3>
-              <p className="mt-4 text-sm leading-7 text-[#60645f]">{t("missionText")}</p>
-            </motion.article>
-
-            <motion.article
-              initial="hidden"
-              whileInView="visible"
-              variants={reveal}
-              viewport={{ once: true }}
-              transition={{ delay: 0.08 }}
-              className="relative overflow-hidden bg-[#16856F] p-7 text-white [clip-path:polygon(0_0,100%_0,100%_84%,94%_100%,0_100%)] sm:p-9"
-            >
-              <div className="flex h-11 w-11 items-center justify-center border border-white/45">
-                <HugeiconsIcon icon={VisionIcon} size={20} strokeWidth={1.5} />
-              </div>
-              <h3 className="mt-8 text-xl font-bold tracking-tight">{t("vision")}</h3>
-              <p className="mt-4 max-w-xl text-sm leading-7 text-white/80">{t("visionText")}</p>
-            </motion.article>
-          </div>
-
-          <div className="mt-5 grid border border-[#dedad5] bg-white sm:grid-cols-2 lg:grid-cols-7">
-            {values.map((value, index) => (
-              <div
-                key={value}
-                className={`flex min-h-24 items-center gap-3 px-5 py-5 ${
-                  index > 0 ? "border-t border-[#dedad5] lg:border-l lg:border-t-0" : ""
-                } ${index % 2 !== 0 ? "sm:border-l" : "sm:border-l-0"} ${
-                  index > 1 ? "sm:border-t" : "sm:border-t-0"
-                }`}
-              >
-                <span className="font-mono text-[0.62rem] text-[#16856F]">0{index + 1}</span>
-                <span className="text-[12px] font-semibold leading-5 text-[#4f544f]">{value}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative bg-white py-14 sm:py-16">
-        <SectionTab label={t("howWeOperate")} />
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={reveal}
-            viewport={{ once: true }}
-          >
-            <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
-              {t("ourPhilosophy")}
-            </p>
-            <h2 className="mt-4 text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
-              {t("howWeOperate")}
-            </h2>
-            <div className="mt-8 border-l-2 border-[#16856F] pl-5">
-              <p className="text-xl font-bold tracking-tight text-[#16856F]">{t("philosophyText")}</p>
-              <p className="mt-3 text-sm leading-7 text-[#686c67]">
-                {t("philosophyDetails.lifelongLearning.description")}
+      <section className="px-5 pb-20 sm:px-8 md:pb-28">
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-[0.9rem] border border-[#d5ddd4] bg-[#eef3ed]">
+          <div className="grid md:grid-cols-12">
+            <div className="border-b border-[#d5ddd4] p-7 sm:p-10 md:col-span-4 md:border-b-0 md:border-r md:p-12">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#687068]">
+                {t("mission")} &amp; {t("vision")}
               </p>
+              <h2 className="mt-8 max-w-[9ch] text-[clamp(2.7rem,4.5vw,4.5rem)] font-semibold leading-[0.93] tracking-[-0.065em]">
+                {t("whatWeDo")}
+              </h2>
             </div>
-          </motion.div>
+            <article className="border-b border-[#d5ddd4] p-7 sm:p-10 md:col-span-4 md:border-b-0 md:border-r md:p-12">
+              <span className="font-mono text-[0.62rem] text-[#139C48]">01</span>
+              <h3 className="mt-10 text-2xl font-semibold tracking-[-0.04em]">
+                {t("mission")}
+              </h3>
+              <p className="mt-5 text-sm leading-7 text-[#5f665f]">{t("missionText")}</p>
+            </article>
+            <article className="p-7 sm:p-10 md:col-span-4 md:p-12">
+              <span className="font-mono text-[0.62rem] text-[#139C48]">02</span>
+              <h3 className="mt-10 text-2xl font-semibold tracking-[-0.04em]">
+                {t("vision")}
+              </h3>
+              <p className="mt-5 text-sm leading-7 text-[#5f665f]">{t("visionText")}</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-          <div className="border-t border-[#dedad5]">
-            {operatingItems.map((item, index) => {
-              return (
-                <motion.article
-                  key={item.title}
-                  initial="hidden"
-                  whileInView="visible"
-                  variants={reveal}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.06 }}
-                  className="grid grid-cols-[2.5rem_1fr] gap-3 border-b border-[#dedad5] py-6 sm:gap-5"
-                >
-                  <span className="pt-0.5 font-mono text-[0.62rem] text-[#16856F]">
-                    0{index + 1}
+      <section id="history" className="border-t border-[#d9ddd8] px-5 py-20 sm:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#6f746f]">
+                {locale === "vi" ? "Một dấu mốc" : "A defining milestone"}
+              </p>
+              <h2 className="mt-6 text-[clamp(3rem,5vw,5rem)] font-semibold leading-none tracking-[-0.07em]">
+                {t("history")}
+              </h2>
+            </div>
+            <div className="md:col-start-6 md:col-span-7">
+              <div className="border-t border-[#d9ddd8] pt-6">
+                <span className="text-[clamp(5rem,11vw,10rem)] font-semibold leading-[0.8] tracking-[-0.085em] text-[#139C48]">
+                  2011
+                </span>
+                <p className="mt-10 max-w-[38rem] text-lg leading-8 text-[#565c56]">
+                  {t("historyText")}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-14 grid gap-5 md:grid-cols-12 md:items-start">
+            <figure className="md:col-span-8">
+              <div className="relative aspect-[1.65/1] overflow-hidden rounded-[0.8rem] bg-[#e3e6e2]">
+                <Image
+                  src="/assets/ttu/about-tan-tao-campus.jpg"
+                  alt={t("heroImageAlt")}
+                  fill
+                  sizes="(min-width: 768px) 66vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
+            <div className="md:col-start-10 md:col-span-3 md:pt-24">
+              <p className="text-sm leading-7 text-[#6c716c]">{t("qualityPolicyText")}</p>
+              <Link
+                href={facultyHref}
+                className="group mt-8 inline-flex min-h-11 items-center gap-3 rounded-full bg-[#139C48] px-5 text-[0.72rem] font-semibold text-white transition-[background-color,transform] hover:-translate-y-0.5 hover:bg-[#0f7e3a]"
+              >
+                {t("faculty")}
+                <ArrowIcon direction="right" size={12} />
+              </Link>
+            </div>
+          </div>
+
+          <div className="mt-16 border-y border-[#d9ddd8]">
+            <div className="grid gap-4 py-6 md:grid-cols-12 md:items-center">
+              <p className="text-sm font-semibold md:col-span-3">{t("values")}</p>
+              <div className="flex flex-wrap gap-x-7 gap-y-3 md:col-span-9">
+                {values.map((value, index) => (
+                  <span
+                    key={value}
+                    className="inline-flex items-center gap-2 text-[0.7rem] font-medium text-[#626862]"
+                  >
+                    <span className="font-mono text-[0.55rem] text-[#139C48]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    {value}
                   </span>
-                  <div>
-                    <h3 className="text-base font-bold tracking-tight">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-[#686c67]">{item.description}</p>
-                  </div>
-                </motion.article>
-              );
-            })}
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white px-5 pb-16 sm:px-8">
-        <div className="relative mx-auto grid max-w-7xl gap-8 overflow-hidden bg-[#16856F] px-7 py-10 text-white [clip-path:polygon(0_0,100%_0,100%_78%,96%_100%,0_100%)] sm:px-10 lg:grid-cols-[1fr_auto] lg:items-center lg:px-12">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{t("readyToStart")}</h2>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-white/75">{t("joinEcosystem")}</p>
-          </div>
-          <a
-            href="https://www.facebook.com/biotech.ttu.edu.vn"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-12 w-fit items-center gap-4 border border-white bg-white px-6 text-sm font-semibold text-[#16856F] transition-colors hover:bg-transparent hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-          >
-            {t("contactUs")}
-            <span><ArrowIcon direction="up-right" size={16} /></span>
-          </a>
-        </div>
-      </section>
+      <EditorialCta
+        title={t("readyToStart")}
+        description={t("joinEcosystem")}
+        primaryLabel={t("contactUs")}
+        primaryHref="https://www.facebook.com/biotech.ttu.edu.vn"
+        secondaryLabel={t("explorePrograms")}
+        secondaryHref={programsHref}
+      />
     </main>
   );
 };

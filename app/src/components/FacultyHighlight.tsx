@@ -57,7 +57,7 @@ const FacultyHighlight = () => {
           </h2>
           <Link
             href={facultyHref}
-            className="text-[12px] font-semibold text-[#16856F] underline decoration-[#16856F]/50 underline-offset-4 transition-colors hover:text-[#0D5E50]"
+            className="text-[12px] font-semibold text-[#139C48] underline decoration-[#139C48]/50 underline-offset-4 transition-colors hover:text-[#0F7E3A]"
           >
             {t("navigation.faculty")} <ArrowIcon direction="right" size={16} />
           </Link>
@@ -87,7 +87,7 @@ const FacultyHighlight = () => {
                       className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   ) : (
-                    <div className="flex h-full items-center justify-center text-5xl font-bold text-[#16856F]">
+                    <div className="flex h-full items-center justify-center text-5xl font-bold text-[#139C48]">
                       {person.fullName.charAt(0)}
                     </div>
                   )}
@@ -96,22 +96,22 @@ const FacultyHighlight = () => {
                 <div className="flex flex-1 flex-col p-5">
                   <div className="flex items-start justify-between gap-4">
                     <div className="min-w-0">
-                      <h3 className="text-[15px] font-bold leading-snug tracking-tight text-gray-900 transition-colors duration-300 group-hover:text-[#16856F]">
+                      <h3 className="text-[15px] font-bold leading-snug tracking-tight text-gray-900 transition-colors duration-300 group-hover:text-[#139C48]">
                         {person.academicTitle
                           ? `${person.academicTitle} ${person.fullName}`
                           : person.fullName}
                       </h3>
-                      <div className="mt-1 text-[10px] font-medium uppercase tracking-[0.14em] text-[#16856F]">
+                      <div className="mt-1 text-[10px] font-medium uppercase tracking-[0.14em] text-[#139C48]">
                         {person.position || person.department}
                       </div>
                     </div>
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#16856F]/50 text-[#16856F] transition-colors group-hover:bg-[#16856F] group-hover:text-white">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#139C48]/50 text-[#139C48] transition-colors group-hover:bg-[#139C48] group-hover:text-white">
                       <ArrowIcon direction="up-right" size={16} />
                     </span>
                   </div>
 
                   {(person.quote || person.bioShort) && (
-                    <p className="mt-5 line-clamp-2 border-l border-[#16856F]/35 pl-3 text-[12px] leading-5 text-gray-500">
+                    <p className="mt-5 line-clamp-2 border-l border-[#139C48]/35 pl-3 text-[12px] leading-5 text-gray-500">
                       “{(person.quote || person.bioShort || "").slice(0, 120)}
                       {(person.quote || person.bioShort || "").length > 120 &&
                         "..."}
@@ -119,7 +119,7 @@ const FacultyHighlight = () => {
                     </p>
                   )}
 
-                  <span className="mt-auto pt-6 text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-400 transition-colors group-hover:text-[#16856F]">
+                  <span className="mt-auto pt-6 text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-400 transition-colors group-hover:text-[#139C48]">
                     {locale === "vi" ? "Hồ sơ giảng viên" : "Faculty profile"}
                   </span>
                 </div>

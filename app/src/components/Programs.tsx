@@ -94,7 +94,7 @@ const Programs = () => {
             className="max-w-xl text-3xl font-semibold leading-tight tracking-[-0.045em] text-[#12312B] sm:text-5xl"
           >
             {t("title")}
-            <span className="mt-1 block text-[#16856F]">
+            <span className="mt-1 block text-[#139C48]">
               {t("titleHighlight")}
             </span>
           </motion.h2>
@@ -131,7 +131,7 @@ const Programs = () => {
                       {program.title}
                     </h3>
                   </div>
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-[#16856F]">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-[#139C48]">
                     <ArrowIcon direction="up-right" size={17} />
                   </span>
                 </div>
@@ -149,7 +149,7 @@ const Programs = () => {
               key={index}
               className="rounded-[1.35rem] border border-[#D6E5E0] bg-white p-6"
             >
-              <Icon className="h-8 w-8 text-[#16856F]" strokeWidth={1.5} />
+              <Icon className="h-8 w-8 text-[#139C48]" strokeWidth={1.5} />
               <h3 className="mt-6 text-base font-semibold text-[#12312B]">
                 {t(`features.${index}.title`)}
               </h3>
@@ -162,7 +162,7 @@ const Programs = () => {
 
         <Link
           href={indexHref}
-          className="mt-8 inline-flex min-h-11 items-center gap-3 rounded-full bg-[#16856F] px-6 text-sm font-semibold text-white hover:bg-[#0D5E50]"
+          className="mt-8 inline-flex min-h-11 items-center gap-3 rounded-full bg-[#139C48] px-6 text-sm font-semibold text-white hover:bg-[#0F7E3A]"
         >
           {t("viewAll")}
           <ArrowIcon direction="right" size={16} />

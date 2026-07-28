@@ -155,19 +155,18 @@ export default function StudentCareersPageContent({
 
   return (
     <main className="min-h-screen overflow-hidden bg-white text-[#171b25]">
-      <section className="border-b border-[#171b25]/15 bg-white">
+      <section className="border-b border-[#d9e3d8] bg-[#f5f7f4]">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-14 pt-10 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-20 lg:pb-20 lg:pt-16">
           <div>
-            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
-              <span className="h-px w-12 bg-current" />
+            <div className="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#777b77]">
               {copy.eyebrow}
             </div>
-            <h1 className="mt-7 max-w-[13ch] text-[2.8rem] font-bold leading-[1.03] tracking-[-0.045em] text-balance sm:text-[3.6rem] lg:text-[4rem]">
+            <h1 className="mt-7 max-w-[11ch] text-[3rem] font-semibold leading-[0.95] tracking-[-0.065em] text-balance sm:text-[4rem] lg:text-[4.8rem]">
               {copy.title}
             </h1>
           </div>
 
-          <div className="border-l-2 border-[#16856F] pl-6 sm:pl-8">
+          <div className="border-t border-[#bfc9be] pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
             <p className="max-w-xl text-base leading-8 text-[#626661] sm:text-lg">
               {copy.description}
             </p>
@@ -176,13 +175,13 @@ export default function StudentCareersPageContent({
                 href="https://www.facebook.com/biotech.ttu.edu.vn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                className="inline-flex min-h-12 items-center rounded-full bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
               >
                 {copy.primaryAction} <ArrowIcon direction="up-right" size={16} />
               </a>
               <a
                 href="#lo-trinh"
-                className="text-sm font-semibold text-[#12312B] underline decoration-[#16856F]/35 underline-offset-8 transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                className="text-sm font-semibold text-[#12312B] underline decoration-[#139C48]/35 underline-offset-8 transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
               >
                 {copy.secondaryAction}
               </a>
@@ -200,7 +199,7 @@ export default function StudentCareersPageContent({
           >
             <div className="grid lg:grid-cols-[1.25fr_0.75fr]">
             <div className="py-8 lg:pr-14">
-              <p className="font-mono text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-[#16856F]">
+              <p className="font-mono text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-[#139C48]">
                 {copy.statusLabel}
               </p>
               <h2 className="mt-4 max-w-2xl text-[2rem] font-bold leading-tight tracking-[-0.04em] sm:text-[2.6rem]">
@@ -216,7 +215,7 @@ export default function StudentCareersPageContent({
                   href="https://www.facebook.com/biotech.ttu.edu.vn"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex min-h-11 items-center border border-[#16856F] px-5 text-sm font-semibold text-[#16856F] transition-colors hover:bg-[#16856F] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                  className="mt-6 inline-flex min-h-11 items-center border border-[#139C48] px-5 text-sm font-semibold text-[#139C48] transition-colors hover:bg-[#139C48] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                 >
                   {copy.followAction}{" "}
                   <ArrowIcon direction="up-right" size={16} />
@@ -234,7 +233,7 @@ export default function StudentCareersPageContent({
                 href="https://www.facebook.com/biotech.ttu.edu.vn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex text-sm font-semibold text-[#16856F] underline decoration-[#16856F]/35 underline-offset-6 hover:decoration-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                className="mt-6 inline-flex text-sm font-semibold text-[#139C48] underline decoration-[#139C48]/35 underline-offset-6 hover:decoration-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
               >
                 {copy.employerAction} <ArrowIcon direction="up-right" size={16} />
               </a>
@@ -250,18 +249,18 @@ export default function StudentCareersPageContent({
         </div>
       </section>
 
-      <section id="lo-trinh" className="scroll-mt-24 border-y border-[#171b25]/15 bg-[#f7f4f1] py-14 sm:py-20 lg:py-24">
+      <section id="lo-trinh" className="scroll-mt-24 border-y border-[#171b25]/15 bg-[#f5f7f4] py-14 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-7 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-20">
             <div>
-              <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#16856F]">
+              <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#139C48]">
                 {copy.journeyEyebrow}
               </p>
               <h2 className="mt-4 max-w-[14ch] text-[2.25rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[3rem]">
                 {copy.journeyTitle}
               </h2>
             </div>
-            <p className="max-w-xl border-l-2 border-[#16856F] pl-5 text-sm leading-7 text-[#686c67]">
+            <p className="max-w-xl border-l-2 border-[#139C48] pl-5 text-sm leading-7 text-[#686c67]">
               {copy.journeyDescription}
             </p>
           </div>
@@ -272,7 +271,7 @@ export default function StudentCareersPageContent({
                 key={step.title}
                 className="border-b border-[#d8d3ce] py-7 md:px-6 md:first:pl-0 lg:border-r lg:last:border-r-0 lg:last:pr-0"
               >
-                <span className="font-mono text-[0.62rem] font-semibold text-[#16856F]">
+                <span className="font-mono text-[0.62rem] font-semibold text-[#139C48]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-6 text-xl font-bold leading-snug tracking-[-0.025em]">
@@ -289,7 +288,7 @@ export default function StudentCareersPageContent({
 
       <section className="bg-white py-14 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#16856F]">
+          <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#139C48]">
             {copy.toolkitEyebrow}
           </p>
           <h2 className="mt-4 max-w-3xl text-[2.25rem] font-bold leading-[1.08] tracking-[-0.045em] sm:text-[3rem]">
@@ -299,7 +298,7 @@ export default function StudentCareersPageContent({
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {copy.toolkit.map((item) => (
               <article key={item.label} className="border-t-2 border-[#171b25] py-6">
-                <p className="font-mono text-[0.58rem] font-semibold uppercase tracking-[0.15em] text-[#16856F]">
+                <p className="font-mono text-[0.58rem] font-semibold uppercase tracking-[0.15em] text-[#139C48]">
                   {item.label}
                 </p>
                 <h3 className="mt-5 text-xl font-bold leading-snug tracking-[-0.025em]">
@@ -314,7 +313,7 @@ export default function StudentCareersPageContent({
         </div>
       </section>
 
-      <section className="border-t border-[#171b25]/15 bg-[#f7f4f1] py-12 sm:py-16">
+      <section className="border-t border-[#171b25]/15 bg-[#f5f7f4] py-12 sm:py-16">
         <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <h2 className="text-[2rem] font-bold leading-tight tracking-[-0.04em] sm:text-[2.5rem]">
@@ -327,13 +326,13 @@ export default function StudentCareersPageContent({
           <div className="flex flex-wrap gap-3">
             <Link
               href={activitiesPath}
-              className="inline-flex min-h-12 items-center border border-[#16856F] px-5 text-sm font-semibold text-[#16856F] transition-colors hover:bg-[#16856F] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+              className="inline-flex min-h-12 items-center border border-[#139C48] px-5 text-sm font-semibold text-[#139C48] transition-colors hover:bg-[#139C48] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
             >
               {copy.activities} <ArrowIcon direction="up-right" size={16} />
             </Link>
             <Link
               href={alumniPath}
-              className="inline-flex min-h-12 items-center bg-[#16856F] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+              className="inline-flex min-h-12 items-center rounded-full bg-[#139C48] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
             >
               {copy.alumni} <ArrowIcon direction="up-right" size={16} />
             </Link>

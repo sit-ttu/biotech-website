@@ -1,5 +1,6 @@
 import AlumniPageContent from "@/components/AlumniPageContent";
 import { api, type Alumni, type AlumniSection } from "@/lib/api";
+import { getMockAlumni } from "@/lib/mock-content";
 import type { SiteLocale } from "@/lib/program-pages";
 import { absoluteUrl, jsonLd } from "@/lib/seo";
 
@@ -30,6 +31,12 @@ export default async function AlumniPageServer({
       .sort((a, b) => (a.displayOrder ?? 0) - (b.displayOrder ?? 0));
   } else {
     console.error("Failed to pre-render alumni sections", sectionsResult.reason);
+  }
+
+  if (alumni.length === 0) {
+    const fallback = getMockAlumni(locale);
+    alumni = fallback.alumni;
+    sections = fallback.sections;
   }
 
   const path =

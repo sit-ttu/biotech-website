@@ -22,8 +22,43 @@ import { ArrowIcon } from "@/components/icons/ArrowIcon";
 
 type ProgramFilter = "all" | ProgramLevelKey;
 
+const fallbackPrograms: Program[] = [
+  {
+    programId: "fallback-biotechnology",
+    contentId: "fallback-biotechnology-content",
+    code: "CNSH",
+    nameVi: "Cử nhân Công nghệ Sinh học",
+    nameEn: "Bachelor of Biotechnology",
+    level: "undergraduate",
+    majorCode: "7420201",
+    banner: "/assets/biotech/program-biotechnology-lab.webp",
+    status: "active",
+    slugVi: "cong-nghe-sinh-hoc",
+    slugEn: "biotechnology",
+    content: {},
+    createdAt: "2026-01-01T00:00:00.000Z",
+    updatedAt: "2026-01-01T00:00:00.000Z",
+  },
+  {
+    programId: "fallback-applied-biology",
+    contentId: "fallback-applied-biology-content",
+    code: "SHUD",
+    nameVi: "Cử nhân Sinh học ứng dụng",
+    nameEn: "Bachelor of Applied Biology",
+    level: "undergraduate",
+    majorCode: "7420203",
+    banner: "/assets/biotech/program-applied-biology-tissue-culture.webp",
+    status: "active",
+    slugVi: "sinh-hoc-ung-dung",
+    slugEn: "applied-biology",
+    content: {},
+    createdAt: "2026-01-01T00:00:00.000Z",
+    updatedAt: "2026-01-01T00:00:00.000Z",
+  },
+];
+
 const ProgramsPageLoading = () => (
-  <main className="min-h-screen animate-pulse bg-[#f7f4f1]">
+  <main className="min-h-screen animate-pulse bg-[#f5f7f4]">
     <section className="border-b border-[#171b25]/15 px-5 py-14 sm:px-8 lg:py-20">
       <div className="mx-auto max-w-7xl">
         <div className="h-3 w-40 bg-[#ddd7d1]" />
@@ -48,7 +83,6 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
   const [programs, setPrograms] = useState<Program[]>([]);
   const [filter, setFilter] = useState<ProgramFilter>("all");
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -56,11 +90,11 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
     api.programs
       .findAll({ status: "active" })
       .then((data) => {
-        if (active) setPrograms(data);
+        if (active) setPrograms(data.length > 0 ? data : fallbackPrograms);
       })
       .catch((fetchError) => {
         console.error("Failed to fetch programs:", fetchError);
-        if (active) setError(true);
+        if (active) setPrograms(fallbackPrograms);
       })
       .finally(() => {
         if (active) setLoading(false);
@@ -128,27 +162,6 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
 
   if (loading) return <ProgramsPageLoading />;
 
-  if (error) {
-    return (
-      <main className="flex min-h-[55vh] items-center justify-center bg-[#f7f4f1] px-5">
-        <div className="max-w-lg border-l-4 border-[#16856F] bg-white p-8">
-          <p className="text-xl font-bold tracking-tight text-[#171b25]">
-            {locale === "vi"
-              ? "Không thể tải danh sách chương trình"
-              : "Programs could not be loaded"}
-          </p>
-          <button
-            type="button"
-            onClick={() => window.location.reload()}
-            className="mt-6 min-h-11 bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
-          >
-            {locale === "vi" ? "Thử lại" : "Try again"}
-          </button>
-        </div>
-      </main>
-    );
-  }
-
   return (
     <main className="overflow-hidden bg-white text-[#171b25]">
       <section className="relative border-b border-[#171b25]/15 bg-white">
@@ -161,12 +174,11 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
             className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_23rem] lg:items-end lg:gap-14"
           >
             <div>
-              <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
-                <span className="h-px w-12 bg-current" />
+              <div className="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#777b77]">
                 {copy.directory}
               </div>
-              <h1 className="mt-7 max-w-[17ch] text-[2.75rem] font-bold leading-[1.03] tracking-[-0.045em] text-balance sm:text-[3.2rem] lg:text-[3.55rem] xl:text-[3.8rem]">
-                {t("title")} <span className="text-[#16856F]">{t("titleHighlight")}</span>
+              <h1 className="mt-7 max-w-[17ch] text-[2.75rem] font-semibold leading-[1.03] tracking-[-0.055em] text-balance sm:text-[3.2rem] lg:text-[3.75rem] xl:text-[4.1rem]">
+                {t("title")} <span>{t("titleHighlight")}</span>
               </h1>
             </div>
             <div className="border-t border-[#171b25]/20 pt-6 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
@@ -176,7 +188,7 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
               <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
                 <a
                   href="#program-index"
-                  className="group inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-[#171b25] underline decoration-[#16856F] underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                  className="group inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-[#171b25] underline decoration-[#139C48] underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                 >
                   {copy.explore}
                   <span className="transition-transform group-hover:translate-y-1"><ArrowIcon direction="down" size={16} /></span>
@@ -185,7 +197,7 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
                   href="https://tuyensinh.ttu.edu.vn"
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                  className="group inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                 >
                   {copy.admissions}
                   <span className="transition-transform group-hover:translate-x-1"><ArrowIcon direction="up-right" size={16} /></span>
@@ -195,13 +207,13 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
           </motion.div>
 
           <div className="mt-10 grid h-64 gap-3 sm:h-80 sm:grid-cols-[1.45fr_0.55fr]">
-            <div className="relative overflow-hidden bg-[#ece8e4]">
-              <img src="/assets/biotech/research-biotechnology.png" alt="" className="h-full w-full object-cover object-center" />
+            <div className="relative overflow-hidden rounded-[0.8rem] bg-[#ece8e4]">
+              <img src="/assets/biotech/program-biotechnology-lab.webp" alt="" className="h-full w-full object-cover object-center" />
               <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#171b25]/45 to-transparent" />
               <span className="absolute bottom-5 left-5 font-mono text-[0.6rem] uppercase tracking-[0.16em] text-white sm:left-6">School of Biotechnology</span>
             </div>
-            <div className="relative hidden overflow-hidden bg-[#ece8e4] sm:block">
-              <img src="/assets/ttu/programs-academic-partnership.jpg" alt="" className="h-full w-full object-cover object-center" />
+            <div className="relative hidden overflow-hidden rounded-[0.8rem] bg-[#ece8e4] sm:block">
+              <img src="/assets/biotech/program-applied-biology-tissue-culture.webp" alt="" className="h-full w-full object-cover object-center" />
               <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,27,37,.18)_0%,rgba(17,27,37,.28)_42%,rgba(17,27,37,.88)_100%)]" />
               <div className="absolute inset-4 flex flex-col justify-end border border-white/65 p-4 text-white">
                 <div>
@@ -224,7 +236,7 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
                 key={String(label)}
                 className={`px-4 py-5 sm:px-8 ${index > 0 ? "border-l border-[#171b25]/15" : ""}`}
               >
-                <span className="font-mono text-[0.62rem] text-[#16856F]">0{index + 1}</span>
+                <span className="font-mono text-[0.62rem] text-[#139C48]">0{index + 1}</span>
                 <p className="mt-2 text-sm font-semibold sm:text-base">
                   <span className="mr-2 text-xl font-bold tracking-[-0.04em] sm:text-2xl">{value}</span>
                   <span className="text-[#70736f]">{label}</span>
@@ -238,7 +250,7 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
       <section id="program-index" className="relative scroll-mt-24 bg-white py-14 sm:py-16 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-12">
           <aside className="lg:sticky lg:top-24 lg:self-start">
-            <div className="border border-[#dedad5] bg-white">
+            <div className="overflow-hidden rounded-[0.75rem] border border-[#dedad5] bg-white">
               <div className="border-b border-[#dedad5] px-5 py-5">
                 <p className="font-mono text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-[#8a8d88]">
                   {copy.filter}
@@ -261,9 +273,9 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
                     type="button"
                     aria-pressed={selected}
                     onClick={() => setFilter(value)}
-                    className={`grid min-h-14 w-full grid-cols-[0.5rem_1fr_auto] items-center gap-3 border-b border-[#dedad5] px-5 text-left text-sm transition-colors last:border-b-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F] ${selected ? "bg-[#faf7f4] text-[#16856F]" : "text-[#686c67] hover:bg-[#faf9f8] hover:text-[#171b25]"}`}
+                    className={`grid min-h-14 w-full grid-cols-[0.5rem_1fr_auto] items-center gap-3 border-b border-[#dedad5] px-5 text-left text-sm transition-colors last:border-b-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48] ${selected ? "bg-[#faf7f4] text-[#139C48]" : "text-[#686c67] hover:bg-[#faf9f8] hover:text-[#171b25]"}`}
                   >
-                    <span className={`h-1.5 w-1.5 rounded-full ${selected ? "bg-[#16856F]" : "bg-[#d5d0ca]"}`} />
+                    <span className={`h-1.5 w-1.5 rounded-full ${selected ? "bg-[#139C48]" : "bg-[#d5d0ca]"}`} />
                     <span className="font-semibold">{label}</span>
                     <span className="font-mono text-[0.6rem] text-[#8a8d88]">
                       {String(count).padStart(2, "0")}
@@ -277,7 +289,7 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
           <div>
             <div className="flex flex-wrap items-end justify-between gap-5 border-b border-[#171b25]/20 pb-6">
               <div>
-                <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-[#16856F]">
+                <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-[#139C48]">
                   {copy.index}
                 </p>
                 <h2 className="mt-3 text-2xl font-bold tracking-[-0.04em] sm:text-[2rem]">
@@ -294,6 +306,9 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
                 {visiblePrograms.map((program) => {
                   const title = localizedProgramText(locale, program.nameVi, program.nameEn);
                   const level = normalizeProgramLevel(program.level);
+                  const href = program.programId.startsWith("fallback-")
+                    ? `${programsBasePath(locale)}/${programLevelPath(locale, level)}`
+                    : programDetailHref(locale, program);
 
                   return (
                     <article
@@ -301,16 +316,16 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
                       className="group min-w-0"
                     >
                       <Link
-                        href={programDetailHref(locale, program)}
-                        className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                        href={href}
+                        className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                       >
-                        <span className="relative block aspect-[16/10] overflow-hidden bg-[#fbf8f5]">
+                        <span className="relative block aspect-[16/10] overflow-hidden rounded-[0.75rem] bg-[#fbf8f5]">
                           <img
                             src={programImage(program)}
                             alt={title}
                             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                           />
-                          <span className="absolute left-4 top-4 bg-white/95 px-3 py-2 font-mono text-[0.58rem] font-semibold uppercase tracking-[0.12em] text-[#16856F] backdrop-blur-sm">
+                          <span className="absolute left-4 top-4 bg-white/95 px-3 py-2 font-mono text-[0.58rem] font-semibold uppercase tracking-[0.12em] text-[#139C48] backdrop-blur-sm">
                             {program.majorCode || program.code}
                           </span>
                         </span>
@@ -319,11 +334,11 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
                             <span className="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-[#858984]">
                               {level === "undergraduate" ? t("undergraduate") : t("graduate")}
                             </span>
-                            <span className="mt-2 block text-lg font-bold leading-snug tracking-[-0.025em] transition-colors group-hover:text-[#16856F] sm:text-xl">
+                            <span className="mt-2 block text-lg font-bold leading-snug tracking-[-0.025em] transition-colors group-hover:text-[#139C48] sm:text-xl">
                               {title}
                             </span>
                           </span>
-                          <span className="flex h-11 w-11 items-center justify-center self-end border border-[#16856F]/30 text-[#16856F] transition-colors group-hover:bg-[#16856F] group-hover:text-white">
+                          <span className="flex h-11 w-11 items-center justify-center self-end rounded-full border border-[#139C48]/30 text-[#139C48] transition-colors group-hover:bg-[#139C48] group-hover:text-white">
                             <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} />
                           </span>
                         </span>
@@ -341,17 +356,17 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
         </div>
       </section>
 
-      <section className="border-t border-[#171b25]/15 bg-[#f7f4f1]">
+      <section className="border-t border-[#171b25]/15 bg-[#f5f7f4]">
         <div className="mx-auto grid max-w-7xl md:grid-cols-2">
           {(["undergraduate", "graduate"] as const).map((level, index) => (
             <Link
               key={level}
               href={`${programsBasePath(locale)}/${programLevelPath(locale, level)}`}
-              className={`group flex min-h-56 flex-col justify-between p-7 transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#16856F] sm:p-9 ${index > 0 ? "border-t border-[#171b25]/15 md:border-l md:border-t-0" : ""}`}
+              className={`group flex min-h-56 flex-col justify-between p-7 transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#139C48] sm:p-9 ${index > 0 ? "border-t border-[#171b25]/15 md:border-l md:border-t-0" : ""}`}
             >
               <div className="flex items-start justify-between">
-                <span className="font-mono text-[0.64rem] font-semibold text-[#16856F]">0{index + 1}</span>
-                <HugeiconsIcon icon={ArrowUpRight01Icon} size={19} className="text-[#16856F] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <span className="font-mono text-[0.64rem] font-semibold text-[#139C48]">0{index + 1}</span>
+                <HugeiconsIcon icon={ArrowUpRight01Icon} size={19} className="text-[#139C48] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold tracking-[-0.04em] sm:text-3xl">

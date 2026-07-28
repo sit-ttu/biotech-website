@@ -1,5 +1,6 @@
 import AchievementsPageContent from "@/components/AchievementsPageContent";
 import { api, type Achievement } from "@/lib/api";
+import { getMockAchievements } from "@/lib/mock-content";
 import type { SiteLocale } from "@/lib/program-pages";
 import { absoluteUrl, jsonLd } from "@/lib/seo";
 
@@ -14,6 +15,10 @@ export default async function AchievementsPageServer({
     items = await api.achievements.findAll({ visibility: "PUBLIC" });
   } catch (error) {
     console.error("Failed to pre-render achievements", error);
+  }
+
+  if (items.length === 0) {
+    items = getMockAchievements(locale);
   }
 
   const path = locale === "vi" ? "/vi/thanh-tich" : "/en/achievements";

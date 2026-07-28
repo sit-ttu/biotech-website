@@ -1,5 +1,6 @@
 import StudentCareersPageContent from "@/components/StudentCareersPageContent";
 import { api } from "@/lib/api";
+import { getMockCareerOpportunities } from "@/lib/mock-content";
 import { buildPageMetadata } from "@/lib/seo";
 
 const title = "Việc làm và thực tập cho sinh viên Biotech TTU | Đại học Tân Tạo";
@@ -16,7 +17,13 @@ export const metadata = buildPageMetadata({
 });
 
 export default async function StudentJobsPage() {
-  const opportunities = await api.careerOpportunities.findAll().catch(() => []);
+  const apiOpportunities = await api.careerOpportunities
+    .findAll()
+    .catch(() => []);
+  const opportunities =
+    apiOpportunities.length > 0
+      ? apiOpportunities
+      : getMockCareerOpportunities("vi");
   return (
     <StudentCareersPageContent locale="vi" opportunities={opportunities} />
   );

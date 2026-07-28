@@ -5,6 +5,7 @@ import {
   type StudentPortfolio,
   type StudentPortfolioContact,
 } from "@/lib/api";
+import { getMockStudentPortfolios } from "@/lib/mock-content";
 import { buildPageMetadata } from "@/lib/seo";
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -84,7 +85,9 @@ export async function generateMetadata({
   const { slug } = await params;
   const portfolio = await api.studentPortfolio
     .findBySlug(slug)
-    .catch(() => null);
+    .catch(() => null) ??
+    getMockStudentPortfolios("vi").find((item) => item.slug === slug) ??
+    null;
 
   if (!portfolio) {
     return { title: "Portfolio sinh viên | Biotech TTU - Đại học Tân Tạo" };
@@ -108,7 +111,9 @@ export default async function StudentPortfolioPage({ params }: PageProps) {
   const { slug } = await params;
   const portfolio = await api.studentPortfolio
     .findBySlug(slug)
-    .catch(() => null);
+    .catch(() => null) ??
+    getMockStudentPortfolios("vi").find((item) => item.slug === slug) ??
+    null;
   if (!portfolio) notFound();
 
   const p: StudentPortfolio = portfolio;
@@ -174,7 +179,7 @@ export default async function StudentPortfolioPage({ params }: PageProps) {
                 className="mt-8 text-[clamp(3.55rem,7.5vw,7rem)] font-medium leading-[0.84] tracking-[-0.075em] text-[#0d0f14]"
               >
                 <span className="block">{p.title || "Sinh viên"}</span>
-                <span className="block text-[#16856F]">
+                <span className="block text-[#139C48]">
                   {p.program || "Công nghệ Sinh học"}
                 </span>
               </h1>
@@ -182,7 +187,7 @@ export default async function StudentPortfolioPage({ params }: PageProps) {
                 {projects.length > 0 && (
                   <a
                     href="#du-an"
-                    className="inline-flex min-h-11 items-center rounded-full bg-[#111318] px-5 text-xs font-semibold text-white transition-colors hover:bg-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                    className="inline-flex min-h-11 items-center rounded-full bg-[#111318] px-5 text-xs font-semibold text-white transition-colors hover:bg-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                   >
                     Xem dự án
                   </a>
@@ -190,7 +195,7 @@ export default async function StudentPortfolioPage({ params }: PageProps) {
                 {email && (
                   <a
                     href={getContactHref(email)}
-                    className="inline-flex min-h-11 items-center rounded-full border border-[#cacac5] px-5 text-xs font-semibold text-[#2d302c] transition-colors hover:border-[#16856F] hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                    className="inline-flex min-h-11 items-center rounded-full border border-[#cacac5] px-5 text-xs font-semibold text-[#2d302c] transition-colors hover:border-[#139C48] hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                   >
                     Kết nối với tôi
                   </a>
@@ -207,7 +212,7 @@ export default async function StudentPortfolioPage({ params }: PageProps) {
                   />
                 ) : (
                   <div className="flex h-full items-end p-7">
-                    <span className="text-6xl font-medium tracking-[-0.07em] text-[#16856F]">
+                    <span className="text-6xl font-medium tracking-[-0.07em] text-[#139C48]">
                       {getInitials(p.fullName)}
                     </span>
                   </div>
@@ -232,7 +237,7 @@ export default async function StudentPortfolioPage({ params }: PageProps) {
                             ? undefined
                             : "noopener noreferrer"
                         }
-                        className="text-[0.7rem] font-semibold text-[#4e514c] underline decoration-[#c8c8c3] underline-offset-4 transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F]"
+                        className="text-[0.7rem] font-semibold text-[#4e514c] underline decoration-[#c8c8c3] underline-offset-4 transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]"
                       >
                         {contactLabels[contact.type] || contact.type}
                       </a>
@@ -327,7 +332,7 @@ export default async function StudentPortfolioPage({ params }: PageProps) {
                 className={
                   index === 0
                     ? "flex min-h-64 flex-col rounded-[1.35rem] bg-[#111318] p-7 text-white md:row-span-2 md:min-h-full"
-                    : "flex min-h-64 flex-col rounded-[1.35rem] border border-[#deded9] bg-[#fafaf8] p-7 transition-colors hover:border-[#16856F]"
+                    : "flex min-h-64 flex-col rounded-[1.35rem] border border-[#deded9] bg-[#fafaf8] p-7 transition-colors hover:border-[#139C48]"
                 }
               >
                 <p
@@ -459,8 +464,8 @@ export default async function StudentPortfolioPage({ params }: PageProps) {
                   }
                   className={
                     project.imageUrl
-                      ? "block overflow-hidden rounded-[1.25rem] bg-[#efefec] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
-                      : "flex aspect-[4/3] flex-col justify-end rounded-[1.25rem] bg-[#111318] p-7 text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                      ? "block overflow-hidden rounded-[1.25rem] bg-[#efefec] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
+                      : "flex aspect-[4/3] flex-col justify-end rounded-[1.25rem] bg-[#111318] p-7 text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                   }
                 >
                   {project.imageUrl ? (
@@ -524,7 +529,7 @@ export default async function StudentPortfolioPage({ params }: PageProps) {
                 key={item.id}
                 className={
                   index === 0
-                    ? "min-h-64 rounded-[1.25rem] bg-[#16856F] p-6 text-white"
+                    ? "min-h-64 rounded-[1.25rem] bg-[#139C48] p-6 text-white"
                     : "min-h-64 rounded-[1.25rem] border border-[#deded9] bg-[#fafaf8] p-6"
                 }
               >
@@ -532,7 +537,7 @@ export default async function StudentPortfolioPage({ params }: PageProps) {
                   className={
                     index === 0
                       ? "font-roboto-mono text-xs text-white/65"
-                      : "font-roboto-mono text-xs text-[#16856F]"
+                      : "font-roboto-mono text-xs text-[#139C48]"
                   }
                 >
                   {item.year || "—"}
@@ -596,7 +601,7 @@ export default async function StudentPortfolioPage({ params }: PageProps) {
                           ? undefined
                           : "noopener noreferrer"
                       }
-                      className="rounded-full border border-white/25 px-4 py-2.5 text-xs font-semibold transition-colors hover:border-[#16856F] hover:bg-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                      className="rounded-full border border-white/25 px-4 py-2.5 text-xs font-semibold transition-colors hover:border-[#139C48] hover:bg-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                     >
                       {contactLabels[contact.type] || contact.type}
                     </a>

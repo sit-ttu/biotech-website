@@ -7,7 +7,8 @@ import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
 
 import { ArrowIcon } from "@/components/icons/ArrowIcon";
-import { api, type Research } from "@/lib/api";
+import { api, ResearchType, type Research } from "@/lib/api";
+import { getMockResearch } from "@/lib/mock-content";
 
 type PublicationItem = {
   id: string;
@@ -42,7 +43,6 @@ export default function ScientificPublicationsPage() {
   const reduceMotion = useReducedMotion();
   const [researchPublications, setResearchPublications] = useState<Research[]>([]);
   const [loading, setLoading] = useState(true);
-  const [loadError, setLoadError] = useState(false);
   const [query, setQuery] = useState("");
   const [selectedYear, setSelectedYear] = useState("all");
 
@@ -52,11 +52,21 @@ export default function ScientificPublicationsPage() {
     api.research
       .findAll("PUBLICATION")
       .then((data) => {
-        if (active) setResearchPublications(data);
+        if (active) {
+          setResearchPublications(
+            data.length > 0
+              ? data
+              : getMockResearch("vi", ResearchType.PUBLICATION),
+          );
+        }
       })
       .catch((error) => {
         console.error("Failed to fetch research publications:", error);
-        if (active) setLoadError(true);
+        if (active) {
+          setResearchPublications(
+            getMockResearch("vi", ResearchType.PUBLICATION),
+          );
+        }
       })
       .finally(() => {
         if (active) setLoading(false);
@@ -155,7 +165,7 @@ export default function ScientificPublicationsPage() {
             variants={reveal}
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
+            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#139C48]">
               <span className="h-px w-12 bg-current" />
               {t("badge")}
             </div>
@@ -185,7 +195,7 @@ export default function ScientificPublicationsPage() {
                 key={String(label)}
                 className="grid grid-cols-[2.25rem_1fr] items-end gap-3 border-b border-[#d8d3ce] py-5 last:border-b-0 sm:border-b-0 sm:border-r sm:px-6 sm:first:pl-0 sm:last:border-r-0"
               >
-                <span className="font-mono text-[0.6rem] text-[#16856F]">
+                <span className="font-mono text-[0.6rem] text-[#139C48]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>
@@ -202,7 +212,7 @@ export default function ScientificPublicationsPage() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-8 border-b-2 border-[#171b25] pb-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
             <div>
-              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
+              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
                 Kho học thuật
               </p>
               <h2 className="mt-4 text-[2.35rem] font-bold leading-none tracking-[-0.05em] sm:text-[3.15rem]">
@@ -211,8 +221,8 @@ export default function ScientificPublicationsPage() {
             </div>
 
             <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_9rem] lg:justify-self-end">
-              <label className="flex min-h-14 items-center border border-[#cfc9c3] bg-white transition-colors focus-within:border-[#16856F]">
-                <span className="grid h-14 w-14 shrink-0 place-items-center border-r border-[#cfc9c3] text-[#16856F]">
+              <label className="flex min-h-14 items-center border border-[#cfc9c3] bg-white transition-colors focus-within:border-[#139C48]">
+                <span className="grid h-14 w-14 shrink-0 place-items-center border-r border-[#cfc9c3] text-[#139C48]">
                   <HugeiconsIcon icon={Search01FreeIcons} size={21} strokeWidth={1.7} />
                 </span>
                 <span className="sr-only">Tìm bài báo khoa học</span>
@@ -224,7 +234,7 @@ export default function ScientificPublicationsPage() {
                 />
               </label>
 
-              <label className="relative flex min-h-14 items-center border border-[#cfc9c3] bg-white focus-within:border-[#16856F]">
+              <label className="relative flex min-h-14 items-center border border-[#cfc9c3] bg-white focus-within:border-[#139C48]">
                 <span className="sr-only">Lọc theo năm</span>
                 <select
                   value={selectedYear}
@@ -255,11 +265,6 @@ export default function ScientificPublicationsPage() {
                 </div>
               ))}
             </div>
-          ) : loadError ? (
-            <div className="border-b border-[#d8d3ce] py-20 text-center">
-              <p className="text-xl font-bold">Không thể tải dữ liệu bài báo</p>
-              <p className="mt-3 text-sm text-[#696d68]">Vui lòng thử tải lại trang sau ít phút.</p>
-            </div>
           ) : groupedPublications.length > 0 ? (
             <div>
               {groupedPublications.map(([year, items]) => (
@@ -271,7 +276,7 @@ export default function ScientificPublicationsPage() {
                     <p className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-[#8d918c]">
                       Năm công bố
                     </p>
-                    <p className="mt-2 text-[2.75rem] font-bold leading-none tracking-[-0.06em] text-[#16856F]">
+                    <p className="mt-2 text-[2.75rem] font-bold leading-none tracking-[-0.06em] text-[#139C48]">
                       {year}
                     </p>
                   </div>
@@ -285,7 +290,7 @@ export default function ScientificPublicationsPage() {
                           key={publication.id}
                           className="group grid gap-5 py-9 transition-colors hover:bg-[#faf8f6] sm:px-4 lg:grid-cols-[2.5rem_minmax(0,1fr)_auto] lg:gap-7"
                         >
-                          <span className="font-mono text-[0.62rem] text-[#16856F]">
+                          <span className="font-mono text-[0.62rem] text-[#139C48]">
                             {String(index + 1).padStart(2, "0")}
                           </span>
 
@@ -313,7 +318,7 @@ export default function ScientificPublicationsPage() {
                               href={href}
                               target="_blank"
                               rel="noreferrer"
-                              className="inline-flex min-h-11 items-center self-start border-b border-[#16856F] text-sm font-semibold text-[#16856F] transition-colors hover:text-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                              className="inline-flex min-h-11 items-center self-start border-b border-[#139C48] text-sm font-semibold text-[#139C48] transition-colors hover:text-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                             >
                               {publication.doi ? "Mở DOI" : "Đọc toàn văn"}
                               <ArrowIcon direction="up-right" size={16} className="ml-3" />
@@ -338,7 +343,7 @@ export default function ScientificPublicationsPage() {
                     setQuery("");
                     setSelectedYear("all");
                   }}
-                  className="mt-5 cursor-pointer border-b border-[#16856F] pb-1 text-sm font-semibold text-[#16856F]"
+                  className="mt-5 cursor-pointer border-b border-[#139C48] pb-1 text-sm font-semibold text-[#139C48]"
                 >
                   Xóa bộ lọc
                 </button>

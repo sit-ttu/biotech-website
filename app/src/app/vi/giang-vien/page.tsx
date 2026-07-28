@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight, Search, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { api, type Faculty } from "@/lib/api";
+import { mockFaculty } from "@/lib/mock-content";
 
 function getInitials(fullName: string) {
   return fullName
@@ -27,7 +28,6 @@ export default function FacultyPage() {
   const [faculty, setFaculty] = useState<Faculty[]>([]);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -35,12 +35,12 @@ export default function FacultyPage() {
     api.faculty
       .findAll()
       .then((data) => {
-        if (active) setFaculty(data);
+        if (active) setFaculty(data.length > 0 ? data : mockFaculty);
       })
       .catch((fetchError) => {
         console.error("Failed to fetch faculty:", fetchError);
         if (active) {
-          setError("Không thể tải danh sách giảng viên lúc này.");
+          setFaculty(mockFaculty);
         }
       })
       .finally(() => {
@@ -107,28 +107,6 @@ export default function FacultyPage() {
     );
   }
 
-  if (error) {
-    return (
-      <main className="flex min-h-[65vh] items-center bg-white px-5 sm:px-8">
-        <div className="mx-auto w-full max-w-7xl border-t border-[#d8d3cc] pt-10">
-          <p className="font-roboto-mono text-xs uppercase tracking-[0.18em] text-[#16856F]">
-            Danh sách giảng viên
-          </p>
-          <h1 className="mt-5 max-w-xl text-3xl font-bold leading-tight tracking-[-0.03em] text-[#151823] sm:text-5xl">
-            {error}
-          </h1>
-          <button
-            type="button"
-            onClick={() => window.location.reload()}
-            className="mt-9 cursor-pointer border-b border-[#16856F] pb-1 text-sm font-semibold text-[#16856F]"
-          >
-            Thử tải lại trang
-          </button>
-        </div>
-      </main>
-    );
-  }
-
   return (
     <main className="min-h-screen bg-white text-[#151823]">
       <section className="border-b border-[#d8d3cc]">
@@ -138,8 +116,8 @@ export default function FacultyPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex items-center gap-4 font-roboto-mono text-xs uppercase tracking-[0.18em] text-[#16856F]">
-              <span className="h-px w-12 bg-[#16856F]" />
+            <div className="flex items-center gap-4 font-roboto-mono text-xs uppercase tracking-[0.18em] text-[#139C48]">
+              <span className="h-px w-12 bg-[#139C48]" />
               Đội ngũ học thuật
             </div>
             <h1 className="mt-7 max-w-[17ch] text-[clamp(2.55rem,5vw,4.9rem)] font-bold leading-[1.08] tracking-[-0.04em] text-balance">
@@ -158,7 +136,7 @@ export default function FacultyPage() {
                 Khám phá chuyên môn, quá trình đào tạo và các công bố khoa học
                 của đội ngũ giảng viên Khoa Công nghệ Sinh học.
               </p>
-              <span className="shrink-0 font-roboto-mono text-2xl font-semibold tabular-nums text-[#16856F]">
+              <span className="shrink-0 font-roboto-mono text-2xl font-semibold tabular-nums text-[#139C48]">
                 {String(activeFaculty.length).padStart(2, "0")}
               </span>
             </div>
@@ -169,10 +147,10 @@ export default function FacultyPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:py-16">
-        <label className="mx-auto grid h-16 max-w-4xl grid-cols-[4rem_minmax(0,1fr)_auto] border border-[#d8d3cc] bg-white transition-colors duration-200 focus-within:border-[#16856F]">
+      <section id="danh-sach" className="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:py-16">
+        <label className="mx-auto grid h-16 max-w-4xl grid-cols-[4rem_minmax(0,1fr)_auto] border border-[#d8d3cc] bg-white transition-colors duration-200 focus-within:border-[#139C48]">
           <span className="sr-only">Tìm kiếm giảng viên</span>
-          <span className="flex h-full items-center justify-center border-r border-[#d8d3cc] bg-[#f7f4ef] text-[#16856F]">
+          <span className="flex h-full items-center justify-center border-r border-[#d8d3cc] bg-[#f7f4ef] text-[#139C48]">
             <Search className="h-5 w-5" strokeWidth={1.8} />
           </span>
           <input
@@ -186,7 +164,7 @@ export default function FacultyPage() {
             <button
               type="button"
               onClick={() => setQuery("")}
-              className="flex h-full w-16 shrink-0 cursor-pointer items-center justify-center border-l border-[#d8d3cc] text-[#777a74] transition-colors hover:bg-[#16856F] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#16856F]"
+              className="flex h-full w-16 shrink-0 cursor-pointer items-center justify-center border-l border-[#d8d3cc] text-[#777a74] transition-colors hover:bg-[#139C48] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#139C48]"
               aria-label="Xóa nội dung tìm kiếm"
             >
               <X className="h-4 w-4" />
@@ -205,7 +183,7 @@ export default function FacultyPage() {
             <button
               type="button"
               onClick={() => setQuery("")}
-              className="mt-7 cursor-pointer border-b border-[#16856F] pb-1 text-sm font-semibold text-[#16856F]"
+              className="mt-7 cursor-pointer border-b border-[#139C48] pb-1 text-sm font-semibold text-[#139C48]"
             >
               Hiển thị toàn bộ giảng viên
             </button>
@@ -213,7 +191,9 @@ export default function FacultyPage() {
         ) : (
           <div className="mt-14 grid gap-x-12 gap-y-16 lg:grid-cols-2 lg:gap-y-20">
             {filteredFaculty.map((member, index) => {
-              const detailHref = `/vi/giang-vien/${member.slug}`;
+              const detailHref = member.id.startsWith("mock-")
+                ? "#danh-sach"
+                : `/vi/giang-vien/${member.slug}`;
               const profileStats = [
                 {
                   value: member.publications?.length || 0,
@@ -255,22 +235,22 @@ export default function FacultyPage() {
                           />
                         ) : (
                           <div className="flex h-full items-end bg-[linear-gradient(145deg,#f4f1ec_0%,#e5ded5_100%)] p-6">
-                            <span className="text-5xl font-bold tracking-[-0.07em] text-[#16856F]">
+                            <span className="text-5xl font-bold tracking-[-0.07em] text-[#139C48]">
                               {getInitials(member.fullName)}
                             </span>
                           </div>
                         )}
                       </div>
-                      <span className="absolute bottom-0 left-0 h-1.5 w-20 bg-[#16856F] transition-[width] duration-300 group-hover:w-full" />
+                      <span className="absolute bottom-0 left-0 h-1.5 w-20 bg-[#139C48] transition-[width] duration-300 group-hover:w-full" />
                     </Link>
 
                     <div className="flex min-w-0 flex-col sm:py-1">
-                      <p className="font-roboto-mono text-[0.68rem] uppercase leading-5 tracking-[0.13em] text-[#16856F]">
+                      <p className="font-roboto-mono text-[0.68rem] uppercase leading-5 tracking-[0.13em] text-[#139C48]">
                         {member.position?.split(/\s+[–—-]\s+/)[0] ||
                           "Giảng viên"}
                       </p>
                       <Link href={detailHref} className="cursor-pointer">
-                        <h2 className="mt-3 text-[1.65rem] font-bold leading-[1.16] tracking-[-0.035em] text-[#1c1f1b] transition-colors group-hover:text-[#16856F] sm:text-[1.85rem]">
+                        <h2 className="mt-3 text-[1.65rem] font-bold leading-[1.16] tracking-[-0.035em] text-[#1c1f1b] transition-colors group-hover:text-[#139C48] sm:text-[1.85rem]">
                           {member.academicTitle &&
                             `${member.academicTitle.replace(/\.+$/, "")}. `}
                           {member.fullName}
@@ -303,7 +283,7 @@ export default function FacultyPage() {
 
                         <Link
                           href={detailHref}
-                          className="inline-flex cursor-pointer items-center gap-2 border-b border-[#16856F] pb-1 text-sm font-semibold text-[#16856F]"
+                          className="inline-flex cursor-pointer items-center gap-2 border-b border-[#139C48] pb-1 text-sm font-semibold text-[#139C48]"
                         >
                           Xem hồ sơ
                           <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

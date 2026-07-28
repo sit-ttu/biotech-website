@@ -116,7 +116,7 @@ function AlumniCard({
           />
         ) : (
           <div className="relative flex h-full min-h-[16rem] items-end overflow-hidden p-6">
-            <span className="font-mono text-[4rem] font-medium leading-none tracking-[-0.08em] text-[#16856F]">
+            <span className="font-mono text-[4rem] font-medium leading-none tracking-[-0.08em] text-[#139C48]">
               {alumnus.fullName
                 .split(" ")
                 .slice(-2)
@@ -124,8 +124,8 @@ function AlumniCard({
                 .join("")
                 .toUpperCase()}
             </span>
-            <span className="absolute -right-16 -top-16 h-52 w-52 rounded-full border border-[#16856F]/25" />
-            <span className="absolute -right-6 -top-6 h-28 w-28 rounded-full border border-[#16856F]/25" />
+            <span className="absolute -right-16 -top-16 h-52 w-52 rounded-full border border-[#139C48]/25" />
+            <span className="absolute -right-6 -top-6 h-28 w-28 rounded-full border border-[#139C48]/25" />
           </div>
         )}
       </div>
@@ -142,7 +142,7 @@ function AlumniCard({
           {alumnus.fullName}
         </h3>
         {profileTitle && (
-          <p className="mt-3 text-sm font-semibold leading-6 text-[#16856F]">
+          <p className="mt-3 text-sm font-semibold leading-6 text-[#139C48]">
             {profileTitle}
           </p>
         )}
@@ -200,7 +200,7 @@ function AlumniCard({
                 href={contact.url}
                 target="_blank"
                 rel="noreferrer"
-                className="text-xs font-semibold capitalize text-[#16856F] underline decoration-[#16856F]/35 underline-offset-4 hover:decoration-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                className="text-xs font-semibold capitalize text-[#139C48] underline decoration-[#139C48]/35 underline-offset-4 hover:decoration-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
               >
                 {contact.type} <ArrowIcon direction="up-right" size={16} />
               </a>
@@ -242,26 +242,25 @@ export default function AlumniPageContent({
 
   return (
     <main className="min-h-screen overflow-hidden bg-white text-[#171b25]">
-      <section className="border-b border-[#171b25]/15 bg-white">
+      <section className="border-b border-[#d9e3d8] bg-[#f1f5f0]">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-14 pt-10 sm:px-8 lg:grid-cols-[1.12fr_0.88fr] lg:items-end lg:gap-20 lg:pb-20 lg:pt-16">
           <div>
-            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
-              <span className="h-px w-12 bg-current" />
+            <div className="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#777b77]">
               {copy.eyebrow}
             </div>
-            <h1 className="mt-7 max-w-[13ch] text-[2.8rem] font-bold leading-[1.03] tracking-[-0.045em] text-balance sm:text-[3.6rem] lg:text-[4rem]">
+            <h1 className="mt-7 max-w-[11ch] text-[3rem] font-semibold leading-[0.95] tracking-[-0.065em] text-balance sm:text-[4rem] lg:text-[4.8rem]">
               {copy.title}
             </h1>
           </div>
 
-          <div className="border-l-2 border-[#16856F] pl-6 sm:pl-8">
+          <div className="border-t border-[#bfc9be] pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
             <p className="max-w-xl text-base leading-8 text-[#626661] sm:text-lg">
               {copy.description}
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-4">
               <a
                 href="#mang-luoi"
-                className="inline-flex min-h-12 items-center bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                className="inline-flex min-h-12 items-center rounded-full bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
               >
                 {copy.explore}
               </a>
@@ -269,7 +268,7 @@ export default function AlumniPageContent({
                 href="https://www.facebook.com/biotech.ttu.edu.vn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold text-[#12312B] underline decoration-[#16856F]/35 underline-offset-8 transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                className="text-sm font-semibold text-[#12312B] underline decoration-[#139C48]/35 underline-offset-8 transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
               >
                 {copy.connect} <ArrowIcon direction="up-right" size={16} />
               </a>
@@ -285,11 +284,11 @@ export default function AlumniPageContent({
       </section>
 
       {featured && (
-        <section className="bg-[#f7f4f1] py-14 sm:py-20 lg:py-24">
+        <section className="bg-[#f5f7f4] py-14 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="mb-9 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-20">
               <div>
-                <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#16856F]">
+                <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#139C48]">
                   {copy.featuredEyebrow}
                 </p>
                 <h2 className="mt-4 max-w-[14ch] text-[2.25rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[3rem]">
@@ -306,14 +305,14 @@ export default function AlumniPageContent({
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-7 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-20">
             <div>
-              <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#16856F]">
+              <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#139C48]">
                 {copy.directoryEyebrow}
               </p>
               <h2 className="mt-4 max-w-[14ch] text-[2.25rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[3rem]">
                 {copy.directoryTitle}
               </h2>
             </div>
-            <p className="max-w-xl border-l-2 border-[#16856F] pl-5 text-sm leading-7 text-[#686c67]">
+            <p className="max-w-xl border-l-2 border-[#139C48] pl-5 text-sm leading-7 text-[#686c67]">
               {copy.directoryDescription}
             </p>
           </div>
@@ -373,7 +372,7 @@ export default function AlumniPageContent({
         </div>
       </section>
 
-      <section className="border-t border-[#171b25]/15 bg-[#f7f4f1] py-12 sm:py-16">
+      <section className="border-t border-[#171b25]/15 bg-[#f5f7f4] py-12 sm:py-16">
         <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <h2 className="text-[2rem] font-bold leading-tight tracking-[-0.04em] sm:text-[2.5rem]">
@@ -385,7 +384,7 @@ export default function AlumniPageContent({
           </div>
           <a
             href="mailto:secretary.sbio@ttu.edu.vn?subject=Biotech TTU%20Alumni"
-            className="inline-flex min-h-12 items-center justify-center bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+            className="inline-flex min-h-12 items-center justify-center bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
           >
             {copy.alumniCtaAction} <ArrowIcon direction="up-right" size={16} />
           </a>

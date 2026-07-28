@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { api, type StudentPortfolio } from "@/lib/api";
+import { getMockStudentPortfolios } from "@/lib/mock-content";
 import type { SiteLocale } from "@/lib/program-pages";
 import { absoluteUrl, jsonLd } from "@/lib/seo";
 
@@ -40,10 +41,14 @@ export default async function StudentPortfolioListPageServer({
   locale: SiteLocale;
 }) {
   const t = copy[locale];
-  const portfolios = await api.studentPortfolio.findAll().catch((error) => {
+  const apiPortfolios = await api.studentPortfolio.findAll().catch((error) => {
     console.error("Failed to pre-render student portfolios", error);
     return [] as StudentPortfolio[];
   });
+  const portfolios =
+    apiPortfolios.length > 0
+      ? apiPortfolios
+      : getMockStudentPortfolios(locale);
 
   const path =
     locale === "vi" ? "/vi/sinh-vien/portfolio" : "/en/students/portfolio";
@@ -79,7 +84,7 @@ export default async function StudentPortfolioListPageServer({
 
       <section className="border-b border-[#171b25]/15">
         <div className="mx-auto max-w-7xl px-5 pb-12 pt-10 sm:px-8 lg:pb-16 lg:pt-14">
-          <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
+          <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#139C48]">
             <span className="h-px w-12 bg-current" />
             {t.badge}
           </div>
@@ -103,7 +108,7 @@ export default async function StudentPortfolioListPageServer({
               <Link
                 key={portfolio.id}
                 href={`/${portfolio.slug}`}
-                className="group flex flex-col gap-4 border border-[#e4dfda] p-6 transition-colors hover:border-[#16856F] hover:bg-[#fbf6f2]"
+                className="group flex flex-col gap-4 border border-[#e4dfda] p-6 transition-colors hover:border-[#139C48] hover:bg-[#fbf6f2]"
               >
                 <div className="flex items-center gap-4">
                   {portfolio.avatarUrl ? (
@@ -114,12 +119,12 @@ export default async function StudentPortfolioListPageServer({
                       className="h-14 w-14 shrink-0 rounded-full object-cover"
                     />
                   ) : (
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#f4efe9] text-lg font-bold text-[#16856F]">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#f4efe9] text-lg font-bold text-[#139C48]">
                       {getInitials(portfolio.fullName)}
                     </div>
                   )}
                   <div className="min-w-0">
-                    <h2 className="truncate text-lg font-bold tracking-[-0.02em] transition-colors group-hover:text-[#16856F]">
+                    <h2 className="truncate text-lg font-bold tracking-[-0.02em] transition-colors group-hover:text-[#139C48]">
                       {portfolio.fullName}
                     </h2>
                     {(portfolio.title || portfolio.program) && (
@@ -136,7 +141,7 @@ export default async function StudentPortfolioListPageServer({
                   </p>
                 )}
 
-                <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#16856F]">
+                <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#139C48]">
                   {t.view}
                   <HugeiconsIcon icon={ArrowUpRight01Icon} size={16} />
                 </span>

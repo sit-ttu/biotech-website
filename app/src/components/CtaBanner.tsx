@@ -1,41 +1,18 @@
 "use client";
 
-import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
-import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import EditorialCta from "@/components/EditorialCta";
 
 const CtaBanner = () => {
   const t = useTranslations("programs.programSlugPage.shared.ctaBanner");
 
   return (
-    <section className="mt-10 bg-white px-5 pb-16 sm:px-8 sm:pb-20">
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="mx-auto flex max-w-7xl flex-col items-start gap-6 rounded-[1.75rem] bg-[#16856F] p-10 sm:p-12 lg:flex-row lg:items-center lg:justify-between"
-      >
-        <div>
-          <h2 className="text-[1.6rem] font-bold tracking-tight text-white sm:text-[2rem]">
-            {t("title")}
-          </h2>
-          <p className="mt-2.5 max-w-xl text-[13px] leading-relaxed text-white/80 sm:text-sm">
-            {t("description")}
-          </p>
-        </div>
-        <a
-          href="https://www.facebook.com/biotechnology.biotechnology.357"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#16856F] transition-colors hover:bg-white/90"
-        >
-          {t("primary")}
-          <HugeiconsIcon icon={ArrowRight02Icon} size={17} />
-        </a>
-      </motion.div>
-    </section>
+    <EditorialCta
+      title={t("title")}
+      description={t("description")}
+      primaryLabel={t("primary")}
+      primaryHref="https://www.facebook.com/biotech.ttu.edu.vn"
+    />
   );
 };
 

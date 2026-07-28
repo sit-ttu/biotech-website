@@ -3,10 +3,8 @@
 import * as Accordion from "@radix-ui/react-accordion";
 import { motion, useReducedMotion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import SectionTab from "@/components/SectionTab";
-import { ArrowIcon } from "@/components/icons/ArrowIcon";
+import EditorialCta from "@/components/EditorialCta";
 
 type FaqItem = { q: string; a: string };
 
@@ -26,22 +24,21 @@ const FaqPageContent = () => {
   return (
     <main className="overflow-hidden bg-white text-[#171b25]">
       <section className="relative bg-white">
-        <SectionTab label={t("eyebrow")} />
-        <div className="mx-auto max-w-3xl px-5 py-12 sm:px-8 lg:py-16">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-20 pt-12 sm:px-8 md:grid-cols-12 md:gap-5 md:pb-28 md:pt-16">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={reveal}
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+            className="md:col-span-4"
           >
-            <div className="mb-6 flex items-center gap-4 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#16856F]">
-              <span className="h-px w-10 bg-current" />
+            <div className="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#777b77]">
               {t("eyebrow")}
             </div>
-            <h1 className="text-[2.35rem] font-bold leading-[1.06] tracking-[-0.04em] text-balance sm:text-[2.75rem]">
+            <h1 className="mt-6 max-w-[10ch] text-[clamp(3rem,6vw,5.2rem)] font-semibold leading-[0.94] tracking-[-0.07em] text-balance">
               {t("title")}
             </h1>
-            <p className="mt-6 text-sm leading-7 text-[#60645f] sm:text-[0.95rem]">
+            <p className="mt-7 max-w-[20rem] text-sm leading-7 text-[#60645f]">
               {t("lede")}
             </p>
           </motion.div>
@@ -52,26 +49,26 @@ const FaqPageContent = () => {
             variants={reveal}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-10"
+            className="md:col-start-6 md:col-span-7 md:pt-2"
           >
-            <Accordion.Root type="single" collapsible className="border-t border-[#ececec]">
+            <Accordion.Root type="single" collapsible className="border-t border-[#cfd2ce]">
               {items.map((item, index) => (
                 <Accordion.Item
                   key={item.q}
                   value={`item-${index}`}
-                  className="border-b border-[#ececec]"
+                  className="border-b border-[#cfd2ce]"
                 >
                   <Accordion.Header>
-                    <Accordion.Trigger className="group flex w-full items-center justify-between gap-4 py-5 text-left text-[15px] font-semibold text-[#171b25] transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]">
+                    <Accordion.Trigger className="group flex w-full items-center justify-between gap-4 py-5 text-left text-[15px] font-semibold text-[#171b25] transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]">
                       {item.q}
                       <ChevronDown
-                        className="h-4 w-4 shrink-0 text-[#8d8f8a] transition-transform duration-300 group-hover:text-[#16856F] group-data-[state=open]:rotate-180"
+                        className="h-4 w-4 shrink-0 text-[#8d8f8a] transition-transform duration-300 group-hover:text-[#139C48] group-data-[state=open]:rotate-180"
                         strokeWidth={2}
                       />
                     </Accordion.Trigger>
                   </Accordion.Header>
                   <Accordion.Content className="overflow-hidden text-sm leading-relaxed text-[#60645f] data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
-                    <p className="pb-5 pr-8">{item.a}</p>
+                    <p className="max-w-[38rem] pb-7 pr-8">{item.a}</p>
                   </Accordion.Content>
                 </Accordion.Item>
               ))}
@@ -80,26 +77,12 @@ const FaqPageContent = () => {
         </div>
       </section>
 
-      <section className="px-5 pb-16 sm:px-8 sm:pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mx-auto flex max-w-3xl flex-col items-start gap-6 bg-[#16856F] p-10 [clip-path:polygon(3%_0,100%_0,100%_82%,97%_100%,0_100%,0_18%)] sm:flex-row sm:items-center sm:justify-between sm:p-12"
-        >
-          <h2 className="text-lg font-bold text-white sm:text-xl">
-            {t("contactCta")}
-          </h2>
-          <Link
-            href={contactHref}
-            className="inline-flex shrink-0 items-center gap-2 bg-white px-7 py-3 text-sm font-semibold text-[#16856F] transition-colors hover:bg-white/90"
-          >
-            {tHeader("contactLink")}
-            <ArrowIcon direction="up-right" size={15} />
-          </Link>
-        </motion.div>
-      </section>
+      <EditorialCta
+        title={t("contactCta")}
+        description={t("lede")}
+        primaryLabel={tHeader("contactLink")}
+        primaryHref={contactHref}
+      />
     </main>
   );
 };

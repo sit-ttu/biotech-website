@@ -79,14 +79,13 @@ export default function AchievementsPageContent({
 
   return (
     <main className="min-h-screen overflow-hidden bg-white text-[#171b25]">
-      <section className="border-b border-[#171b25]/15 bg-white">
+      <section className="border-b border-[#d9e3d8] bg-[#f5f7f4]">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 pb-14 pt-10 sm:px-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end lg:gap-20 lg:pb-20 lg:pt-16">
           <div>
-            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
-              <span className="h-px w-12 bg-current" />
+            <div className="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#6f746f]">
               {copy.eyebrow}
             </div>
-            <h1 className="mt-7 max-w-[15ch] text-[2.75rem] font-bold leading-[1.04] tracking-[-0.045em] text-balance sm:text-[3.6rem] lg:text-[4rem]">
+            <h1 className="mt-7 max-w-[12ch] text-[3rem] font-semibold leading-[0.96] tracking-[-0.065em] text-balance sm:text-[4rem] lg:text-[5rem]">
               {copy.title}
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-8 text-[#626661] sm:text-lg">
@@ -94,11 +93,11 @@ export default function AchievementsPageContent({
             </p>
           </div>
 
-          <div className="border-l-2 border-[#16856F] pl-6 lg:mb-1">
-            <p className="font-mono text-[2.5rem] font-medium leading-none tracking-[-0.06em] text-[#16856F]">
+          <div className="border-t border-[#bfc9be] pt-6 lg:mb-1 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
+            <p className="font-mono text-[2.5rem] font-medium leading-none tracking-[-0.06em] text-[#139C48]">
               {String(sortedItems.length).padStart(2, "0")}
             </p>
-            <p className="mt-3 text-sm leading-6 text-[#676b66]">{copy.count}</p>
+            <p className="mt-3 text-sm leading-6 text-[#626661]">{copy.count}</p>
           </div>
         </div>
       </section>
@@ -115,7 +114,7 @@ export default function AchievementsPageContent({
           </div>
 
           {sortedItems.length === 0 ? (
-            <div className="border-l-2 border-[#16856F] bg-[#f7f4f1] px-6 py-10 text-sm text-[#626661]">
+            <div className="border-l-2 border-[#139C48] bg-[#f5f7f4] px-6 py-10 text-sm text-[#626661]">
               {copy.empty}
             </div>
           ) : (
@@ -139,19 +138,19 @@ export default function AchievementsPageContent({
                         />
                       ) : (
                         <div className="relative flex h-full flex-col justify-between overflow-hidden p-6">
-                          <span className="relative z-10 font-mono text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-[#0D5E50]">
+                          <span className="relative z-10 font-mono text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-[#0F7E3A]">
                             {typeLabel}
                           </span>
-                          <span className="relative z-10 font-mono text-[3.5rem] font-medium leading-none tracking-[-0.08em] text-[#16856F]">
+                          <span className="relative z-10 font-mono text-[3.5rem] font-medium leading-none tracking-[-0.08em] text-[#139C48]">
                             {item.achievedYear ?? "Biotech TTU"}
                           </span>
-                          <span className="absolute -bottom-14 -right-8 h-52 w-52 rounded-full border border-[#16856F]/20" />
-                          <span className="absolute -bottom-5 right-12 h-28 w-28 rounded-full border border-[#16856F]/25" />
+                          <span className="absolute -bottom-14 -right-8 h-52 w-52 rounded-full border border-[#139C48]/20" />
+                          <span className="absolute -bottom-5 right-12 h-28 w-28 rounded-full border border-[#139C48]/25" />
                         </div>
                       )}
 
                       {item.isHighlight && (
-                        <span className="absolute right-4 top-4 bg-[#16856F] px-3 py-1.5 font-mono text-[0.53rem] font-semibold uppercase tracking-[0.13em] text-white">
+                        <span className="absolute right-4 top-4 bg-[#139C48] px-3 py-1.5 font-mono text-[0.53rem] font-semibold uppercase tracking-[0.13em] text-white">
                           {copy.highlight}
                         </span>
                       )}
@@ -159,7 +158,7 @@ export default function AchievementsPageContent({
 
                     <div className="flex flex-1 flex-col py-5">
                       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[0.55rem] uppercase tracking-[0.12em] text-[#8a8d88]">
-                        <span className="text-[#16856F]">{typeLabel}</span>
+                        <span className="text-[#139C48]">{typeLabel}</span>
                         {levelLabel && (
                           <>
                             <span aria-hidden>·</span>

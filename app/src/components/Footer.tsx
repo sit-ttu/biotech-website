@@ -20,6 +20,7 @@ import { ArrowIcon } from "@/components/icons/ArrowIcon";
 const Footer = () => {
   const t = useTranslations("header");
   const tFooter = useTranslations("footer");
+  const phone = "(+84) 076 436 2098";
   const pathname = usePathname();
   const currentLocale = pathname.split("/")[1] || "vi";
 
@@ -217,7 +218,7 @@ const Footer = () => {
                 {tFooter("address")}
               </a>
               <a
-                href={`tel:${tFooter("phone")}`}
+                href={`tel:${phone}`}
                 className="group flex items-center gap-3 text-[13px] text-gray-500 transition-colors hover:text-[#139C48]"
               >
                 <HugeiconsIcon
@@ -225,7 +226,7 @@ const Footer = () => {
                   size={17}
                   className="shrink-0 text-[#139C48]"
                 />
-                {tFooter("phone")}
+                {phone}
               </a>
               <a
                 href={`mailto:${tFooter("email")}`}

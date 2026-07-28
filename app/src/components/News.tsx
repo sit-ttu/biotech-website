@@ -155,7 +155,7 @@ export default function News() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
               viewport={{ once: true }}
-              className={`group relative flex flex-col overflow-hidden rounded-[1.35rem] border border-[#D6E5E0] bg-white transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-1 hover:border-[#16856F] hover:shadow-[0_12px_26px_rgba(18,49,43,0.08)] ${
+              className={`group relative flex flex-col overflow-hidden rounded-[1.35rem] border border-[#D6E5E0] bg-white transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-1 hover:border-[#139C48] hover:shadow-[0_12px_26px_rgba(18,49,43,0.08)] ${
                 index === 0 ? "md:col-span-2 md:flex-row" : ""
               }`}
             >
@@ -165,7 +165,7 @@ export default function News() {
                 }`}
               >
                 <NewsVisual item={item} index={index} featured={index === 0} />
-                <span className="absolute bottom-0 left-0 bg-[#16856F] px-3.5 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.13em] text-white">
+                <span className="absolute bottom-0 left-0 bg-[#139C48] px-3.5 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.13em] text-white">
                   {item.category}
                 </span>
               </div>
@@ -175,7 +175,7 @@ export default function News() {
                   <HugeiconsIcon icon={Calendar03Icon} size={13} strokeWidth={1.5} />
                   <span>{item.date}</span>
                 </div>
-                <h3 className="mt-4 line-clamp-2 text-[1rem] font-bold leading-[1.4] tracking-[-0.025em] text-gray-900 transition-colors group-hover:text-[#16856F] sm:text-[1.08rem]">
+                <h3 className="mt-4 line-clamp-2 text-[1rem] font-bold leading-[1.4] tracking-[-0.025em] text-gray-900 transition-colors group-hover:text-[#139C48] sm:text-[1.08rem]">
                   {item.title}
                 </h3>
                 {item.summary && (
@@ -183,9 +183,9 @@ export default function News() {
                     {item.summary}
                   </p>
                 )}
-                <div className="mt-auto flex items-center justify-between border-t border-[#D6E5E0] pt-5 text-[0.78rem] font-semibold text-[#16856F]">
+                <div className="mt-auto flex items-center justify-between border-t border-[#D6E5E0] pt-5 text-[0.78rem] font-semibold text-[#139C48]">
                   <span>{t("viewDetails")}</span>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#16856F]/35 transition-colors group-hover:border-[#16856F] group-hover:bg-[#16856F] group-hover:text-white">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#139C48]/35 transition-colors group-hover:border-[#139C48] group-hover:bg-[#139C48] group-hover:text-white">
                     <HugeiconsIcon
                       icon={ArrowUpRight01Icon}
                       size={16}
@@ -208,7 +208,7 @@ export default function News() {
         >
           <Link
             href={newsIndexHref}
-            className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#16856F] underline underline-offset-4 transition-colors hover:text-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+            className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#139C48] underline underline-offset-4 transition-colors hover:text-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
           >
             {t("viewAllNews")}
           </Link>
@@ -233,9 +233,9 @@ export default function News() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="border-l-2 border-[#16856F] py-1 pl-5"
+                  className="border-l-2 border-[#139C48] py-1 pl-5"
                 >
-                  <div className="mb-2 inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#16856F]">
+                  <div className="mb-2 inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#139C48]">
                     <HugeiconsIcon icon={Calendar03Icon} size={13} />
                     {formatEventDate(event.startAt)}
                   </div>
@@ -262,7 +262,7 @@ export default function News() {
                       href={event.registrationUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold text-[#16856F] underline decoration-[#16856F]/35 underline-offset-4 transition-colors hover:decoration-[#16856F]"
+                      className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold text-[#139C48] underline decoration-[#139C48]/35 underline-offset-4 transition-colors hover:decoration-[#139C48]"
                     >
                       {t("viewDetails")}
                       <HugeiconsIcon icon={ArrowUpRight01Icon} size={14} />

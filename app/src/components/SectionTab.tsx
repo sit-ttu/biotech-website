@@ -10,8 +10,8 @@ const SectionTab = ({
     <span
       className={`inline-block px-2 py-3 text-[10px] font-semibold uppercase tracking-[0.18em] [writing-mode:vertical-rl] ${
         variant === "light"
-          ? "bg-white text-[#16856F]"
-          : "bg-[#16856F] text-white"
+          ? "bg-white text-[#139C48]"
+          : "bg-[#139C48] text-white"
       }`}
     >
       {label}

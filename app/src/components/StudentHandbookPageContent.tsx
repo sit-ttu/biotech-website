@@ -76,29 +76,28 @@ export default function StudentHandbookPageContent({
 
   return (
     <main className="min-h-screen overflow-hidden bg-white text-[#171b25]">
-      <section className="border-b border-[#171b25]/15 bg-white">
+      <section className="bg-[#111311] text-white">
         <div className="mx-auto max-w-7xl px-5 pb-14 pt-10 sm:px-8 lg:pb-20 lg:pt-16">
-          <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
-            <span className="h-px w-12 bg-current" />
+          <div className="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-white/50">
             {copy.eyebrow}
           </div>
-          <h1 className="mt-7 max-w-[18ch] text-[2.7rem] font-bold leading-[1.04] tracking-[-0.045em] text-balance sm:text-[3.5rem] lg:text-[3.9rem]">
+          <h1 className="mt-7 max-w-[14ch] text-[3rem] font-semibold leading-[0.96] tracking-[-0.065em] text-balance sm:text-[4rem] lg:text-[4.8rem]">
             {copy.eyebrow}
           </h1>
-          <p className="mt-6 font-mono text-sm font-semibold uppercase tracking-[0.15em] text-[#626661]">
+          <p className="mt-6 font-mono text-sm font-semibold uppercase tracking-[0.15em] text-white/55">
             {copy.schoolYearLabel}: {edition.schoolYear}
           </p>
         </div>
       </section>
 
-      <section className="relative bg-[#f7f4f1] py-16 sm:py-20 lg:py-24">
+      <section className="relative bg-[#f5f7f4] py-16 sm:py-20 lg:py-24">
         <StudentHandbookView locale={locale} content={content} />
       </section>
 
       {pdfUrl && (
         <section className="border-b border-[#171b25]/15 bg-white">
           <div className="mx-auto grid max-w-7xl gap-6 px-5 py-10 sm:px-8 lg:grid-cols-[11rem_minmax(0,1fr)_auto] lg:items-center lg:gap-10">
-            <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-[#16856F]">
+            <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-[#139C48]">
               {copy.documentLabel}
             </p>
             <p className="max-w-3xl text-lg font-bold leading-8 tracking-[-0.02em] sm:text-xl">
@@ -108,7 +107,7 @@ export default function StudentHandbookPageContent({
               href={pdfUrl}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex min-h-12 items-center justify-between gap-8 bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+              className="group inline-flex min-h-12 items-center justify-between gap-8 rounded-full bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
             >
               {copy.downloadPdf}
               <span className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
@@ -120,7 +119,7 @@ export default function StudentHandbookPageContent({
       )}
 
       {otherYears.length > 0 && (
-        <section className="border-y border-[#171b25]/15 bg-[#f7f4f1] py-14 sm:py-20">
+        <section className="border-y border-[#171b25]/15 bg-[#f5f7f4] py-14 sm:py-20">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <h2 className="text-2xl font-bold tracking-[-0.035em] sm:text-3xl">
               {copy.archiveTitle}
@@ -130,14 +129,14 @@ export default function StudentHandbookPageContent({
                 <Link
                   key={h.schoolYear}
                   href={`${copy.handbookPath}/${h.schoolYear}`}
-                  className={`group flex min-h-20 items-center justify-between gap-5 border-b border-[#d8d3ce] px-4 py-5 transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#16856F] ${index % 2 === 0 ? "sm:border-r" : ""}`}
+                  className={`group flex min-h-20 items-center justify-between gap-5 border-b border-[#d8d3ce] px-4 py-5 transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#139C48] ${index % 2 === 0 ? "sm:border-r" : ""}`}
                 >
-                  <span className="text-sm font-semibold transition-colors group-hover:text-[#16856F]">
+                  <span className="text-sm font-semibold transition-colors group-hover:text-[#139C48]">
                     {copy.schoolYearLabel} {h.schoolYear}
                   </span>
                   <span
                     aria-hidden
-                    className="text-[#16856F] transition-transform group-hover:translate-x-1"
+                    className="text-[#139C48] transition-transform group-hover:translate-x-1"
                   >
                     <ArrowIcon direction="right" size={16} />
                   </span>
@@ -159,14 +158,14 @@ export default function StudentHandbookPageContent({
                 <Link
                   key={href}
                   href={href}
-                  className={`group flex min-h-24 items-center justify-between gap-5 border-b border-[#d8d3ce] px-4 py-5 transition-colors hover:bg-[#f7f4f1] focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#16856F] ${index % 2 === 0 ? "sm:border-r" : ""}`}
+                  className={`group flex min-h-24 items-center justify-between gap-5 border-b border-[#d8d3ce] px-4 py-5 transition-colors hover:bg-[#f5f7f4] focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#139C48] ${index % 2 === 0 ? "sm:border-r" : ""}`}
                 >
-                  <span className="text-sm font-semibold transition-colors group-hover:text-[#16856F]">
+                  <span className="text-sm font-semibold transition-colors group-hover:text-[#139C48]">
                     {label}
                   </span>
                   <span
                     aria-hidden
-                    className="text-[#16856F] transition-transform group-hover:translate-x-1"
+                    className="text-[#139C48] transition-transform group-hover:translate-x-1"
                   >
                     <ArrowIcon direction="right" size={16} />
                   </span>
@@ -179,13 +178,13 @@ export default function StudentHandbookPageContent({
             <h2 className="text-2xl font-bold tracking-[-0.035em] sm:text-3xl">
               {copy.contactLabel}
             </h2>
-            <div className="mt-7 border-l-2 border-[#16856F] pl-6">
+            <div className="mt-7 border-l-2 border-[#139C48] pl-6">
               <p className="max-w-xl text-sm leading-7 text-[#626661]">
                 {copy.contactText}
               </p>
               <div className="mt-5 flex flex-wrap gap-x-7 gap-y-3 text-sm font-semibold">
                 <a
-                  className="text-[#16856F] underline underline-offset-4"
+                  className="text-[#139C48] underline underline-offset-4"
                   href={`mailto:${EMAIL}`}
                 >
                   {EMAIL}

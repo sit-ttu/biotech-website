@@ -9,7 +9,6 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import SectionTab from "@/components/SectionTab";
 import { NewsVisual } from "@/components/NewsVisual";
 import {
   api,
@@ -110,8 +109,102 @@ export default function NewsPageContent({
   const t = useTranslations("news");
   const reduceMotion = useReducedMotion();
   const fallbackNews = useMemo(
-    () => (t.raw("newsList") as NewsItem[]) ?? [],
-    [t],
+    () => {
+      const translated = (t.raw("newsList") as NewsItem[]) ?? [];
+      if (translated.length > 0) return translated;
+
+      return locale === "vi"
+        ? [
+            {
+              title: "Không gian học tập thực hành tại Khoa Công nghệ Sinh học",
+              date: "Tháng 7, 2026",
+              category: "Đào tạo",
+              summary:
+                "Khám phá cách sinh viên kết nối kiến thức chuyên ngành với phòng thí nghiệm và các hoạt động học thuật.",
+              image: "/assets/biotech/program-biotechnology-lab.webp",
+            },
+            {
+              title: "Sinh viên Biotech TTU trong hoạt động hợp tác quốc tế",
+              date: "Tháng 7, 2026",
+              category: "Sinh viên",
+              summary:
+                "Những trải nghiệm dự án, giao lưu và đổi mới sáng tạo mở rộng góc nhìn của cộng đồng sinh viên.",
+              image: "/assets/biotech/biotech-hackathon-2026.jpg",
+            },
+            {
+              title: "Từ nghiên cứu sinh học đến những bài toán ứng dụng",
+              date: "Tháng 6, 2026",
+              category: "Nghiên cứu",
+              summary:
+                "Các hướng nghiên cứu tại Khoa tập trung vào khoa học sự sống, nông nghiệp và chất lượng cuộc sống.",
+              image: "/assets/biotech/biotech-research-visual-2026.png",
+            },
+          ]
+        : [
+            {
+              title: "Hands-on learning at the School of Biotechnology",
+              date: "July 2026",
+              category: "Education",
+              summary:
+                "Discover how students connect disciplinary knowledge with laboratory practice and academic activities.",
+              image: "/assets/biotech/program-biotechnology-lab.webp",
+            },
+            {
+              title: "Biotech TTU students in international collaboration",
+              date: "July 2026",
+              category: "Students",
+              summary:
+                "Projects, exchange and innovation experiences broaden perspectives across the student community.",
+              image: "/assets/biotech/biotech-hackathon-2026.jpg",
+            },
+            {
+              title: "From biological research to applied challenges",
+              date: "June 2026",
+              category: "Research",
+              summary:
+                "Research directions connect life science with agriculture and quality-of-life questions.",
+              image: "/assets/biotech/biotech-research-visual-2026.png",
+            },
+          ];
+    },
+    [locale, t],
+  );
+  const fallbackEvents = useMemo<EventItem[]>(
+    () =>
+      locale === "vi"
+        ? [
+            {
+              id: "fallback-seminar",
+              title: "Seminar khoa học sự sống",
+              date: "Cập nhật lịch",
+              description:
+                "Trao đổi chuyên môn giữa giảng viên, sinh viên và khách mời trong lĩnh vực công nghệ sinh học.",
+            },
+            {
+              id: "fallback-student-lab",
+              title: "Ngày trải nghiệm phòng thí nghiệm",
+              date: "Cập nhật lịch",
+              description:
+                "Hoạt động giới thiệu môi trường học tập và thực hành dành cho người học quan tâm đến khoa học sự sống.",
+            },
+          ]
+        : [
+            {
+              id: "fallback-seminar",
+              title: "Life sciences seminar",
+              date: "Schedule pending",
+              description:
+                "Academic exchange among faculty, students and invited guests in biotechnology.",
+            },
+            {
+              id: "fallback-student-lab",
+              title: "Laboratory experience day",
+              date: "Schedule pending",
+              description:
+                "An introduction to the learning and laboratory environment for prospective life-science students.",
+            },
+          ],
+    [locale],
   );
   const preparedInitial = useMemo(
     () =>
@@ -135,7 +228,10 @@ export default function NewsPageContent({
       : [],
   );
   const [events, setEvents] = useState<EventItem[]>(
-    () => preparedInitialEvents ?? [],
+    () =>
+      preparedInitialEvents && preparedInitialEvents.length > 0
+        ? preparedInitialEvents
+        : fallbackEvents,
   );
   const [researchItems, setResearchItems] = useState<Research[]>(
     () => initialResearch ?? [],
@@ -179,7 +275,11 @@ export default function NewsPageContent({
 
   useEffect(() => {
     if (preparedInitialEvents) {
-      setEvents(preparedInitialEvents);
+      setEvents(
+        preparedInitialEvents.length > 0
+          ? preparedInitialEvents
+          : fallbackEvents,
+      );
       return;
     }
 
@@ -188,17 +288,19 @@ export default function NewsPageContent({
     api.events
       .findUpcoming(12)
       .then((data) => {
-        if (active) setEvents(prepareEventData(data, locale));
+        if (!active) return;
+        const prepared = prepareEventData(data, locale);
+        setEvents(prepared.length > 0 ? prepared : fallbackEvents);
       })
       .catch((error) => {
         console.error("Failed to fetch upcoming events", error);
-        if (active) setEvents([]);
+        if (active) setEvents(fallbackEvents);
       });
 
     return () => {
       active = false;
     };
-  }, [locale, preparedInitialEvents]);
+  }, [fallbackEvents, locale, preparedInitialEvents]);
 
   useEffect(() => {
     let active = true;
@@ -329,7 +431,6 @@ export default function NewsPageContent({
   return (
     <main className="overflow-hidden bg-white text-[#171b25]">
       <section className="relative bg-white py-12 lg:py-16">
-        <SectionTab label={t("title")} />
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <motion.div
             initial="hidden"
@@ -339,7 +440,7 @@ export default function NewsPageContent({
             className="grid gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:items-end"
           >
             <div>
-              <div className="mb-5 flex items-center gap-4 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#16856F]">
+              <div className="mb-5 flex items-center gap-4 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#139C48]">
                 <span className="h-px w-10 bg-current" />
                 {t("newsroom")}
               </div>
@@ -363,10 +464,10 @@ export default function NewsPageContent({
               <NewsVisual item={featuredStory} index={0} featured />
               <div className="flex flex-col justify-center p-6 sm:p-9 lg:p-11">
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.68rem] font-semibold uppercase tracking-[0.13em]">
-                  <span className="bg-[#16856F] px-3 py-1.5 text-white">
+                  <span className="bg-[#139C48] px-3 py-1.5 text-white">
                     {t("featuredStory")}
                   </span>
-                  <span className="text-[#16856F]">{featuredStory.category}</span>
+                  <span className="text-[#139C48]">{featuredStory.category}</span>
                 </div>
                 <h2 className="mt-6 text-[1.7rem] font-bold leading-[1.15] tracking-[-0.035em] sm:text-[2rem]">
                   {featuredStory.title}
@@ -383,7 +484,7 @@ export default function NewsPageContent({
                   </span>
                   <a
                     href={newsHref(featuredStory)}
-                    className="group/link inline-flex min-h-11 items-center gap-3 bg-[#16856F] px-5 text-sm font-semibold text-white transition-[background-color,transform] hover:-translate-y-0.5 hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                    className="group/link inline-flex min-h-11 items-center gap-3 bg-[#139C48] px-5 text-sm font-semibold text-white transition-[background-color,transform] hover:-translate-y-0.5 hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                   >
                     {t("viewDetails")}
                     <HugeiconsIcon
@@ -404,8 +505,7 @@ export default function NewsPageContent({
         </div>
       </section>
 
-      <section className="relative bg-[#f7f4f1] py-14 sm:py-16">
-        <SectionTab label={t("latestNews")} />
+      <section className="relative bg-[#f5f7f4] py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
             <motion.h2
@@ -427,10 +527,10 @@ export default function NewsPageContent({
                       type="button"
                       aria-pressed={selected}
                       onClick={() => setActiveCategory(category)}
-                      className={`min-h-10 border px-4 text-[0.7rem] font-semibold uppercase tracking-[0.1em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F] ${
+                      className={`min-h-10 border px-4 text-[0.7rem] font-semibold uppercase tracking-[0.1em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48] ${
                         selected
-                          ? "border-[#16856F] bg-[#16856F] text-white"
-                          : "border-[#d7d1cb] bg-white text-[#666a65] hover:border-[#16856F] hover:text-[#16856F]"
+                          ? "border-[#139C48] bg-[#139C48] text-white"
+                          : "border-[#d7d1cb] bg-white text-[#666a65] hover:border-[#139C48] hover:text-[#139C48]"
                       }`}
                     >
                       {category === "all" ? t("allCategories") : category}
@@ -452,11 +552,11 @@ export default function NewsPageContent({
                   variants={reveal}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: (index % 3) * 0.07 }}
-                  className="group relative flex flex-col overflow-hidden border border-[#dedad5] bg-white transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-1 hover:border-[#16856F] hover:shadow-[0_12px_26px_rgba(55,34,23,0.07)]"
+                  className="group relative flex flex-col overflow-hidden border border-[#dedad5] bg-white transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-1 hover:border-[#139C48] hover:shadow-[0_12px_26px_rgba(55,34,23,0.07)]"
                 >
                   <div className="relative overflow-hidden">
                     <NewsVisual item={story} index={index + 1} />
-                    <span className="absolute bottom-0 left-0 bg-[#16856F] px-3.5 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.13em] text-white">
+                    <span className="absolute bottom-0 left-0 bg-[#139C48] px-3.5 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.13em] text-white">
                       {story.category}
                     </span>
                   </div>
@@ -465,7 +565,7 @@ export default function NewsPageContent({
                       <HugeiconsIcon icon={Calendar03Icon} size={13} strokeWidth={1.5} />
                       <span>{story.date}</span>
                     </div>
-                    <h3 className="mt-4 line-clamp-2 text-[1rem] font-bold leading-[1.4] tracking-[-0.025em] transition-colors group-hover:text-[#16856F] sm:text-[1.08rem]">
+                    <h3 className="mt-4 line-clamp-2 text-[1rem] font-bold leading-[1.4] tracking-[-0.025em] transition-colors group-hover:text-[#139C48] sm:text-[1.08rem]">
                       {story.title}
                     </h3>
                     {story.summary && (
@@ -473,9 +573,9 @@ export default function NewsPageContent({
                         {story.summary}
                       </p>
                     )}
-                    <div className="mt-auto flex items-center justify-between border-t border-[#e6e1dc] pt-5 text-[0.78rem] font-semibold text-[#16856F]">
+                    <div className="mt-auto flex items-center justify-between border-t border-[#e6e1dc] pt-5 text-[0.78rem] font-semibold text-[#139C48]">
                       <span>{t("viewDetails")}</span>
-                      <span className="flex h-9 w-9 items-center justify-center border border-[#16856F]/35 transition-colors group-hover:border-[#16856F] group-hover:bg-[#16856F] group-hover:text-white">
+                      <span className="flex h-9 w-9 items-center justify-center border border-[#139C48]/35 transition-colors group-hover:border-[#139C48] group-hover:bg-[#139C48] group-hover:text-white">
                         <HugeiconsIcon
                           icon={ArrowUpRight01Icon}
                           size={16}
@@ -498,7 +598,6 @@ export default function NewsPageContent({
 
       {topicGroups.length > 0 && (
         <section className="relative border-t border-[#dedad5] bg-white py-14 sm:py-16">
-          <SectionTab label={t("topicsEyebrow")} />
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="grid gap-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
               <motion.div
@@ -507,7 +606,7 @@ export default function NewsPageContent({
                 variants={reveal}
                 viewport={{ once: true }}
               >
-                <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
+                <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
                   {t("topicsEyebrow")}
                 </p>
                 <h2 className="mt-4 text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
@@ -541,7 +640,7 @@ export default function NewsPageContent({
                   } ${index % 3 !== 0 ? "lg:border-l" : "lg:border-l-0"}`}
                 >
                   <div className="flex items-center justify-between gap-4">
-                    <h3 className="text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#16856F]">
+                    <h3 className="text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#139C48]">
                       {group.category}
                     </h3>
                     <span className="font-mono text-[0.65rem] text-[#858984]">
@@ -553,9 +652,9 @@ export default function NewsPageContent({
                       <Link
                         key={`${group.category}-${story.title}`}
                         href={newsHref(story)}
-                        className="group block py-4 first:pt-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                        className="group block py-4 first:pt-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                       >
-                        <p className="line-clamp-2 text-[0.92rem] font-semibold leading-6 tracking-[-0.015em] transition-colors group-hover:text-[#16856F]">
+                        <p className="line-clamp-2 text-[0.92rem] font-semibold leading-6 tracking-[-0.015em] transition-colors group-hover:text-[#139C48]">
                           {story.title}
                         </p>
                         <p className="mt-2 font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[#8a8e89]">
@@ -573,7 +672,6 @@ export default function NewsPageContent({
 
       {events.length > 0 && (
         <section className="relative bg-white py-14 sm:py-16">
-          <SectionTab label={t("upcomingEvents")} />
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="mb-9 grid gap-4 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
               <h2 className="text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
@@ -594,7 +692,7 @@ export default function NewsPageContent({
                   transition={{ duration: 0.5, delay: index * 0.06 }}
                   className="grid gap-5 border-b border-[#dedad5] py-6 sm:grid-cols-[8rem_1fr] sm:py-7 lg:grid-cols-[9rem_0.9fr_1.1fr]"
                 >
-                  <div className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-[#16856F]">
+                  <div className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-[#139C48]">
                     {event.date}
                   </div>
                   <h3 className="text-base font-bold leading-snug tracking-tight">
@@ -612,8 +710,7 @@ export default function NewsPageContent({
         </section>
       )}
 
-      <section className="relative bg-[#f7f4f1] py-14 sm:py-16">
-        <SectionTab label={t("insightsEyebrow")} />
+      <section className="relative bg-[#f5f7f4] py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
             <motion.div
@@ -622,7 +719,7 @@ export default function NewsPageContent({
               variants={reveal}
               viewport={{ once: true }}
             >
-              <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
+              <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
                 {t("insightsEyebrow")}
               </p>
               <h2 className="mt-4 max-w-lg text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
@@ -643,7 +740,7 @@ export default function NewsPageContent({
               className="flex min-h-[22rem] flex-col border-b border-[#dedad5] p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10"
             >
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#dedad5] pb-5">
-                <span className="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#16856F]">
+                <span className="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#139C48]">
                   {t("researchLabel")}
                 </span>
                 <span className="font-mono text-[0.65rem] uppercase tracking-[0.08em] text-[#858984]">
@@ -681,7 +778,7 @@ export default function NewsPageContent({
                 )}
               <Link
                 href={researchHref}
-                className="mt-auto inline-flex w-fit border-b border-[#16856F] pt-8 pb-1 text-[0.78rem] font-semibold text-[#16856F] transition-colors hover:border-[#0D5E50] hover:text-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                className="mt-auto inline-flex w-fit border-b border-[#139C48] pt-8 pb-1 text-[0.78rem] font-semibold text-[#139C48] transition-colors hover:border-[#0F7E3A] hover:text-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
               >
                 {t("viewResearch")}
               </Link>
@@ -696,7 +793,7 @@ export default function NewsPageContent({
               className="flex min-h-[22rem] flex-col p-6 sm:p-8 lg:p-10"
             >
               <div className="border-b border-[#dedad5] pb-5">
-                <h3 className="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#16856F]">
+                <h3 className="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#139C48]">
                   {t("achievementsLabel")}
                 </h3>
               </div>
@@ -738,7 +835,7 @@ export default function NewsPageContent({
 
               <Link
                 href={achievementsHref}
-                className="mt-auto inline-flex w-fit border-b border-[#16856F] pt-6 pb-1 text-[0.78rem] font-semibold text-[#16856F] transition-colors hover:border-[#0D5E50] hover:text-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                className="mt-auto inline-flex w-fit border-b border-[#139C48] pt-6 pb-1 text-[0.78rem] font-semibold text-[#139C48] transition-colors hover:border-[#0F7E3A] hover:text-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
               >
                 {t("viewAchievements")}
               </Link>
@@ -749,7 +846,6 @@ export default function NewsPageContent({
 
       {quickNews.length > 0 && (
         <section className="relative border-t border-[#dedad5] bg-white py-14 sm:py-16">
-          <SectionTab label={t("quickFeedEyebrow")} />
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="grid gap-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
               <motion.div
@@ -758,7 +854,7 @@ export default function NewsPageContent({
                 variants={reveal}
                 viewport={{ once: true }}
               >
-                <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
+                <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
                   {t("quickFeedEyebrow")}
                 </p>
                 <h2 className="mt-4 text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
@@ -784,12 +880,12 @@ export default function NewsPageContent({
                   <time className="font-mono text-[0.64rem] uppercase tracking-[0.06em] text-[#858984]">
                     {story.date}
                   </time>
-                  <span className="text-[0.66rem] font-bold uppercase tracking-[0.11em] text-[#16856F]">
+                  <span className="text-[0.66rem] font-bold uppercase tracking-[0.11em] text-[#139C48]">
                     {story.category}
                   </span>
                   <Link
                     href={newsHref(story)}
-                    className="w-fit text-[0.92rem] font-semibold leading-6 tracking-[-0.015em] transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                    className="w-fit text-[0.92rem] font-semibold leading-6 tracking-[-0.015em] transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                   >
                     {story.title}
                   </Link>
@@ -801,7 +897,6 @@ export default function NewsPageContent({
       )}
 
       <section className="relative border-t border-[#dedad5] bg-white py-14 sm:py-16">
-        <SectionTab label={t("exploreBiotech")} />
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
             <motion.div
@@ -810,7 +905,7 @@ export default function NewsPageContent({
               variants={reveal}
               viewport={{ once: true }}
             >
-              <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
+              <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
                 {t("officialChannel")}
               </p>
               <h2 className="mt-4 max-w-md text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
@@ -837,21 +932,21 @@ export default function NewsPageContent({
               >
                 <Link
                   href={item.href}
-                  className="group flex min-h-56 flex-col p-6 transition-colors hover:bg-[#f7f4f1] focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#16856F]"
+                  className="group flex min-h-56 flex-col p-6 transition-colors hover:bg-[#f5f7f4] focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#139C48]"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[0.62rem] font-semibold text-[#16856F]">
+                    <span className="font-mono text-[0.62rem] font-semibold text-[#139C48]">
                       0{index + 1}
                     </span>
-                    <span className="h-px w-10 bg-[#16856F]/35 transition-all duration-300 group-hover:w-16 group-hover:bg-[#16856F]" />
+                    <span className="h-px w-10 bg-[#139C48]/35 transition-all duration-300 group-hover:w-16 group-hover:bg-[#139C48]" />
                   </div>
-                  <h3 className="mt-10 text-base font-bold tracking-tight transition-colors group-hover:text-[#16856F]">
+                  <h3 className="mt-10 text-base font-bold tracking-tight transition-colors group-hover:text-[#139C48]">
                     {item.title}
                   </h3>
                   <p className="mt-3 text-[0.78rem] leading-6 text-[#686c67]">
                     {item.description}
                   </p>
-                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.75rem] font-semibold text-[#16856F]">
+                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.75rem] font-semibold text-[#139C48]">
                     {t("exploreLink")}
                     <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                       <ArrowIcon direction="up-right" size={16} />

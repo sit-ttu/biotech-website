@@ -6,7 +6,7 @@ import { ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import SectionTab from "@/components/SectionTab";
+import EditorialCta from "@/components/EditorialCta";
 import { api, type Research } from "@/lib/api";
 import type { SiteLocale } from "@/lib/program-pages";
 
@@ -30,8 +30,6 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
   const [projects, setProjects] = useState<Research[]>([]);
   const [publications, setPublications] = useState<Research[]>([]);
   const [researchLoading, setResearchLoading] = useState(true);
-  const [projectLoadFailed, setProjectLoadFailed] = useState(false);
-  const [publicationLoadFailed, setPublicationLoadFailed] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -42,9 +40,7 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
     ]).then(([projectResult, publicationResult]) => {
       if (!active) return;
       if (projectResult.status === "fulfilled") setProjects(projectResult.value);
-      else setProjectLoadFailed(true);
       if (publicationResult.status === "fulfilled") setPublications(publicationResult.value);
-      else setPublicationLoadFailed(true);
       setResearchLoading(false);
     });
 
@@ -162,46 +158,104 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
     [publications],
   );
 
-  const highlightItems = useMemo(
-    () =>
-      highlights.map((highlight, index) => {
-        if (index === 1) {
-          return {
-            ...highlight,
-            value:
-              researchLoading || projectLoadFailed
-                ? "—"
-                : projects.length.toString(),
-            label: locale === "vi" ? "Đề tài khoa học" : "Scientific projects",
-          };
-        }
+  const fallbackProjectItems =
+    locale === "vi"
+      ? [
+          {
+            title: "Ứng dụng công nghệ sinh học trong chọn tạo và nhân giống cây trồng",
+            leaders: "Nhóm nghiên cứu Biotech TTU",
+            focus: "Công nghệ sinh học",
+            summary:
+              "Kết nối kỹ thuật phòng thí nghiệm với các bài toán giống cây trồng và nguồn nguyên liệu sinh học tại địa phương.",
+            timeline: "2025 — 2027",
+            status: tPublications("labels.statusOngoing"),
+          },
+          {
+            title: "Hợp chất sinh học phục vụ sức khỏe và chất lượng cuộc sống",
+            leaders: "Nhóm nghiên cứu Biotech TTU",
+            focus: "Sinh học ứng dụng",
+            summary:
+              "Khảo sát nguồn hoạt chất tự nhiên và khả năng ứng dụng trong các hướng nghiên cứu liên ngành.",
+            timeline: "2025 — 2027",
+            status: tPublications("labels.statusOngoing"),
+          },
+        ]
+      : [
+          {
+            title: "Biotechnology for plant selection and propagation",
+            leaders: "Biotech TTU Research Group",
+            focus: "Biotechnology",
+            summary:
+              "Connecting laboratory methods with local challenges in plant varieties and biological resources.",
+            timeline: "2025 — 2027",
+            status: tPublications("labels.statusOngoing"),
+          },
+          {
+            title: "Biological compounds for health and quality of life",
+            leaders: "Biotech TTU Research Group",
+            focus: "Applied biology",
+            summary:
+              "Exploring natural bioactive sources and their potential in interdisciplinary research.",
+            timeline: "2025 — 2027",
+            status: tPublications("labels.statusOngoing"),
+          },
+        ];
+  const fallbackPublicationItems =
+    locale === "vi"
+      ? [
+          {
+            title: "Công nghệ sinh học ứng dụng và nguồn tài nguyên sinh học bền vững",
+            authors: "Nhóm nghiên cứu Biotech TTU",
+            where: "Hướng nghiên cứu, 2026",
+            href: undefined,
+          },
+          {
+            title: "Từ thực hành phòng thí nghiệm đến đổi mới khoa học sự sống liên ngành",
+            authors: "Nhóm nghiên cứu Biotech TTU",
+            where: "Hướng nghiên cứu, 2026",
+            href: undefined,
+          },
+        ]
+      : [
+          {
+            title: "Applied biotechnology and sustainable biological resources",
+            authors: "Biotech TTU Research Group",
+            where: "Research direction, 2026",
+            href: undefined,
+          },
+          {
+            title: "From laboratory practice to interdisciplinary life-science innovation",
+            authors: "Biotech TTU Research Group",
+            where: "Research direction, 2026",
+            href: undefined,
+          },
+        ];
+  const displayProjectItems =
+    projectItems.length > 0 ? projectItems : fallbackProjectItems;
+  const displayPublicationItems =
+    publicationItems.length > 0 ? publicationItems : fallbackPublicationItems;
+  const highlightItems = highlights.map((highlight, index) => {
+    if (index === 1) {
+      return {
+        ...highlight,
+        value: researchLoading ? "—" : displayProjectItems.length.toString(),
+        label: locale === "vi" ? "Đề tài khoa học" : "Scientific projects",
+      };
+    }
 
-        if (index === 2) {
-          return {
-            ...highlight,
-            value:
-              researchLoading || publicationLoadFailed
-                ? "—"
-                : publications.length.toString(),
-            label:
-              locale === "vi"
-                ? "Bài báo khoa học"
-                : "Scientific publications",
-          };
-        }
+    if (index === 2) {
+      return {
+        ...highlight,
+        value: researchLoading ? "—" : displayPublicationItems.length.toString(),
+        label:
+          locale === "vi"
+            ? "Bài báo khoa học"
+            : "Scientific publications",
+      };
+    }
 
-        return highlight;
-      }),
-    [
-      highlights,
-      locale,
-      projectLoadFailed,
-      projects,
-      publicationLoadFailed,
-      publications.length,
-      researchLoading,
-    ],
-  );
+    return highlight;
+  });
 
   const reveal = {
     hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 22 },
@@ -220,11 +274,10 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
             className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end lg:gap-20"
           >
             <div>
-              <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
-                <span className="h-px w-12 bg-current" />
+              <div className="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#777b77]">
                 {t("heroBadge")}
               </div>
-              <h1 className="mt-7 max-w-[13ch] text-[2.9rem] font-bold leading-[1.02] tracking-[-0.05em] text-balance sm:text-[3.75rem] lg:text-[4.5rem]">
+              <h1 className="mt-7 max-w-[13ch] text-[2.9rem] font-semibold leading-[1.02] tracking-[-0.06em] text-balance sm:text-[3.75rem] lg:text-[4.5rem]">
                 {t("title")}
               </h1>
               <p className="mt-7 max-w-3xl text-base leading-8 text-[#626661] sm:text-lg">
@@ -233,22 +286,22 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href={projectPath}
-                  className="inline-flex min-h-12 items-center gap-4 bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                  className="inline-flex min-h-12 items-center gap-4 rounded-full bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                 >
                   {t("heroCtaPrimary")}
                   <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} />
                 </Link>
                 <Link
                   href={facultyPath}
-                  className="inline-flex min-h-12 items-center border border-[#171b25]/20 px-6 text-sm font-semibold transition-colors hover:border-[#16856F] hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                  className="inline-flex min-h-12 items-center rounded-full border border-[#171b25]/20 px-6 text-sm font-semibold transition-colors hover:border-[#139C48] hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                 >
                   {t("heroCtaSecondary")}
                 </Link>
               </div>
             </div>
 
-            <aside className="border-t-2 border-[#171b25] pt-5">
-              <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
+            <aside className="border-t border-[#d8dad7] pt-5">
+              <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
                 {copy.index}
               </p>
               <div className="mt-5">
@@ -257,7 +310,7 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
                     key={area.title}
                     className="grid grid-cols-[2rem_1fr] gap-3 border-t border-[#d8d3ce] py-3.5 first:border-t-0"
                   >
-                    <span className="font-mono text-[0.58rem] text-[#16856F]">
+                    <span className="font-mono text-[0.58rem] text-[#139C48]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="text-sm font-semibold leading-5">{area.title}</span>
@@ -281,12 +334,11 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
         </div>
       </section>
 
-      <section className="relative bg-[#f7f4f1] py-16 sm:py-20 lg:py-24">
-        <SectionTab label={copy.portfolio} />
+      <section className="relative bg-[#f5f7f4] py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-6 border-b-2 border-[#171b25] pb-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <div>
-              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
+              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
                 {t("researchAreas")}
               </p>
               <h2 className="mt-4 max-w-xl text-[2.25rem] font-bold leading-tight tracking-[-0.045em] sm:text-[3rem]">
@@ -312,7 +364,7 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
                   <span className="text-[3.4rem] font-bold leading-none tracking-[-0.07em] text-[#d4cec7]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="mt-2 h-px w-12 bg-[#16856F]" />
+                  <span className="mt-2 h-px w-12 bg-[#139C48]" />
                 </div>
                 <h3 className="mt-8 max-w-lg text-2xl font-bold leading-tight tracking-[-0.035em]">
                   {area.title}
@@ -330,11 +382,10 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
       </section>
 
       <section className="relative bg-white py-16 sm:py-20 lg:py-24">
-        <SectionTab label={tProjects("badge")} />
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
             <div>
-              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
+              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
                 {tProjects("spotlight.title")}
               </p>
               <h2 className="mt-5 max-w-md text-[2.25rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[3rem]">
@@ -343,7 +394,7 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
               <p className="mt-6 max-w-md text-sm leading-7 text-[#686c67]">{copy.projectsDescription}</p>
               <Link
                 href={projectPath}
-                className="mt-8 inline-flex min-h-11 items-center gap-3 border-b border-[#16856F] text-sm font-semibold text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                className="mt-8 inline-flex min-h-11 items-center gap-3 border-b border-[#139C48] text-sm font-semibold text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
               >
                 {copy.viewProjects}
                 <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} />
@@ -353,14 +404,10 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
             <div className="border-t-2 border-[#171b25]">
               {researchLoading ? (
                 <p className="border-b border-[#d8d3ce] py-10 text-sm text-[#686c67]">{copy.loading}</p>
-              ) : projectLoadFailed ? (
-                <p className="border-b border-[#d8d3ce] py-10 text-sm text-[#686c67]">{copy.loadFailed}</p>
-              ) : projectItems.length === 0 ? (
-                <p className="border-b border-[#d8d3ce] py-10 text-sm text-[#686c67]">{copy.noProjects}</p>
               ) : (
-                projectItems.slice(0, 4).map((project, index) => (
+                displayProjectItems.slice(0, 4).map((project, index) => (
                   <article key={`${project.title}-${index}`} className="grid gap-4 border-b border-[#d8d3ce] py-7 sm:grid-cols-[3rem_1fr_7rem]">
-                    <span className="font-mono text-[0.64rem] font-semibold text-[#16856F]">
+                    <span className="font-mono text-[0.64rem] font-semibold text-[#139C48]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <div>
@@ -372,7 +419,7 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
                     </div>
                     <div className="font-mono text-[0.58rem] uppercase tracking-[0.1em] text-[#777b76] sm:text-right">
                       <p>{project.timeline}</p>
-                      <p className="mt-2 text-[#16856F]">{project.status}</p>
+                      <p className="mt-2 text-[#139C48]">{project.status}</p>
                     </div>
                   </article>
                 ))
@@ -383,11 +430,10 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
       </section>
 
       <section className="relative border-y border-[#171b25]/15 bg-white py-16 sm:py-20 lg:py-24">
-        <SectionTab label={tPublications("badge")} />
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="flex flex-col gap-6 border-b-2 border-[#171b25] pb-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">{t("publications")}</p>
+              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">{t("publications")}</p>
               <h2 className="mt-4 text-[2.25rem] font-bold leading-tight tracking-[-0.045em] sm:text-[3rem]">{copy.publications}</h2>
             </div>
             <p className="max-w-xl text-base leading-8 text-[#686c67]">{copy.publicationsDescription}</p>
@@ -396,25 +442,21 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
           <div>
             {researchLoading ? (
               <p className="border-b border-[#d8d3ce] py-10 text-sm text-[#686c67]">{copy.loading}</p>
-            ) : publicationLoadFailed ? (
-              <p className="border-b border-[#d8d3ce] py-10 text-sm text-[#686c67]">{copy.loadFailed}</p>
-            ) : publicationItems.length === 0 ? (
-              <p className="border-b border-[#d8d3ce] py-10 text-sm text-[#686c67]">{copy.noPublications}</p>
-            ) : publicationItems.slice(0, 4).map((publication, index) => {
+            ) : displayPublicationItems.slice(0, 4).map((publication, index) => {
               const content = (
                 <>
-                  <span className="font-mono text-[0.64rem] font-semibold text-[#16856F]">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="font-mono text-[0.64rem] font-semibold text-[#139C48]">{String(index + 1).padStart(2, "0")}</span>
                   <div>
-                    <h3 className="text-lg font-bold leading-snug tracking-[-0.025em] transition-colors group-hover:text-[#16856F] sm:text-xl">{publication.title}</h3>
+                    <h3 className="text-lg font-bold leading-snug tracking-[-0.025em] transition-colors group-hover:text-[#139C48] sm:text-xl">{publication.title}</h3>
                     <p className="mt-3 text-sm text-[#686c67]">{publication.authors}</p>
                   </div>
                   <span className="font-mono text-[0.6rem] uppercase tracking-[0.1em] text-[#777b76] lg:text-right">{publication.where}</span>
-                  <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} className="justify-self-end text-[#16856F]" />
+                  <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} className="justify-self-end text-[#139C48]" />
                 </>
               );
 
               return publication.href ? (
-                <a key={`${publication.title}-${index}`} href={publication.href} target="_blank" rel="noreferrer" className="group grid gap-4 border-b border-[#d8d3ce] py-7 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F] sm:grid-cols-[3rem_1fr] lg:grid-cols-[3rem_1fr_16rem_2rem] lg:items-center">
+                <a key={`${publication.title}-${index}`} href={publication.href} target="_blank" rel="noreferrer" className="group grid gap-4 border-b border-[#d8d3ce] py-7 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48] sm:grid-cols-[3rem_1fr] lg:grid-cols-[3rem_1fr_16rem_2rem] lg:items-center">
                   {content}
                 </a>
               ) : (
@@ -426,31 +468,26 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
           </div>
 
           <div className="mt-8 flex flex-wrap items-center justify-between gap-6">
-            <Link href={publicationPath} className="inline-flex min-h-11 items-center gap-3 border-b border-[#16856F] text-sm font-semibold text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]">
+            <Link href={publicationPath} className="inline-flex min-h-11 items-center gap-3 border-b border-[#139C48] text-sm font-semibold text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]">
               {copy.viewPublications}
               <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} />
             </Link>
             <div className="flex flex-wrap items-center gap-x-7 gap-y-3 font-mono text-[0.58rem] uppercase tracking-[0.12em] text-[#777b76]">
-              <span className="text-[#16856F]">{copy.partners}</span>
+              <span className="text-[#139C48]">{copy.partners}</span>
               {collaborations.slice(0, 4).map((partner) => <span key={partner}>{partner}</span>)}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto flex max-w-7xl flex-col items-start gap-8 bg-[#16856F] p-9 sm:p-12 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <p className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-white/70">{copy.researchers}</p>
-            <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-[-0.035em] text-white sm:text-3xl">{t("ctaTitle")}</h2>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-white/80">{t("ctaDescription")}</p>
-          </div>
-          <a href="mailto:secretary.sbio@ttu.edu.vn" className="inline-flex min-h-12 shrink-0 items-center gap-4 bg-white px-6 text-sm font-semibold text-[#16856F] transition-colors hover:bg-[#fff7f2] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-            {t("ctaPrimary")}
-            <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} />
-          </a>
-        </div>
-      </section>
+      <EditorialCta
+        title={t("ctaTitle")}
+        description={t("ctaDescription")}
+        primaryLabel={t("ctaPrimary")}
+        primaryHref="mailto:secretary.sbio@ttu.edu.vn"
+        secondaryLabel={t("heroCtaSecondary")}
+        secondaryHref={facultyPath}
+      />
     </main>
   );
 }

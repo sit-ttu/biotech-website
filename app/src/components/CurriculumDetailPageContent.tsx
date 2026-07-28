@@ -235,25 +235,25 @@ export default function CurriculumDetailPageContent({
           >
             <Link
               href={programsBasePath(locale)}
-              className="transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F]"
+              className="transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]"
             >
               {copy.breadcrumb}
             </Link>
-            <span aria-hidden className="text-[#16856F]">
+            <span aria-hidden className="text-[#139C48]">
               /
             </span>
             <Link
               href={`${programsBasePath(locale)}/${programLevelPath(locale, levelKey)}`}
-              className="transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F]"
+              className="transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]"
             >
               {getLevelDisplay(program.level, locale)}
             </Link>
-            <span aria-hidden className="text-[#16856F]">
+            <span aria-hidden className="text-[#139C48]">
               /
             </span>
             <Link
               href={programHref}
-              className="max-w-[24rem] truncate transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F]"
+              className="max-w-[24rem] truncate transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]"
             >
               {programTitle}
             </Link>
@@ -266,7 +266,7 @@ export default function CurriculumDetailPageContent({
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="mt-12 max-w-5xl"
           >
-            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
+            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#139C48]">
               <span className="h-px w-12 bg-current" />
               {copy.dossier} · {program.code}
             </div>
@@ -276,7 +276,7 @@ export default function CurriculumDetailPageContent({
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
               <Link
                 href={programHref}
-                className="inline-flex border-b border-[#16856F]/45 pb-1 text-base font-semibold text-[#16856F] transition-colors hover:border-[#16856F] hover:text-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                className="inline-flex border-b border-[#139C48]/45 pb-1 text-base font-semibold text-[#139C48] transition-colors hover:border-[#139C48] hover:text-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
               >
                 {programTitle}
               </Link>
@@ -284,7 +284,7 @@ export default function CurriculumDetailPageContent({
                 {copy.version} {curriculum.year}
               </span>
               {curriculum.isCurrent && (
-                <span className="border border-[#16856F]/35 px-2.5 py-1 font-mono text-[0.56rem] font-semibold uppercase tracking-[0.12em] text-[#16856F]">
+                <span className="border border-[#139C48]/35 px-2.5 py-1 font-mono text-[0.56rem] font-semibold uppercase tracking-[0.12em] text-[#139C48]">
                   {copy.current}
                 </span>
               )}
@@ -314,10 +314,10 @@ export default function CurriculumDetailPageContent({
         </div>
       </section>
 
-      <section className="relative bg-[#f7f4f1] py-16 sm:py-20 lg:py-24">
+      <section className="relative bg-[#f5f7f4] py-16 sm:py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-16">
           <aside className="lg:sticky lg:top-28 lg:self-start">
-            <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.17em] text-[#16856F]">
+            <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.17em] text-[#139C48]">
               {copy.contents}
             </p>
             <div className="mt-5 border-t-2 border-[#171b25]">
@@ -326,9 +326,9 @@ export default function CurriculumDetailPageContent({
                   key={section.sectionId}
                   href={`#curriculum-section-${section.sectionId}`}
                   onClick={() => openSection(section.sectionId)}
-                  className="grid min-h-14 grid-cols-[2.25rem_1fr] items-center border-b border-[#d4cec8] py-3 text-[0.78rem] font-semibold leading-5 text-[#5f635e] transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F]"
+                  className="grid min-h-14 grid-cols-[2.25rem_1fr] items-center border-b border-[#d4cec8] py-3 text-[0.78rem] font-semibold leading-5 text-[#5f635e] transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]"
                 >
-                  <span className="font-mono text-[0.62rem] text-[#16856F]">
+                  <span className="font-mono text-[0.62rem] text-[#139C48]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   {section.title}
@@ -346,7 +346,7 @@ export default function CurriculumDetailPageContent({
               className="grid gap-6 border-b-2 border-[#171b25] pb-8 lg:grid-cols-[1fr_0.9fr] lg:items-end"
             >
               <div>
-                <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
+                <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
                   {copy.overview}
                 </p>
                 <h2 className="mt-4 text-[2.2rem] font-bold leading-[1.05] tracking-[-0.04em] sm:text-[2.9rem]">
@@ -375,17 +375,17 @@ export default function CurriculumDetailPageContent({
                           aria-expanded={expanded}
                           aria-controls={`curriculum-panel-${section.sectionId}`}
                           onClick={() => toggleSection(section.sectionId)}
-                          className="group grid w-full grid-cols-[2.75rem_minmax(0,1fr)_2.5rem] items-center gap-4 py-7 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] sm:grid-cols-[3.5rem_minmax(0,1fr)_3rem] sm:py-8"
+                          className="group grid w-full grid-cols-[2.75rem_minmax(0,1fr)_2.5rem] items-center gap-4 py-7 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48] sm:grid-cols-[3.5rem_minmax(0,1fr)_3rem] sm:py-8"
                         >
-                          <span className="font-mono text-[0.68rem] font-semibold text-[#16856F]">
+                          <span className="font-mono text-[0.68rem] font-semibold text-[#139C48]">
                             {String(index + 1).padStart(2, "0")}
                           </span>
-                          <span className="text-lg font-bold leading-7 tracking-[-0.025em] transition-colors group-hover:text-[#16856F] sm:text-[1.35rem]">
+                          <span className="text-lg font-bold leading-7 tracking-[-0.025em] transition-colors group-hover:text-[#139C48] sm:text-[1.35rem]">
                             {section.title}
                           </span>
                           <span
                             aria-hidden
-                            className="flex h-9 w-9 items-center justify-center justify-self-end border border-[#16856F]/35 text-xl font-light leading-none text-[#16856F] transition-colors group-hover:bg-[#16856F] group-hover:text-white"
+                            className="flex h-9 w-9 items-center justify-center justify-self-end rounded-full border border-[#139C48]/35 text-xl font-light leading-none text-[#139C48] transition-colors group-hover:bg-[#139C48] group-hover:text-white"
                           >
                             {expanded ? "−" : "+"}
                           </span>
@@ -428,7 +428,7 @@ export default function CurriculumDetailPageContent({
       {curriculum.pdfUrl && (
         <section className="border-b border-[#171b25]/15 bg-white">
           <div className="mx-auto grid max-w-7xl gap-6 px-5 py-10 sm:px-8 lg:grid-cols-[11rem_minmax(0,1fr)_auto] lg:items-center lg:gap-10">
-            <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-[#16856F]">
+            <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-[#139C48]">
               {copy.document}
             </p>
             <p className="max-w-3xl text-lg font-bold leading-8 tracking-[-0.02em] sm:text-xl">
@@ -438,7 +438,7 @@ export default function CurriculumDetailPageContent({
               href={curriculum.pdfUrl}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex min-h-12 items-center justify-between gap-8 bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+              className="group inline-flex min-h-12 items-center justify-between gap-8 rounded-full bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
             >
               {copy.viewPdf}
               <span className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
@@ -453,7 +453,7 @@ export default function CurriculumDetailPageContent({
         <div className="mx-auto max-w-7xl border-t border-[#d8d3ce] pt-7">
           <Link
             href={programHref}
-            className="inline-flex items-center gap-3 text-sm font-semibold text-[#16856F] transition-colors hover:text-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+            className="inline-flex items-center gap-3 text-sm font-semibold text-[#139C48] transition-colors hover:text-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
           >
             <span aria-hidden><ArrowIcon direction="left" size={16} /></span>
             {copy.backToProgram}

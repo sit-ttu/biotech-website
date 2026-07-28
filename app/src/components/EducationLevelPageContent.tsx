@@ -8,7 +8,6 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import CtaBanner from "@/components/CtaBanner";
-import SectionTab from "@/components/SectionTab";
 import { api, type Program } from "@/lib/api";
 import {
   apiProgramLevel,
@@ -109,6 +108,10 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
     visible: { opacity: 1, y: 0 },
   };
   const levelLabel = levelKey === "graduate" ? t("graduate") : t("undergraduate");
+  const heroImage =
+    levelKey === "graduate"
+      ? "/assets/biotech/biotech-research-visual-2026.png"
+      : "/assets/biotech/program-biotechnology-lab.webp";
   const copy =
     locale === "vi"
       ? {
@@ -135,11 +138,11 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#8a8d88]">
             <Link
               href={programsBasePath(locale)}
-              className="transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F]"
+              className="transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]"
             >
               {levelDetails.hero.breadcrumbs[1] || t("title")}
             </Link>
-            <span aria-hidden className="text-[#16856F]">/</span>
+            <span aria-hidden className="text-[#139C48]">/</span>
             <span className="text-[#4f544f]">{levelLabel}</span>
           </nav>
 
@@ -151,12 +154,12 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
             className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end"
           >
             <div>
-              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
+              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#139C48]">
                 {String(levelKey === "undergraduate" ? 1 : 2).padStart(2, "0")} / {levelLabel}
               </p>
               <h1 className="mt-5 max-w-[16ch] text-[3rem] font-bold leading-[1.08] tracking-[-0.04em] text-balance sm:text-[3.8rem] lg:text-[4.4rem]">
                 {levelDetails.hero.title}
-                <span className="mt-2 block text-[#16856F]">{levelDetails.hero.highlight}</span>
+                <span className="mt-2 block">{levelDetails.hero.highlight}</span>
               </h1>
             </div>
             <div className="border-t border-[#171b25]/18 pt-6 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
@@ -166,14 +169,14 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
                   href="https://tuyensinh.ttu.edu.vn"
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex min-h-12 items-center gap-3 bg-[#16856F] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                  className="group inline-flex min-h-12 items-center gap-3 bg-[#139C48] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                 >
                   {levelDetails.hero.ctaPrimary}
                   <span className="transition-transform group-hover:translate-x-1"><ArrowIcon direction="up-right" size={16} /></span>
                 </a>
                 <a
                   href="#level-programs"
-                  className="inline-flex min-h-12 items-center border border-[#171b25]/25 px-5 text-sm font-semibold text-[#171b25] transition-colors hover:border-[#16856F] hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                  className="inline-flex min-h-12 items-center border border-[#171b25]/25 px-5 text-sm font-semibold text-[#171b25] transition-colors hover:border-[#139C48] hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                 >
                   {levelDetails.hero.ctaSecondary}
                 </a>
@@ -183,7 +186,7 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
 
           <div className="relative mt-10 h-72 overflow-hidden bg-[#ece8e4] sm:h-96 lg:h-[27rem]">
             <img
-              src={levelDetails.hero.image || "/assets/biotech/hero-biotechnology.png"}
+              src={heroImage}
               alt={levelDetails.hero.alt || levelDetails.hero.title}
               className="h-full w-full object-cover"
             />
@@ -211,8 +214,7 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
         </div>
       </section>
 
-      <section className="relative bg-[#f7f4f1] py-16 sm:py-20 lg:py-24">
-        <SectionTab label={copy.chapter} />
+      <section className="relative bg-[#f5f7f4] py-16 sm:py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
           <motion.div
             initial="hidden"
@@ -221,12 +223,12 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
             viewport={{ once: true }}
             className="lg:sticky lg:top-28 lg:self-start"
           >
-            <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">{levelDetails.overview.badge}</p>
+            <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">{levelDetails.overview.badge}</p>
             <h2 className="mt-5 max-w-lg text-[2.15rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[2.8rem]">
               {levelDetails.overview.title}
             </h2>
             <p className="mt-6 max-w-md text-sm leading-7 text-[#686c67]">{levelDetails.overview.description}</p>
-            <p className="mt-8 border-l-2 border-[#16856F] pl-5 text-base font-semibold leading-7 text-[#414640]">{copy.pathway}</p>
+            <p className="mt-8 border-l-2 border-[#139C48] pl-5 text-base font-semibold leading-7 text-[#414640]">{copy.pathway}</p>
           </motion.div>
 
           <div className="border-t-2 border-[#171b25]">
@@ -240,10 +242,10 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="grid gap-5 border-b border-[#cfcac4] py-7 sm:grid-cols-[6rem_1fr] sm:py-9"
               >
-                <span className="text-[2.7rem] font-bold leading-none tracking-[-0.06em] text-[#16856F]">{String(index + 1).padStart(2, "0")}</span>
+                <span className="text-[2.7rem] font-bold leading-none tracking-[-0.06em] text-[#139C48]">{String(index + 1).padStart(2, "0")}</span>
                 <div>
                   <p className="text-base font-semibold leading-7 text-[#313630]">{point}</p>
-                  <span className="mt-4 block h-px w-12 bg-[#16856F]/50" />
+                  <span className="mt-4 block h-px w-12 bg-[#139C48]/50" />
                 </div>
               </motion.article>
             ))}
@@ -252,11 +254,10 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
       </section>
 
       <section id="level-programs" className="relative scroll-mt-24 bg-white py-16 sm:py-20 lg:py-24">
-        <SectionTab label={copy.programs} />
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-6 border-b-2 border-[#171b25] pb-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
             <div>
-              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">{shared.keyDetailsTitle}</p>
+              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">{shared.keyDetailsTitle}</p>
               <h2 className="mt-4 text-[2.1rem] font-bold leading-tight tracking-[-0.045em] sm:text-[2.7rem]">{copy.programs}</h2>
             </div>
             <p className="max-w-xl text-sm leading-7 text-[#686c67] lg:justify-self-end">{copy.programIntro}</p>
@@ -285,7 +286,7 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
                         alt={title}
                         className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                       />
-                      <span className="absolute left-5 top-5 bg-white px-3 py-2 font-mono text-[0.6rem] font-semibold uppercase tracking-[0.12em] text-[#16856F]">
+                      <span className="absolute left-5 top-5 bg-white px-3 py-2 font-mono text-[0.6rem] font-semibold uppercase tracking-[0.12em] text-[#139C48]">
                         {program.majorCode || program.code}
                       </span>
                     </div>
@@ -295,11 +296,11 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
                         <span className="font-mono text-[0.58rem] uppercase tracking-[0.14em] text-[#858984]">{levelLabel}</span>
                       </div>
                       <div className="mt-10 max-w-xl">
-                        <h3 className="text-2xl font-bold leading-tight tracking-[-0.04em] transition-colors group-hover:text-[#16856F] sm:text-3xl">{title}</h3>
+                        <h3 className="text-2xl font-bold leading-tight tracking-[-0.04em] transition-colors group-hover:text-[#139C48] sm:text-3xl">{title}</h3>
                         {description && <p className="mt-4 line-clamp-3 text-sm leading-7 text-[#686c67]">{description}</p>}
                         <Link
                           href={programDetailHref(locale, program)}
-                          className="mt-7 inline-flex min-h-11 items-center gap-3 border-b border-[#16856F] text-sm font-semibold text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                          className="mt-7 inline-flex min-h-11 items-center gap-3 border-b border-[#139C48] text-sm font-semibold text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                         >
                           {copy.discover}
                           <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} />
@@ -322,7 +323,7 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
                   className="grid gap-6 lg:grid-cols-[0.35fr_0.65fr]"
                 >
                   <div>
-                    <span className="font-mono text-[0.62rem] font-semibold text-[#16856F]">{String(categoryIndex + 1).padStart(2, "0")}</span>
+                    <span className="font-mono text-[0.62rem] font-semibold text-[#139C48]">{String(categoryIndex + 1).padStart(2, "0")}</span>
                     <h3 className="mt-3 text-2xl font-bold tracking-[-0.035em]">{category.title}</h3>
                   </div>
                   <div className="border-t-2 border-[#171b25]">
@@ -330,10 +331,10 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
                       <article key={program.code} className="border-b border-[#dedad5] py-6">
                         <div className="flex flex-wrap items-start justify-between gap-4">
                           <h4 className="max-w-xl text-lg font-bold leading-snug tracking-[-0.02em]">{program.title}</h4>
-                          <span className="font-mono text-[0.62rem] uppercase tracking-[0.12em] text-[#16856F]">{program.code}</span>
+                          <span className="font-mono text-[0.62rem] uppercase tracking-[0.12em] text-[#139C48]">{program.code}</span>
                         </div>
                         {program.description && <p className="mt-3 text-[0.78rem] leading-6 text-[#686c67]">{program.description}</p>}
-                        {program.features && <p className="mt-4 border-l-2 border-[#16856F] pl-3 text-[0.68rem] leading-5 text-[#858984]">{program.features}</p>}
+                        {program.features && <p className="mt-4 border-l-2 border-[#139C48] pl-3 text-[0.68rem] leading-5 text-[#858984]">{program.features}</p>}
                       </article>
                     ))}
                   </div>

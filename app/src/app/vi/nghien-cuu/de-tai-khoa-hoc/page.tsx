@@ -6,7 +6,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
 
-import { api, type Research } from "@/lib/api";
+import { api, ResearchType, type Research } from "@/lib/api";
+import { getMockResearch } from "@/lib/mock-content";
 
 type ProjectItem = {
   id: string;
@@ -34,7 +35,6 @@ export default function ScientificProjectsPage() {
   const reduceMotion = useReducedMotion();
   const [researchProjects, setResearchProjects] = useState<Research[]>([]);
   const [loading, setLoading] = useState(true);
-  const [loadError, setLoadError] = useState(false);
   const [query, setQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
 
@@ -44,11 +44,19 @@ export default function ScientificProjectsPage() {
     api.research
       .findAll("PROJECT")
       .then((data) => {
-        if (active) setResearchProjects(data);
+        if (active) {
+          setResearchProjects(
+            data.length > 0
+              ? data
+              : getMockResearch("vi", ResearchType.PROJECT),
+          );
+        }
       })
       .catch((error) => {
         console.error("Failed to fetch research projects:", error);
-        if (active) setLoadError(true);
+        if (active) {
+          setResearchProjects(getMockResearch("vi", ResearchType.PROJECT));
+        }
       })
       .finally(() => {
         if (active) setLoading(false);
@@ -137,7 +145,7 @@ export default function ScientificProjectsPage() {
             variants={reveal}
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
+            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#139C48]">
               <span className="h-px w-12 bg-current" />
               {t("badge")}
             </div>
@@ -167,7 +175,7 @@ export default function ScientificProjectsPage() {
                 key={String(label)}
                 className="grid grid-cols-[2.25rem_1fr] items-end gap-3 border-b border-[#d8d3ce] py-5 last:border-b-0 sm:border-b-0 sm:border-r sm:px-6 sm:first:pl-0 sm:last:border-r-0"
               >
-                <span className="font-mono text-[0.6rem] text-[#16856F]">
+                <span className="font-mono text-[0.6rem] text-[#139C48]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>
@@ -184,7 +192,7 @@ export default function ScientificProjectsPage() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-8 border-b-2 border-[#171b25] pb-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
             <div>
-              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">
+              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
                 Chỉ mục đề tài
               </p>
               <h2 className="mt-4 text-[2.35rem] font-bold leading-none tracking-[-0.05em] sm:text-[3.15rem]">
@@ -193,8 +201,8 @@ export default function ScientificProjectsPage() {
             </div>
 
             <div className="space-y-4 lg:justify-self-end">
-              <label className="flex min-h-14 items-center border border-[#cfc9c3] bg-white transition-colors focus-within:border-[#16856F]">
-                <span className="grid h-14 w-14 shrink-0 place-items-center border-r border-[#cfc9c3] text-[#16856F]">
+              <label className="flex min-h-14 items-center border border-[#cfc9c3] bg-white transition-colors focus-within:border-[#139C48]">
+                <span className="grid h-14 w-14 shrink-0 place-items-center border-r border-[#cfc9c3] text-[#139C48]">
                   <HugeiconsIcon icon={Search01FreeIcons} size={21} strokeWidth={1.7} />
                 </span>
                 <span className="sr-only">Tìm đề tài khoa học</span>
@@ -215,10 +223,10 @@ export default function ScientificProjectsPage() {
                     key={value}
                     type="button"
                     onClick={() => setStatusFilter(value)}
-                    className={`cursor-pointer border-b py-1 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] ${
+                    className={`cursor-pointer border-b py-1 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48] ${
                       statusFilter === value
-                        ? "border-[#16856F] text-[#16856F]"
-                        : "border-transparent text-[#696d68] hover:text-[#16856F]"
+                        ? "border-[#139C48] text-[#139C48]"
+                        : "border-transparent text-[#696d68] hover:text-[#139C48]"
                     }`}
                   >
                     {label}
@@ -241,11 +249,6 @@ export default function ScientificProjectsPage() {
                 </div>
               ))}
             </div>
-          ) : loadError ? (
-            <div className="border-b border-[#d8d3ce] py-20 text-center">
-              <p className="text-xl font-bold">Không thể tải dữ liệu đề tài</p>
-              <p className="mt-3 text-sm text-[#696d68]">Vui lòng thử tải lại trang sau ít phút.</p>
-            </div>
           ) : filteredProjects.length > 0 ? (
             <div className="divide-y divide-[#d8d3ce]">
               {filteredProjects.map((project, index) => (
@@ -253,7 +256,7 @@ export default function ScientificProjectsPage() {
                   key={project.id}
                   className="group grid gap-6 py-9 transition-colors hover:bg-[#faf8f6] sm:px-4 lg:grid-cols-[4rem_minmax(0,1.25fr)_minmax(15rem,0.75fr)] lg:gap-10"
                 >
-                  <span className="font-mono text-[0.68rem] text-[#16856F]">
+                  <span className="font-mono text-[0.68rem] text-[#139C48]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
@@ -263,7 +266,7 @@ export default function ScientificProjectsPage() {
                         className={`border px-2.5 py-1 font-mono text-[0.56rem] font-semibold uppercase tracking-[0.12em] ${
                           project.completed
                             ? "border-[#a8aca7] text-[#646863]"
-                            : "border-[#9BCFC2] text-[#16856F]"
+                            : "border-[#9BCFC2] text-[#139C48]"
                         }`}
                       >
                         {project.status}
@@ -318,7 +321,7 @@ export default function ScientificProjectsPage() {
                     setQuery("");
                     setStatusFilter("all");
                   }}
-                  className="mt-5 cursor-pointer border-b border-[#16856F] pb-1 text-sm font-semibold text-[#16856F]"
+                  className="mt-5 cursor-pointer border-b border-[#139C48] pb-1 text-sm font-semibold text-[#139C48]"
                 >
                   Xóa bộ lọc
                 </button>

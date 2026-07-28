@@ -159,7 +159,7 @@ export default function FacultyDetailPage() {
     return (
       <main className="flex min-h-[65vh] items-center bg-white px-5 sm:px-8">
         <div className="mx-auto w-full max-w-7xl border-t border-[#d8d3cc] pt-10">
-          <p className="font-roboto-mono text-xs uppercase tracking-[0.18em] text-[#16856F]">
+          <p className="font-roboto-mono text-xs uppercase tracking-[0.18em] text-[#139C48]">
             Hồ sơ không khả dụng
           </p>
           <h1 className="mt-5 max-w-xl text-3xl font-bold tracking-[-0.03em] text-[#151823] sm:text-5xl">
@@ -167,7 +167,7 @@ export default function FacultyDetailPage() {
           </h1>
           <Link
             href="/vi/giang-vien"
-            className="mt-10 inline-flex cursor-pointer items-center gap-3 border-b border-[#16856F] pb-1 text-sm font-semibold text-[#16856F]"
+            className="mt-10 inline-flex cursor-pointer items-center gap-3 border-b border-[#139C48] pb-1 text-sm font-semibold text-[#139C48]"
           >
             <ArrowLeft className="h-4 w-4" /> Quay lại danh sách giảng viên
           </Link>
@@ -213,7 +213,7 @@ export default function FacultyDetailPage() {
         <div className="mx-auto max-w-7xl px-5 pb-14 pt-10 sm:px-8 lg:pb-20 lg:pt-14">
           <Link
             href="/vi/giang-vien"
-            className="group mb-10 inline-flex cursor-pointer items-center gap-3 font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#686b67] transition-colors hover:text-[#16856F] lg:mb-14"
+            className="group mb-10 inline-flex cursor-pointer items-center gap-3 font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#686b67] transition-colors hover:text-[#139C48] lg:mb-14"
           >
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
             Danh sách giảng viên
@@ -235,13 +235,13 @@ export default function FacultyDetailPage() {
                   />
                 ) : (
                   <div className="flex h-full items-end bg-[linear-gradient(145deg,#f4f1ec_0%,#e5ded5_100%)] p-8 sm:p-10">
-                    <span className="text-[5rem] font-bold leading-none tracking-[-0.08em] text-[#16856F] sm:text-[7rem]">
+                    <span className="text-[5rem] font-bold leading-none tracking-[-0.08em] text-[#139C48] sm:text-[7rem]">
                       {getInitials(faculty.fullName)}
                     </span>
                   </div>
                 )}
               </div>
-              <div className="absolute -bottom-2 left-0 h-2 w-28 bg-[#16856F]" />
+              <div className="absolute -bottom-2 left-0 h-2 w-28 bg-[#139C48]" />
             </motion.div>
 
             <motion.div
@@ -250,7 +250,7 @@ export default function FacultyDetailPage() {
               transition={{ duration: 0.55, delay: 0.08 }}
               className="min-w-0 lg:pt-4"
             >
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#16856F]">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#139C48]">
                 {faculty.academicTitle && <span>{faculty.academicTitle}</span>}
                 {faculty.academicTitle && faculty.position && (
                   <span className="text-[#b7b1a9]">/</span>
@@ -267,7 +267,7 @@ export default function FacultyDetailPage() {
               </p>
 
               {faculty.quote && (
-                <blockquote className="mt-9 max-w-[42rem] border-l-2 border-[#16856F] pl-5 text-lg leading-8 text-[#363934] sm:pl-6 sm:text-xl">
+                <blockquote className="mt-9 max-w-[42rem] border-l-2 border-[#139C48] pl-5 text-lg leading-8 text-[#363934] sm:pl-6 sm:text-xl">
                   “{faculty.quote}”
                 </blockquote>
               )}
@@ -299,7 +299,7 @@ export default function FacultyDetailPage() {
                             ? "noopener noreferrer"
                             : undefined
                         }
-                        className="group flex cursor-pointer items-center justify-between gap-6 border-b border-[#e7e3de] py-3.5 last:border-b-0 hover:text-[#16856F]"
+                        className="group flex cursor-pointer items-center justify-between gap-6 border-b border-[#e7e3de] py-3.5 last:border-b-0 hover:text-[#139C48]"
                       >
                         {content}
                       </a>
@@ -322,7 +322,7 @@ export default function FacultyDetailPage() {
                       key={item.label}
                       className="border-r border-[#d8d3cc] px-4 py-5 first:pl-0 last:border-r-0"
                     >
-                      <dd className="font-roboto-mono text-2xl font-semibold tabular-nums text-[#16856F]">
+                      <dd className="font-roboto-mono text-2xl font-semibold tabular-nums text-[#139C48]">
                         {String(item.value).padStart(2, "0")}
                       </dd>
                       <dt className="mt-1 text-xs leading-5 text-[#757872]">
@@ -340,7 +340,7 @@ export default function FacultyDetailPage() {
       <section className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-20 lg:py-24">
         <aside className="lg:self-stretch">
           <div className="top-28 lg:sticky">
-            <p className="font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#16856F]">
+            <p className="font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#139C48]">
               Trong hồ sơ
             </p>
             <nav
@@ -351,7 +351,7 @@ export default function FacultyDetailPage() {
                 <a
                   key={section.id}
                   href={`#${section.id}`}
-                  className="block shrink-0 cursor-pointer py-2 text-sm font-medium text-[#686b67] transition-colors hover:text-[#16856F]"
+                  className="block shrink-0 cursor-pointer py-2 text-sm font-medium text-[#686b67] transition-colors hover:text-[#139C48]"
                 >
                   {section.label}
                 </a>
@@ -377,7 +377,7 @@ export default function FacultyDetailPage() {
               id="gioi-thieu"
               className="scroll-mt-28 border-t-2 border-[#1c1f1b] pt-9"
             >
-              <p className="font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#16856F]">
+              <p className="font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#139C48]">
                 Hồ sơ học thuật
               </p>
               <h2 className="mt-4 text-3xl font-bold tracking-[-0.035em] sm:text-4xl">
@@ -394,7 +394,7 @@ export default function FacultyDetailPage() {
               id="nghien-cuu"
               className="mt-16 scroll-mt-28 border-t border-[#d8d3cc] pt-10 first:mt-0 sm:mt-20"
             >
-              <p className="font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#16856F]">
+              <p className="font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#139C48]">
                 Chuyên môn
               </p>
               <h2 className="mt-4 text-3xl font-bold tracking-[-0.035em] sm:text-4xl">
@@ -425,7 +425,7 @@ export default function FacultyDetailPage() {
               id="dao-tao"
               className="mt-16 scroll-mt-28 border-t border-[#d8d3cc] pt-10 first:mt-0 sm:mt-20"
             >
-              <p className="font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#16856F]">
+              <p className="font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#139C48]">
                 Học vấn
               </p>
               <h2 className="mt-4 text-3xl font-bold tracking-[-0.035em] sm:text-4xl">
@@ -437,7 +437,7 @@ export default function FacultyDetailPage() {
                     key={item.id}
                     className="grid gap-3 border-b border-[#d8d3cc] py-6 sm:grid-cols-[8rem_1fr] sm:gap-8"
                   >
-                    <p className="font-roboto-mono text-sm text-[#16856F]">
+                    <p className="font-roboto-mono text-sm text-[#139C48]">
                       {formatPeriod(item.startYear, item.endYear)}
                     </p>
                     <div>
@@ -470,7 +470,7 @@ export default function FacultyDetailPage() {
               id="cong-bo"
               className="mt-16 scroll-mt-28 border-t border-[#d8d3cc] pt-10 first:mt-0 sm:mt-20"
             >
-              <p className="font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#16856F]">
+              <p className="font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#139C48]">
                 Nghiên cứu đã xuất bản
               </p>
               <h2 className="mt-4 text-3xl font-bold tracking-[-0.035em] sm:text-4xl">
@@ -484,7 +484,7 @@ export default function FacultyDetailPage() {
                       key={publication.id}
                       className="grid gap-3 border-b border-[#d8d3cc] py-6 sm:grid-cols-[5rem_1fr] sm:gap-8"
                     >
-                      <p className="font-roboto-mono text-sm text-[#16856F]">
+                      <p className="font-roboto-mono text-sm text-[#139C48]">
                         {publication.year || "—"}
                       </p>
                       <div>
@@ -494,7 +494,7 @@ export default function FacultyDetailPage() {
                               href={href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="group inline cursor-pointer transition-colors hover:text-[#16856F]"
+                              className="group inline cursor-pointer transition-colors hover:text-[#139C48]"
                             >
                               {publication.title}
                               <ArrowUpRight className="ml-2 inline h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -524,7 +524,7 @@ export default function FacultyDetailPage() {
                   type="button"
                   onClick={() => setShowAllPublications((current) => !current)}
                   aria-expanded={showAllPublications}
-                  className="mt-7 cursor-pointer border-b border-[#16856F] pb-1 text-sm font-semibold text-[#16856F] transition-colors hover:text-[#0D5E50]"
+                  className="mt-7 cursor-pointer border-b border-[#139C48] pb-1 text-sm font-semibold text-[#139C48] transition-colors hover:text-[#0F7E3A]"
                 >
                   {showAllPublications
                     ? "Thu gọn danh sách"
@@ -539,7 +539,7 @@ export default function FacultyDetailPage() {
               id="giang-day"
               className="mt-16 scroll-mt-28 border-t border-[#d8d3cc] pt-10 first:mt-0 sm:mt-20"
             >
-              <p className="font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#16856F]">
+              <p className="font-roboto-mono text-xs uppercase tracking-[0.16em] text-[#139C48]">
                 Học phần phụ trách
               </p>
               <h2 className="mt-4 text-3xl font-bold tracking-[-0.035em] sm:text-4xl">
@@ -553,7 +553,7 @@ export default function FacultyDetailPage() {
                       key={item.id}
                       className="border-b border-[#d8d3cc] py-6 sm:odd:pr-8 sm:even:border-l sm:even:pl-8"
                     >
-                      <p className="font-roboto-mono text-xs uppercase tracking-[0.12em] text-[#16856F]">
+                      <p className="font-roboto-mono text-xs uppercase tracking-[0.12em] text-[#139C48]">
                         {item.course?.code}
                       </p>
                       <h3 className="mt-2 text-base font-semibold leading-7 text-[#20231f] sm:text-lg">
@@ -573,7 +573,7 @@ export default function FacultyDetailPage() {
           <div className="mt-20 border-t border-[#1c1f1b] pt-8">
             <Link
               href="/vi/giang-vien"
-              className="group inline-flex cursor-pointer items-center gap-3 text-sm font-semibold text-[#16856F]"
+              className="group inline-flex cursor-pointer items-center gap-3 text-sm font-semibold text-[#139C48]"
             >
               <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
               Xem toàn bộ đội ngũ giảng viên

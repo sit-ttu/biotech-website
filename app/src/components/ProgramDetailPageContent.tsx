@@ -8,7 +8,6 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import CtaBanner from "@/components/CtaBanner";
-import SectionTab from "@/components/SectionTab";
 import YooptaRenderer from "@/components/YooptaRenderer";
 import { api, type Curriculum, type Program } from "@/lib/api";
 import {
@@ -205,14 +204,14 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
 
   if (error || !program) {
     return (
-      <main className="flex min-h-[55vh] items-center justify-center bg-[#f7f4f1] px-5">
-        <div className="max-w-lg border-l-4 border-[#16856F] bg-white p-8">
+      <main className="flex min-h-[55vh] items-center justify-center bg-[#f5f7f4] px-5">
+        <div className="max-w-lg border-l-4 border-[#139C48] bg-white p-8">
           <p className="text-xl font-bold tracking-tight text-[#171b25]">
             {locale === "vi" ? "Không tìm thấy chương trình này" : "This program could not be found"}
           </p>
           <Link
             href={programsBasePath(locale)}
-            className="mt-6 inline-flex min-h-11 items-center bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+            className="mt-6 inline-flex min-h-11 items-center bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
           >
             {t("viewAll")}
           </Link>
@@ -241,17 +240,17 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
       <section className="border-b border-[#171b25]/15 bg-white">
         <div className="mx-auto max-w-7xl px-5 pb-12 pt-7 sm:px-8 lg:pb-16">
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#8a8d88]">
-            <Link href={programsBasePath(locale)} className="transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F]">
+            <Link href={programsBasePath(locale)} className="transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]">
               {t("title")}
             </Link>
-            <span aria-hidden className="text-[#16856F]">/</span>
+            <span aria-hidden className="text-[#139C48]">/</span>
             <Link
               href={`${programsBasePath(locale)}/${programLevelPath(locale, levelKey)}`}
-              className="transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F]"
+              className="transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]"
             >
               {levelLabel}
             </Link>
-            <span aria-hidden className="text-[#16856F]">/</span>
+            <span aria-hidden className="text-[#139C48]">/</span>
             <span className="max-w-[26rem] truncate text-[#4f544f]">{title}</span>
           </nav>
 
@@ -263,7 +262,7 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
             className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-16"
           >
             <div>
-              <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
+              <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#139C48]">
                 <span className="h-px w-12 bg-current" />
                 {copy.dossier} · {program.majorCode || program.code}
               </div>
@@ -275,7 +274,7 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
               </p>
             </div>
 
-            <aside className="border-t-2 border-[#16856F] pt-5 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
+            <aside className="border-t-2 border-[#139C48] pt-5 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
               <p className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-[#8a8d88]">{copy.updated}</p>
               <div className="mt-6 grid grid-cols-2 gap-x-5 gap-y-7 lg:grid-cols-1">
                 {keyFacts.map((fact) => (
@@ -289,7 +288,7 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
                 href="https://tuyensinh.ttu.edu.vn"
                 target="_blank"
                 rel="noreferrer"
-                className="group mt-8 flex min-h-12 items-center justify-between bg-[#16856F] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                className="group mt-8 flex min-h-12 items-center justify-between rounded-full bg-[#139C48] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
               >
                 {slugPage.shared.hero.applyLabel || programPage.shared.applyLabel}
                 <span className="transition-transform group-hover:translate-x-1"><ArrowIcon direction="up-right" size={16} /></span>
@@ -308,19 +307,18 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
         </div>
       </section>
 
-      <section id="program-overview" className="relative scroll-mt-24 bg-[#f7f4f1] py-16 sm:py-20 lg:py-24">
-        <SectionTab label={programPage.shared.overview.badge} />
+      <section id="program-overview" className="relative scroll-mt-24 bg-[#f5f7f4] py-16 sm:py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[11rem_minmax(0,1fr)] lg:gap-16">
           <nav className="lg:sticky lg:top-28 lg:self-start" aria-label={copy.contents}>
-            <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#16856F]">{copy.contents}</p>
+            <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#139C48]">{copy.contents}</p>
             <div className="mt-5 border-t-2 border-[#171b25]">
               {[
                 ["#program-overview", copy.overview],
                 ["#curriculum", copy.curriculum],
                 ["#career", copy.career],
               ].map(([href, label], index) => (
-                <a key={href} href={href} className="grid min-h-12 grid-cols-[2rem_1fr] items-center border-b border-[#d4cec8] text-[0.72rem] font-semibold text-[#5f635e] transition-colors hover:text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F]">
-                  <span className="font-mono text-[0.58rem] text-[#16856F]">0{index + 1}</span>
+                <a key={href} href={href} className="grid min-h-12 grid-cols-[2rem_1fr] items-center border-b border-[#d4cec8] text-[0.72rem] font-semibold text-[#5f635e] transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]">
+                  <span className="font-mono text-[0.58rem] text-[#139C48]">0{index + 1}</span>
                   {label}
                 </a>
               ))}
@@ -329,7 +327,7 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
 
           <div>
             <motion.div initial="hidden" whileInView="visible" variants={reveal} viewport={{ once: true }}>
-              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">{programPage.shared.overview.badge}</p>
+              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">{programPage.shared.overview.badge}</p>
               <h2 className="mt-4 max-w-xl text-[2.2rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[2.9rem]">{slugPage.shared.overview.title}</h2>
               <p className="mt-6 max-w-3xl text-base leading-8 text-[#686c67]">{slugPage.shared.overview.description}</p>
             </motion.div>
@@ -356,13 +354,13 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
                   viewport={{ once: true, margin: "-50px" }}
                   className="grid gap-6 border-b border-[#d4cec8] py-8 sm:grid-cols-[3.5rem_1fr]"
                 >
-                  <span className="text-[2rem] font-bold leading-none tracking-[-0.05em] text-[#16856F]">0{sectionIndex + 1}</span>
+                  <span className="text-[2rem] font-bold leading-none tracking-[-0.05em] text-[#139C48]">0{sectionIndex + 1}</span>
                   <div>
                     <h3 className="text-xl font-bold tracking-[-0.03em]">{section.title}</h3>
                     <div className="mt-5 divide-y divide-[#d9d3cd] border-t border-[#d9d3cd]">
                       {section.points.map((point, index) => (
                         <p key={point} className="grid grid-cols-[2.5rem_1fr] gap-4 py-4 text-base leading-7 text-[#5f635e] sm:text-[1.05rem]">
-                          <span className="pt-0.5 font-mono text-[0.68rem] text-[#16856F]">{String(index + 1).padStart(2, "0")}</span>
+                          <span className="pt-0.5 font-mono text-[0.68rem] text-[#139C48]">{String(index + 1).padStart(2, "0")}</span>
                           <span>{point}</span>
                         </p>
                       ))}
@@ -378,13 +376,13 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
 
       <section className="border-b border-[#171b25]/15 bg-white">
         <div className="mx-auto grid max-w-7xl gap-6 px-5 py-8 sm:px-8 sm:py-10 lg:grid-cols-[10rem_minmax(0,1fr)_auto] lg:items-center lg:gap-10">
-          <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-[#16856F]">{copy.nextStep}</p>
+          <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-[#139C48]">{copy.nextStep}</p>
           <p className="max-w-3xl text-xl font-bold leading-8 tracking-[-0.025em] text-[#171b25] sm:text-2xl">{copy.advice}</p>
           <a
             href="https://www.facebook.com/biotech.ttu.edu.vn"
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex min-h-12 items-center justify-between gap-8 bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+            className="group inline-flex min-h-12 items-center justify-between gap-8 rounded-full bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
           >
             {copy.apply}
             <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -393,11 +391,10 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
       </section>
 
       <section id="curriculum" className="relative scroll-mt-24 bg-white py-16 sm:py-20 lg:py-24">
-        <SectionTab label={programPage.shared.curriculum.badge} />
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-6 border-b-2 border-[#171b25] pb-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
             <div>
-              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">{copy.curriculumIndex}</p>
+              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">{copy.curriculumIndex}</p>
               <h2 className="mt-4 text-[2.2rem] font-bold leading-tight tracking-[-0.045em] sm:text-[2.9rem]">{slugPage.shared.curriculum.title}</h2>
             </div>
             <p className="max-w-xl text-base leading-8 text-[#686c67] lg:justify-self-end">{slugPage.shared.curriculum.description}</p>
@@ -419,13 +416,13 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
                     <Link
                       href={curriculumDetailHref(locale, program, curriculum)}
                       aria-label={`${copy.viewCurriculum}: ${curriculumName}`}
-                      className="group grid gap-5 px-3 py-7 transition-colors hover:bg-[#fbf8f5] focus-visible:bg-[#fbf8f5] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F] sm:grid-cols-[3rem_minmax(0,1fr)_8rem] sm:items-center lg:grid-cols-[4rem_minmax(0,1fr)_8rem_9rem_3rem]"
+                      className="group grid gap-5 px-3 py-7 transition-colors hover:bg-[#fbf8f5] focus-visible:bg-[#fbf8f5] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48] sm:grid-cols-[3rem_minmax(0,1fr)_8rem] sm:items-center lg:grid-cols-[4rem_minmax(0,1fr)_8rem_9rem_3rem]"
                     >
-                      <span className="font-mono text-[0.72rem] font-semibold text-[#16856F]">{String(index + 1).padStart(2, "0")}</span>
+                      <span className="font-mono text-[0.72rem] font-semibold text-[#139C48]">{String(index + 1).padStart(2, "0")}</span>
                       <div>
                         <div className="flex flex-wrap items-center gap-3">
-                          <h3 className="text-xl font-bold leading-snug tracking-[-0.025em] transition-colors group-hover:text-[#16856F] sm:text-[1.35rem]">{curriculumName}</h3>
-                          {curriculum.isCurrent && <span className="border border-[#16856F]/35 px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-[0.1em] text-[#16856F]">{copy.current}</span>}
+                          <h3 className="text-xl font-bold leading-snug tracking-[-0.025em] transition-colors group-hover:text-[#139C48] sm:text-[1.35rem]">{curriculumName}</h3>
+                          {curriculum.isCurrent && <span className="border border-[#139C48]/35 px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-[0.1em] text-[#139C48]">{copy.current}</span>}
                         </div>
                         <p className="mt-2 font-mono text-[0.72rem] uppercase tracking-[0.08em] text-[#70746f]">{copy.year}: {curriculum.year}</p>
                       </div>
@@ -437,7 +434,7 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
                         <span className="block text-[#a19d98]">{copy.credits} / {copy.semesters}</span>
                         <span className="mt-1 block font-semibold text-[#4f544f]">{curriculum.totalCredits || "—"} / {curriculum.totalSemesters || "—"}</span>
                       </div>
-                      <span className="flex h-10 w-10 items-center justify-center justify-self-end border border-[#16856F]/35 text-[#16856F] transition-colors group-hover:bg-[#16856F] group-hover:text-white">
+                      <span className="flex h-10 w-10 items-center justify-center justify-self-end border border-[#139C48]/35 text-[#139C48] transition-colors group-hover:bg-[#139C48] group-hover:text-white">
                         <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} />
                       </span>
                     </Link>
@@ -454,11 +451,11 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
       <section id="career" className="relative scroll-mt-24 border-y border-[#171b25]/15 bg-white py-16 text-[#171b25] sm:py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.68fr_1.32fr] lg:gap-20">
           <div>
-            <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#16856F]">{programPage.shared.career.badge}</p>
+            <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">{programPage.shared.career.badge}</p>
             <h2 className="mt-5 max-w-md text-[2.2rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[2.9rem]">{programPage.shared.career.title}</h2>
-            <p className="mt-7 border-l-2 border-[#16856F] pl-5 text-sm leading-7 text-[#686c67]">{levelContent.heroTagline}</p>
+            <p className="mt-7 border-l-2 border-[#139C48] pl-5 text-sm leading-7 text-[#686c67]">{levelContent.heroTagline}</p>
           </div>
-          <div className="border-t-2 border-[#16856F]">
+          <div className="border-t-2 border-[#139C48]">
             {programPage.shared.career.points.map((point, index) => (
               <motion.article
                 key={point}
@@ -469,9 +466,9 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
                 transition={{ duration: 0.45, delay: index * 0.05 }}
                 className="group grid min-h-24 grid-cols-[3.5rem_1fr_auto] items-center gap-4 border-b border-[#dedad5] py-5"
               >
-                <span className="font-mono text-[0.64rem] font-semibold text-[#16856F]">0{index + 1}</span>
+                <span className="font-mono text-[0.64rem] font-semibold text-[#139C48]">0{index + 1}</span>
                 <p className="text-base font-semibold leading-7 sm:text-lg">{point}</p>
-                <span className="text-[#16856F] transition-transform group-hover:translate-x-1"><ArrowIcon direction="right" size={16} /></span>
+                <span className="text-[#139C48] transition-transform group-hover:translate-x-1"><ArrowIcon direction="right" size={16} /></span>
               </motion.article>
             ))}
           </div>
@@ -479,8 +476,7 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
       </section>
 
       {relatedPrograms.length > 0 && (
-        <section className="relative bg-[#f7f4f1] py-16 sm:py-20">
-          <SectionTab label={t("relatedPrograms")} />
+        <section className="relative bg-[#f5f7f4] py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <h2 className="max-w-lg text-[2.1rem] font-bold leading-tight tracking-[-0.045em] sm:text-[2.7rem]">{t("exploreOtherPrograms")}</h2>
             <div className="mt-9 border-t-2 border-[#171b25]">
@@ -488,13 +484,13 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
                 <Link
                   key={relatedProgram.programId}
                   href={programDetailHref(locale, relatedProgram)}
-                  className="group grid gap-3 border-b border-[#d6d0ca] py-5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] sm:grid-cols-[3rem_1fr_auto] sm:items-center"
+                  className="group grid gap-3 border-b border-[#d6d0ca] py-5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48] sm:grid-cols-[3rem_1fr_auto] sm:items-center"
                 >
-                  <span className="font-mono text-[0.64rem] font-semibold text-[#16856F]">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="text-lg font-bold tracking-[-0.025em] transition-colors group-hover:text-[#16856F]">
+                  <span className="font-mono text-[0.64rem] font-semibold text-[#139C48]">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="text-lg font-bold tracking-[-0.025em] transition-colors group-hover:text-[#139C48]">
                     {localizedProgramText(locale, relatedProgram.nameVi, relatedProgram.nameEn)}
                   </span>
-                  <span className="flex h-10 w-10 items-center justify-center border border-[#16856F]/35 text-[#16856F] transition-colors group-hover:bg-[#16856F] group-hover:text-white">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#139C48]/35 text-[#139C48] transition-colors group-hover:bg-[#139C48] group-hover:text-white">
                     <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} />
                   </span>
                 </Link>

@@ -69,7 +69,7 @@ const Hero = () => {
           initial={reduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.08 }}
-          className="relative min-h-[31rem] overflow-hidden rounded-[1.75rem] bg-[#16856F] lg:col-span-7 lg:min-h-[39rem]"
+          className="relative min-h-[31rem] overflow-hidden rounded-[1.75rem] bg-[#139C48] lg:col-span-7 lg:min-h-[39rem]"
         >
           <Image
             src="/assets/biotech/hero-biotechnology.png"
@@ -99,7 +99,7 @@ const Hero = () => {
               key={stat.label}
               className={`rounded-[1.35rem] p-5 sm:p-6 ${
                 index === 0
-                  ? "bg-[#16856F] text-white"
+                  ? "bg-[#139C48] text-white"
                   : "border border-[#D6E5E0] bg-white text-[#12312B]"
               }`}
             >

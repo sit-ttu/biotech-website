@@ -47,7 +47,7 @@ const NewsRecommendationCard = ({
     <article className="group border-t-2 border-[#171b25] pt-4">
       <Link
         href={`${newsPath}/${item.slug}`}
-        className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+        className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
       >
         <div className="relative aspect-[16/10] overflow-hidden bg-[#eee9e4]">
           {image ? (
@@ -59,7 +59,7 @@ const NewsRecommendationCard = ({
             />
           ) : (
             <div className="flex h-full items-end justify-between bg-[#f3efeb] p-5">
-              <span className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-[#16856F]">Biotech TTU News</span>
+              <span className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-[#139C48]">Biotech TTU News</span>
               <span className="font-mono text-5xl font-bold text-[#171b25]/10">{String(index + 1).padStart(2, "0")}</span>
             </div>
           )}
@@ -67,15 +67,15 @@ const NewsRecommendationCard = ({
         <div className="flex items-start justify-between gap-5 py-5">
           <div>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[0.55rem] uppercase tracking-[0.12em] text-[#898c87]">
-              <span className="text-[#16856F]">{getCategoryDisplay(item.category || "general", locale)}</span>
+              <span className="text-[#139C48]">{getCategoryDisplay(item.category || "general", locale)}</span>
               <span aria-hidden>·</span>
               <time dateTime={item.publishedAt}>{formatNewsDate(item.publishedAt, locale)}</time>
             </div>
-            <h3 className="mt-3 text-lg font-bold leading-snug tracking-[-0.025em] transition-colors group-hover:text-[#16856F] sm:text-xl">
+            <h3 className="mt-3 text-lg font-bold leading-snug tracking-[-0.025em] transition-colors group-hover:text-[#139C48] sm:text-xl">
               {item.title}
             </h3>
           </div>
-          <HugeiconsIcon icon={ArrowUpRight01Icon} size={19} className="mt-1 shrink-0 text-[#16856F]" />
+          <HugeiconsIcon icon={ArrowUpRight01Icon} size={19} className="mt-1 shrink-0 text-[#139C48]" />
         </div>
       </Link>
     </article>
@@ -88,13 +88,13 @@ const NewsLinkRow = ({ item, locale }: { item: News; locale: SiteLocale }) => {
   return (
     <Link
       href={`${newsPath}/${item.slug}`}
-      className="group grid min-h-24 grid-cols-[5.25rem_1fr_auto] items-start gap-4 border-t border-[#d8d3ce] py-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16856F]"
+      className="group grid min-h-24 grid-cols-[5.25rem_1fr_auto] items-start gap-4 border-t border-[#d8d3ce] py-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]"
     >
       <time dateTime={item.publishedAt} className="font-mono text-[0.54rem] uppercase leading-5 tracking-[0.1em] text-[#8a8d88]">
         {formatNewsDate(item.publishedAt, locale)}
       </time>
-      <span className="font-semibold leading-6 tracking-[-0.015em] transition-colors group-hover:text-[#16856F]">{item.title}</span>
-      <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} className="mt-1 text-[#16856F]" />
+      <span className="font-semibold leading-6 tracking-[-0.015em] transition-colors group-hover:text-[#139C48]">{item.title}</span>
+      <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} className="mt-1 text-[#139C48]" />
     </Link>
   );
 };
@@ -279,9 +279,9 @@ export default function NewsDetailPageContent({
   if (error || !news) {
     return (
       <main className="flex min-h-[60vh] items-center justify-center bg-white px-5">
-        <div className="max-w-lg border-l-4 border-[#16856F] bg-[#f7f4f1] p-8">
+        <div className="max-w-lg border-l-4 border-[#139C48] bg-[#f5f7f4] p-8">
           <p className="text-xl font-bold tracking-tight">{copy.notFound}</p>
-          <Link href={newsPath} className="mt-6 inline-flex min-h-11 items-center gap-3 bg-[#16856F] px-6 text-sm font-semibold text-white">
+          <Link href={newsPath} className="mt-6 inline-flex min-h-11 items-center gap-3 bg-[#139C48] px-6 text-sm font-semibold text-white">
             <HugeiconsIcon icon={ArrowLeft02Icon} size={17} />
             {copy.back}
           </Link>
@@ -332,7 +332,7 @@ export default function NewsDetailPageContent({
         onClick={handleCopyLink}
         title={copy.copyLink}
         aria-label={copy.copyLink}
-        className="flex h-11 w-11 items-center justify-center border border-[#171b25]/20 text-[#555a55] transition-colors hover:border-[#16856F] hover:bg-[#16856F] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#16856F]"
+        className="flex h-11 w-11 items-center justify-center border border-[#171b25]/20 text-[#555a55] transition-colors hover:border-[#139C48] hover:bg-[#139C48] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#139C48]"
       >
         <LinkIcon className="h-4 w-4" />
       </button>
@@ -341,7 +341,7 @@ export default function NewsDetailPageContent({
         onClick={() => openShare("facebook")}
         title="Facebook"
         aria-label="Facebook"
-        className="flex h-11 w-11 items-center justify-center border border-[#171b25]/20 text-[#555a55] transition-colors hover:border-[#16856F] hover:bg-[#16856F] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#16856F]"
+        className="flex h-11 w-11 items-center justify-center border border-[#171b25]/20 text-[#555a55] transition-colors hover:border-[#139C48] hover:bg-[#139C48] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#139C48]"
       >
         <Facebook className="h-4 w-4" />
       </button>
@@ -350,7 +350,7 @@ export default function NewsDetailPageContent({
         onClick={() => openShare("linkedin")}
         title="LinkedIn"
         aria-label="LinkedIn"
-        className="flex h-11 w-11 items-center justify-center border border-[#171b25]/20 text-[#555a55] transition-colors hover:border-[#16856F] hover:bg-[#16856F] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#16856F]"
+        className="flex h-11 w-11 items-center justify-center border border-[#171b25]/20 text-[#555a55] transition-colors hover:border-[#139C48] hover:bg-[#139C48] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#139C48]"
       >
         <Linkedin className="h-4 w-4" />
       </button>
@@ -362,7 +362,7 @@ export default function NewsDetailPageContent({
       <section className="border-b border-[#171b25]/15 bg-white">
         <div className="mx-auto max-w-7xl px-5 pb-12 pt-7 sm:px-8 lg:pb-16">
           <header className="max-w-5xl">
-            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#16856F]">
+            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#139C48]">
               <span className="h-px w-12 bg-current" />
               {category}
             </div>
@@ -395,7 +395,7 @@ export default function NewsDetailPageContent({
             <div className="sticky top-28">
               <p className="mb-4 font-mono text-[0.55rem] uppercase tracking-[0.14em] text-[#8a8d88]">{copy.share}</p>
               {shareButtons}
-              {copied && <p className="mt-3 font-mono text-[0.52rem] uppercase tracking-[0.1em] text-[#16856F]">{copy.copied}</p>}
+              {copied && <p className="mt-3 font-mono text-[0.52rem] uppercase tracking-[0.1em] text-[#139C48]">{copy.copied}</p>}
             </div>
           </aside>
 
@@ -403,16 +403,16 @@ export default function NewsDetailPageContent({
             <div className="mb-9 border-y border-[#d8d3ce] py-5 lg:hidden">
               <p className="mb-4 font-mono text-[0.55rem] uppercase tracking-[0.14em] text-[#8a8d88]">{copy.share}</p>
               {shareButtons}
-              {copied && <p className="mt-3 font-mono text-[0.52rem] uppercase tracking-[0.1em] text-[#16856F]">{copy.copied}</p>}
+              {copied && <p className="mt-3 font-mono text-[0.52rem] uppercase tracking-[0.1em] text-[#139C48]">{copy.copied}</p>}
             </div>
 
             <YooptaRenderer
               value={news.content}
-              className="[&_h1]:mt-12 [&_h1]:border-0 [&_h1]:pb-0 [&_h1]:!text-[1.75rem] [&_h1]:!leading-[1.32] [&_h1]:!tracking-[-0.01em] sm:[&_h1]:!text-[1.9rem] [&_h2]:mt-11 [&_h2]:text-[1.6rem] [&_h2]:leading-tight [&_h2]:tracking-[-0.025em] [&_h3]:mt-9 [&_h3]:text-[1.25rem] [&_h3]:leading-tight [&_p]:text-[1.02rem] [&_p]:leading-8 [&_p]:text-[#555a55] [&_a]:text-[#16856F] [&_blockquote]:border-l-2 [&_blockquote]:border-[#16856F] [&_blockquote]:pl-6 [&_img]:my-0 [&_img]:rounded-none"
+              className="[&_h1]:mt-12 [&_h1]:border-0 [&_h1]:pb-0 [&_h1]:!text-[1.75rem] [&_h1]:!leading-[1.32] [&_h1]:!tracking-[-0.01em] sm:[&_h1]:!text-[1.9rem] [&_h2]:mt-11 [&_h2]:text-[1.6rem] [&_h2]:leading-tight [&_h2]:tracking-[-0.025em] [&_h3]:mt-9 [&_h3]:text-[1.25rem] [&_h3]:leading-tight [&_p]:text-[1.02rem] [&_p]:leading-8 [&_p]:text-[#555a55] [&_a]:text-[#139C48] [&_blockquote]:border-l-2 [&_blockquote]:border-[#139C48] [&_blockquote]:pl-6 [&_img]:my-0 [&_img]:rounded-none"
             />
 
             <div className="mt-14 border-t-2 border-[#171b25] pt-6">
-              <Link href={newsPath} className="inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]">
+              <Link href={newsPath} className="inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]">
                 <HugeiconsIcon icon={ArrowLeft02Icon} size={17} />
                 {copy.back}
               </Link>
@@ -421,7 +421,7 @@ export default function NewsDetailPageContent({
 
           <aside className="hidden lg:block">
             <div className="sticky top-28 border-t-2 border-[#171b25] pt-5">
-              <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-[#16856F]">{copy.articleInfo}</p>
+              <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-[#139C48]">{copy.articleInfo}</p>
               <dl className="mt-5">
                 {[
                   [copy.category, category],
@@ -490,14 +490,14 @@ export default function NewsDetailPageContent({
         </section>
       )}
 
-      <section className="border-t border-[#171b25]/15 bg-[#f7f4f1] px-5 py-14 sm:px-8 sm:py-16">
+      <section className="border-t border-[#171b25]/15 bg-[#f5f7f4] px-5 py-14 sm:px-8 sm:py-16">
         <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-[#16856F]">Biotech TTU News</p>
+            <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-[#139C48]">Biotech TTU News</p>
             <h2 className="mt-3 text-2xl font-bold tracking-[-0.035em] sm:text-3xl">{copy.next}</h2>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-[#686c67]">{copy.nextDescription}</p>
           </div>
-          <Link href={newsPath} className="inline-flex min-h-12 shrink-0 items-center gap-4 bg-[#16856F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]">
+          <Link href={newsPath} className="inline-flex min-h-12 shrink-0 items-center gap-4 bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]">
             {copy.breadcrumb}
             <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} />
           </Link>

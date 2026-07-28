@@ -92,18 +92,18 @@ const Achievements = () => {
                     />
                   ) : (
                     <div className="relative flex h-full min-h-48 flex-col justify-between overflow-hidden bg-[#eee5de] p-5">
-                      <span className="relative z-10 max-w-[12rem] text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0D5E50]">
+                      <span className="relative z-10 max-w-[12rem] text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0F7E3A]">
                         {item.type.replaceAll("_", " ")}
                       </span>
-                      <span className="relative z-10 font-mono text-[2.8rem] font-medium leading-none tracking-[-0.07em] text-[#16856F]">
+                      <span className="relative z-10 font-mono text-[2.8rem] font-medium leading-none tracking-[-0.07em] text-[#139C48]">
                         {item.achievedYear ?? "Biotech TTU"}
                       </span>
-                      <span className="absolute -bottom-10 -right-6 h-40 w-40 rounded-full border border-[#16856F]/20" />
-                      <span className="absolute -bottom-4 right-9 h-24 w-24 rounded-full border border-[#16856F]/25" />
+                      <span className="absolute -bottom-10 -right-6 h-40 w-40 rounded-full border border-[#139C48]/20" />
+                      <span className="absolute -bottom-4 right-9 h-24 w-24 rounded-full border border-[#139C48]/25" />
                     </div>
                   )}
                   {item.level && item.coverImage && (
-                    <span className="absolute left-4 top-4 bg-white/95 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.13em] text-[#0D5E50] shadow-sm backdrop-blur-sm">
+                    <span className="absolute left-4 top-4 bg-white/95 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.13em] text-[#0F7E3A] shadow-sm backdrop-blur-sm">
                       {t(`levels.${item.level}`)}
                     </span>
                   )}
@@ -115,7 +115,7 @@ const Achievements = () => {
                   }`}
                 >
                   <div className="mb-4 flex items-center justify-between gap-3 border-b border-[#ebe6e1] pb-3 font-mono text-[9px] uppercase tracking-[0.12em]">
-                    <span className="text-[#16856F]">
+                    <span className="text-[#139C48]">
                       {item.level ? t(`levels.${item.level}`) : item.type}
                     </span>
                     {item.achievedYear && (
@@ -152,7 +152,7 @@ const Achievements = () => {
         >
           <Link
             href={achievementsHref}
-            className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#16856F] underline underline-offset-4 hover:text-[#0D5E50]"
+            className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#139C48] underline underline-offset-4 hover:text-[#0F7E3A]"
           >
             {t("viewAll")}
           </Link>

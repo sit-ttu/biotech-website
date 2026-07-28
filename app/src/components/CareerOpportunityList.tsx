@@ -87,9 +87,9 @@ export default function CareerOpportunityList({
             key={key}
             type="button"
             onClick={() => setFilter(key)}
-            className={`cursor-pointer border-b py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] ${
+            className={`cursor-pointer border-b py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48] ${
               filter === key
-                ? "border-[#16856F] text-[#16856F]"
+                ? "border-[#139C48] text-[#139C48]"
                 : "border-transparent text-[#686c67] hover:text-[#171b25]"
             }`}
           >
@@ -132,7 +132,7 @@ export default function CareerOpportunityList({
               >
                 <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_15rem] lg:gap-12">
                   <div className="flex min-w-0 gap-4 sm:gap-6">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#d8d3ce] bg-[#f7f4f1] text-base font-bold uppercase text-[#16856F] sm:h-14 sm:w-14">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#d8d3ce] bg-[#f7f4f1] text-base font-bold uppercase text-[#139C48] sm:h-14 sm:w-14">
                       {item.companyLogoUrl ? (
                         <img
                           src={item.companyLogoUrl}
@@ -144,7 +144,7 @@ export default function CareerOpportunityList({
                       )}
                     </div>
                     <div className="min-w-0">
-                      <div className="flex flex-wrap gap-x-3 gap-y-1 font-mono text-[0.58rem] font-semibold uppercase tracking-[0.15em] text-[#16856F]">
+                      <div className="flex flex-wrap gap-x-3 gap-y-1 font-mono text-[0.58rem] font-semibold uppercase tracking-[0.15em] text-[#139C48]">
                         <span>{copy.type[item.type]}</span>
                         <span aria-hidden="true" className="text-[#aaa7a2]">·</span>
                         <span className="text-[#777b76]">
@@ -221,7 +221,7 @@ export default function CareerOpportunityList({
                       href={href}
                       target={href.startsWith("mailto:") ? undefined : "_blank"}
                       rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                      className="mt-7 inline-flex w-fit items-center text-sm font-semibold text-[#16856F] underline decoration-[#16856F]/35 underline-offset-6 transition-colors group-hover:decoration-[#16856F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F]"
+                      className="mt-7 inline-flex w-fit items-center text-sm font-semibold text-[#139C48] underline decoration-[#139C48]/35 underline-offset-6 transition-colors group-hover:decoration-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                     >
                       {copy.action}
                       <ArrowIcon direction="up-right" className="ml-2" size={16} />
