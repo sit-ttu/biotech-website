@@ -5,7 +5,8 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
-const title = "Biotechnology News & Events | Biotech TTU - Tan Tao University";
+const title =
+  "News & Events | School of Biotechnology - Tan Tao University";
 const description =
   "Official news, academic activities, research, student achievements and events from the School of Biotechnology at Tan Tao University.";
 

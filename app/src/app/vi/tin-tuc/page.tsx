@@ -5,7 +5,8 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
-const title = "Tin tức & Sự kiện Công nghệ Sinh học | Biotech TTU - Đại học Tân Tạo";
+const title =
+  "Tin tức & Sự kiện | Khoa Công nghệ Sinh học - Đại học Tân Tạo";
 const description =
   "Cập nhật tin tức, hoạt động học thuật, nghiên cứu, thành tích sinh viên và sự kiện chính thức từ Khoa Công nghệ Sinh học, Đại học Tân Tạo.";
 

@@ -16,7 +16,9 @@ import {
   type Event,
   type News,
   type Research,
+  ResearchType,
 } from "@/lib/api";
+import { getMockAchievements, getMockResearch } from "@/lib/mock-content";
 import { getCategoryDisplay } from "@/lib/news-categories";
 
 import { ArrowIcon } from "@/components/icons/ArrowIcon";
@@ -76,23 +78,6 @@ const prepareEventData = (data: Event[], locale: "vi" | "en") =>
         : event.descriptionVi || "",
   }));
 
-const NewsPageLoading = () => (
-  <main className="min-h-screen animate-pulse bg-white">
-    <section className="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:py-16">
-      <div className="h-3 w-32 bg-[#eee9e4]" />
-      <div className="mt-6 h-12 w-full max-w-xl bg-[#eee9e4]" />
-      <div className="mt-10 grid overflow-hidden border border-[#dedad5] lg:grid-cols-2">
-        <div className="min-h-[22rem] bg-[#e9e4df]" />
-        <div className="space-y-5 p-7 sm:p-10">
-          <div className="h-3 w-28 bg-[#eee9e4]" />
-          <div className="h-20 bg-[#eee9e4]" />
-          <div className="h-16 bg-[#eee9e4]" />
-        </div>
-      </div>
-    </section>
-  </main>
-);
-
 export default function NewsPageContent({
   locale,
   initialItems,
@@ -124,7 +109,8 @@ export default function NewsPageContent({
               image: "/assets/biotech/program-biotechnology-lab.webp",
             },
             {
-              title: "Sinh viên Biotech TTU trong hoạt động hợp tác quốc tế",
+              title:
+                "Sinh viên Khoa Công nghệ Sinh học trong hoạt động hợp tác quốc tế",
               date: "Tháng 7, 2026",
               category: "Sinh viên",
               summary:
@@ -150,7 +136,8 @@ export default function NewsPageContent({
               image: "/assets/biotech/program-biotechnology-lab.webp",
             },
             {
-              title: "Biotech TTU students in international collaboration",
+              title:
+                "School of Biotechnology students in international collaboration",
               date: "July 2026",
               category: "Students",
               summary:
@@ -206,6 +193,17 @@ export default function NewsPageContent({
           ],
     [locale],
   );
+  const fallbackResearch = useMemo(
+    () => [
+      ...getMockResearch(locale, ResearchType.PROJECT),
+      ...getMockResearch(locale, ResearchType.PUBLICATION),
+    ],
+    [locale],
+  );
+  const fallbackAchievements = useMemo(
+    () => getMockAchievements(locale),
+    [locale],
+  );
   const preparedInitial = useMemo(
     () =>
       initialItems === undefined
@@ -225,7 +223,7 @@ export default function NewsPageContent({
       ? preparedInitial.length > 0
         ? preparedInitial
         : fallbackNews
-      : [],
+      : fallbackNews,
   );
   const [events, setEvents] = useState<EventItem[]>(
     () =>
@@ -234,18 +232,22 @@ export default function NewsPageContent({
         : fallbackEvents,
   );
   const [researchItems, setResearchItems] = useState<Research[]>(
-    () => initialResearch ?? [],
+    () =>
+      initialResearch && initialResearch.length > 0
+        ? initialResearch
+        : fallbackResearch,
   );
   const [achievementItems, setAchievementItems] = useState<Achievement[]>(
-    () => initialAchievements ?? [],
+    () =>
+      initialAchievements && initialAchievements.length > 0
+        ? initialAchievements
+        : fallbackAchievements,
   );
   const [activeCategory, setActiveCategory] = useState("all");
-  const [loading, setLoading] = useState(initialItems === undefined);
 
   useEffect(() => {
     if (preparedInitial) {
       setNews(preparedInitial.length > 0 ? preparedInitial : fallbackNews);
-      setLoading(false);
       return;
     }
 
@@ -262,8 +264,6 @@ export default function NewsPageContent({
       } catch (error) {
         console.error("Failed to fetch news", error);
         if (active) setNews(fallbackNews);
-      } finally {
-        if (active) setLoading(false);
       }
     }
 
@@ -309,51 +309,53 @@ export default function NewsPageContent({
       api.research
         .findAll()
         .then((data) => {
-          if (active) setResearchItems(data);
+          if (active) {
+            setResearchItems(
+              data.length > 0 ? data : fallbackResearch,
+            );
+          }
         })
-        .catch((error) =>
-          console.error("Failed to fetch research highlights", error),
-        );
+        .catch((error) => {
+          console.error("Failed to fetch research highlights", error);
+          if (active) setResearchItems(fallbackResearch);
+        });
     }
 
     if (initialAchievements === undefined) {
       api.achievements
         .findAll({ visibility: "PUBLIC" })
         .then((data) => {
-          if (active) setAchievementItems(data);
+          if (active) {
+            setAchievementItems(
+              data.length > 0 ? data : fallbackAchievements,
+            );
+          }
         })
-        .catch((error) =>
-          console.error("Failed to fetch achievement highlights", error),
-        );
+        .catch((error) => {
+          console.error("Failed to fetch achievement highlights", error);
+          if (active) setAchievementItems(fallbackAchievements);
+        });
     }
 
     return () => {
       active = false;
     };
-  }, [initialAchievements, initialResearch]);
+  }, [
+    fallbackAchievements,
+    fallbackResearch,
+    initialAchievements,
+    initialResearch,
+  ]);
 
-  const featuredStory = news[0];
+  const leadStories = news.slice(0, 2);
   const categories = useMemo(
     () => Array.from(new Set(news.map((item) => item.category))),
     [news],
   );
-  const visibleNews = useMemo(() => {
-    if (activeCategory === "all") return news.slice(1);
+  const archiveNews = useMemo(() => {
+    if (activeCategory === "all") return news.slice(2);
     return news.filter((item) => item.category === activeCategory);
   }, [activeCategory, news]);
-  const topicGroups = useMemo(
-    () =>
-      categories.map((category) => {
-        const stories = news.filter((item) => item.category === category);
-
-        return {
-          category,
-          count: stories.length,
-          stories: stories.slice(0, 3),
-        };
-      }),
-    [categories, news],
-  );
   const featuredResearch = useMemo(
     () =>
       [...researchItems].sort((a, b) => {
@@ -381,7 +383,6 @@ export default function NewsPageContent({
         .slice(0, 2),
     [achievementItems],
   );
-  const quickNews = useMemo(() => news.slice(0, 8), [news]);
   const reveal = {
     hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 22 },
     visible: { opacity: 1, y: 0 },
@@ -392,296 +393,112 @@ export default function NewsPageContent({
         ? `/${locale}/tin-tuc/${item.slug}`
         : `/${locale}/news/${item.slug}`
       : "#";
-  const exploreLinks = [
-    {
-      title: t("exploreProgramsTitle"),
-      description: t("exploreProgramsDescription"),
-      href:
-        locale === "vi"
-          ? "/vi/chuong-trinh-dao-tao"
-          : "/en/programs",
-    },
-    {
-      title: t("exploreResearchTitle"),
-      description: t("exploreResearchDescription"),
-      href: locale === "vi" ? "/vi/nghien-cuu" : "/en/research",
-    },
-    {
-      title: t("exploreStudentsTitle"),
-      description: t("exploreStudentsDescription"),
-      href: locale === "vi" ? "/vi/sinh-vien" : "/en/students",
-    },
-    {
-      title: t("exploreFacultyTitle"),
-      description: t("exploreFacultyDescription"),
-      href: locale === "vi" ? "/vi/giang-vien" : "/en/faculty",
-    },
-  ];
   const researchHref = locale === "vi" ? "/vi/nghien-cuu" : "/en/research";
   const achievementsHref =
     locale === "vi" ? "/vi/sinh-vien" : "/en/students";
+  const programsHref =
+    locale === "vi" ? "/vi/chuong-trinh-dao-tao" : "/en/programs";
   const featuredResearchYear = featuredResearch
     ? featuredResearch.publicationYear ??
       featuredResearch.endYear ??
       featuredResearch.startYear
     : undefined;
 
-  if (loading) return <NewsPageLoading />;
-
   return (
-    <main className="overflow-hidden bg-white text-[#171b25]">
-      <section className="relative bg-white py-12 lg:py-16">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={reveal}
-            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            className="grid gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:items-end"
-          >
-            <div>
-              <div className="mb-5 flex items-center gap-4 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#139C48]">
-                <span className="h-px w-10 bg-current" />
-                {t("newsroom")}
-              </div>
-              <h1 className="text-[2.35rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[2.75rem] lg:text-[3.15rem]">
-                {t("title")}
-              </h1>
-            </div>
-            <p className="max-w-xl text-sm leading-7 text-[#60645f] lg:justify-self-end">
-              {t("description")}
+    <main className="overflow-hidden bg-white text-[#111311]">
+      <section className="px-5 pb-14 pt-14 sm:px-8 md:pb-20 md:pt-20">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={reveal}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          className="mx-auto grid max-w-7xl gap-8 border-b border-[#d8dad7] pb-12 md:grid-cols-12 md:items-end md:pb-16"
+        >
+          <div className="md:col-span-7">
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
+              {t("newsroom")}
             </p>
-          </motion.div>
-
-          {featuredStory ? (
-            <motion.article
-              initial="hidden"
-              animate="visible"
-              variants={reveal}
-              transition={{ duration: 0.7, delay: 0.08 }}
-              className="group mt-9 grid overflow-hidden border border-[#dedad5] bg-white lg:grid-cols-[1.08fr_0.92fr]"
-            >
-              <NewsVisual item={featuredStory} index={0} featured />
-              <div className="flex flex-col justify-center p-6 sm:p-9 lg:p-11">
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.68rem] font-semibold uppercase tracking-[0.13em]">
-                  <span className="bg-[#139C48] px-3 py-1.5 text-white">
-                    {t("featuredStory")}
-                  </span>
-                  <span className="text-[#139C48]">{featuredStory.category}</span>
-                </div>
-                <h2 className="mt-6 text-[1.7rem] font-bold leading-[1.15] tracking-[-0.035em] sm:text-[2rem]">
-                  {featuredStory.title}
-                </h2>
-                {featuredStory.summary && (
-                  <p className="mt-5 line-clamp-3 text-sm leading-7 text-[#626761]">
-                    {featuredStory.summary}
-                  </p>
-                )}
-                <div className="mt-7 flex flex-wrap items-center justify-between gap-5 border-t border-[#dedad5] pt-5">
-                  <span className="inline-flex items-center gap-2 text-[0.72rem] text-[#777b76]">
-                    <HugeiconsIcon icon={Calendar03Icon} size={15} strokeWidth={1.5} />
-                    {featuredStory.date}
-                  </span>
-                  <a
-                    href={newsHref(featuredStory)}
-                    className="group/link inline-flex min-h-11 items-center gap-3 bg-[#139C48] px-5 text-sm font-semibold text-white transition-[background-color,transform] hover:-translate-y-0.5 hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
-                  >
-                    {t("viewDetails")}
-                    <HugeiconsIcon
-                      icon={ArrowUpRight01Icon}
-                      size={17}
-                      strokeWidth={1.7}
-                      className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
-                    />
-                  </a>
-                </div>
-              </div>
-            </motion.article>
-          ) : (
-            <div className="mt-9 border border-[#dedad5] px-6 py-16 text-center text-sm text-[#686c67]">
-              {t("noNews")}
-            </div>
-          )}
-        </div>
+            <h1 className="mt-5 max-w-[10ch] text-[clamp(3rem,6.2vw,6.4rem)] font-semibold leading-[1.04] tracking-[-0.06em] text-balance">
+              {t("title")}
+            </h1>
+          </div>
+          <p className="max-w-[34rem] text-[0.82rem] leading-7 text-[#626862] md:col-start-9 md:col-span-4">
+            {t("description")}
+          </p>
+        </motion.div>
       </section>
 
-      <section className="relative bg-[#f5f7f4] py-14 sm:py-16">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid gap-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
-            <motion.h2
-              initial="hidden"
-              whileInView="visible"
-              variants={reveal}
-              viewport={{ once: true }}
-              className="text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]"
-            >
+      <section className="px-5 pb-24 sm:px-8 md:pb-32">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:gap-0">
+          <div className="lg:col-span-9 lg:pr-10">
+            <h2 className="border-b border-[#d8dad7] pb-4 text-[2.15rem] font-semibold leading-none tracking-[-0.055em] sm:text-[2.6rem]">
               {t("latestNews")}
-            </motion.h2>
-            {categories.length > 0 && (
-              <div className="flex flex-wrap gap-2 lg:justify-end" aria-label={t("browseByTopic")}>
-                {["all", ...categories].map((category) => {
-                  const selected = category === activeCategory;
-                  return (
-                    <button
-                      key={category}
-                      type="button"
-                      aria-pressed={selected}
-                      onClick={() => setActiveCategory(category)}
-                      className={`min-h-10 border px-4 text-[0.7rem] font-semibold uppercase tracking-[0.1em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48] ${
-                        selected
-                          ? "border-[#139C48] bg-[#139C48] text-white"
-                          : "border-[#d7d1cb] bg-white text-[#666a65] hover:border-[#139C48] hover:text-[#139C48]"
-                      }`}
-                    >
-                      {category === "all" ? t("allCategories") : category}
-                    </button>
-                  );
-                })}
+            </h2>
+
+            {leadStories.length > 0 ? (
+              <div>
+                {leadStories.map((story, index) => (
+                  <motion.article
+                    key={`${story.title}-${story.date}`}
+                    initial="hidden"
+                    whileInView="visible"
+                    variants={reveal}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.55, delay: index * 0.07 }}
+                    className="border-b border-[#d8dad7] py-7"
+                  >
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                      <Link
+                        href={newsHref(story)}
+                        className="max-w-[38rem] text-[1.25rem] font-semibold leading-[1.2] tracking-[-0.03em] transition-colors hover:text-[#139C48] sm:text-[1.45rem]"
+                      >
+                        {story.title}
+                      </Link>
+                      <time className="shrink-0 font-mono text-[0.62rem] uppercase tracking-[0.06em] text-[#929692]">
+                        {story.date}
+                      </time>
+                    </div>
+
+                    <div className="mt-6 grid gap-6 sm:grid-cols-[0.72fr_1.28fr] sm:items-stretch">
+                      <div className="flex min-w-0 flex-col">
+                        <span className="text-[0.65rem] font-semibold uppercase tracking-[0.13em] text-[#139C48]">
+                          {story.category}
+                        </span>
+                        {story.summary && (
+                          <p className="mt-4 line-clamp-4 text-[0.76rem] leading-6 text-[#686d68]">
+                            {story.summary}
+                          </p>
+                        )}
+                        <Link
+                          href={newsHref(story)}
+                          className="group mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-[#cfd2ce] px-3.5 py-2 text-[0.62rem] font-medium text-[#5f635f] transition-[background-color,border-color,color,transform] hover:border-[#139C48] hover:bg-[#139C48] hover:text-white active:scale-[0.98] sm:mt-auto"
+                        >
+                          {t("viewDetails")}
+                          <ArrowIcon direction="right" size={10} />
+                        </Link>
+                      </div>
+                      <Link
+                        href={newsHref(story)}
+                        className="group relative min-h-48 overflow-hidden rounded-[0.9rem] bg-[#e7e9e6]"
+                      >
+                        <NewsVisual item={story} index={index} />
+                      </Link>
+                    </div>
+                  </motion.article>
+                ))}
               </div>
+            ) : (
+              <p className="border-b border-[#d8dad7] py-14 text-sm text-[#747974]">
+                {t("noNews")}
+              </p>
             )}
           </div>
 
-          {visibleNews.length > 0 ? (
-            <div className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {visibleNews.map((story, index) => (
-                <motion.a
-                  key={`${story.title}-${story.date}`}
-                  href={newsHref(story)}
-                  initial="hidden"
-                  whileInView="visible"
-                  variants={reveal}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: (index % 3) * 0.07 }}
-                  className="group relative flex flex-col overflow-hidden border border-[#dedad5] bg-white transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-1 hover:border-[#139C48] hover:shadow-[0_12px_26px_rgba(55,34,23,0.07)]"
-                >
-                  <div className="relative overflow-hidden">
-                    <NewsVisual item={story} index={index + 1} />
-                    <span className="absolute bottom-0 left-0 bg-[#139C48] px-3.5 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.13em] text-white">
-                      {story.category}
-                    </span>
-                  </div>
-                  <div className="flex flex-1 flex-col p-5">
-                    <div className="flex items-center gap-1.5 text-[0.68rem] text-[#858984]">
-                      <HugeiconsIcon icon={Calendar03Icon} size={13} strokeWidth={1.5} />
-                      <span>{story.date}</span>
-                    </div>
-                    <h3 className="mt-4 line-clamp-2 text-[1rem] font-bold leading-[1.4] tracking-[-0.025em] transition-colors group-hover:text-[#139C48] sm:text-[1.08rem]">
-                      {story.title}
-                    </h3>
-                    {story.summary && (
-                      <p className="mt-3 line-clamp-2 text-[0.78rem] leading-6 text-[#686c67]">
-                        {story.summary}
-                      </p>
-                    )}
-                    <div className="mt-auto flex items-center justify-between border-t border-[#e6e1dc] pt-5 text-[0.78rem] font-semibold text-[#139C48]">
-                      <span>{t("viewDetails")}</span>
-                      <span className="flex h-9 w-9 items-center justify-center border border-[#139C48]/35 transition-colors group-hover:border-[#139C48] group-hover:bg-[#139C48] group-hover:text-white">
-                        <HugeiconsIcon
-                          icon={ArrowUpRight01Icon}
-                          size={16}
-                          strokeWidth={1.6}
-                          className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                        />
-                      </span>
-                    </div>
-                  </div>
-                </motion.a>
-              ))}
-            </div>
-          ) : (
-            <div className="mt-9 border border-[#dedad5] bg-white px-6 py-14 text-center text-sm text-[#686c67]">
-              {t("noNews")}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {topicGroups.length > 0 && (
-        <section className="relative border-t border-[#dedad5] bg-white py-14 sm:py-16">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8">
-            <div className="grid gap-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                variants={reveal}
-                viewport={{ once: true }}
-              >
-                <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
-                  {t("topicsEyebrow")}
-                </p>
-                <h2 className="mt-4 text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
-                  {t("topicsTitle")}
-                </h2>
-              </motion.div>
-              <p className="max-w-xl text-sm leading-7 text-[#686c67] lg:justify-self-end">
-                {t("topicsDescription")}
-              </p>
-            </div>
-
-            <div
-              className={`mt-9 grid border-t border-[#dedad5] ${
-                topicGroups.length === 2
-                  ? "md:grid-cols-2"
-                  : topicGroups.length > 2
-                    ? "md:grid-cols-2 lg:grid-cols-3"
-                    : ""
-              }`}
-            >
-              {topicGroups.map((group, index) => (
-                <motion.article
-                  key={group.category}
-                  initial="hidden"
-                  whileInView="visible"
-                  variants={reveal}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: (index % 3) * 0.06 }}
-                  className={`border-b border-[#dedad5] py-7 md:px-6 ${
-                    index % 2 === 1 ? "md:border-l" : ""
-                  } ${index % 3 !== 0 ? "lg:border-l" : "lg:border-l-0"}`}
-                >
-                  <div className="flex items-center justify-between gap-4">
-                    <h3 className="text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#139C48]">
-                      {group.category}
-                    </h3>
-                    <span className="font-mono text-[0.65rem] text-[#858984]">
-                      {t("storyCount", { count: group.count })}
-                    </span>
-                  </div>
-                  <div className="mt-5 divide-y divide-[#e6e1dc]">
-                    {group.stories.map((story) => (
-                      <Link
-                        key={`${group.category}-${story.title}`}
-                        href={newsHref(story)}
-                        className="group block py-4 first:pt-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
-                      >
-                        <p className="line-clamp-2 text-[0.92rem] font-semibold leading-6 tracking-[-0.015em] transition-colors group-hover:text-[#139C48]">
-                          {story.title}
-                        </p>
-                        <p className="mt-2 font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[#8a8e89]">
-                          {story.date}
-                        </p>
-                      </Link>
-                    ))}
-                  </div>
-                </motion.article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {events.length > 0 && (
-        <section className="relative bg-white py-14 sm:py-16">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8">
-            <div className="mb-9 grid gap-4 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
-              <h2 className="text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
-                {t("upcomingEvents")}
-              </h2>
-              <p className="max-w-xl text-sm leading-7 text-[#686c67] lg:justify-self-end">
-                {t("description")}
-              </p>
-            </div>
-            <div className="border-t border-[#dedad5]">
+          <aside className="lg:col-span-3 lg:border-l lg:border-[#d8dad7] lg:pl-8">
+            <h2 className="border-b border-[#d8dad7] pb-4 text-[2.15rem] font-semibold leading-none tracking-[-0.055em] sm:text-[2.6rem]">
+              {t("eventsTitle")}
+            </h2>
+            <div className="divide-y divide-[#d8dad7] border-b border-[#d8dad7]">
               {events.map((event, index) => (
                 <motion.article
                   key={event.id}
@@ -689,273 +506,236 @@ export default function NewsPageContent({
                   whileInView="visible"
                   variants={reveal}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.06 }}
-                  className="grid gap-5 border-b border-[#dedad5] py-6 sm:grid-cols-[8rem_1fr] sm:py-7 lg:grid-cols-[9rem_0.9fr_1.1fr]"
+                  transition={{ duration: 0.45, delay: index * 0.05 }}
+                  className="py-6"
                 >
-                  <div className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-[#139C48]">
-                    {event.date}
-                  </div>
-                  <h3 className="text-base font-bold leading-snug tracking-tight">
+                  <h3 className="text-[0.96rem] font-semibold leading-[1.25] tracking-[-0.02em]">
                     {event.title}
                   </h3>
                   {event.description && (
-                    <p className="text-[0.8rem] leading-6 text-[#686c67]">
+                    <p className="mt-4 line-clamp-3 text-[0.7rem] leading-5 text-[#717671]">
                       {event.description}
                     </p>
                   )}
+                  <div className="mt-6 flex items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.06em] text-[#929692]">
+                    <HugeiconsIcon icon={Calendar03Icon} size={13} strokeWidth={1.5} />
+                    {event.date}
+                  </div>
                 </motion.article>
               ))}
             </div>
-          </div>
-        </section>
-      )}
+          </aside>
+        </div>
+      </section>
 
-      <section className="relative bg-[#f5f7f4] py-14 sm:py-16">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid gap-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={reveal}
-              viewport={{ once: true }}
-            >
-              <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
+      <section className="bg-[#f5f7f4] px-5 py-20 sm:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-8 md:grid-cols-12 md:items-end">
+            <div className="md:col-span-5">
+              <p className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-[#139C48]">
+                {t("topicsEyebrow")}
+              </p>
+              <h2 className="mt-4 text-[clamp(2.35rem,4.2vw,4.4rem)] font-semibold leading-[1.05] tracking-[-0.055em]">
+                {t("topicsTitle")}
+              </h2>
+            </div>
+            <div className="flex flex-wrap gap-2 md:col-start-7 md:col-span-6 md:justify-end" aria-label={t("browseByTopic")}>
+              {["all", ...categories].map((category) => {
+                const selected = category === activeCategory;
+                return (
+                  <button
+                    key={category}
+                    type="button"
+                    aria-pressed={selected}
+                    onClick={() => setActiveCategory(category)}
+                    className={`min-h-10 rounded-full border px-4 text-[0.66rem] font-semibold transition-[background-color,border-color,color,transform] active:scale-[0.98] ${
+                      selected
+                        ? "border-[#139C48] bg-[#139C48] text-white"
+                        : "border-[#cfd2ce] bg-white text-[#616661] hover:border-[#139C48] hover:text-[#139C48]"
+                    }`}
+                  >
+                    {category === "all" ? t("allCategories") : category}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {archiveNews.length > 0 ? (
+            <div className="mt-12 border-t border-[#d8dad7]">
+              {archiveNews.map((story, index) => (
+                <motion.article
+                  key={`archive-${story.title}-${story.date}`}
+                  initial="hidden"
+                  whileInView="visible"
+                  variants={reveal}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.5, delay: (index % 4) * 0.05 }}
+                  className="grid gap-6 border-b border-[#d8dad7] py-7 md:grid-cols-[3rem_1fr_17rem] md:items-center"
+                >
+                  <span className="font-mono text-[0.62rem] text-[#139C48]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.62rem]">
+                      <span className="font-semibold uppercase tracking-[0.1em] text-[#139C48]">
+                        {story.category}
+                      </span>
+                      <time className="font-mono text-[#929692]">{story.date}</time>
+                    </div>
+                    <Link
+                      href={newsHref(story)}
+                      className="mt-3 block max-w-2xl text-[1.16rem] font-semibold leading-[1.25] tracking-[-0.025em] transition-colors hover:text-[#139C48]"
+                    >
+                      {story.title}
+                    </Link>
+                    {story.summary && (
+                      <p className="mt-3 line-clamp-2 max-w-2xl text-[0.74rem] leading-6 text-[#717671]">
+                        {story.summary}
+                      </p>
+                    )}
+                  </div>
+                  <Link
+                    href={newsHref(story)}
+                    className="group relative order-first aspect-[16/9] overflow-hidden rounded-[0.75rem] bg-[#e7e9e6] md:order-none"
+                  >
+                    <NewsVisual item={story} index={index + 2} />
+                  </Link>
+                </motion.article>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-12 border-y border-[#d8dad7] py-12 text-sm text-[#747974]">
+              {t("noNews")}
+            </p>
+          )}
+        </div>
+      </section>
+
+      <section className="px-5 py-20 sm:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl border-t border-[#d8dad7] pt-14 md:pt-20">
+          <div className="grid gap-8 md:grid-cols-12 md:items-end">
+            <div className="md:col-span-5">
+              <p className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-[#139C48]">
                 {t("insightsEyebrow")}
               </p>
-              <h2 className="mt-4 max-w-lg text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
+              <h2 className="mt-4 max-w-[12ch] text-[clamp(2.35rem,4.2vw,4.4rem)] font-semibold leading-[1.05] tracking-[-0.055em]">
                 {t("insightsTitle")}
               </h2>
-            </motion.div>
-            <p className="max-w-xl text-sm leading-7 text-[#686c67] lg:justify-self-end">
+            </div>
+            <p className="max-w-[34rem] text-[0.82rem] leading-7 text-[#626862] md:col-start-7 md:col-span-6">
               {t("insightsDescription")}
             </p>
           </div>
 
-          <div className="mt-9 grid border border-[#dedad5] bg-white lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="mt-12 grid gap-8 lg:grid-cols-12">
             <motion.article
               initial="hidden"
               whileInView="visible"
               variants={reveal}
               viewport={{ once: true }}
-              className="flex min-h-[22rem] flex-col border-b border-[#dedad5] p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10"
+              className="overflow-hidden rounded-[1rem] bg-[#f3f6f2] lg:col-span-7"
             >
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#dedad5] pb-5">
-                <span className="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#139C48]">
-                  {t("researchLabel")}
-                </span>
-                <span className="font-mono text-[0.65rem] uppercase tracking-[0.08em] text-[#858984]">
-                  {featuredResearch
-                    ? [
-                        featuredResearch.type === "PUBLICATION"
-                          ? t("publicationLabel")
-                          : t("projectLabel"),
-                        featuredResearchYear,
-                      ]
-                        .filter(Boolean)
-                        .join(" / ")
-                    : t("researchArchiveLabel")}
-                </span>
+              <div className="relative aspect-[1.85/1] overflow-hidden bg-[#e7e9e6]">
+                <img
+                  src="/assets/biotech/program-biotechnology-lab.webp"
+                  alt=""
+                  className="h-full w-full object-cover"
+                />
               </div>
-              <h3 className="mt-7 max-w-2xl text-[1.35rem] font-bold leading-[1.25] tracking-[-0.03em] sm:text-[1.6rem]">
-                {featuredResearch?.title ?? t("researchFallbackTitle")}
-              </h3>
-              <p className="mt-5 line-clamp-4 max-w-2xl text-[0.85rem] leading-7 text-[#686c67]">
-                {featuredResearch?.abstract || t("researchFallbackDescription")}
-              </p>
-              {featuredResearch &&
-                (featuredResearch.researchField ||
-                  featuredResearch.journalName ||
-                  featuredResearch.sponsor) && (
-                  <p className="mt-5 font-mono text-[0.64rem] uppercase tracking-[0.09em] text-[#858984]">
-                    {[
-                      featuredResearch.researchField,
-                      featuredResearch.journalName,
-                      featuredResearch.sponsor,
-                    ]
-                      .filter(Boolean)
-                      .join(" / ")}
-                  </p>
-                )}
-              <Link
-                href={researchHref}
-                className="mt-auto inline-flex w-fit border-b border-[#139C48] pt-8 pb-1 text-[0.78rem] font-semibold text-[#139C48] transition-colors hover:border-[#0F7E3A] hover:text-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
-              >
-                {t("viewResearch")}
-              </Link>
+              <div className="p-7 sm:p-9">
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <span className="text-[0.65rem] font-semibold uppercase tracking-[0.13em] text-[#139C48]">
+                    {t("researchLabel")}
+                  </span>
+                  <span className="font-mono text-[0.6rem] text-[#929692]">
+                    {featuredResearchYear ?? t("researchArchiveLabel")}
+                  </span>
+                </div>
+                <h3 className="mt-5 max-w-2xl text-[1.4rem] font-semibold leading-[1.25] tracking-[-0.03em] sm:text-[1.7rem]">
+                  {featuredResearch?.title ?? t("researchFallbackTitle")}
+                </h3>
+                <p className="mt-4 line-clamp-3 max-w-2xl text-[0.78rem] leading-6 text-[#686d68]">
+                  {featuredResearch?.abstract || t("researchFallbackDescription")}
+                </p>
+                <Link
+                  href={researchHref}
+                  className="group mt-7 inline-flex items-center gap-2 rounded-full border border-[#bfc9be] bg-white px-4 py-2 text-[0.66rem] font-semibold text-[#565d56] transition-[background-color,border-color,color,transform] hover:border-[#139C48] hover:bg-[#139C48] hover:text-white active:scale-[0.98]"
+                >
+                  {t("viewResearch")}
+                  <ArrowIcon direction="right" size={10} />
+                </Link>
+              </div>
             </motion.article>
 
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={reveal}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.08 }}
-              className="flex min-h-[22rem] flex-col p-6 sm:p-8 lg:p-10"
-            >
-              <div className="border-b border-[#dedad5] pb-5">
-                <h3 className="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-[#139C48]">
-                  {t("achievementsLabel")}
-                </h3>
-              </div>
-
-              {spotlightAchievements.length > 0 ? (
-                <div className="divide-y divide-[#dedad5]">
-                  {spotlightAchievements.map((achievement) => (
-                    <article key={achievement.id} className="py-6">
-                      <p className="font-mono text-[0.63rem] uppercase tracking-[0.09em] text-[#858984]">
-                        {[achievement.rank, achievement.achievedYear]
-                          .filter(Boolean)
-                          .join(" / ")}
-                      </p>
-                      <h4 className="mt-3 text-[1rem] font-bold leading-6 tracking-[-0.02em]">
-                        {achievement.title}
-                      </h4>
-                      {(achievement.description ||
-                        achievement.projectName ||
-                        achievement.organization) && (
-                        <p className="mt-3 line-clamp-2 text-[0.78rem] leading-6 text-[#686c67]">
-                          {achievement.description ??
-                            achievement.projectName ??
-                            achievement.organization}
-                        </p>
-                      )}
-                    </article>
-                  ))}
-                </div>
-              ) : (
-                <div className="py-7">
-                  <h4 className="text-[1rem] font-bold leading-6 tracking-[-0.02em]">
-                    {t("achievementsFallbackTitle")}
-                  </h4>
-                  <p className="mt-3 text-[0.78rem] leading-6 text-[#686c67]">
-                    {t("achievementsFallbackDescription")}
-                  </p>
-                </div>
-              )}
-
-              <Link
-                href={achievementsHref}
-                className="mt-auto inline-flex w-fit border-b border-[#139C48] pt-6 pb-1 text-[0.78rem] font-semibold text-[#139C48] transition-colors hover:border-[#0F7E3A] hover:text-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
-              >
-                {t("viewAchievements")}
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {quickNews.length > 0 && (
-        <section className="relative border-t border-[#dedad5] bg-white py-14 sm:py-16">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8">
-            <div className="grid gap-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                variants={reveal}
-                viewport={{ once: true }}
-              >
-                <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
-                  {t("quickFeedEyebrow")}
-                </p>
-                <h2 className="mt-4 text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
-                  {t("quickFeedTitle")}
-                </h2>
-              </motion.div>
-              <p className="max-w-xl text-sm leading-7 text-[#686c67] lg:justify-self-end">
-                {t("quickFeedDescription")}
-              </p>
-            </div>
-
-            <div className="mt-9 border-t border-[#dedad5]">
-              {quickNews.map((story, index) => (
-                <motion.div
-                  key={`quick-${story.title}-${story.date}`}
+            <div className="border-t border-[#d8dad7] lg:col-span-5">
+              {spotlightAchievements.map((achievement, index) => (
+                <motion.article
+                  key={achievement.id}
                   initial="hidden"
                   whileInView="visible"
                   variants={reveal}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: (index % 4) * 0.04 }}
-                  className="grid gap-3 border-b border-[#dedad5] py-5 sm:grid-cols-[8.5rem_8rem_1fr] sm:items-center sm:gap-5"
+                  transition={{ duration: 0.45, delay: index * 0.06 }}
+                  className="grid gap-5 border-b border-[#d8dad7] py-7 sm:grid-cols-[8rem_1fr]"
                 >
-                  <time className="font-mono text-[0.64rem] uppercase tracking-[0.06em] text-[#858984]">
-                    {story.date}
-                  </time>
-                  <span className="text-[0.66rem] font-bold uppercase tracking-[0.11em] text-[#139C48]">
-                    {story.category}
-                  </span>
-                  <Link
-                    href={newsHref(story)}
-                    className="w-fit text-[0.92rem] font-semibold leading-6 tracking-[-0.015em] transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
-                  >
-                    {story.title}
-                  </Link>
-                </motion.div>
+                  <div className="relative aspect-[1.15/1] overflow-hidden rounded-[0.75rem] bg-[#e7e9e6]">
+                    {achievement.coverImage ? (
+                      <img
+                        src={achievement.coverImage}
+                        alt=""
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <div className="grid h-full place-items-center font-mono text-[0.7rem] text-[#139C48]">
+                        0{index + 1}
+                      </div>
+                    )}
+                  </div>
+                  <div>
+                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.08em] text-[#139C48]">
+                      {[achievement.rank, achievement.achievedYear]
+                        .filter(Boolean)
+                        .join(" / ")}
+                    </span>
+                    <h3 className="mt-3 text-[1.02rem] font-semibold leading-[1.28] tracking-[-0.02em]">
+                      {achievement.title}
+                    </h3>
+                    {(achievement.description || achievement.projectName) && (
+                      <p className="mt-3 line-clamp-2 text-[0.72rem] leading-5 text-[#717671]">
+                        {achievement.description ?? achievement.projectName}
+                      </p>
+                    )}
+                  </div>
+                </motion.article>
               ))}
+              <Link
+                href={achievementsHref}
+                className="group mt-7 inline-flex items-center gap-2 rounded-full border border-[#bfc9be] px-4 py-2 text-[0.66rem] font-semibold text-[#565d56] transition-[background-color,border-color,color,transform] hover:border-[#139C48] hover:bg-[#139C48] hover:text-white active:scale-[0.98]"
+              >
+                {t("viewAchievements")}
+                <ArrowIcon direction="right" size={10} />
+              </Link>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      <section className="relative border-t border-[#dedad5] bg-white py-14 sm:py-16">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid gap-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={reveal}
-              viewport={{ once: true }}
-            >
-              <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
-                {t("officialChannel")}
-              </p>
-              <h2 className="mt-4 max-w-md text-[1.8rem] font-bold leading-tight tracking-[-0.035em] sm:text-[2.1rem]">
-                {t("exploreBiotech")}
-              </h2>
-            </motion.div>
-            <p className="max-w-xl text-sm leading-7 text-[#686c67] lg:justify-self-end">
-              {t("exploreBiotechDescription")}
-            </p>
-          </div>
-
-          <div className="mt-9 grid border border-[#dedad5] sm:grid-cols-2 lg:grid-cols-4">
-            {exploreLinks.map((item, index) => (
-              <motion.div
-                key={item.href}
-                initial="hidden"
-                whileInView="visible"
-                variants={reveal}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.06 }}
-                className={`${index > 0 ? "border-t border-[#dedad5] sm:border-t-0 sm:border-l" : ""} ${
-                  index === 2 ? "sm:border-l-0 sm:border-t lg:border-l lg:border-t-0" : ""
-                } ${index === 3 ? "sm:border-t lg:border-t-0" : ""}`}
-              >
-                <Link
-                  href={item.href}
-                  className="group flex min-h-56 flex-col p-6 transition-colors hover:bg-[#f5f7f4] focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#139C48]"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-[0.62rem] font-semibold text-[#139C48]">
-                      0{index + 1}
-                    </span>
-                    <span className="h-px w-10 bg-[#139C48]/35 transition-all duration-300 group-hover:w-16 group-hover:bg-[#139C48]" />
-                  </div>
-                  <h3 className="mt-10 text-base font-bold tracking-tight transition-colors group-hover:text-[#139C48]">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-[0.78rem] leading-6 text-[#686c67]">
-                    {item.description}
-                  </p>
-                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.75rem] font-semibold text-[#139C48]">
-                    {t("exploreLink")}
-                    <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                      <ArrowIcon direction="up-right" size={16} />
-                    </span>
-                  </span>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+      <section className="px-5 pb-24 pt-4 sm:px-8 md:pb-32 md:pt-8">
+        <div className="mx-auto grid max-w-7xl gap-8 rounded-[1.25rem] border border-[#cfe0ce] bg-[#f4f8f3] px-7 py-9 sm:px-10 md:grid-cols-12 md:items-center md:px-12 md:py-12">
+          <h2 className="max-w-[13ch] text-[clamp(2rem,3.4vw,3.3rem)] font-semibold leading-[1.12] tracking-[-0.05em] md:col-span-5">
+            {t("exploreBiotech")}
+          </h2>
+          <p className="max-w-[30rem] text-[0.82rem] leading-7 text-[#606760] md:col-start-6 md:col-span-4">
+            {t("exploreBiotechDescription")}
+          </p>
+          <Link
+            href={programsHref}
+            className="group inline-flex min-h-11 items-center justify-between gap-5 rounded-full bg-[#139C48] px-5 text-[0.72rem] font-semibold text-white transition-[background-color,transform] hover:-translate-y-0.5 hover:bg-[#0f7e3a] active:translate-y-0 md:col-span-3"
+          >
+            {t("exploreProgramsTitle")}
+            <HugeiconsIcon icon={ArrowUpRight01Icon} size={16} strokeWidth={1.6} />
+          </Link>
         </div>
       </section>
     </main>
