@@ -525,8 +525,7 @@ export function getMockCareerOpportunities(
       titleEn: "Applied Research Assistant",
       companyName: "AgriTech Partner",
       summaryVi:
-        "Tham gia thu thập mẫu, theo dõi thử nghiệm và tổng hợp số liệu cho dự án nông nghiệp."
-          ,
+        "Tham gia thu thập mẫu, theo dõi thử nghiệm và tổng hợp số liệu cho dự án nông nghiệp.",
       summaryEn:
         "Join sample collection, trial monitoring and data synthesis for an agricultural project.",
       type: "part_time",

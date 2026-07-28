@@ -117,6 +117,10 @@ export default function StudentActivitiesPageContent({
       : event.descriptionVi;
   const eventLocation = (event: Event) =>
     locale === "en" ? event.locationEn || event.locationVi : event.locationVi;
+  const storyHref = (story: News) =>
+    story.id.startsWith("mock-")
+      ? "#cau-chuyen"
+      : `${newsPath}/${story.slug}`;
 
   return (
     <main className="min-h-screen overflow-hidden bg-white text-[#171b25]">
@@ -165,7 +169,7 @@ export default function StudentActivitiesPageContent({
                     {featuredStory.title}
                   </h2>
                   <Link
-                    href={`${newsPath}/${featuredStory.slug}`}
+                    href={storyHref(featuredStory)}
                     className="mt-4 inline-flex text-xs font-semibold text-white underline decoration-white/45 underline-offset-4 hover:decoration-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                   >
                     {copy.readStory}
@@ -292,7 +296,7 @@ export default function StudentActivitiesPageContent({
               {remainingStories.map((story, index) => (
                 <article key={story.id} className="group border-t-2 border-[#171b25] pt-4">
                   <Link
-                    href={`${newsPath}/${story.slug}`}
+                    href={storyHref(story)}
                     className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
                   >
                     <div className="relative aspect-[16/10] overflow-hidden bg-[#eee5de]">
