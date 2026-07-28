@@ -48,6 +48,40 @@ const Footer = () => {
           program.level === "undergraduate" ? "dai-hoc" : "sau-dai-hoc"
         }/${program.slugVi}`
       : `/${currentLocale}/programs/${program.level}/${program.slugEn}`;
+  const displayedPrograms =
+    programs.length > 0
+      ? programs.map((program) => ({
+          key: program.programId,
+          href: programHref(program),
+          label:
+            currentLocale === "vi"
+              ? program.nameVi
+              : program.nameEn || program.nameVi,
+        }))
+      : [
+          {
+            key: "mock-biotechnology",
+            href:
+              currentLocale === "vi"
+                ? "/vi/chuong-trinh-dao-tao/dai-hoc"
+                : "/en/programs/undergraduate",
+            label:
+              currentLocale === "vi"
+                ? "Cử nhân Công nghệ Sinh học"
+                : "Bachelor of Biotechnology",
+          },
+          {
+            key: "mock-applied-biology",
+            href:
+              currentLocale === "vi"
+                ? "/vi/chuong-trinh-dao-tao"
+                : "/en/programs",
+            label:
+              currentLocale === "vi"
+                ? "Cử nhân Sinh học ứng dụng"
+                : "Bachelor of Applied Biology",
+          },
+        ];
 
   // Reusable minimal link — hover slides an arrow in, no per-item icon (modern, uncluttered)
   const FooterLink = ({ href, label }: { href: string; label: string }) => (
@@ -148,15 +182,11 @@ const Footer = () => {
               {tFooter("academicPrograms")}
             </h4>
             <ul className="space-y-3">
-              {programs.map((program) => (
+              {displayedPrograms.map((program) => (
                 <FooterLink
-                  key={program.programId}
-                  href={programHref(program)}
-                  label={
-                    currentLocale === "vi"
-                      ? program.nameVi
-                      : program.nameEn || program.nameVi
-                  }
+                  key={program.key}
+                  href={program.href}
+                  label={program.label}
                 />
               ))}
             </ul>

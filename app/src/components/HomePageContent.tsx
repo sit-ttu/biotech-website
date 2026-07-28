@@ -27,7 +27,6 @@ const landingCopy = {
     discover: "Khám phá",
     discoverIntro:
       "Ba điểm chạm để hiểu rõ hành trình học tập, nghiên cứu và trải nghiệm sinh viên tại Khoa.",
-    discoverMeta: "03 hướng khám phá",
     rows: [
       {
         title: "Chương trình đào tạo",
@@ -53,9 +52,8 @@ const landingCopy = {
     allNews: "Xem tất cả tin tức",
     newsEmpty: "Tin tức mới đang được cập nhật.",
     eventsEmpty: "Chưa có sự kiện sắp diễn ra.",
-    feedError: "Không thể tải dữ liệu lúc này.",
     aboutTitle: ["Về Khoa", "Công nghệ Sinh học"],
-    aboutEyebrow: "School of Biotechnology · TTU",
+    aboutStatement: "Khoa học phục vụ chất lượng cuộc sống.",
     aboutIntro:
       "Khoa đào tạo cử nhân và kỹ sư có khả năng hiểu, phát triển và ứng dụng tri thức cùng sản phẩm công nghệ sinh học nhằm nâng cao chất lượng cuộc sống.",
     aboutVision:
@@ -67,6 +65,11 @@ const landingCopy = {
       "Hợp tác học thuật mở rộng cơ hội nghiên cứu và tiếp cận các vấn đề liên ngành.",
     aboutStudentCaption:
       "Sinh viên phát triển năng lực qua dự án, cuộc thi và hoạt động đổi mới sáng tạo.",
+    ctaTitle: ["Chưa tìm thấy điều", "bạn đang tìm kiếm?"],
+    ctaDescription:
+      "Kết nối với Khoa để được giải đáp về chương trình học, tuyển sinh, hoạt động nghiên cứu và cơ hội dành cho sinh viên.",
+    ctaPrimary: "Liên hệ với Khoa",
+    ctaSecondary: "Xem chương trình",
     latestLabel: "Mới nhất",
   },
   en: {
@@ -84,7 +87,6 @@ const landingCopy = {
     discover: "Discover",
     discoverIntro:
       "Three perspectives on study, research and student experience at the School.",
-    discoverMeta: "03 ways to explore",
     rows: [
       {
         title: "Academic programs",
@@ -110,9 +112,8 @@ const landingCopy = {
     allNews: "View all news",
     newsEmpty: "New stories are being prepared.",
     eventsEmpty: "There are no upcoming events yet.",
-    feedError: "This content is temporarily unavailable.",
     aboutTitle: ["About the School", "of Biotechnology"],
-    aboutEyebrow: "School of Biotechnology · TTU",
+    aboutStatement: "Science in service of a better quality of life.",
     aboutIntro:
       "The School prepares bachelors and engineers to understand, develop and apply biotechnology knowledge and products that improve quality of life.",
     aboutVision:
@@ -124,13 +125,18 @@ const landingCopy = {
       "Academic partnerships expand research opportunities and interdisciplinary learning.",
     aboutStudentCaption:
       "Students build capability through projects, competitions and innovation activities.",
+    ctaTitle: ["Still looking for", "the right information?"],
+    ctaDescription:
+      "Connect with the School for guidance on academic programs, admissions, research activities and student opportunities.",
+    ctaPrimary: "Contact the School",
+    ctaSecondary: "Explore programs",
     latestLabel: "Latest",
   },
 } as const;
 
 const cardImages = [
-  "/assets/ttu/students-campus-learning.jpg",
-  "/assets/ttu/menu/academic-programs.jpg",
+  "/assets/biotech/program-biotechnology-lab.webp",
+  "/assets/biotech/program-applied-biology-tissue-culture.webp",
   "/assets/ttu/programs-academic-partnership.jpg",
   "/assets/biotech/biotech-hackathon-2026.jpg",
 ];
@@ -138,6 +144,121 @@ const cardImages = [
 const newsFallbackImages = [
   "/assets/ttu/menu/students-at-ttu.jpg",
   "/assets/ttu/menu/international-cooperation-2026.jpg",
+];
+
+const mockNewsByLocale: Record<SiteLocale, News[]> = {
+  vi: [
+    {
+      id: "mock-news-research",
+      title:
+        "Sinh viên Công nghệ Sinh học với hành trình nghiên cứu ứng dụng",
+      slug: "hanh-trinh-nghien-cuu-ung-dung",
+      summary:
+        "Từ phòng thực hành đến các dự án liên ngành, sinh viên từng bước chuyển hóa kiến thức thành giải pháp cho đời sống.",
+      content: {},
+      coverImage: "/assets/ttu/menu/international-cooperation-2026.jpg",
+      category: "academic",
+      status: "published",
+      publishedAt: "2026-07-20T08:00:00+07:00",
+      createdAt: "2026-07-20T08:00:00+07:00",
+      updatedAt: "2026-07-20T08:00:00+07:00",
+    },
+    {
+      id: "mock-news-campus",
+      title: "Môi trường học tập gắn với thực hành và đổi mới sáng tạo",
+      slug: "moi-truong-hoc-tap-doi-moi-sang-tao",
+      summary:
+        "Không gian học thuật tại TTU kết nối kiến thức nền tảng, trải nghiệm phòng thí nghiệm và hoạt động cộng đồng.",
+      content: {},
+      coverImage: "/assets/ttu/students-campus-learning.jpg",
+      category: "general",
+      status: "published",
+      publishedAt: "2026-07-12T08:00:00+07:00",
+      createdAt: "2026-07-12T08:00:00+07:00",
+      updatedAt: "2026-07-12T08:00:00+07:00",
+    },
+  ],
+  en: [
+    {
+      id: "mock-news-research",
+      title: "Biotechnology students on a journey into applied research",
+      slug: "applied-research-journey",
+      summary:
+        "From laboratory practice to interdisciplinary projects, students turn scientific knowledge into ideas for real-world challenges.",
+      content: {},
+      coverImage: "/assets/ttu/menu/international-cooperation-2026.jpg",
+      category: "academic",
+      status: "published",
+      publishedAt: "2026-07-20T08:00:00+07:00",
+      createdAt: "2026-07-20T08:00:00+07:00",
+      updatedAt: "2026-07-20T08:00:00+07:00",
+    },
+    {
+      id: "mock-news-campus",
+      title: "A learning environment shaped by practice and innovation",
+      slug: "learning-through-practice-and-innovation",
+      summary:
+        "Academic life at TTU connects scientific foundations, laboratory experience and an active student community.",
+      content: {},
+      coverImage: "/assets/ttu/students-campus-learning.jpg",
+      category: "general",
+      status: "published",
+      publishedAt: "2026-07-12T08:00:00+07:00",
+      createdAt: "2026-07-12T08:00:00+07:00",
+      updatedAt: "2026-07-12T08:00:00+07:00",
+    },
+  ],
+};
+
+const mockEvents: Event[] = [
+  {
+    id: "mock-event-open-lab",
+    titleVi: "Trải nghiệm phòng thực hành Công nghệ Sinh học",
+    titleEn: "Biotechnology open laboratory experience",
+    startAt: "2026-08-15T08:00:00+07:00",
+    locationVi: "Khoa Công nghệ Sinh học, Đại học Tân Tạo",
+    locationEn: "School of Biotechnology, Tan Tao University",
+    status: "published",
+    isFeatured: true,
+    createdAt: "2026-07-20T08:00:00+07:00",
+    updatedAt: "2026-07-20T08:00:00+07:00",
+  },
+  {
+    id: "mock-event-seminar",
+    titleVi: "Seminar học thuật về Sinh học ứng dụng",
+    titleEn: "Academic seminar on Applied Biology",
+    startAt: "2026-08-22T09:00:00+07:00",
+    locationVi: "Đại học Tân Tạo",
+    locationEn: "Tan Tao University",
+    status: "published",
+    isFeatured: false,
+    createdAt: "2026-07-20T08:00:00+07:00",
+    updatedAt: "2026-07-20T08:00:00+07:00",
+  },
+  {
+    id: "mock-event-research",
+    titleVi: "Kết nối sinh viên với nghiên cứu và đổi mới sáng tạo",
+    titleEn: "Connecting students with research and innovation",
+    startAt: "2026-09-05T08:30:00+07:00",
+    locationVi: "Đại học Tân Tạo",
+    locationEn: "Tan Tao University",
+    status: "published",
+    isFeatured: false,
+    createdAt: "2026-07-20T08:00:00+07:00",
+    updatedAt: "2026-07-20T08:00:00+07:00",
+  },
+  {
+    id: "mock-event-community",
+    titleVi: "Sinh hoạt học thuật cộng đồng Biotech TTU",
+    titleEn: "Biotech TTU academic community gathering",
+    startAt: "2026-09-12T09:00:00+07:00",
+    locationVi: "Khoa Công nghệ Sinh học, Đại học Tân Tạo",
+    locationEn: "School of Biotechnology, Tan Tao University",
+    status: "published",
+    isFeatured: false,
+    createdAt: "2026-07-20T08:00:00+07:00",
+    updatedAt: "2026-07-20T08:00:00+07:00",
+  },
 ];
 
 function formatEditorialDate(value: string, locale: SiteLocale) {
@@ -206,8 +327,6 @@ export default function HomePageContent({
   const [events, setEvents] = useState<Event[]>([]);
   const [newsLoading, setNewsLoading] = useState(true);
   const [eventsLoading, setEventsLoading] = useState(true);
-  const [newsError, setNewsError] = useState(false);
-  const [eventsError, setEventsError] = useState(false);
   const links = {
     about:
       locale === "vi"
@@ -224,6 +343,7 @@ export default function HomePageContent({
         ? `${basePath}/sinh-vien`
         : `${basePath}/students`,
     news: locale === "vi" ? `${basePath}/tin-tuc` : `${basePath}/news`,
+    contact: locale === "vi" ? `${basePath}/lien-he` : `${basePath}/contact`,
   };
   const cardLinks = [
     links.programs,
@@ -240,19 +360,23 @@ export default function HomePageContent({
       .findAll()
       .then((items) => {
         if (!active) return;
+        const publishedItems = items
+          .filter((item) => item.status === "published")
+          .sort(
+            (a, b) =>
+              new Date(b.publishedAt || b.createdAt).getTime() -
+              new Date(a.publishedAt || a.createdAt).getTime(),
+          )
+          .slice(0, 2);
+
         setNewsItems(
-          items
-            .filter((item) => item.status === "published")
-            .sort(
-              (a, b) =>
-                new Date(b.publishedAt || b.createdAt).getTime() -
-                new Date(a.publishedAt || a.createdAt).getTime(),
-            )
-            .slice(0, 2),
+          publishedItems.length > 0
+            ? publishedItems
+            : mockNewsByLocale[locale],
         );
       })
       .catch(() => {
-        if (active) setNewsError(true);
+        if (active) setNewsItems(mockNewsByLocale[locale]);
       })
       .finally(() => {
         if (active) setNewsLoading(false);
@@ -261,10 +385,10 @@ export default function HomePageContent({
     api.events
       .findUpcoming(4)
       .then((items) => {
-        if (active) setEvents(items);
+        if (active) setEvents(items.length > 0 ? items : mockEvents);
       })
       .catch(() => {
-        if (active) setEventsError(true);
+        if (active) setEvents(mockEvents);
       })
       .finally(() => {
         if (active) setEventsLoading(false);
@@ -273,7 +397,7 @@ export default function HomePageContent({
     return () => {
       active = false;
     };
-  }, []);
+  }, [locale]);
 
   const reveal = reduceMotion
     ? { opacity: 1, y: 0 }
@@ -399,7 +523,7 @@ export default function HomePageContent({
               initial={reduceMotion ? false : { opacity: 0, y: 26 }}
               whileInView={reveal}
               viewport={{ once: true, amount: 0.5 }}
-              className="lg:col-span-3 lg:flex lg:min-h-full lg:flex-col lg:pr-8"
+              className="lg:col-span-3 lg:pr-8"
             >
               <h2 className="text-[2.15rem] font-semibold leading-none tracking-[-0.055em] text-[#111311] sm:text-[2.6rem]">
                 {copy.discover}
@@ -407,10 +531,6 @@ export default function HomePageContent({
               <p className="mt-6 max-w-[17rem] text-[0.76rem] leading-[1.55] text-[#747974]">
                 {copy.discoverIntro}
               </p>
-              <div className="mt-8 flex items-center gap-3 font-roboto-mono text-[0.58rem] uppercase tracking-[0.14em] text-[#139C48] lg:mt-auto">
-                <span className="h-px w-8 bg-[#139C48]" />
-                {copy.discoverMeta}
-              </div>
             </motion.div>
 
             <div className="border-t border-[#d8dad7] lg:col-span-9">
@@ -495,10 +615,10 @@ export default function HomePageContent({
                     </div>
                   ))}
                 </div>
-              ) : newsError || newsItems.length === 0 ? (
+              ) : newsItems.length === 0 ? (
                 <div className="border-b border-[#d8dad7] py-12">
                   <p className="max-w-sm text-sm leading-6 text-[#747974]">
-                    {newsError ? copy.feedError : copy.newsEmpty}
+                    {copy.newsEmpty}
                   </p>
                 </div>
               ) : (
@@ -508,6 +628,9 @@ export default function HomePageContent({
                     const image =
                       getNewsImage(item) ||
                       newsFallbackImages[index % newsFallbackImages.length];
+                    const newsHref = item.id.startsWith("mock-")
+                      ? links.news
+                      : `${links.news}/${item.slug}`;
 
                     return (
                       <motion.article
@@ -542,7 +665,7 @@ export default function HomePageContent({
                             </p>
                           )}
                           <Link
-                            href={`${links.news}/${item.slug}`}
+                            href={newsHref}
                             className="group mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-[#cfd2ce] px-3 py-1.5 text-[0.61rem] font-medium text-[#5f635f] transition-[background-color,border-color,color,transform] hover:border-[#139C48] hover:bg-[#139C48] hover:text-white active:scale-[0.98] sm:mt-auto"
                           >
                             {copy.readMore}
@@ -550,7 +673,7 @@ export default function HomePageContent({
                           </Link>
                         </div>
                         <Link
-                          href={`${links.news}/${item.slug}`}
+                          href={newsHref}
                           className="group/image relative min-h-44 overflow-hidden rounded-[0.75rem] bg-[#e7e9e6]"
                         >
                           <img
@@ -579,9 +702,9 @@ export default function HomePageContent({
                     </div>
                   ))}
                 </div>
-              ) : eventsError || events.length === 0 ? (
+              ) : events.length === 0 ? (
                 <p className="border-b border-[#d8dad7] py-10 text-sm leading-6 text-[#747974]">
-                  {eventsError ? copy.feedError : copy.eventsEmpty}
+                  {copy.eventsEmpty}
                 </p>
               ) : (
                 <div className="divide-y divide-[#d8dad7] border-b border-[#d8dad7]">
@@ -644,8 +767,8 @@ export default function HomePageContent({
           </div>
 
           <div className="mt-5 grid gap-5 md:grid-cols-12 md:items-start md:gap-4">
-            <p className="font-roboto-mono text-[0.58rem] uppercase leading-[1.6] tracking-[0.14em] text-[#139C48] md:col-start-4 md:col-span-3 md:pr-5">
-              {copy.aboutEyebrow}
+            <p className="max-w-[15rem] border-l border-[#bfc3bf] pl-4 text-[0.88rem] font-medium leading-[1.5] tracking-[-0.025em] text-[#4f544f] md:col-start-4 md:col-span-3 md:pr-5">
+              {copy.aboutStatement}
             </p>
             <p className="max-w-[32rem] text-[0.68rem] leading-[1.48] text-[#666b66] md:col-span-3 md:pr-5">
               {copy.aboutIntro}
@@ -740,6 +863,48 @@ export default function HomePageContent({
             </motion.div>
           </div>
         </section>
+
+        <motion.section
+          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+          whileInView={reveal}
+          viewport={{ once: true, amount: 0.35 }}
+          className="mx-5 mb-16 overflow-hidden border border-[#d9e3d8] bg-[#f1f5f0] sm:mx-8 md:mb-24"
+        >
+          <div className="grid md:grid-cols-12">
+            <div className="relative px-6 py-10 sm:px-9 sm:py-12 md:col-span-6 md:px-10 md:py-16">
+              <span
+                aria-hidden="true"
+                className="absolute inset-y-0 left-0 w-1 bg-[#139C48]"
+              />
+              <h2 className="text-[2.15rem] font-semibold leading-[0.98] tracking-[-0.055em] text-[#111311] sm:text-[2.7rem]">
+                <span className="block">{copy.ctaTitle[0]}</span>
+                <span className="block">{copy.ctaTitle[1]}</span>
+              </h2>
+            </div>
+
+            <div className="border-t border-[#d9e3d8] px-6 py-10 sm:px-9 md:col-span-6 md:border-l md:border-t-0 md:px-10 md:py-16">
+              <p className="max-w-[31rem] text-[0.78rem] leading-[1.6] text-[#626862] sm:text-[0.84rem]">
+                {copy.ctaDescription}
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Link
+                  href={links.contact}
+                  className="group inline-flex min-h-11 items-center gap-3 rounded-full bg-[#139C48] px-5 text-[0.72rem] font-semibold text-white transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#0f7e3a] active:translate-y-0"
+                >
+                  {copy.ctaPrimary}
+                  <ArrowIcon direction="right" size={12} />
+                </Link>
+                <Link
+                  href={links.programs}
+                  className="group inline-flex min-h-11 items-center gap-3 rounded-full border border-[#bfc9be] px-5 text-[0.72rem] font-semibold text-[#4f554f] transition-[background-color,border-color,color,transform] duration-300 hover:-translate-y-0.5 hover:border-[#139C48] hover:bg-white hover:text-[#139C48] active:translate-y-0"
+                >
+                  {copy.ctaSecondary}
+                  <ArrowIcon direction="right" size={12} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </motion.section>
       </div>
     </main>
   );
