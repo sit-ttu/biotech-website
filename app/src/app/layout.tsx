@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   applicationName: "Biotech TTU",
   title: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
   description:
-    "Khoa Công nghệ Sinh học Đại học Tân Tạo đào tạo Công nghệ Sinh học và Nông nghiệp công nghệ cao gắn với thực hành, nghiên cứu và ứng dụng.",
+    "Khoa Công nghệ Sinh học Đại học Tân Tạo đào tạo Công nghệ Sinh học và Sinh học ứng dụng gắn với thực hành, nghiên cứu và ứng dụng.",
   keywords:
-    "Khoa Công nghệ Sinh học Đại học Tân Tạo, Công nghệ Sinh học, Nông nghiệp công nghệ cao, nghiên cứu sinh học, Biotech TTU",
+    "Khoa Công nghệ Sinh học Đại học Tân Tạo, Công nghệ Sinh học, Sinh học ứng dụng, nghiên cứu sinh học, Biotech TTU",
   authors: [{ name: "Khoa Công nghệ Sinh học - Đại học Tân Tạo" }],
   creator: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
   publisher: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
     title: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
     description: truncateText(
-      "Khoa Công nghệ Sinh học Đại học Tân Tạo đào tạo Công nghệ Sinh học và Nông nghiệp công nghệ cao gắn với thực hành, nghiên cứu và ứng dụng.",
+      "Khoa Công nghệ Sinh học Đại học Tân Tạo đào tạo Công nghệ Sinh học và Sinh học ứng dụng gắn với thực hành, nghiên cứu và ứng dụng.",
       125,
     ),
     images: [
@@ -60,21 +60,21 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
     description:
-      "Đào tạo Công nghệ Sinh học và Nông nghiệp công nghệ cao tại Đại học Tân Tạo.",
+      "Đào tạo Công nghệ Sinh học và Sinh học ứng dụng tại Đại học Tân Tạo.",
     images: [absoluteUrl("/assets/biotech/hero-biotechnology.png")],
   },
   icons: {
     icon: [
       {
-        url: "/assets/biotech/logo-biotech.png",
-        sizes: "737x111",
+        url: "/assets/biotech/favicon-ttu.png",
+        sizes: "298x300",
         type: "image/png",
       },
     ],
     apple: [
       {
-        url: "/assets/biotech/logo-biotech.png",
-        sizes: "737x111",
+        url: "/assets/biotech/favicon-ttu.png",
+        sizes: "298x300",
         type: "image/png",
       },
     ],

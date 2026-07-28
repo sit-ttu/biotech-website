@@ -4,7 +4,7 @@ import { buildPageMetadata } from "@/lib/seo";
 
 const title = "Khoa Công nghệ Sinh học - Đại học Tân Tạo";
 const description =
-  "Khoa Công nghệ Sinh học Đại học Tân Tạo đào tạo Công nghệ Sinh học và Nông nghiệp công nghệ cao theo định hướng nghiên cứu, thực hành và hội nhập quốc tế.";
+  "Khoa Công nghệ Sinh học Đại học Tân Tạo đào tạo Công nghệ Sinh học và Sinh học ứng dụng theo định hướng nghiên cứu, thực hành và hội nhập quốc tế.";
 
 export const metadata = buildPageMetadata({
   locale: "vi",

@@ -14,7 +14,7 @@ export async function generateMetadata() {
     locale: "en",
     title: "Biotechnology Programs | Biotech TTU - Tan Tao University",
     description:
-      "Explore Biotechnology and High-Tech Agriculture programs at Tan Tao University.",
+      "Explore Biotechnology and Applied Biology programs at Tan Tao University.",
     path: "/en/programs",
     alternatePath: "/vi/chuong-trinh-dao-tao",
     image: programs[0] ? programImage(programs[0]) : undefined,

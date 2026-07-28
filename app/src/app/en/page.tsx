@@ -3,7 +3,7 @@ import { buildPageMetadata } from "@/lib/seo";
 
 const title = "School of Biotechnology - Tan Tao University";
 const description =
-  "The School of Biotechnology at Tan Tao University offers Biotechnology and High-Tech Agriculture programs with research-led, practice-based learning.";
+  "The School of Biotechnology at Tan Tao University offers Biotechnology and Applied Biology programs with research-led, practice-based learning.";
 
 export const metadata = buildPageMetadata({
   locale: "en",

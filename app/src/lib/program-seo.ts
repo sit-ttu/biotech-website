@@ -45,8 +45,8 @@ export const buildEducationLevelMetadata = (
       : `${isGraduate ? "Postgraduate" : "Undergraduate"} Biotechnology Programs`;
   const description =
     locale === "vi"
-      ? `Khám phá ${isGraduate ? "chương trình sau đại học" : "các chương trình đại học"} về Công nghệ Sinh học và Nông nghiệp công nghệ cao tại Đại học Tân Tạo.`
-      : `Explore ${isGraduate ? "postgraduate" : "undergraduate"} programs in Biotechnology and High-Tech Agriculture at Tan Tao University.`;
+      ? `Khám phá ${isGraduate ? "chương trình sau đại học" : "các chương trình đại học"} về Công nghệ Sinh học và Sinh học ứng dụng tại Đại học Tân Tạo.`
+      : `Explore ${isGraduate ? "postgraduate" : "undergraduate"} programs in Biotechnology and Applied Biology at Tan Tao University.`;
 
   return buildPageMetadata({
     locale,

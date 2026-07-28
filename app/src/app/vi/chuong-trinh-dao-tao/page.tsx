@@ -14,7 +14,7 @@ export async function generateMetadata() {
     locale: "vi",
     title: "Chương trình đào tạo Công nghệ Sinh học | Biotech TTU",
     description:
-      "Khám phá các chương trình Công nghệ Sinh học và Nông nghiệp công nghệ cao tại Đại học Tân Tạo.",
+      "Khám phá các chương trình Công nghệ Sinh học và Sinh học ứng dụng tại Đại học Tân Tạo.",
     path: "/vi/chuong-trinh-dao-tao",
     alternatePath: "/en/programs",
     image: programs[0] ? programImage(programs[0]) : undefined,

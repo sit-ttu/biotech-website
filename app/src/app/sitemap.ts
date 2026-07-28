@@ -18,7 +18,6 @@ const STATIC_ROUTE_PAIRS = [
   ["/vi/gioi-thieu-chung", "/en/about-us"],
   ["/vi/chuong-trinh-dao-tao", "/en/programs"],
   ["/vi/chuong-trinh-dao-tao/dai-hoc", "/en/programs/undergraduate"],
-  ["/vi/chuong-trinh-dao-tao/sau-dai-hoc", "/en/programs/postgraduate"],
   ["/vi/nghien-cuu", "/en/research"],
   ["/vi/nghien-cuu/de-tai-khoa-hoc", "/en/research/scientific-projects"],
   ["/vi/nghien-cuu/bai-bao-khoa-hoc", "/en/research/scientific-publications"],

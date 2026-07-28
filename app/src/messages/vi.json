@@ -1,8 +1,8 @@
 {
   "metadata": {
     "title": "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
-    "description": "Khoa Công nghệ Sinh học Đại học Tân Tạo đào tạo Công nghệ Sinh học và Nông nghiệp công nghệ cao theo định hướng nghiên cứu, thực hành và hội nhập quốc tế.",
-    "keywords": "Khoa Công nghệ Sinh học Đại học Tân Tạo, Công nghệ Sinh học, Nông nghiệp công nghệ cao, nghiên cứu sinh học, Biotech TTU"
+    "description": "Khoa Công nghệ Sinh học Đại học Tân Tạo đào tạo Công nghệ Sinh học và Sinh học ứng dụng theo định hướng nghiên cứu, thực hành và hội nhập quốc tế.",
+    "keywords": "Khoa Công nghệ Sinh học Đại học Tân Tạo, Công nghệ Sinh học, Sinh học ứng dụng, nghiên cứu sinh học, Biotech TTU"
   },
   "header": {
     "phone": "(+84) 076 436 2098",
@@ -39,7 +39,7 @@
     "contactLink": "Liên hệ",
     "faqLink": "Hỏi đáp",
     "messengerLink": "Nhắn Messenger",
-    "programsDescription": "Khám phá các chương trình Công nghệ Sinh học và Nông nghiệp công nghệ cao gắn với thực hành và nghiên cứu.",
+    "programsDescription": "Khám phá các chương trình Công nghệ Sinh học và Sinh học ứng dụng gắn với thực hành và nghiên cứu.",
     "studentsDescription": "Thông tin tuyển sinh, học tập, hoạt động và cơ hội dành cho sinh viên Biotech TTU.",
     "researchDescription": "Tìm hiểu các hướng nghiên cứu, công bố khoa học và hệ thống phòng thực hành của Khoa.",
     "exploreDescription": "Khám phá môi trường học thuật và nghiên cứu của Khoa Công nghệ Sinh học.",
@@ -72,7 +72,7 @@
     "dynamicTexts": [
       "Kiến tạo sự sống",
       "Công nghệ Sinh học",
-      "Nông nghiệp công nghệ cao",
+      "Sinh học ứng dụng",
       "Nghiên cứu ứng dụng"
     ],
     "subtitle": "Chương trình đào tạo hiện đại, hội nhập quốc tế và dựa trên chuẩn đầu ra, giúp người học xây dựng nền tảng khoa học vững chắc, kỹ năng thực hành và phẩm chất nghề nghiệp.",
@@ -596,13 +596,13 @@
           ]
         },
         "highTechAgriculture": {
-          "title": "Nông nghiệp công nghệ cao",
+          "title": "Sinh học ứng dụng",
           "programs": [
             {
-              "title": "Nông nghiệp công nghệ cao",
+              "title": "Sinh học ứng dụng",
               "code": "",
-              "description": "Lộ trình ứng dụng sinh học, công nghệ và dữ liệu để phát triển nông nghiệp hiện đại, hiệu quả và bền vững.",
-              "features": "Công nghệ giống, Nông nghiệp thông minh, Sinh học ứng dụng, Quản lý chất lượng"
+              "description": "Chương trình đào tạo cử nhân Sinh học ứng dụng, chú trọng dược liệu, vi sinh, công nghệ thực phẩm, kiểm nghiệm và ứng dụng sinh học trong y sinh, nông nghiệp và môi trường.",
+              "features": "Sinh học phân tử, Vi sinh ứng dụng, Dược liệu, Công nghệ thực phẩm, Kiểm nghiệm sinh học"
             }
           ]
         }
@@ -613,7 +613,7 @@
   "about": {
     "title": "Khoa Công nghệ Sinh học",
     "subtitle": "Đào tạo khoa học sự sống gắn với nghiên cứu và ứng dụng",
-    "description": "Khoa Công nghệ Sinh học - Đại học Tân Tạo đào tạo người học có nền tảng kiến thức vững chắc, kỹ năng chuyên môn và phẩm chất nghề nghiệp để góp phần nâng cao chất lượng cuộc sống.",
+    "description": "Khoa Công nghệ Sinh học - Đại học Tân Tạo đào tạo cử nhân và kỹ sư có khả năng phát triển, ứng dụng tri thức cùng sản phẩm công nghệ sinh học nhằm nâng cao chất lượng cuộc sống.",
     "heroImageAlt": "Sinh viên Khoa Công nghệ Sinh học Đại học Tân Tạo",
     "heroMediaEyebrow": "Biotech TTU",
     "heroMediaTitle": "Học trong phòng thí nghiệm, trưởng thành qua nghiên cứu.",
@@ -645,13 +645,13 @@
     "explorePrograms": "Khám phá chương trình",
     "contactUs": "Liên hệ tư vấn",
     "history": "Lịch sử hình thành",
-    "historyText": "Khoa Công nghệ Sinh học - Đại học Tân Tạo được phát triển nhằm đào tạo nguồn nhân lực có năng lực nghiên cứu, ứng dụng khoa học sự sống và đóng góp cho cộng đồng.",
+    "historyText": "Khoa Công nghệ Sinh học - Đại học Tân Tạo được phát triển để đào tạo nguồn nhân lực có khả năng nghiên cứu, phát triển và ứng dụng các sản phẩm công nghệ sinh học phục vụ cộng đồng.",
     "faculty": "Khoa Công nghệ Sinh học",
     "facultyText": "Nơi kết nối giảng dạy, nghiên cứu khoa học và ứng dụng công nghệ sinh học.",
     "mission": "Sứ mệnh",
-    "missionText": "Đào tạo cử nhân có nền tảng khoa học vững chắc, kỹ năng chuyên môn thành thạo, đạo đức nghề nghiệp và năng lực học tập suốt đời.",
+    "missionText": "Đào tạo cử nhân và kỹ sư có khả năng hiểu, phát triển và ứng dụng tri thức cùng các sản phẩm công nghệ sinh học, đồng thời góp phần bảo tồn và phát triển nguồn động, thực vật có giá trị.",
     "vision": "Tầm nhìn",
-    "visionText": "Xây dựng môi trường đào tạo Công nghệ Sinh học hiện đại, hội nhập quốc tế và tạo ra giá trị thiết thực cho xã hội.",
+    "visionText": "Phát triển thành trung tâm nghiên cứu và chẩn đoán ung thư tại Việt Nam, đồng thời thúc đẩy nghiên cứu ứng dụng và chuyển giao sản phẩm công nghệ sinh học cho nông nghiệp, đặc biệt tại Đồng bằng sông Cửu Long.",
     "values": "Giá trị cốt lõi",
     "valuesText": "Bảy giá trị cốt lõi của Đại học Tân Tạo định hướng hoạt động đào tạo, nghiên cứu và xây dựng cộng đồng học thuật.",
     "valuesList": [
@@ -679,7 +679,7 @@
     "organizationText": "Cơ cấu gồm: (1) Hội đồng Khoa, (2) Ban lãnh đạo Khoa, (3) Bộ phận Văn phòng, (4) Các bộ môn chuyên môn.",
     "qualityPolicy": "Chính sách chất lượng",
     "qualityPolicyText": "Khoa cam kết đào tạo theo chuẩn đầu ra, cải tiến liên tục, tăng cường thực hành phòng thí nghiệm và xây dựng môi trường học thuật minh bạch, lấy người học làm trung tâm.",
-    "dean": "Phụ trách Khoa",
+    "dean": "Phó Khoa",
     "deanName": "TS. Tạ Văn Quang",
     "contact": "Thông tin liên hệ",
     "phone": "(+84) 076 436 2098",
@@ -776,7 +776,7 @@
   "research": {
     "title": "Nghiên cứu",
     "subtitle": "Khoa học sự sống từ phòng thí nghiệm đến ứng dụng",
-    "description": "Các hướng nghiên cứu tập trung vào y sinh, sinh học phân tử, nông nghiệp công nghệ cao, môi trường, thực phẩm và dữ liệu sinh học.",
+    "description": "Các hướng nghiên cứu tập trung vào y sinh, sinh học phân tử, sinh học ứng dụng, môi trường, thực phẩm và dữ liệu sinh học.",
     "heroBadge": "Nghiên cứu tại Biotech TTU",
     "heroCtaPrimary": "Khám phá sáng kiến",
     "heroCtaSecondary": "Gặp gỡ đội ngũ nghiên cứu",
@@ -811,7 +811,7 @@
         "projects": []
       },
       {
-        "title": "Nông nghiệp công nghệ cao",
+        "title": "Sinh học ứng dụng",
         "description": "Ứng dụng sinh học và công nghệ để phát triển giống, chẩn đoán bệnh và sản xuất bền vững.",
         "projects": []
       },
@@ -979,7 +979,7 @@
     ],
     "programs": [
       "Công nghệ Sinh học",
-      "Nông nghiệp công nghệ cao"
+      "Sinh học ứng dụng"
     ],
     "address": "Đại lộ Đại học Tân Tạo, Tân Đức E.City, Xã Đức Hòa, Tỉnh Tây Ninh",
     "phone": "(+84) 076 436 2098 · (+84) 272 376 9216",
@@ -1023,7 +1023,7 @@
     "items": [
       {
         "q": "Khoa Công nghệ Sinh học đang đào tạo những ngành nào?",
-        "a": "Khoa tập trung đào tạo Công nghệ Sinh học và Nông nghiệp công nghệ cao. Thông tin chi tiết được trình bày tại mục Chương trình đào tạo."
+        "a": "Khoa tập trung đào tạo Công nghệ Sinh học và Sinh học ứng dụng. Thông tin chi tiết được trình bày tại mục Chương trình đào tạo."
       },
       {
         "q": "Học phí và học bổng của Khoa như thế nào?",

@@ -1,34 +1,178 @@
 "use client";
 
-import { Menu, Search, X, ChevronRight, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
+import { ChevronDown, Menu, Search, X } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { api, Program, Curriculum } from "@/lib/api";
+import { useEffect, useMemo, useState } from "react";
+import { api, type Curriculum, type Program } from "@/lib/api";
 import { ModalSearchGlobal } from "./ModalSearchGlobal";
-import { cn } from "@/utils/cn";
+
+type HeaderLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+type MegaMenuCardItem = HeaderLink & {
+  id: string;
+  image: string;
+};
+
+function MenuLink({
+  link,
+  onClick,
+  className = "",
+}: {
+  link: HeaderLink;
+  onClick?: () => void;
+  className?: string;
+}) {
+  const styles = `group/link flex items-center justify-between gap-4 rounded-xl px-3 py-2.5 text-sm font-medium text-[#363a36] transition-[background-color,color,transform] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:translate-x-0.5 hover:bg-[#139C48]/8 hover:text-[#139C48] ${className}`;
+
+  return link.external ? (
+    <a
+      href={link.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={onClick}
+      className={styles}
+    >
+      {link.label}
+      <span className="text-xs text-[#a3a6a3] transition-colors group-hover/link:text-[#139C48]">
+        ↗
+      </span>
+    </a>
+  ) : (
+    <Link href={link.href} onClick={onClick} className={styles}>
+      {link.label}
+      <span className="text-xs text-[#a3a6a3] transition-colors group-hover/link:text-[#139C48]">
+        →
+      </span>
+    </Link>
+  );
+}
+
+function MegaMenuCards({ items }: { items: MegaMenuCardItem[] }) {
+  return (
+    <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+      {items.map((item) => {
+        const content = (
+          <>
+            <div className="aspect-[4/2.7] overflow-hidden bg-[#edf0ed]">
+              <img
+                src={item.image}
+                alt={item.label}
+                className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/card:scale-[1.035]"
+              />
+            </div>
+            <h3 className="mt-3 text-sm font-semibold leading-snug text-[#139C48] transition-colors group-hover/card:text-[#0F7E3A]">
+              {item.label}
+            </h3>
+          </>
+        );
+
+        return item.external ? (
+          <a
+            key={item.id}
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group/card block"
+          >
+            {content}
+          </a>
+        ) : (
+          <Link key={item.id} href={item.href} className="group/card block">
+            {content}
+          </Link>
+        );
+      })}
+    </div>
+  );
+}
+
+function DesktopDropdown({
+  label,
+  href,
+  active,
+  description,
+  children,
+  sideItems = [],
+}: {
+  label: string;
+  href: string;
+  active: boolean;
+  description: string;
+  children: React.ReactNode;
+  sideItems?: HeaderLink[];
+}) {
+  return (
+    <div className="group">
+      <Link
+        href={href}
+        className={`relative flex items-center gap-1.5 py-3 text-sm font-semibold tracking-[-0.01em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48] ${
+          active ? "text-[#139C48]" : "text-[#4b4d4b] hover:text-[#139C48]"
+        }`}
+      >
+        {label}
+        <ChevronDown
+          size={14}
+          strokeWidth={1.7}
+          className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-180 group-focus-within:rotate-180"
+        />
+        {active && (
+          <span className="absolute bottom-1 left-0 h-0.5 w-full rounded-full bg-[#139C48]" />
+        )}
+      </Link>
+
+      <div
+        className="pointer-events-none invisible fixed left-1/2 top-[4rem] w-[min(80rem,100vw)] -translate-x-1/2 -translate-y-1 pt-5 opacity-0 transition-[opacity,transform,visibility] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+      >
+        <div className="max-h-[72dvh] overflow-y-auto border-x border-b border-[#dfe4df] bg-white shadow-[0_18px_45px_-28px_rgba(25,45,31,0.32)]">
+          <div className="grid min-h-[20rem] md:grid-cols-[16rem_1fr]">
+            <div className="border-[#e1e5e1] bg-[#fafbfa] p-7 md:border-r">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#139C48]">
+                {label}
+              </p>
+              <p className="mt-5 text-xs leading-5 text-[#747974]">
+                {description}
+              </p>
+              {sideItems.length > 0 && (
+                <div className="mt-6 space-y-1 border-t border-[#e1e5e1] pt-4">
+                  {sideItems.map((item) => (
+                    <MenuLink key={item.href} link={item} />
+                  ))}
+                </div>
+              )}
+              <Link
+                href={href}
+                className="mt-7 inline-flex items-center gap-3 border-b border-[#139C48] pb-1 text-xs font-semibold text-[#139C48]"
+              >
+                {label}
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+            <div className="p-7 lg:p-9">{children}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const Header = () => {
   const t = useTranslations("header");
   const tPrograms = useTranslations("programs");
   const pathname = usePathname();
-  const localeSegments = pathname.split("/").filter(Boolean);
-  const localeCandidate = localeSegments[0];
-  const locale =
-    localeCandidate === "vi" || localeCandidate === "en"
-      ? localeCandidate
-      : "vi";
+  const localeSegment = pathname.split("/").filter(Boolean)[0];
+  const locale = localeSegment === "en" ? "en" : "vi";
   const basePath = `/${locale}`;
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string | null>(null);
-  const [activeProgramCategory, setActiveProgramCategory] = useState<
-    string | null
-  >(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-
+  const [programs, setPrograms] = useState<Program[]>([]);
+  const [curriculums, setCurriculums] = useState<Curriculum[]>([]);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -36,187 +180,57 @@ const Header = () => {
     restDelta: 0.001,
   });
 
-  const currentPageName = useMemo(() => {
-    if (pathname.includes("/gioi-thieu") || pathname.includes("/about"))
-      return t("navigation.about");
-    if (pathname.includes("/tin-tuc") || pathname.includes("/news"))
-      return t("navigation.news");
-    if (pathname.includes("/chuong-trinh") || pathname.includes("/programs"))
-      return t("navigation.programs");
-    if (pathname.includes("/nghien-cuu") || pathname.includes("/research"))
-      return t("navigation.research");
-    if (pathname.includes("/sinh-vien") || pathname.includes("/students"))
-      return t("navigation.students");
-    if (pathname.includes("/giang-vien") || pathname.includes("/faculty"))
-      return t("navigation.faculty");
-    return "";
-  }, [pathname, t]);
-
-  const [programs, setPrograms] = useState<Program[]>([]);
-  const [curriculums, setCurriculums] = useState<Curriculum[]>([]);
-
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [programsData, curriculumsData] = await Promise.all([
-          api.programs.findAll({ status: "active" }),
-          api.curriculums.findAll(),
-        ]);
-        setPrograms(programsData);
-        setCurriculums(curriculumsData);
-      } catch (error) {
-        console.error("Failed to fetch menu data", error);
-      }
-    };
-    fetchData();
-  }, []);
+    let active = true;
 
-  const resetMenuFlow = useCallback(() => {
-    setActiveSection(null);
-    setActiveProgramCategory(null);
-  }, []);
-
-  useEffect(() => {
-    setIsMenuOpen(false);
-    resetMenuFlow();
-  }, [pathname, resetMenuFlow]);
-
-  // --- Grouping Logic ---
-  const programSections = useMemo(() => {
-    const levels = [
-      { id: "undergraduate", title: tPrograms("undergraduate") },
-      { id: "postgraduate", title: tPrograms("graduate") },
-    ];
-
-    return levels
-      .map((level) => {
-        const levelPrograms = programs.filter((p) => p.level === level.id);
-
-        if (levelPrograms.length === 0) return null;
-
-        const groups = levelPrograms.map((program) => {
-          const programCurriculums = curriculums.filter(
-            (c) => c.programId === program.programId,
-          );
-
-          return {
-            id: program.programId,
-            title:
-              locale === "vi"
-                ? program.nameVi
-                : program.nameEn || program.nameVi,
-            href:
-              locale === "vi"
-                ? `${basePath}/chuong-trinh-dao-tao/${
-                    program.level === "undergraduate"
-                      ? "dai-hoc"
-                      : "sau-dai-hoc"
-                  }/${program.slugVi}`
-                : `${basePath}/programs/${program.level}/${program.slugEn}`,
-            items: programCurriculums.map((curriculum) => ({
-              id: curriculum.curriculumId,
-              programId: curriculum.programId,
-              title:
-                locale === "vi"
-                  ? curriculum.nameVi
-                  : curriculum.nameEn || curriculum.nameVi,
-              href:
-                locale === "vi"
-                  ? `${basePath}/chuong-trinh-dao-tao/${
-                      program.level === "undergraduate"
-                        ? "dai-hoc"
-                        : "sau-dai-hoc"
-                    }/${program.slugVi}/${curriculum.slugVi}`
-                  : `${basePath}/programs/${program.level}/${program.slugEn}/${curriculum.slugEn}`,
-            })),
-          };
-        });
-        return {
-          id: level.id,
-          title: level.title,
-          href:
-            locale === "vi"
-              ? `${basePath}/chuong-trinh-dao-tao/${
-                  level.id === "undergraduate" ? "dai-hoc" : "sau-dai-hoc"
-                }`
-              : `${basePath}/programs/${level.id}`,
-          groups,
-        };
+    Promise.all([
+      api.programs.findAll({ status: "active" }),
+      api.curriculums.findAll(),
+    ])
+      .then(([programData, curriculumData]) => {
+        if (!active) return;
+        setPrograms(programData);
+        setCurriculums(curriculumData);
       })
-      .filter(
-        (section): section is NonNullable<typeof section> => section !== null,
-      );
-  }, [programs, curriculums, locale, basePath, tPrograms]);
+      .catch((error) => console.error("Failed to fetch menu data", error));
 
-  const menuSections = useMemo(
-    () => [
-      { id: "explore", title: t("exploreSit") },
-      { id: "programs", title: t("navigation.programs") },
-      { id: "students", title: t("navigation.students") },
-      { id: "research", title: t("navigation.research") },
-    ],
-    [t],
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
+  const paths = useMemo(
+    () => ({
+      about:
+        locale === "vi"
+          ? `${basePath}/gioi-thieu-chung`
+          : `${basePath}/about-us`,
+      news: locale === "vi" ? `${basePath}/tin-tuc` : `${basePath}/news`,
+      programs:
+        locale === "vi"
+          ? `${basePath}/chuong-trinh-dao-tao`
+          : `${basePath}/programs`,
+      research:
+        locale === "vi" ? `${basePath}/nghien-cuu` : `${basePath}/research`,
+      students:
+        locale === "vi" ? `${basePath}/sinh-vien` : `${basePath}/students`,
+      faculty:
+        locale === "vi" ? `${basePath}/giang-vien` : `${basePath}/faculty`,
+      contact:
+        locale === "vi" ? `${basePath}/lien-he` : `${basePath}/contact`,
+    }),
+    [basePath, locale],
   );
 
-  const toggleMenu = () =>
-    setIsMenuOpen((prev) => {
-      const next = !prev;
-      if (!next) {
-        resetMenuFlow();
-      }
-      return next;
-    });
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-    resetMenuFlow();
-  };
-
-  const overlayQuickLinks = useMemo(
-    () => [
-      {
-        label: t("navigation.about"),
-        href:
-          locale === "vi"
-            ? `${basePath}/gioi-thieu-chung`
-            : `${basePath}/about-us`,
-      },
-      {
-        label: t("navigation.news"),
-        href: locale === "vi" ? `${basePath}/tin-tuc` : `${basePath}/news`,
-      },
-      {
-        label: t("navigation.programs"),
-        href:
-          locale === "vi"
-            ? `${basePath}/chuong-trinh-dao-tao`
-            : `${basePath}/programs`,
-      },
-      {
-        label: t("navigation.research"),
-        href:
-          locale === "vi" ? `${basePath}/nghien-cuu` : `${basePath}/research`,
-      },
-      {
-        label: t("navigation.students"),
-        href:
-          locale === "vi" ? `${basePath}/sinh-vien` : `${basePath}/students`,
-      },
-      {
-        label: t("navigation.faculty"),
-        href:
-          locale === "vi" ? `${basePath}/giang-vien` : `${basePath}/faculty`,
-      },
-    ],
-    [t, locale, basePath],
-  );
-
-  const overlayResearchLinks = useMemo(
+  const researchLinks = useMemo<HeaderLink[]>(
     () => [
       {
         label: t("navigation.researchOverview"),
-        href:
-          locale === "vi" ? `${basePath}/nghien-cuu` : `${basePath}/research`,
+        href: paths.research,
       },
       {
         label: t("navigation.scientificProjects"),
@@ -233,15 +247,14 @@ const Header = () => {
             : `${basePath}/research/scientific-publications`,
       },
     ],
-    [t, locale, basePath],
+    [basePath, locale, paths.research, t],
   );
 
-  const overlayStudentLinks = useMemo(
+  const studentLinks = useMemo<HeaderLink[]>(
     () => [
       {
         label: t("navigation.studentsOverview"),
-        href:
-          locale === "vi" ? `${basePath}/sinh-vien` : `${basePath}/students`,
+        href: paths.students,
       },
       {
         label: t("navigation.studentsAdmissions"),
@@ -277,630 +290,511 @@ const Header = () => {
             : `${basePath}/students/alumni`,
       },
     ],
-    [t, locale, basePath],
+    [basePath, locale, paths.students, t],
   );
+
+  const aboutLinks = useMemo<HeaderLink[]>(
+    () => [
+      {
+        label: locale === "vi" ? "Tổng quan về Khoa" : "School overview",
+        href: paths.about,
+      },
+      {
+        label: t("navigation.faculty"),
+        href: paths.faculty,
+      },
+      {
+        label: locale === "vi" ? "Thành tích nổi bật" : "Achievements",
+        href:
+          locale === "vi"
+            ? `${basePath}/thanh-tich`
+            : `${basePath}/achievements`,
+      },
+      {
+        label: t("contactLink"),
+        href: paths.contact,
+      },
+    ],
+    [basePath, locale, paths.about, paths.contact, paths.faculty, t],
+  );
+
+  const aboutCards = useMemo<MegaMenuCardItem[]>(
+    () => [
+      {
+        id: "about-overview",
+        label: aboutLinks[0].label,
+        href: aboutLinks[0].href,
+        image: "/assets/ttu/menu/research-banner.jpg",
+      },
+      {
+        id: "about-faculty",
+        label: aboutLinks[1].label,
+        href: aboutLinks[1].href,
+        image: "/assets/ttu/menu/ttu-academic-campus.jpg",
+      },
+      {
+        id: "about-achievements",
+        label: aboutLinks[2].label,
+        href: aboutLinks[2].href,
+        image: "/assets/ttu/menu/international-cooperation-2026.jpg",
+      },
+      {
+        id: "about-contact",
+        label: aboutLinks[3].label,
+        href: aboutLinks[3].href,
+        image: "/assets/ttu/menu/campus-discovery.jpg",
+      },
+    ],
+    [aboutLinks],
+  );
+
+  const newsCards = useMemo<MegaMenuCardItem[]>(
+    () => [
+      {
+        id: "news-latest",
+        label: locale === "vi" ? "Tin tức mới nhất" : "Latest news",
+        href: paths.news,
+        image: "/assets/ttu/menu/news-events.jpg",
+      },
+      {
+        id: "news-academic",
+        label: locale === "vi" ? "Hoạt động học thuật" : "Academic activities",
+        href: paths.news,
+        image: "/assets/ttu/menu/ttu-academic-campus.jpg",
+      },
+      {
+        id: "news-cooperation",
+        label: locale === "vi" ? "Hợp tác quốc tế" : "International cooperation",
+        href: paths.news,
+        image: "/assets/ttu/menu/international-cooperation-2026.jpg",
+      },
+      {
+        id: "news-community",
+        label: locale === "vi" ? "Đời sống TTU" : "Life at TTU",
+        href: paths.news,
+        image: "/assets/ttu/menu/students-at-ttu.jpg",
+      },
+    ],
+    [locale, paths.news],
+  );
+
+  const researchCards = useMemo<MegaMenuCardItem[]>(
+    () => [
+      {
+        id: "research-overview",
+        ...researchLinks[0],
+        image: "/assets/ttu/menu/research-banner.jpg",
+      },
+      {
+        id: "research-projects",
+        ...researchLinks[1],
+        image: "/assets/biotech/biotech-hackathon-2026.jpg",
+      },
+      {
+        id: "research-publications",
+        ...researchLinks[2],
+        image: "/assets/ttu/menu/graduate-learning.jpg",
+      },
+      {
+        id: "research-cooperation",
+        label: locale === "vi" ? "Hợp tác nghiên cứu" : "Research partnerships",
+        href: paths.research,
+        image: "/assets/ttu/menu/international-cooperation-2026.jpg",
+      },
+    ],
+    [locale, paths.research, researchLinks],
+  );
+
+  const studentCards = useMemo<MegaMenuCardItem[]>(
+    () => [
+      {
+        id: "students-overview",
+        ...studentLinks[0],
+        image: "/assets/ttu/menu/students-at-ttu.jpg",
+      },
+      {
+        id: "students-admissions",
+        ...studentLinks[1],
+        image: "/assets/ttu/menu/academic-programs.jpg",
+      },
+      {
+        id: "students-activities",
+        ...studentLinks[3],
+        image: "/assets/biotech/biotech-hackathon-2026.jpg",
+      },
+      {
+        id: "students-alumni",
+        ...studentLinks[5],
+        image: "/assets/ttu/menu/undergraduate-academic-life.jpg",
+      },
+    ],
+    [studentLinks],
+  );
+
+  const programSections = useMemo(() => {
+    const levels = [
+      { id: "undergraduate", label: tPrograms("undergraduate") },
+      { id: "postgraduate", label: tPrograms("graduate") },
+    ];
+
+    return levels
+      .map((level) => {
+        const levelPrograms = programs
+          .filter((program) => program.level === level.id)
+          .map((program) => {
+            const slug =
+              locale === "vi"
+                ? program.slugVi
+                : program.slugEn || program.slugVi;
+            const levelSlug =
+              locale === "vi"
+                ? program.level === "undergraduate"
+                  ? "dai-hoc"
+                  : "sau-dai-hoc"
+                : program.level;
+            const href =
+              locale === "vi"
+                ? `${basePath}/chuong-trinh-dao-tao/${levelSlug}/${slug}`
+                : `${basePath}/programs/${levelSlug}/${slug}`;
+
+            return {
+              id: program.programId,
+              label:
+                locale === "vi"
+                  ? program.nameVi
+                  : program.nameEn || program.nameVi,
+              href,
+              image: program.banner,
+              curriculums: curriculums
+                .filter(
+                  (curriculum) => curriculum.programId === program.programId,
+                )
+                .map((curriculum) => ({
+                  id: curriculum.curriculumId,
+                  label:
+                    locale === "vi"
+                      ? curriculum.nameVi
+                      : curriculum.nameEn || curriculum.nameVi,
+                  href: `${href}/${
+                    locale === "vi"
+                      ? curriculum.slugVi
+                      : curriculum.slugEn || curriculum.slugVi
+                  }`,
+                })),
+            };
+          });
+
+        return levelPrograms.length
+          ? { id: level.id, label: level.label, programs: levelPrograms }
+          : null;
+      })
+      .filter(
+        (section): section is NonNullable<typeof section> => section !== null,
+      );
+  }, [basePath, curriculums, locale, programs, tPrograms]);
+
+  const programCards = useMemo(() => {
+    const fallbackImages = [
+      "/assets/ttu/menu/students-at-ttu.jpg",
+      "/assets/ttu/menu/academic-programs.jpg",
+      "/assets/ttu/menu/graduate-learning.jpg",
+      "/assets/biotech/biotech-hackathon-2026.jpg",
+    ];
+    const dynamicCards = programSections.flatMap((section) =>
+      section.programs.map((program, index) => ({
+        id: program.id,
+        label: program.label,
+        href: program.href,
+        image: program.image || fallbackImages[index % fallbackImages.length],
+      })),
+    );
+
+    if (dynamicCards.length > 0) return dynamicCards.slice(0, 4);
+
+    return [
+      {
+        id: "undergraduate",
+        label:
+          locale === "vi"
+            ? "Cử nhân Công nghệ Sinh học"
+            : "Bachelor of Biotechnology",
+        href:
+          locale === "vi"
+            ? `${basePath}/chuong-trinh-dao-tao/dai-hoc`
+            : `${basePath}/programs/undergraduate`,
+        image: fallbackImages[0],
+      },
+      {
+        id: "applied-biology",
+        label:
+          locale === "vi" ? "Cử nhân Sinh học ứng dụng" : "Applied Biology",
+        href: paths.programs,
+        image: fallbackImages[1],
+      },
+      {
+        id: "learning-outcomes",
+        label:
+          locale === "vi"
+            ? "Chuẩn đầu ra chương trình"
+            : "Program learning outcomes",
+        href: paths.programs,
+        image: fallbackImages[2],
+      },
+      {
+        id: "research-led-learning",
+        label:
+          locale === "vi"
+            ? "Học tập gắn với nghiên cứu"
+            : "Research-led Learning",
+        href: paths.programs,
+        image: fallbackImages[3],
+      },
+    ];
+  }, [basePath, locale, paths.programs, programSections]);
+
+  const programMenuCategories = useMemo<HeaderLink[]>(
+    () => [
+      {
+        label: locale === "vi" ? "Tất cả chương trình" : "All programs",
+        href: paths.programs,
+      },
+      {
+        label: tPrograms("undergraduate"),
+        href:
+          locale === "vi"
+            ? `${basePath}/chuong-trinh-dao-tao/dai-hoc`
+            : `${basePath}/programs/undergraduate`,
+      },
+    ],
+    [basePath, locale, paths.programs, tPrograms],
+  );
+
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <>
       <motion.header
-        initial={{ y: -20, opacity: 0 }}
+        initial={{ y: -18, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-        className="sticky top-0 z-50 border-b border-[#16856F]/15 bg-white/95 backdrop-blur-xl"
+        className="sticky top-0 z-50 border-b border-[#139C48]/15 bg-white/95 backdrop-blur-xl"
       >
-        <div className="mx-auto grid h-[4.5rem] max-w-7xl grid-cols-[2.25rem_minmax(0,1fr)_2.25rem] items-center gap-2 px-4 sm:flex sm:h-[5.25rem] sm:gap-5 sm:px-8">
+        <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center gap-3 px-4 sm:h-[5.25rem] sm:px-8">
           <Link
             href={basePath}
-            className="group order-2 flex min-w-0 items-center justify-self-center gap-1.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] sm:order-none sm:shrink-0 sm:justify-self-auto sm:gap-2"
+            className="group min-w-0 shrink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
           >
             <img
               src="/assets/biotech/logo-biotech.png"
               alt={t("faculty")}
-              className="h-8 w-auto max-w-[12.5rem] shrink-0 object-contain transition-transform duration-300 group-hover:scale-[1.02] sm:h-10 sm:max-w-[16rem]"
+              className="h-8 w-auto max-w-[12.5rem] object-contain transition-transform duration-300 group-hover:scale-[1.02] sm:h-10 sm:max-w-[15rem]"
             />
           </Link>
 
           <nav
             aria-label={t("menu")}
-            className="mx-auto hidden items-center gap-7 xl:flex"
+            className="mx-auto hidden items-center gap-5 xl:flex xl:gap-7"
           >
-            {overlayQuickLinks.slice(0, 5).map((link) => {
-              const isActive =
-                pathname === link.href || pathname.startsWith(`${link.href}/`);
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`relative py-2.5 text-sm font-semibold tracking-[-0.01em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] ${
-                    isActive
-                      ? "text-[#16856F]"
-                      : "text-[#4b4d4b] hover:text-[#16856F]"
-                  }`}
-                >
-                  {link.label}
-                  {isActive && (
-                    <span className="absolute bottom-1 left-1/2 h-0.5 w-10 -translate-x-1/2 bg-[#16856F]" />
-                  )}
-                </Link>
-              );
-            })}
+            <DesktopDropdown
+              label={t("navigation.about")}
+              href={paths.about}
+              active={isActive(paths.about)}
+              description={
+                locale === "vi"
+                  ? "Khám phá định hướng phát triển, đội ngũ và những dấu ấn của Khoa Công nghệ Sinh học."
+                  : "Discover the School of Biotechnology, its faculty, direction and achievements."
+              }
+              sideItems={aboutLinks}
+            >
+              <MegaMenuCards items={aboutCards} />
+            </DesktopDropdown>
+
+            <DesktopDropdown
+              label={t("navigation.news")}
+              href={paths.news}
+              active={isActive(paths.news)}
+              description={
+                locale === "vi"
+                  ? "Theo dõi tin tức, sự kiện học thuật và các hoạt động nổi bật trong cộng đồng TTU."
+                  : "Follow the latest news, academic events and highlights from the TTU community."
+              }
+              sideItems={[
+                {
+                  label:
+                    locale === "vi" ? "Tất cả tin tức" : "Browse all news",
+                  href: paths.news,
+                },
+              ]}
+            >
+              <MegaMenuCards items={newsCards} />
+            </DesktopDropdown>
+
+            <DesktopDropdown
+              label={t("navigation.programs")}
+              href={paths.programs}
+              active={isActive(paths.programs)}
+              description={t("programsDescription")}
+              sideItems={programMenuCategories}
+            >
+              <MegaMenuCards items={programCards} />
+            </DesktopDropdown>
+
+            <DesktopDropdown
+              label={t("navigation.research")}
+              href={paths.research}
+              active={isActive(paths.research)}
+              description={t("researchDescription")}
+              sideItems={researchLinks}
+            >
+              <MegaMenuCards items={researchCards} />
+            </DesktopDropdown>
+
+            <DesktopDropdown
+              label={t("navigation.students")}
+              href={paths.students}
+              active={isActive(paths.students)}
+              description={t("studentsDescription")}
+              sideItems={studentLinks}
+            >
+              <MegaMenuCards items={studentCards} />
+            </DesktopDropdown>
           </nav>
 
-          <div className="contents sm:ml-auto sm:flex sm:shrink-0 sm:items-center sm:gap-2">
+          <div className="ml-auto flex shrink-0 items-center gap-2">
             <a
               href="https://tuyensinh.ttu.edu.vn/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden min-h-10 items-center rounded-full bg-[#16856F] px-4 text-[0.8rem] font-bold uppercase tracking-[0.11em] text-white transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#0D5E50] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] active:translate-y-0 md:inline-flex"
+              className="hidden min-h-10 items-center rounded-full bg-[#139C48] px-4 text-[0.72rem] font-bold uppercase tracking-[0.1em] text-white transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#0F7E3A] md:inline-flex"
             >
               {t("navigation.studentsAdmissions")}
             </a>
             <button
               type="button"
               onClick={() => setIsSearchOpen(true)}
-              className="order-3 inline-flex h-9 w-9 cursor-pointer items-center justify-center justify-self-end rounded-full border border-[#171b25]/15 text-[#424640] transition-colors hover:border-[#16856F] hover:bg-[#16856F] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] sm:order-none sm:h-10 sm:w-10 sm:justify-self-auto"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#171b25]/15 text-[#424640] transition-colors hover:border-[#139C48] hover:bg-[#139C48] hover:text-white sm:h-10 sm:w-10"
               aria-label={t("search")}
             >
-              <Search className="h-4 w-4 sm:h-[1.1rem] sm:w-[1.1rem]" />
+              <Search size={17} strokeWidth={1.7} />
             </button>
             <button
               type="button"
-              onClick={toggleMenu}
-              aria-expanded={isMenuOpen}
-              aria-label={t("menu")}
-              className="order-1 inline-flex h-9 w-9 cursor-pointer items-center justify-center justify-self-start rounded-full border border-[#16856F]/25 text-[#0D5E50] transition-colors hover:border-[#16856F] hover:bg-[#16856F] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16856F] sm:order-none sm:h-10 sm:w-auto sm:justify-self-auto sm:gap-2 sm:px-3"
+              onClick={() => setIsMobileMenuOpen((open) => !open)}
+              aria-expanded={isMobileMenuOpen}
+              aria-label={isMobileMenuOpen ? t("close") : t("menu")}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#139C48]/25 text-[#139C48] transition-colors hover:bg-[#139C48] hover:text-white xl:hidden"
             >
-              <Menu className="h-4 w-4 sm:h-[1.1rem] sm:w-[1.1rem]" />
-              <span className="hidden text-[0.8rem] font-bold uppercase tracking-[0.12em] sm:inline">
-                {t("menu")}
-              </span>
+              {isMobileMenuOpen ? (
+                <X size={17} strokeWidth={1.7} />
+              ) : (
+                <Menu size={17} strokeWidth={1.7} />
+              )}
             </button>
           </div>
         </div>
 
+        <AnimatePresence initial={false}>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-[#e5e9e5] bg-white xl:hidden"
+            >
+              <nav className="mx-auto max-w-7xl space-y-1 px-4 py-4 sm:px-8">
+                <MenuLink
+                  link={{ label: t("navigation.about"), href: paths.about }}
+                />
+                <MenuLink
+                  link={{ label: t("navigation.news"), href: paths.news }}
+                />
+
+                <details className="group/details border-t border-[#edf0ed] py-2">
+                  <summary className="flex cursor-pointer list-none items-center justify-between rounded-xl px-3 py-3 text-sm font-semibold">
+                    {t("navigation.programs")}
+                    <ChevronDown
+                      size={16}
+                      className="transition-transform group-open/details:rotate-180"
+                    />
+                  </summary>
+                  <div className="space-y-3 px-2 pb-3">
+                    <MenuLink
+                      link={{
+                        label: t("navigation.programs"),
+                        href: paths.programs,
+                      }}
+                    />
+                    {programSections.map((section) => (
+                      <div key={section.id} className="pl-3">
+                        <p className="px-3 py-2 text-[0.66rem] font-semibold uppercase tracking-[0.14em] text-[#8a8f8a]">
+                          {section.label}
+                        </p>
+                        {section.programs.map((program) => (
+                          <MenuLink
+                            key={program.id}
+                            link={{
+                              label: program.label,
+                              href: program.href,
+                            }}
+                          />
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </details>
+
+                <details className="group/details border-t border-[#edf0ed] py-2">
+                  <summary className="flex cursor-pointer list-none items-center justify-between rounded-xl px-3 py-3 text-sm font-semibold">
+                    {t("navigation.research")}
+                    <ChevronDown
+                      size={16}
+                      className="transition-transform group-open/details:rotate-180"
+                    />
+                  </summary>
+                  <div className="px-2 pb-3">
+                    {researchLinks.map((link) => (
+                      <MenuLink key={link.href} link={link} />
+                    ))}
+                  </div>
+                </details>
+
+                <details className="group/details border-t border-[#edf0ed] py-2">
+                  <summary className="flex cursor-pointer list-none items-center justify-between rounded-xl px-3 py-3 text-sm font-semibold">
+                    {t("navigation.students")}
+                    <ChevronDown
+                      size={16}
+                      className="transition-transform group-open/details:rotate-180"
+                    />
+                  </summary>
+                  <div className="px-2 pb-3">
+                    {studentLinks.map((link) => (
+                      <MenuLink key={link.href} link={link} />
+                    ))}
+                  </div>
+                </details>
+
+                <div className="grid grid-cols-2 gap-2 border-t border-[#edf0ed] pt-3">
+                  <MenuLink
+                    link={{ label: t("navigation.faculty"), href: paths.faculty }}
+                  />
+                  <MenuLink
+                    link={{ label: t("contactLink"), href: paths.contact }}
+                  />
+                </div>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <div className="absolute inset-x-0 bottom-0 h-px bg-[#171b25]/5">
           <motion.div
-            className="relative h-full origin-left bg-[#16856F]"
+            className="h-full origin-left bg-[#139C48]"
             style={{ scaleX }}
-          >
-            {currentPageName && (
-              <span className="sr-only">{currentPageName}</span>
-            )}
-          </motion.div>
+          />
         </div>
       </motion.header>
-
-      <AnimatePresence>
-        {isMenuOpen && (
-          <>
-            <motion.div
-              className="fixed inset-0 z-[45] bg-black/40"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={closeMenu}
-            />
-            <motion.div
-              initial={{ y: "-100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "-100%" }}
-              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-0 left-0 right-0 z-[50] h-screen overflow-hidden bg-white text-[#171b25]"
-            >
-              <div className="relative flex h-full flex-col overflow-hidden">
-                {/* Header */}
-                <div className="flex items-center justify-between border-b border-[#171b25]/10 px-5 py-3.5 sm:px-8">
-                  <div className="flex items-center gap-2.5">
-                    <img
-                      src="/assets/biotech/logo-biotech.png"
-                      alt={t("faculty")}
-                      className="h-9 w-auto max-w-[14rem] object-contain md:h-11 md:max-w-[18rem]"
-                    />
-                  </div>
-                  <button
-                    onClick={closeMenu}
-                    className="group flex h-10 cursor-pointer items-center gap-2.5 rounded-full border border-[#171b25]/15 px-3 text-[#424640] transition-colors hover:border-[#16856F] hover:bg-[#16856F] hover:text-white active:scale-[0.98]"
-                    aria-label={t("close")}
-                  >
-                    <span className="text-xs font-bold uppercase tracking-[0.15em] sm:text-sm">
-                      {t("close")}
-                    </span>
-                    <X className="h-4 w-4 transition-transform duration-300 group-hover:rotate-90" />
-                  </button>
-                </div>
-
-                {/* Main Content - Responsive Layout */}
-                <div className="flex flex-1 flex-col md:grid md:grid-cols-[1fr_1.2fr_1.5fr] gap-x-8 gap-y-8 px-4 md:px-8 py-4 md:py-8 overflow-y-auto">
-                  {/* Column 1: Main Menu */}
-                  <div className="min-w-0">
-                    <div className="space-y-4 md:space-y-6">
-                      {menuSections.map((section) => (
-                        <motion.button
-                          key={section.id}
-                          onClick={() => setActiveSection(section.id)}
-                          whileHover={{
-                            x: 10,
-                            backgroundColor: "rgba(22, 133, 111, 0.03)",
-                          }}
-                          whileTap={{ scale: 0.97 }}
-                          className={cn(
-                            "relative block w-full cursor-pointer px-4 py-3 text-left text-xl font-semibold transition-all duration-300 md:text-3xl",
-                            activeSection === section.id
-                              ? "text-[#16856F] bg-[#16856F]/5"
-                              : "text-slate-800 hover:text-[#16856F]",
-                          )}
-                        >
-                          <div className="flex items-center justify-between">
-                            <span>{section.title}</span>
-                            <ChevronRight
-                              className={cn(
-                                "h-6 w-6 transition-transform duration-300",
-                                activeSection === section.id
-                                  ? "rotate-90 text-[#16856F]"
-                                  : "text-slate-300 group-hover:text-[#16856F]",
-                              )}
-                            />
-                          </div>
-                        </motion.button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Column 2: Sub Menu */}
-                  <div className="min-w-0">
-                    {activeSection && (
-                      <AnimatePresence mode="wait">
-                        <motion.div
-                          key={activeSection}
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -20 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          {activeSection === "programs" && (
-                            <div className="space-y-4 md:space-y-6">
-                              <div className="flex items-center gap-2">
-                                <h2 className="text-lg md:text-xl font-bold text-[#16856F]">
-                                  {t("navigation.programs")}
-                                </h2>
-                                <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-[#16856F]" />
-                              </div>
-                              <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
-                                {t("programsDescription")}
-                              </p>
-                              <div className="space-y-2 md:space-y-3">
-                                {programSections.map((category) => (
-                                  <motion.button
-                                    key={category.id}
-                                    onClick={() =>
-                                      setActiveProgramCategory(category.id)
-                                    }
-                                    whileHover={{
-                                      x: 8,
-                                      backgroundColor:
-                                        "rgba(22, 133, 111, 0.05)",
-                                    }}
-                                    whileTap={{ scale: 0.98 }}
-                                    className={cn(
-                                      "relative block w-full cursor-pointer px-4 py-3 text-left text-lg font-bold transition-all duration-300 whitespace-normal",
-                                      activeProgramCategory === category.id
-                                        ? "text-[#16856F] bg-[#16856F]/10 shadow-sm"
-                                        : "text-slate-700 hover:text-[#16856F]",
-                                    )}
-                                  >
-                                    <div className="flex items-center justify-between">
-                                      <span>{category.title}</span>
-                                      <div
-                                        className={cn(
-                                          "flex h-8 w-8 items-center justify-center transition-colors",
-                                          activeProgramCategory === category.id
-                                            ? "bg-[#16856F] text-white"
-                                            : "bg-slate-100 text-slate-400 group-hover:bg-[#16856F]/20 group-hover:text-[#16856F]",
-                                        )}
-                                      >
-                                        <ChevronRight className="h-4 w-4" />
-                                      </div>
-                                    </div>
-                                  </motion.button>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-
-                          {activeSection === "students" && (
-                            <div className="space-y-4 md:space-y-6">
-                              <div className="flex items-center gap-2">
-                                <h2 className="text-lg md:text-xl font-bold text-[#16856F]">
-                                  {t("navigation.students")}
-                                </h2>
-                                <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-[#16856F]" />
-                              </div>
-                              <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
-                                {t("studentsDescription")}
-                              </p>
-                              <div className="space-y-2 md:space-y-3">
-                                {overlayStudentLinks.map((link) => (
-                                  <div
-                                    key={link.href}
-                                    className="relative group"
-                                  >
-                                    {link.external ? (
-                                      <a
-                                        href={link.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="block text-slate-700 hover:text-[#16856F] transition-colors font-medium pb-1 whitespace-normal break-normal"
-                                        onClick={closeMenu}
-                                      >
-                                        {link.label}
-                                        <motion.div
-                                          className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
-                                          initial={{ width: 0 }}
-                                          whileHover={{ width: "100%" }}
-                                          transition={{
-                                            duration: 0.3,
-                                            ease: "easeInOut",
-                                          }}
-                                        />
-                                      </a>
-                                    ) : (
-                                      <Link
-                                        href={link.href}
-                                        className="block text-slate-700 hover:text-[#16856F] transition-colors font-medium pb-1 whitespace-normal break-normal"
-                                        onClick={closeMenu}
-                                      >
-                                        {link.label}
-                                        <motion.div
-                                          className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
-                                          initial={{ width: 0 }}
-                                          whileHover={{ width: "100%" }}
-                                          transition={{
-                                            duration: 0.3,
-                                            ease: "easeInOut",
-                                          }}
-                                        />
-                                      </Link>
-                                    )}
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-
-                          {activeSection === "research" && (
-                            <div className="space-y-4 md:space-y-6">
-                              <div className="flex items-center gap-2">
-                                <h2 className="text-lg md:text-xl font-bold text-[#16856F]">
-                                  {t("navigation.research")}
-                                </h2>
-                                <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-[#16856F]" />
-                              </div>
-                              <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
-                                {t("researchDescription")}
-                              </p>
-                              <div className="space-y-2 md:space-y-3">
-                                {overlayResearchLinks.map((link) => (
-                                  <div
-                                    key={link.href}
-                                    className="relative group"
-                                  >
-                                    <Link
-                                      href={link.href}
-                                      className="block text-slate-800 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
-                                      onClick={closeMenu}
-                                    >
-                                      {link.label}
-                                      <motion.div
-                                        className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
-                                        initial={{ width: 0 }}
-                                        whileHover={{ width: "100%" }}
-                                        transition={{
-                                          duration: 0.3,
-                                          ease: "easeInOut",
-                                        }}
-                                      />
-                                    </Link>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-
-                          {activeSection === "explore" && (
-                            <div className="space-y-4 md:space-y-6">
-                              <div className="flex items-center gap-2">
-                                <h2 className="text-lg md:text-xl font-bold text-[#16856F]">
-                                  {t("exploreSit")}
-                                </h2>
-                                <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-[#16856F]" />
-                              </div>
-                              <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
-                                {t("exploreDescription")}
-                              </p>
-                              <div className="space-y-2 md:space-y-3">
-                                {overlayQuickLinks.map((link) => (
-                                  <div
-                                    key={link.href}
-                                    className="relative group"
-                                  >
-                                    <Link
-                                      href={link.href}
-                                      className="block text-slate-800 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
-                                      onClick={closeMenu}
-                                    >
-                                      {link.label}
-                                      <motion.div
-                                        className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
-                                        initial={{ width: 0 }}
-                                        whileHover={{ width: "100%" }}
-                                        transition={{
-                                          duration: 0.3,
-                                          ease: "easeInOut",
-                                        }}
-                                      />
-                                    </Link>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-                        </motion.div>
-                      </AnimatePresence>
-                    )}
-                  </div>
-
-                  {/* Column 3: Sub-Sub Menu */}
-                  <div className="min-w-0">
-                    {activeSection === "programs" && activeProgramCategory && (
-                      <AnimatePresence mode="wait">
-                        <motion.div
-                          key={activeProgramCategory}
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -20 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          {programSections
-                            .filter(
-                              (category) =>
-                                category.id === activeProgramCategory,
-                            )
-                            .map((category) => (
-                              <div
-                                key={category.id}
-                                className="space-y-4 md:space-y-6"
-                              >
-                                <h2 className="text-lg md:text-xl font-bold text-[#16856F]">
-                                  {category.title}
-                                </h2>
-                                <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
-                                  {t("programsBrowseDescription")}
-                                </p>
-                                <div className="space-y-3 md:space-y-4">
-                                  {category.groups.map((group) => (
-                                    <div key={group.id} className="space-y-2">
-                                      <motion.div
-                                        whileHover={{
-                                          x: 6,
-                                          backgroundColor:
-                                            "rgba(22, 133, 111, 0.05)",
-                                        }}
-                                        whileTap={{ scale: 0.98 }}
-                                        className="transition-all duration-200"
-                                      >
-                                        <Link
-                                          href={group.href}
-                                          className="flex items-center justify-between p-3 text-slate-800 font-bold hover:text-[#16856F] transition-colors text-base whitespace-normal break-normal"
-                                          onClick={closeMenu}
-                                        >
-                                          <span>{group.title}</span>
-                                          <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                        </Link>
-                                      </motion.div>
-                                      <ul className="space-y-1">
-                                        {group.items.map((item) => (
-                                          <li
-                                            key={`${group.id}-${item.id}`}
-                                            className="relative group"
-                                          >
-                                            <motion.div
-                                              whileHover={{
-                                                x: 4,
-                                                backgroundColor:
-                                                  "rgba(0, 0, 0, 0.02)",
-                                              }}
-                                              whileTap={{ scale: 0.98 }}
-                                            >
-                                              <Link
-                                                href={item.href}
-                                                className="flex items-center gap-3 px-3 py-1.5 text-slate-600 hover:text-[#16856F] transition-colors text-sm font-medium whitespace-normal break-normal"
-                                                onClick={closeMenu}
-                                              >
-                                                <div className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-[#16856F] transition-colors" />
-                                                {item.title}
-                                              </Link>
-                                            </motion.div>
-                                          </li>
-                                        ))}
-                                      </ul>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            ))}
-                        </motion.div>
-                      </AnimatePresence>
-                    )}
-                  </div>
-                </div>
-
-                {/* Footer */}
-                <div className="border-t border-slate-200 px-4 md:px-8 py-4 md:py-6 flex-shrink-0">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <div className="flex items-center gap-2">
-                      <span className="text-slate-900 font-medium text-sm md:text-base">
-                        {t("quickLinks")}
-                      </span>
-                      <ChevronRight className="h-4 w-4 text-slate-900" />
-                    </div>
-                    <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 text-sm">
-                      <div className="relative group">
-                        <Link
-                          href={
-                            locale === "vi"
-                              ? `${basePath}/gioi-thieu-chung`
-                              : `${basePath}/about-us`
-                          }
-                          className="text-slate-600 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
-                        >
-                          {t("about")}
-                          <motion.div
-                            className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
-                            initial={{ width: 0 }}
-                            whileHover={{ width: "100%" }}
-                            transition={{
-                              duration: 0.3,
-                              ease: "easeInOut",
-                            }}
-                          />
-                        </Link>
-                      </div>
-                      <div className="relative group">
-                        <Link
-                          href={
-                            locale === "vi"
-                              ? `${basePath}/tin-tuc`
-                              : `${basePath}/news`
-                          }
-                          className="text-slate-600 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
-                        >
-                          {t("news")}
-                          <motion.div
-                            className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
-                            initial={{ width: 0 }}
-                            whileHover={{ width: "100%" }}
-                            transition={{
-                              duration: 0.3,
-                              ease: "easeInOut",
-                            }}
-                          />
-                        </Link>
-                      </div>
-                      <div className="relative group">
-                        <Link
-                          href={
-                            locale === "vi"
-                              ? `${basePath}/nghien-cuu`
-                              : `${basePath}/research`
-                          }
-                          className="text-slate-600 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
-                        >
-                          {t("research")}
-                          <motion.div
-                            className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
-                            initial={{ width: 0 }}
-                            whileHover={{ width: "100%" }}
-                            transition={{
-                              duration: 0.3,
-                              ease: "easeInOut",
-                            }}
-                          />
-                        </Link>
-                      </div>
-                      <div className="relative group">
-                        <Link
-                          href={
-                            locale === "vi"
-                              ? `${basePath}/sinh-vien`
-                              : `${basePath}/students`
-                          }
-                          className="text-slate-600 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
-                        >
-                          {t("students")}
-                          <motion.div
-                            className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
-                            initial={{ width: 0 }}
-                            whileHover={{ width: "100%" }}
-                            transition={{
-                              duration: 0.3,
-                              ease: "easeInOut",
-                            }}
-                          />
-                        </Link>
-                      </div>
-                      <div className="relative group">
-                        <Link
-                          href={
-                            locale === "vi"
-                              ? `${basePath}/lien-he`
-                              : `${basePath}/contact`
-                          }
-                          className="text-slate-600 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
-                        >
-                          {t("contactLink")}
-                          <motion.div
-                            className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
-                            initial={{ width: 0 }}
-                            whileHover={{ width: "100%" }}
-                            transition={{
-                              duration: 0.3,
-                              ease: "easeInOut",
-                            }}
-                          />
-                        </Link>
-                      </div>
-                      <div className="relative group">
-                        <Link
-                          href={
-                            locale === "vi"
-                              ? `${basePath}/hoi-dap`
-                              : `${basePath}/faq`
-                          }
-                          className="text-slate-600 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
-                        >
-                          {t("faqLink")}
-                          <motion.div
-                            className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
-                            initial={{ width: 0 }}
-                            whileHover={{ width: "100%" }}
-                            transition={{
-                              duration: 0.3,
-                              ease: "easeInOut",
-                            }}
-                          />
-                        </Link>
-                      </div>
-                      <div className="relative group">
-                        <button
-                          onClick={() =>
-                            window.open(
-                              "https://www.facebook.com/biotechnology.biotechnology.357",
-                              "_blank",
-                              "noopener,noreferrer",
-                            )
-                          }
-                          className="text-slate-600 hover:text-[#16856F] transition-colors pb-1 whitespace-normal break-normal"
-                        >
-                          {t("messengerLink")}
-                          <motion.div
-                            className="absolute bottom-0 left-0 h-0.5 bg-[#16856F]"
-                            initial={{ width: 0 }}
-                            whileHover={{ width: "100%" }}
-                            transition={{
-                              duration: 0.3,
-                              ease: "easeInOut",
-                            }}
-                          />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
 
       <ModalSearchGlobal open={isSearchOpen} onOpenChange={setIsSearchOpen} />
     </>

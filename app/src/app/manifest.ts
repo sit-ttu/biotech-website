@@ -9,12 +9,12 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: "/vi",
     display: "standalone",
     background_color: "#ffffff",
-    theme_color: "#16856f",
+    theme_color: "#139C48",
     lang: "vi",
     icons: [
       {
-        src: "/assets/biotech/logo-biotech.png",
-        sizes: "737x111",
+        src: "/assets/biotech/favicon-ttu.png",
+        sizes: "298x300",
         type: "image/png",
         purpose: "any",
       },
