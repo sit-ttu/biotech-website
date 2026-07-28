@@ -3,7 +3,7 @@ import { buildPageMetadata } from "@/lib/seo";
 
 const title = "School of Biotechnology | Tan Tao University";
 const description =
-  "Learn about Tan Tao University's School of Biotechnology, including its history since 2011, mission, 2030 vision, faculty and academic programs.";
+  "Learn about Tan Tao University's School of Biotechnology, including its outcome-based program, mission, 2030 vision, faculty and application areas.";
 
 export const metadata = buildPageMetadata({
   locale: "en",
@@ -24,8 +24,6 @@ const aboutPageSchema = {
   mainEntity: {
     "@type": "CollegeOrUniversity",
     name: "School of Biotechnology - Tan Tao University",
-    alternateName: "Biotech TTU",
-    foundingDate: "2011-01-04",
     url: "https://biotech.ttu.edu.vn/",
     parentOrganization: {
       "@type": "CollegeOrUniversity",

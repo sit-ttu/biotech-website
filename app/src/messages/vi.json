@@ -676,6 +676,14 @@
     "missionText": "Đào tạo và bồi dưỡng nguồn nhân lực Công nghệ sinh học chất lượng cao ở trình độ đại học; thực hiện nghiên cứu chuyên sâu, thúc đẩy ứng dụng công nghệ sinh học và tiếp cận các chuẩn mực giáo dục khu vực, quốc tế trên nền tảng giáo dục khai phóng và học tập suốt đời.",
     "vision": "Tầm nhìn",
     "visionText": "Đến năm 2030, Khoa hướng đến vị thế đơn vị hàng đầu quốc gia về đào tạo, nghiên cứu và chuyển giao công nghệ trong lĩnh vực Công nghệ sinh học; chương trình được kiểm định chất lượng và mở rộng hợp tác với các tổ chức trong và ngoài nước.",
+    "programQualitiesTitle": "Năng lực cốt lõi",
+    "programQualitiesList": [
+      "Tư duy khoa học",
+      "Tự nghiên cứu",
+      "Sử dụng tiếng Anh",
+      "Đạo đức nghề nghiệp",
+      "Học tập suốt đời"
+    ],
     "values": "Giá trị cốt lõi",
     "valuesText": "Ba nền tảng giúp Khoa kết nối đội ngũ, công nghệ và một môi trường học thuật rõ ràng, cởi mở.",
     "valuesList": [

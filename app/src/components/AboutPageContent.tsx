@@ -20,6 +20,7 @@ const AboutPageContent = () => {
     locale === "vi" ? `/${locale}/chuong-trinh-dao-tao` : `/${locale}/programs`;
   const facultyHref =
     locale === "vi" ? `/${locale}/giang-vien` : `/${locale}/faculty`;
+  const programQualities = t.raw("programQualitiesList") as string[];
 
   useEffect(() => {
     let active = true;
@@ -360,6 +361,22 @@ const AboutPageContent = () => {
             </div>
           </motion.figure>
 
+          <div className="mt-10 grid gap-6 border-y border-[#d8dad7] py-7 md:grid-cols-[12rem_1fr] md:items-center">
+            <p className="text-[0.78rem] font-semibold">{t("programQualitiesTitle")}</p>
+            <div className="grid grid-cols-2 gap-x-7 gap-y-5 sm:grid-cols-3 lg:grid-cols-5">
+              {programQualities.map((quality, index) => (
+                <span
+                  key={quality}
+                  className="inline-flex items-baseline gap-2 text-[0.7rem] font-medium text-[#5f655f]"
+                >
+                  <span className="font-mono text-[0.56rem] text-[#139C48]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  {quality}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

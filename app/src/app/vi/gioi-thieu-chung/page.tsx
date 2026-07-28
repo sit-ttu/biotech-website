@@ -3,7 +3,7 @@ import { buildPageMetadata } from "@/lib/seo";
 
 const title = "Giới thiệu Khoa Công nghệ Sinh học - Đại học Tân Tạo";
 const description =
-  "Tìm hiểu Khoa Công nghệ Sinh học Đại học Tân Tạo: lịch sử từ năm 2011, sứ mệnh, tầm nhìn 2030, đội ngũ giảng viên và chương trình đào tạo.";
+  "Tìm hiểu Khoa Công nghệ Sinh học Đại học Tân Tạo: chương trình đào tạo theo chuẩn đầu ra, sứ mệnh, tầm nhìn 2030, đội ngũ giảng viên và các lĩnh vực ứng dụng.";
 
 export const metadata = buildPageMetadata({
   locale: "vi",
@@ -24,8 +24,6 @@ const aboutPageSchema = {
   mainEntity: {
     "@type": "CollegeOrUniversity",
     name: "Khoa Công nghệ Sinh học - Đại học Tân Tạo",
-    alternateName: "Biotech TTU",
-    foundingDate: "2011-01-04",
     url: "https://biotech.ttu.edu.vn/",
     parentOrganization: {
       "@type": "CollegeOrUniversity",
