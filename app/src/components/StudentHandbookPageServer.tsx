@@ -64,7 +64,7 @@ export default async function StudentHandbookPageServer({
                 <span className="h-px w-12 bg-[#139C48]" />
                 {copy.eyebrow}
               </div>
-              <h1 className="mt-7 max-w-[13ch] text-[clamp(3rem,6vw,5.6rem)] font-bold leading-[0.95] tracking-[-0.06em] text-balance">
+              <h1 className="mt-7 max-w-[14ch] text-[clamp(3rem,6vw,5.6rem)] font-bold leading-[1.15] tracking-[-0.035em] text-balance">
                 {copy.title}
               </h1>
             </div>

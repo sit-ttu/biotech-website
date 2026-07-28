@@ -5,7 +5,7 @@ import { ChevronDown, Menu, Search, X } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { api, type Curriculum, type Program } from "@/lib/api";
 import { ModalSearchGlobal } from "./ModalSearchGlobal";
 
@@ -108,10 +108,47 @@ function DesktopDropdown({
   children: React.ReactNode;
   sideItems?: HeaderLink[];
 }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openMenu = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setIsOpen(true);
+  };
+  const closeMenu = () => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = setTimeout(() => {
+      setIsOpen(false);
+      closeTimerRef.current = null;
+    }, 120);
+  };
+
+  useEffect(
+    () => () => {
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    },
+    [],
+  );
+
   return (
-    <div className="group">
+    <div
+      ref={rootRef}
+      className="group"
+      onMouseEnter={openMenu}
+      onMouseLeave={closeMenu}
+      onFocusCapture={openMenu}
+      onBlurCapture={(event) => {
+        if (!rootRef.current?.contains(event.relatedTarget as Node | null)) {
+          setIsOpen(false);
+        }
+      }}
+    >
       <Link
         href={href}
+        aria-expanded={isOpen}
         className={`relative flex items-center gap-1.5 py-3 text-sm font-semibold tracking-[-0.01em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48] ${
           active ? "text-[#139C48]" : "text-[#4b4d4b] hover:text-[#139C48]"
         }`}
@@ -120,7 +157,9 @@ function DesktopDropdown({
         <ChevronDown
           size={14}
           strokeWidth={1.7}
-          className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-180 group-focus-within:rotate-180"
+          className={`transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            isOpen ? "rotate-180" : ""
+          }`}
         />
         {active && (
           <span className="absolute bottom-1 left-0 h-0.5 w-full rounded-full bg-[#139C48]" />
@@ -128,7 +167,13 @@ function DesktopDropdown({
       </Link>
 
       <div
-        className="pointer-events-none invisible fixed left-1/2 top-[4rem] w-[min(80rem,100vw)] -translate-x-1/2 -translate-y-1 pt-5 opacity-0 transition-[opacity,transform,visibility] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+        onMouseEnter={openMenu}
+        onMouseLeave={closeMenu}
+        className={`fixed left-1/2 top-[4rem] w-[min(80rem,100vw)] -translate-x-1/2 pt-5 transition-[opacity,transform,visibility] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          isOpen
+            ? "pointer-events-auto visible translate-y-0 opacity-100"
+            : "pointer-events-none invisible -translate-y-1 opacity-0"
+        }`}
       >
         <div className="max-h-[72dvh] overflow-y-auto border-x border-b border-[#dfe4df] bg-white shadow-[0_18px_45px_-28px_rgba(25,45,31,0.32)]">
           <div className="grid min-h-[20rem] md:grid-cols-[16rem_1fr]">

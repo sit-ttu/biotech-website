@@ -171,7 +171,7 @@ export default function ScientificPublicationsPage() {
             </div>
 
             <div className="mt-8 grid gap-9 lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.65fr)] lg:items-end lg:gap-20">
-              <h1 className="max-w-[10ch] text-[clamp(3.25rem,8vw,6.8rem)] font-bold leading-[0.92] tracking-[-0.065em] text-balance">
+              <h1 className="max-w-[11ch] text-[clamp(3.25rem,8vw,6.8rem)] font-bold leading-[1.15] tracking-[-0.035em] text-balance">
                 {t("title")}
               </h1>
               <div className="border-t-2 border-[#171b25] pt-5">

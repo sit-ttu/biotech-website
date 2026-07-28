@@ -81,7 +81,7 @@ export default function StudentHandbookPageContent({
           <div className="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-white/50">
             {copy.eyebrow}
           </div>
-          <h1 className="mt-7 max-w-[14ch] text-[3rem] font-semibold leading-[0.96] tracking-[-0.065em] text-balance sm:text-[4rem] lg:text-[4.8rem]">
+          <h1 className="mt-7 max-w-[15ch] text-[3rem] font-semibold leading-[1.15] tracking-[-0.035em] text-balance sm:text-[4rem] lg:text-[4.8rem]">
             {copy.eyebrow}
           </h1>
           <p className="mt-6 font-mono text-sm font-semibold uppercase tracking-[0.15em] text-white/55">

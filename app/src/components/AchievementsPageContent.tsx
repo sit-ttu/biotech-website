@@ -85,7 +85,7 @@ export default function AchievementsPageContent({
             <div className="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#6f746f]">
               {copy.eyebrow}
             </div>
-            <h1 className="mt-7 max-w-[12ch] text-[3rem] font-semibold leading-[0.96] tracking-[-0.065em] text-balance sm:text-[4rem] lg:text-[5rem]">
+            <h1 className="mt-7 max-w-[13ch] text-[3rem] font-semibold leading-[1.15] tracking-[-0.035em] text-balance sm:text-[4rem] lg:text-[5rem]">
               {copy.title}
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-8 text-[#626661] sm:text-lg">

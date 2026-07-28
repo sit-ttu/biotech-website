@@ -19,24 +19,19 @@ const now = "2026-07-28T00:00:00.000Z";
 export const mockFaculty: Faculty[] = [
   {
     id: "mock-faculty-01",
-    slug: "nguyen-thi-minh-an",
-    fullName: "TS. Nguyễn Thị Minh An",
+    slug: "ta-van-quang",
+    fullName: "TS. Tạ Văn Quang",
     academicTitle: "Tiến sĩ",
-    position: "Giảng viên Công nghệ Sinh học",
+    position: "Phó Trưởng khoa",
     department: "Khoa Công nghệ Sinh học",
     bioShort:
-      "Giảng dạy và nghiên cứu về sinh học phân tử, công nghệ tế bào và các ứng dụng y sinh.",
+      "Giảng viên cơ hữu và đầu mối phụ trách thông tin học vụ của Khoa Công nghệ Sinh học.",
     isActive: true,
     researchAreas: [
       {
         id: "mock-area-01",
         facultyId: "mock-faculty-01",
-        title: "Sinh học phân tử",
-      },
-      {
-        id: "mock-area-02",
-        facultyId: "mock-faculty-01",
-        title: "Công nghệ tế bào",
+        title: "Công nghệ sinh học",
       },
     ],
     createdAt: now,
@@ -44,24 +39,19 @@ export const mockFaculty: Faculty[] = [
   },
   {
     id: "mock-faculty-02",
-    slug: "tran-quoc-bao",
-    fullName: "ThS. Trần Quốc Bảo",
-    academicTitle: "Thạc sĩ",
-    position: "Giảng viên Sinh học ứng dụng",
+    slug: "nguyen-thanh-dien",
+    fullName: "TS. Nguyễn Thanh Điền",
+    academicTitle: "Tiến sĩ",
+    position: "Giảng viên cơ hữu",
     department: "Khoa Công nghệ Sinh học",
     bioShort:
-      "Quan tâm đến vi sinh ứng dụng, công nghệ thực phẩm và giải pháp sinh học phục vụ nông nghiệp.",
+      "Tốt nghiệp tiến sĩ ngành Công nghệ môi trường tại Đại học Kyoto, Nhật Bản năm 2016.",
     isActive: true,
     researchAreas: [
       {
-        id: "mock-area-03",
+        id: "mock-area-02",
         facultyId: "mock-faculty-02",
-        title: "Vi sinh ứng dụng",
-      },
-      {
-        id: "mock-area-04",
-        facultyId: "mock-faculty-02",
-        title: "Công nghệ thực phẩm",
+        title: "Công nghệ môi trường",
       },
     ],
     createdAt: now,
@@ -69,24 +59,79 @@ export const mockFaculty: Faculty[] = [
   },
   {
     id: "mock-faculty-03",
-    slug: "le-hoang-yen",
-    fullName: "ThS. Lê Hoàng Yến",
-    academicTitle: "Thạc sĩ",
-    position: "Giảng viên – Cố vấn học tập",
+    slug: "tran-duy-hien",
+    fullName: "TS. Trần Duy Hiến",
+    academicTitle: "Tiến sĩ",
+    position: "Giảng viên cơ hữu",
     department: "Khoa Công nghệ Sinh học",
     bioShort:
-      "Đồng hành cùng sinh viên trong học tập, thực hành phòng thí nghiệm và phát triển dự án đổi mới.",
+      "Tốt nghiệp tiến sĩ Toán xác suất và thống kê tại New Mexico State University, Hoa Kỳ năm 2009.",
+    isActive: true,
+    researchAreas: [
+      {
+        id: "mock-area-03",
+        facultyId: "mock-faculty-03",
+        title: "Toán xác suất và thống kê",
+      },
+    ],
+    createdAt: now,
+    updatedAt: now,
+  },
+  {
+    id: "mock-faculty-04",
+    slug: "nguyen-xuan-dong",
+    fullName: "TS. Nguyễn Xuân Đồng",
+    academicTitle: "Tiến sĩ",
+    position: "Giảng viên cơ hữu",
+    department: "Khoa Công nghệ Sinh học",
+    bioShort:
+      "Tốt nghiệp tiến sĩ ngành Khoa học nông nghiệp tại Đại học Kyoto, Nhật Bản năm 2020.",
+    isActive: true,
+    researchAreas: [
+      {
+        id: "mock-area-04",
+        facultyId: "mock-faculty-04",
+        title: "Khoa học nông nghiệp",
+      },
+    ],
+    createdAt: now,
+    updatedAt: now,
+  },
+  {
+    id: "mock-faculty-05",
+    slug: "tran-hoai-tam",
+    fullName: "NCS. ThS. Trần Hoài Tâm",
+    academicTitle: "Nghiên cứu sinh, Thạc sĩ",
+    position: "Giảng viên cơ hữu",
+    department: "Khoa Công nghệ Sinh học",
+    bioShort:
+      "Tốt nghiệp thạc sĩ ngành Công nghệ sinh học năm 2019 và hiện tham gia giảng dạy tại Khoa.",
     isActive: true,
     researchAreas: [
       {
         id: "mock-area-05",
-        facultyId: "mock-faculty-03",
-        title: "Nuôi cấy mô thực vật",
+        facultyId: "mock-faculty-05",
+        title: "Công nghệ sinh học",
       },
+    ],
+    createdAt: now,
+    updatedAt: now,
+  },
+  {
+    id: "mock-faculty-06",
+    slug: "to-thi-nha-tram",
+    fullName: "ThS. Tô Thị Nhã Trầm",
+    academicTitle: "Thạc sĩ",
+    position: "Giảng viên cơ hữu",
+    department: "Khoa Công nghệ Sinh học",
+    bioShort:
+      "Tốt nghiệp ngành Công nghệ sinh học tại Trường Đại học Nông Lâm TP.HCM và tham gia giảng dạy tại Khoa.",
+    isActive: true,
+    researchAreas: [
       {
         id: "mock-area-06",
-        facultyId: "mock-faculty-03",
-        title: "Giáo dục STEM",
+        facultyId: "mock-faculty-06",
+        title: "Công nghệ sinh học",
       },
     ],
     createdAt: now,

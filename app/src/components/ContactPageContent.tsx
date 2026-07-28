@@ -66,7 +66,7 @@ const ContactPageContent = () => {
             <div className="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#777b77] md:col-span-3 md:pt-2">
               {t("eyebrow")}
             </div>
-            <h1 className="max-w-[12ch] text-[clamp(3rem,6vw,5.4rem)] font-semibold leading-[0.94] tracking-[-0.07em] text-balance md:col-span-6">
+            <h1 className="max-w-[13ch] text-[clamp(3rem,6vw,5.4rem)] font-semibold leading-[1.15] tracking-[-0.035em] text-balance md:col-span-6">
               {t("title")}
             </h1>
             <p className="max-w-[22rem] text-sm leading-7 text-[#60645f] md:col-span-3 md:pt-2">
@@ -140,7 +140,7 @@ const ContactPageContent = () => {
               variants={reveal}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="max-w-[10ch] text-[2.6rem] font-semibold leading-[0.96] tracking-[-0.06em] sm:text-[3.3rem] md:col-span-4"
+              className="max-w-[11ch] text-[2.6rem] font-semibold leading-[1.18] tracking-[-0.03em] sm:text-[3.3rem] md:col-span-4"
             >
               {t("channelsTitle")}
             </motion.h2>

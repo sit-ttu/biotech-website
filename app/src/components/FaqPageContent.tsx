@@ -35,7 +35,7 @@ const FaqPageContent = () => {
             <div className="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#777b77]">
               {t("eyebrow")}
             </div>
-            <h1 className="mt-6 max-w-[10ch] text-[clamp(3rem,6vw,5.2rem)] font-semibold leading-[0.94] tracking-[-0.07em] text-balance">
+            <h1 className="mt-6 max-w-[11ch] text-[clamp(3rem,6vw,5.2rem)] font-semibold leading-[1.15] tracking-[-0.035em] text-balance">
               {t("title")}
             </h1>
             <p className="mt-7 max-w-[20rem] text-sm leading-7 text-[#60645f]">

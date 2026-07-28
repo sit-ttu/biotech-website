@@ -176,7 +176,7 @@ export default async function StudentPortfolioPage({ params }: PageProps) {
                   ", " +
                   (p.program || "Công nghệ Sinh học")
                 }
-                className="mt-8 text-[clamp(3.55rem,7.5vw,7rem)] font-medium leading-[0.84] tracking-[-0.075em] text-[#0d0f14]"
+                className="mt-8 text-[clamp(3.55rem,7.5vw,7rem)] font-medium leading-[1.15] tracking-[-0.035em] text-[#0d0f14]"
               >
                 <span className="block">{p.title || "Sinh viên"}</span>
                 <span className="block text-[#139C48]">
@@ -581,7 +581,7 @@ export default async function StudentPortfolioPage({ params }: PageProps) {
                 <p className="inline-flex rounded-full border border-white/20 px-3 py-1.5 font-roboto-mono text-[0.62rem] uppercase tracking-[0.12em] text-white/60">
                   06 · Liên hệ
                 </p>
-                <h2 className="mt-6 max-w-[14ch] text-[clamp(2.8rem,6vw,5.8rem)] font-medium leading-[0.92] tracking-[-0.065em]">
+                <h2 className="mt-6 max-w-[15ch] text-[clamp(2.8rem,6vw,5.8rem)] font-medium leading-[1.18] tracking-[-0.035em] text-balance">
                   Cùng tạo nên điều đáng nhớ.
                 </h2>
               </div>
