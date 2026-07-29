@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       runner_label:
-        description: "Runner để chạy (production, local-test)"
+        description: "Runner (production, local-test)"
         default: production
         type: choice
         options:

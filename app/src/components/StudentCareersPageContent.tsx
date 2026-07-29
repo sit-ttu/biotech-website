@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { SiteLocale } from "@/lib/program-pages";
 import type { CareerOpportunity } from "@/lib/api";
 
+import EditorialCta from "@/components/EditorialCta";
 import { ArrowIcon } from "@/components/icons/ArrowIcon";
 import CareerOpportunityList from "@/components/CareerOpportunityList";
 
@@ -313,32 +314,14 @@ export default function StudentCareersPageContent({
         </div>
       </section>
 
-      <section className="border-t border-[#171b25]/15 bg-[#f5f7f4] py-12 sm:py-16">
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div>
-            <h2 className="text-[2rem] font-bold leading-tight tracking-[-0.04em] sm:text-[2.5rem]">
-              {copy.nextTitle}
-            </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#666a65]">
-              {copy.nextDescription}
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href={activitiesPath}
-              className="inline-flex min-h-12 items-center border border-[#139C48] px-5 text-sm font-semibold text-[#139C48] transition-colors hover:bg-[#139C48] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
-            >
-              {copy.activities} <ArrowIcon direction="up-right" size={16} />
-            </Link>
-            <Link
-              href={alumniPath}
-              className="inline-flex min-h-12 items-center rounded-full bg-[#139C48] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
-            >
-              {copy.alumni} <ArrowIcon direction="up-right" size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <EditorialCta
+        title={copy.nextTitle}
+        description={copy.nextDescription}
+        primaryLabel={copy.activities}
+        primaryHref={activitiesPath}
+        secondaryLabel={copy.alumni}
+        secondaryHref={alumniPath}
+      />
     </main>
   );
 }

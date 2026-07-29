@@ -5,6 +5,7 @@ import { Facebook, Linkedin, Link as LinkIcon } from "lucide-react";
 import { ArrowLeft02Icon, ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
+import EditorialCta from "@/components/EditorialCta";
 import YooptaRenderer from "@/components/YooptaRenderer";
 import { api, type News } from "@/lib/api";
 import { getCategoryDisplay } from "@/lib/news-categories";
@@ -490,19 +491,12 @@ export default function NewsDetailPageContent({
         </section>
       )}
 
-      <section className="border-t border-[#171b25]/15 bg-[#f5f7f4] px-5 py-14 sm:px-8 sm:py-16">
-        <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-[#139C48]">Biotech TTU News</p>
-            <h2 className="mt-3 text-2xl font-bold tracking-[-0.035em] sm:text-3xl">{copy.next}</h2>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-[#686c67]">{copy.nextDescription}</p>
-          </div>
-          <Link href={newsPath} className="inline-flex min-h-12 shrink-0 items-center gap-4 bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]">
-            {copy.breadcrumb}
-            <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} />
-          </Link>
-        </div>
-      </section>
+      <EditorialCta
+        title={copy.next}
+        description={copy.nextDescription}
+        primaryLabel={copy.breadcrumb}
+        primaryHref={newsPath}
+      />
     </main>
   );
 }

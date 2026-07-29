@@ -1,6 +1,7 @@
 import type { Alumni, AlumniSection } from "@/lib/api";
 import type { SiteLocale } from "@/lib/program-pages";
 
+import EditorialCta from "@/components/EditorialCta";
 import { ArrowIcon } from "@/components/icons/ArrowIcon";
 
 const copyByLocale = {
@@ -372,24 +373,12 @@ export default function AlumniPageContent({
         </div>
       </section>
 
-      <section className="border-t border-[#171b25]/15 bg-[#f5f7f4] py-12 sm:py-16">
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div>
-            <h2 className="text-[2rem] font-bold leading-tight tracking-[-0.04em] sm:text-[2.5rem]">
-              {copy.alumniCta}
-            </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#666a65]">
-              {copy.alumniCtaDescription}
-            </p>
-          </div>
-          <a
-            href="mailto:secretary.sbio@ttu.edu.vn?subject=Biotech TTU%20Alumni"
-            className="inline-flex min-h-12 items-center justify-center bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
-          >
-            {copy.alumniCtaAction} <ArrowIcon direction="up-right" size={16} />
-          </a>
-        </div>
-      </section>
+      <EditorialCta
+        title={copy.alumniCta}
+        description={copy.alumniCtaDescription}
+        primaryLabel={copy.alumniCtaAction}
+        primaryHref="mailto:secretary.sbio@ttu.edu.vn?subject=Biotech TTU%20Alumni"
+      />
     </main>
   );
 }

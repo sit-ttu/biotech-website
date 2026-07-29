@@ -1,135 +1,120 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useTranslations, useLocale } from "next-intl";
-import { useEffect, useState } from "react";
-import { api, type Faculty } from "@/lib/api";
+import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
-import SectionTab from "@/components/SectionTab";
-
+import { useLocale } from "next-intl";
 import { ArrowIcon } from "@/components/icons/ArrowIcon";
+import { mockFaculty } from "@/lib/mock-content";
 
-const FacultyHighlight = () => {
-  const t = useTranslations("header");
-  const locale = useLocale();
-  const [faculty, setFaculty] = useState<Faculty[]>([]);
+type SiteLocale = "vi" | "en";
 
-  useEffect(() => {
-    async function fetchFaculty() {
-      try {
-        const data = await api.faculty.findAll();
-        setFaculty(
-          data
-            .filter(
-              // ponytail: skip placeholder records — a card needs a face or a quote to be worth showing
-              (f) =>
-                f.isActive !== false && (f.avatarUrl || f.quote || f.bioShort),
-            )
-            .slice(0, 6),
-        );
-      } catch (error) {
-        console.error("Failed to fetch faculty", error);
-      }
-    }
-    fetchFaculty();
-  }, []);
+const copy = {
+  vi: {
+    title: "Đội ngũ giảng viên",
+    intro:
+      "Những người kết nối giảng dạy, nghiên cứu và ứng dụng công nghệ sinh học tại Khoa.",
+    link: "Xem toàn bộ giảng viên",
+    role: "Giảng viên cơ hữu",
+  },
+  en: {
+    title: "Meet our faculty",
+    intro:
+      "Meet the people connecting teaching, research and applied biotechnology at the School.",
+    link: "View all faculty",
+    role: "Full-time lecturer",
+  },
+} as const;
 
-  // ponytail: no i18n fallback list exists for faculty — hide section when API is empty
-  if (faculty.length === 0) return null;
-
+export default function FacultyHighlight() {
+  const locale = useLocale() as SiteLocale;
+  const reduceMotion = useReducedMotion();
+  const content = copy[locale];
+  const faculty = mockFaculty.filter((item) => item.isActive !== false);
   const facultyHref =
     locale === "vi" ? `/${locale}/giang-vien` : `/${locale}/faculty`;
 
   return (
-    <section className="relative bg-[#F8FAF7] py-14 sm:py-16">
-      <SectionTab label={t("navigation.faculty")} />
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        {/* Editorial header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-10 flex items-end justify-between border-b border-[#D6E5E0] pb-6"
+    <section className="px-5 pb-24 sm:px-8 md:pb-32">
+      <motion.div
+        initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+        className="grid gap-5 border-b border-[#d8dad7] pb-6 md:grid-cols-12 md:items-end"
+      >
+        <h2 className="text-[2.15rem] font-semibold leading-none tracking-[-0.055em] text-[#111311] sm:text-[2.6rem] md:col-span-5">
+          {content.title}
+        </h2>
+        <p className="max-w-[31rem] text-[0.76rem] leading-[1.6] text-[#747974] md:col-span-4">
+          {content.intro}
+        </p>
+        <Link
+          href={facultyHref}
+          className="group inline-flex w-fit items-center gap-2 rounded-full border border-[#cfd2ce] px-4 py-2 text-[0.67rem] font-medium text-[#5f635f] transition-[background-color,border-color,color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[#139C48] hover:bg-[#139C48] hover:text-white active:scale-[0.98] md:col-span-3 md:justify-self-end"
         >
-          <h2 className="max-w-xl text-[1.6rem] font-bold leading-tight tracking-tight text-gray-900 sm:text-[1.9rem]">
-            {t("navigation.faculty")}
-          </h2>
-          <Link
-            href={facultyHref}
-            className="text-[12px] font-semibold text-[#139C48] underline decoration-[#139C48]/50 underline-offset-4 transition-colors hover:text-[#0F7E3A]"
-          >
-            {t("navigation.faculty")} <ArrowIcon direction="right" size={16} />
-          </Link>
-        </motion.div>
+          {content.link}
+          <ArrowIcon direction="right" size={11} />
+        </Link>
+      </motion.div>
 
-        {/* Stable vertical directory: new faculty members fill the next grid cell. */}
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {faculty.map((person, index) => (
-            <motion.div
+      <div className="grid gap-x-5 gap-y-12 pt-6 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-6">
+        {faculty.map((person, index) => {
+          const portrait = person.avatarUrl;
+
+          return (
+            <motion.article
               key={person.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
-              viewport={{ once: true }}
-              className="h-full"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.65,
+                delay: index * 0.07,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="min-w-0"
             >
-              <Link
-                href={`${facultyHref}/${person.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] border border-[#D6E5E0] bg-white transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[8px_8px_0_#D7ECE6]"
-              >
-                <div className="relative aspect-[4/5] overflow-hidden border-b border-[#D6E5E0] bg-[#E8F3EF]">
-                  {person.avatarUrl ? (
+              <Link href={facultyHref} className="group block">
+                <div className="relative aspect-square overflow-hidden rounded-[0.8rem] bg-[#eef0ec]">
+                  {portrait ? (
                     <img
-                      src={person.avatarUrl}
+                      src={portrait}
                       alt={person.fullName}
                       loading="lazy"
-                      className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                      className="h-full w-full object-cover object-top saturate-[0.92] transition-[transform,filter] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.025] group-hover:saturate-100"
                     />
                   ) : (
-                    <div className="flex h-full items-center justify-center text-5xl font-bold text-[#139C48]">
-                      {person.fullName.charAt(0)}
+                    <div className="flex h-full items-end bg-[#eef0ec] p-5">
+                      <span className="text-[clamp(2.5rem,7vw,5rem)] font-semibold leading-none tracking-[-0.08em] text-[#c6cbc5]">
+                        {person.fullName
+                          .replace(/^(TS\.|ThS\.|NCS\.|PGS\.|GS\.)\s*/u, "")
+                          .split(/\s+/)
+                          .slice(-2)
+                          .map((part) => part.charAt(0))
+                          .join("")}
+                      </span>
                     </div>
                   )}
                 </div>
 
-                <div className="flex flex-1 flex-col p-5">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="min-w-0">
-                      <h3 className="text-[15px] font-bold leading-snug tracking-tight text-gray-900 transition-colors duration-300 group-hover:text-[#139C48]">
-                        {person.academicTitle
-                          ? `${person.academicTitle} ${person.fullName}`
-                          : person.fullName}
-                      </h3>
-                      <div className="mt-1 text-[10px] font-medium uppercase tracking-[0.14em] text-[#139C48]">
-                        {person.position || person.department}
-                      </div>
-                    </div>
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#139C48]/50 text-[#139C48] transition-colors group-hover:bg-[#139C48] group-hover:text-white">
-                      <ArrowIcon direction="up-right" size={16} />
-                    </span>
-                  </div>
-
-                  {(person.quote || person.bioShort) && (
-                    <p className="mt-5 line-clamp-2 border-l border-[#139C48]/35 pl-3 text-[12px] leading-5 text-gray-500">
-                      “{(person.quote || person.bioShort || "").slice(0, 120)}
-                      {(person.quote || person.bioShort || "").length > 120 &&
-                        "..."}
-                      ”
+                <div className="mt-4 flex items-start justify-between gap-3 border-t border-[#d8dad7] pt-3">
+                  <div className="min-w-0">
+                    <h3 className="text-[0.94rem] font-semibold leading-[1.25] tracking-[-0.025em] text-[#111311] transition-colors group-hover:text-[#139C48] sm:text-[1rem]">
+                      {person.fullName}
+                    </h3>
+                    <p className="mt-1.5 text-[0.63rem] leading-[1.45] text-[#777c77]">
+                      {person.position || content.role}
                     </p>
-                  )}
-
-                  <span className="mt-auto pt-6 text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-400 transition-colors group-hover:text-[#139C48]">
-                    {locale === "vi" ? "Hồ sơ giảng viên" : "Faculty profile"}
+                  </div>
+                  <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full border border-[#cfd2ce] text-[#686d68] transition-[background-color,border-color,color,transform] duration-500 group-hover:translate-x-0.5 group-hover:border-[#139C48] group-hover:bg-[#139C48] group-hover:text-white">
+                    <ArrowIcon direction="up-right" size={11} />
                   </span>
                 </div>
               </Link>
-            </motion.div>
-          ))}
-        </div>
+            </motion.article>
+          );
+        })}
       </div>
     </section>
   );
-};
-
-export default FacultyHighlight;
+}

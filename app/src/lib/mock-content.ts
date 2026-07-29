@@ -24,14 +24,20 @@ export const mockFaculty: Faculty[] = [
     academicTitle: "Tiến sĩ",
     position: "Phó Trưởng khoa",
     department: "Khoa Công nghệ Sinh học",
+    avatarUrl: "/assets/biotech/faculty/ta-van-quang.jpg",
     bioShort:
-      "Giảng viên cơ hữu và đầu mối phụ trách thông tin học vụ của Khoa Công nghệ Sinh học.",
+      "Tốt nghiệp tiến sĩ tại Phòng thí nghiệm Hóa sinh biển, Đại học Quốc gia Pukyong, Hàn Quốc.",
     isActive: true,
     researchAreas: [
       {
         id: "mock-area-01",
         facultyId: "mock-faculty-01",
-        title: "Công nghệ sinh học",
+        title: "Sinh học ung thư",
+      },
+      {
+        id: "mock-area-01-02",
+        facultyId: "mock-faculty-01",
+        title: "Dược lý phân tử và sản phẩm tự nhiên",
       },
     ],
     createdAt: now,
@@ -44,14 +50,20 @@ export const mockFaculty: Faculty[] = [
     academicTitle: "Tiến sĩ",
     position: "Giảng viên cơ hữu",
     department: "Khoa Công nghệ Sinh học",
+    avatarUrl: "/assets/biotech/faculty/nguyen-thanh-dien.jpg",
     bioShort:
-      "Tốt nghiệp tiến sĩ ngành Công nghệ môi trường tại Đại học Kyoto, Nhật Bản năm 2016.",
+      "Tốt nghiệp tiến sĩ Công nghệ môi trường tại Đại học Kyoto, Nhật Bản năm 2016.",
     isActive: true,
     researchAreas: [
       {
         id: "mock-area-02",
         facultyId: "mock-faculty-02",
-        title: "Công nghệ môi trường",
+        title: "Quản lý và xử lý chất thải",
+      },
+      {
+        id: "mock-area-02-02",
+        facultyId: "mock-faculty-02",
+        title: "Vật liệu sinh học từ phụ phẩm nông nghiệp",
       },
     ],
     createdAt: now,
@@ -64,14 +76,20 @@ export const mockFaculty: Faculty[] = [
     academicTitle: "Tiến sĩ",
     position: "Giảng viên cơ hữu",
     department: "Khoa Công nghệ Sinh học",
+    avatarUrl: "/assets/biotech/faculty/tran-duy-hien.jpg",
     bioShort:
-      "Tốt nghiệp tiến sĩ Toán xác suất và thống kê tại New Mexico State University, Hoa Kỳ năm 2009.",
+      "Tốt nghiệp tiến sĩ Xác suất và Thống kê tại New Mexico State University, Hoa Kỳ năm 2009.",
     isActive: true,
     researchAreas: [
       {
         id: "mock-area-03",
         facultyId: "mock-faculty-03",
-        title: "Toán xác suất và thống kê",
+        title: "Xác suất và thống kê",
+      },
+      {
+        id: "mock-area-03-02",
+        facultyId: "mock-faculty-03",
+        title: "Mô hình thống kê cho dữ liệu lớn",
       },
     ],
     createdAt: now,
@@ -84,14 +102,20 @@ export const mockFaculty: Faculty[] = [
     academicTitle: "Tiến sĩ",
     position: "Giảng viên cơ hữu",
     department: "Khoa Công nghệ Sinh học",
+    avatarUrl: "/assets/biotech/faculty/nguyen-xuan-dong.jpg",
     bioShort:
-      "Tốt nghiệp tiến sĩ ngành Khoa học nông nghiệp tại Đại học Kyoto, Nhật Bản năm 2020.",
+      "Tốt nghiệp tiến sĩ Khoa học nông nghiệp tại Đại học Kyoto, Nhật Bản năm 2020.",
     isActive: true,
     researchAreas: [
       {
         id: "mock-area-04",
         facultyId: "mock-faculty-04",
-        title: "Khoa học nông nghiệp",
+        title: "Điều hòa biểu hiện gene ở nấm",
+      },
+      {
+        id: "mock-area-04-02",
+        facultyId: "mock-faculty-04",
+        title: "Chỉnh sửa gene và công nghệ vi sinh",
       },
     ],
     createdAt: now,
@@ -104,14 +128,20 @@ export const mockFaculty: Faculty[] = [
     academicTitle: "Nghiên cứu sinh, Thạc sĩ",
     position: "Giảng viên cơ hữu",
     department: "Khoa Công nghệ Sinh học",
+    avatarUrl: "/assets/biotech/faculty/tran-hoai-tam.jpg",
     bioShort:
-      "Tốt nghiệp thạc sĩ ngành Công nghệ sinh học năm 2019 và hiện tham gia giảng dạy tại Khoa.",
+      "Tốt nghiệp thạc sĩ Công nghệ sinh học năm 2019 tại Đại học Công Thương TP.HCM và hiện là nghiên cứu sinh.",
     isActive: true,
     researchAreas: [
       {
         id: "mock-area-05",
         facultyId: "mock-faculty-05",
-        title: "Công nghệ sinh học",
+        title: "Hệ vi tảo và vi sinh vật",
+      },
+      {
+        id: "mock-area-05-02",
+        facultyId: "mock-faculty-05",
+        title: "Nuôi trồng thủy sản bền vững",
       },
     ],
     createdAt: now,
@@ -124,14 +154,20 @@ export const mockFaculty: Faculty[] = [
     academicTitle: "Thạc sĩ",
     position: "Giảng viên cơ hữu",
     department: "Khoa Công nghệ Sinh học",
+    avatarUrl: "/assets/biotech/faculty/to-thi-nha-tram.jpg",
     bioShort:
-      "Tốt nghiệp ngành Công nghệ sinh học tại Trường Đại học Nông Lâm TP.HCM và tham gia giảng dạy tại Khoa.",
+      "Tốt nghiệp ngành Công nghệ sinh học tại Trường Đại học Nông Lâm TP.HCM, có nhiều năm kinh nghiệm nghiên cứu và giảng dạy.",
     isActive: true,
     researchAreas: [
       {
         id: "mock-area-06",
         facultyId: "mock-faculty-06",
-        title: "Công nghệ sinh học",
+        title: "Nuôi cấy mô và vi nhân giống thực vật",
+      },
+      {
+        id: "mock-area-06-02",
+        facultyId: "mock-faculty-06",
+        title: "Sinh lý và chọn tạo giống cây trồng",
       },
     ],
     createdAt: now,

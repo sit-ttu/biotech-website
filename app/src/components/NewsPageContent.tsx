@@ -9,6 +9,7 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import EditorialCta from "@/components/EditorialCta";
 import { NewsVisual } from "@/components/NewsVisual";
 import {
   api,
@@ -721,23 +722,12 @@ export default function NewsPageContent({
         </div>
       </section>
 
-      <section className="px-5 pb-24 pt-4 sm:px-8 md:pb-32 md:pt-8">
-        <div className="mx-auto grid max-w-7xl gap-8 rounded-[1.25rem] border border-[#cfe0ce] bg-[#f4f8f3] px-7 py-9 sm:px-10 md:grid-cols-12 md:items-center md:px-12 md:py-12">
-          <h2 className="max-w-[13ch] text-[clamp(2rem,3.4vw,3.3rem)] font-semibold leading-[1.12] tracking-[-0.05em] md:col-span-5">
-            {t("exploreBiotech")}
-          </h2>
-          <p className="max-w-[30rem] text-[0.82rem] leading-7 text-[#606760] md:col-start-6 md:col-span-4">
-            {t("exploreBiotechDescription")}
-          </p>
-          <Link
-            href={programsHref}
-            className="group inline-flex min-h-11 items-center justify-between gap-5 rounded-full bg-[#139C48] px-5 text-[0.72rem] font-semibold text-white transition-[background-color,transform] hover:-translate-y-0.5 hover:bg-[#0f7e3a] active:translate-y-0 md:col-span-3"
-          >
-            {t("exploreProgramsTitle")}
-            <HugeiconsIcon icon={ArrowUpRight01Icon} size={16} strokeWidth={1.6} />
-          </Link>
-        </div>
-      </section>
+      <EditorialCta
+        title={t("exploreBiotech")}
+        description={t("exploreBiotechDescription")}
+        primaryLabel={t("exploreProgramsTitle")}
+        primaryHref={programsHref}
+      />
     </main>
   );
 }

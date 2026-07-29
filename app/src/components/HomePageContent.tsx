@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
+import EditorialCta from "@/components/EditorialCta";
+import FacultyHighlight from "@/components/FacultyHighlight";
 import { ArrowIcon } from "@/components/icons/ArrowIcon";
 import { api, type Event, type News } from "@/lib/api";
 import { getNewsImage } from "@/lib/news-content";
@@ -47,7 +49,7 @@ const landingCopy = {
     readMore: "Xem thêm",
     loadMore: "Khám phá thêm",
     heroAlt: "Sinh viên Biotech TTU tại cuộc thi đổi mới sáng tạo",
-    news: "Tin tức",
+    news: "Tin tức mới nhất",
     events: "Sự kiện",
     allNews: "Xem tất cả tin tức",
     newsEmpty: "Tin tức mới đang được cập nhật.",
@@ -107,7 +109,7 @@ const landingCopy = {
     readMore: "Read more",
     loadMore: "Explore more",
     heroAlt: "Biotech TTU students at an innovation competition",
-    news: "News",
+    news: "Latest news",
     events: "Events",
     allNews: "View all news",
     newsEmpty: "New stories are being prepared.",
@@ -352,6 +354,10 @@ export default function HomePageContent({
     links.research,
   ];
   const discoverLinks = [links.programs, links.research, links.students];
+  const discoverLabels =
+    locale === "vi"
+      ? ["Đào tạo", "Nghiên cứu", "Sinh viên"]
+      : ["Academics", "Research", "Student life"];
 
   useEffect(() => {
     let active = true;
@@ -518,65 +524,85 @@ export default function HomePageContent({
         </section>
 
         <section className="px-5 pb-20 sm:px-8 md:pb-28">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-4">
-            <motion.div
-              initial={reduceMotion ? false : { opacity: 0, y: 26 }}
-              whileInView={reveal}
-              viewport={{ once: true, amount: 0.5 }}
-              className="lg:col-span-3 lg:pr-8"
-            >
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 26 }}
+            whileInView={reveal}
+            viewport={{ once: true, amount: 0.5 }}
+            className="flex flex-col gap-6 border-b border-[#d8dad7] pb-7 sm:flex-row sm:items-end sm:justify-between"
+          >
+            <div className="grid gap-5 sm:grid-cols-[minmax(0,0.8fr)_minmax(16rem,1.2fr)] sm:items-end sm:gap-12">
               <h2 className="text-[2.15rem] font-semibold leading-none tracking-[-0.055em] text-[#111311] sm:text-[2.6rem]">
                 {copy.discover}
               </h2>
-              <p className="mt-6 max-w-[17rem] text-[0.76rem] leading-[1.55] text-[#747974]">
+              <p className="max-w-[30rem] text-[0.76rem] leading-[1.6] text-[#747974]">
                 {copy.discoverIntro}
               </p>
-            </motion.div>
+            </div>
+            <Link
+              href={links.about}
+              className="group inline-flex w-fit shrink-0 items-center gap-2 rounded-full border border-[#cfd2ce] px-4 py-2 text-[0.67rem] font-medium text-[#5f635f] transition-[background-color,border-color,color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[#139C48] hover:bg-[#139C48] hover:text-white active:scale-[0.98]"
+            >
+              {copy.loadMore}
+              <ArrowIcon direction="right" size={12} />
+            </Link>
+          </motion.div>
 
-            <div className="border-t border-[#d8dad7] lg:col-span-9">
-              {copy.rows.map((row, index) => (
-                <motion.div
-                  key={row.title}
-                  initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-                  whileInView={reveal}
-                  viewport={{ once: true, amount: 0.35 }}
-                  transition={{
-                    duration: 0.7,
-                    delay: index * 0.08,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
+          <div className="mt-6 grid border-y border-[#d8dad7] lg:grid-cols-12">
+            {copy.rows.map((row, index) => (
+              <motion.div
+                key={row.title}
+                initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                whileInView={reveal}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className={
+                  index === 0
+                    ? "lg:col-span-7 lg:pr-8"
+                    : index === 1
+                      ? "border-t border-[#d8dad7] lg:col-span-5 lg:border-l lg:border-t-0 lg:pl-8"
+                      : "border-t border-[#d8dad7] lg:col-span-12"
+                }
+              >
+                <Link
+                  href={discoverLinks[index]}
+                  className="group block h-full"
                 >
-                  <Link
-                    href={discoverLinks[index]}
-                    className="group grid gap-4 border-b border-[#d8dad7] py-7 transition-colors hover:bg-[#139C48]/[0.035] sm:grid-cols-[2.5rem_0.8fr_1.5fr_1.5rem] sm:items-start sm:gap-6 sm:px-3"
+                  <div
+                    className={`grid w-full gap-8 py-9 sm:py-11 ${
+                      index === 2
+                        ? "min-h-[12rem] sm:grid-cols-[minmax(12rem,0.72fr)_minmax(16rem,1.28fr)_auto] sm:items-center"
+                        : "min-h-[19rem] content-between"
+                    }`}
                   >
-                    <span className="font-roboto-mono text-[0.58rem] tracking-[0.12em] text-[#139C48]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="text-[0.95rem] font-semibold leading-tight tracking-[-0.025em] transition-colors group-hover:text-[#139C48]">
-                      {row.title}
-                    </h3>
-                    <p className="text-[0.74rem] leading-[1.5] text-[#747974]">
+                    <div>
+                      <span className="inline-flex rounded-full border border-[#cfd2ce] px-3 py-1.5 text-[0.58rem] font-medium uppercase tracking-[0.12em] text-[#656a65] transition-colors group-hover:border-[#139C48] group-hover:text-[#139C48]">
+                        {discoverLabels[index]}
+                      </span>
+                      <h3 className="mt-7 max-w-[22rem] text-[1.7rem] font-semibold leading-[1.06] tracking-[-0.045em] text-[#111311] sm:text-[2rem]">
+                        {row.title}
+                      </h3>
+                    </div>
+                    <p className="max-w-[31rem] text-[0.78rem] leading-[1.65] text-[#707570]">
                       {row.description}
                     </p>
-                    <span className="flex justify-end text-[#8a8e8a] transition-[color,transform] duration-300 group-hover:translate-x-1 group-hover:text-[#139C48]">
-                      <ArrowIcon direction="right" size={14} />
+                    <span className="inline-flex items-center gap-3 self-end justify-self-end text-[0.66rem] font-medium text-[#646964] transition-colors group-hover:text-[#139C48]">
+                      {copy.readMore}
+                      <span className="flex size-9 items-center justify-center rounded-full border border-[#cfd2ce] transition-[background-color,border-color,color,transform] duration-500 group-hover:translate-x-0.5 group-hover:border-[#139C48] group-hover:bg-[#139C48] group-hover:text-white">
+                        <ArrowIcon direction="right" size={12} />
+                      </span>
                     </span>
-                  </Link>
-                </motion.div>
-              ))}
-              <div className="flex justify-end pt-5">
-                <Link
-                  href={links.about}
-                  className="group inline-flex items-center gap-2 rounded-full border border-[#cfd2ce] px-4 py-2 text-[0.67rem] font-medium text-[#5f635f] transition-[background-color,border-color,color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[#139C48] hover:bg-[#139C48] hover:text-white active:scale-[0.98]"
-                >
-                  {copy.loadMore}
-                  <ArrowIcon direction="right" size={12} />
+                  </div>
                 </Link>
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </div>
         </section>
+
+        <FacultyHighlight />
 
         <section className="px-5 pb-24 sm:px-8 md:pb-32">
           <div className="grid gap-14 lg:grid-cols-[minmax(0,2.2fr)_minmax(16rem,0.8fr)] lg:gap-7">
@@ -864,47 +890,14 @@ export default function HomePageContent({
           </div>
         </section>
 
-        <motion.section
-          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
-          whileInView={reveal}
-          viewport={{ once: true, amount: 0.35 }}
-          className="mx-5 mb-16 overflow-hidden border border-[#d9e3d8] bg-[#f1f5f0] sm:mx-8 md:mb-24"
-        >
-          <div className="grid md:grid-cols-12">
-            <div className="relative px-6 py-10 sm:px-9 sm:py-12 md:col-span-6 md:px-10 md:py-16">
-              <span
-                aria-hidden="true"
-                className="absolute inset-y-0 left-0 w-1 bg-[#139C48]"
-              />
-              <h2 className="text-[2.15rem] font-semibold leading-[0.98] tracking-[-0.055em] text-[#111311] sm:text-[2.7rem]">
-                <span className="block">{copy.ctaTitle[0]}</span>
-                <span className="block">{copy.ctaTitle[1]}</span>
-              </h2>
-            </div>
-
-            <div className="border-t border-[#d9e3d8] px-6 py-10 sm:px-9 md:col-span-6 md:border-l md:border-t-0 md:px-10 md:py-16">
-              <p className="max-w-[31rem] text-[0.78rem] leading-[1.6] text-[#626862] sm:text-[0.84rem]">
-                {copy.ctaDescription}
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <Link
-                  href={links.contact}
-                  className="group inline-flex min-h-11 items-center gap-3 rounded-full bg-[#139C48] px-5 text-[0.72rem] font-semibold text-white transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#0f7e3a] active:translate-y-0"
-                >
-                  {copy.ctaPrimary}
-                  <ArrowIcon direction="right" size={12} />
-                </Link>
-                <Link
-                  href={links.programs}
-                  className="group inline-flex min-h-11 items-center gap-3 rounded-full border border-[#bfc9be] px-5 text-[0.72rem] font-semibold text-[#4f554f] transition-[background-color,border-color,color,transform] duration-300 hover:-translate-y-0.5 hover:border-[#139C48] hover:bg-white hover:text-[#139C48] active:translate-y-0"
-                >
-                  {copy.ctaSecondary}
-                  <ArrowIcon direction="right" size={12} />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </motion.section>
+        <EditorialCta
+          title={copy.ctaTitle.join(" ")}
+          description={copy.ctaDescription}
+          primaryLabel={copy.ctaPrimary}
+          primaryHref={links.contact}
+          secondaryLabel={copy.ctaSecondary}
+          secondaryHref={links.programs}
+        />
       </div>
     </main>
   );
