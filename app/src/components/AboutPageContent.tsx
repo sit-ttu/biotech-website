@@ -72,7 +72,7 @@ const AboutPageContent = () => {
 
   return (
     <main className="overflow-hidden bg-white text-[#111311]">
-      <section className="px-5 pb-20 pt-14 sm:px-8 md:pb-28 md:pt-20">
+      <section className="px-5 pb-12 pt-14 sm:px-8 md:pb-16 md:pt-20">
         <motion.div
           className="mx-auto max-w-7xl"
           initial="hidden"
@@ -119,7 +119,7 @@ const AboutPageContent = () => {
         </motion.div>
       </section>
 
-      <section className="px-5 py-20 sm:px-8 md:py-28">
+      <section className="px-5 py-12 sm:px-8 md:py-16">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 md:grid-cols-12 md:items-end">
             <h2 className="max-w-[9ch] text-[clamp(2.65rem,4.5vw,4.6rem)] font-semibold leading-[1.1] tracking-[-0.055em] text-balance md:col-span-4">
@@ -157,7 +157,7 @@ const AboutPageContent = () => {
         </div>
       </section>
 
-      <section className="px-5 py-20 sm:px-8 md:py-28">
+      <section className="px-5 py-12 sm:px-8 md:py-16">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 md:grid-cols-12 md:items-end">
             <h2 className="max-w-[10ch] text-[clamp(2.65rem,4.5vw,4.6rem)] font-semibold leading-[1.1] tracking-[-0.055em] text-balance md:col-span-4">
@@ -235,7 +235,7 @@ const AboutPageContent = () => {
         </div>
       </section>
 
-      <section className="px-5 py-20 sm:px-8 md:py-28">
+      <section className="px-5 py-12 sm:px-8 md:py-16">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 md:grid-cols-12">
             <h2 className="max-w-[9ch] text-[clamp(2.65rem,4.5vw,4.6rem)] font-semibold leading-[1.1] tracking-[-0.055em] text-balance md:col-span-4">
@@ -290,13 +290,21 @@ const AboutPageContent = () => {
         </div>
       </section>
 
-      <section id="history" className="px-5 py-20 sm:px-8 md:py-28">
+      <section id="history" className="px-5 py-12 sm:px-8 md:py-16">
         <div className="mx-auto max-w-7xl">
-          <h2 className="max-w-[9ch] text-[clamp(2.65rem,4.5vw,4.6rem)] font-semibold leading-[1.1] tracking-[-0.055em] text-balance">
-            {t("applicationAreasTitle")}
-          </h2>
+          <div className="grid gap-8 border-b border-[#d8dad7] pb-8 md:grid-cols-12 md:items-end">
+            <h2 className="max-w-[9ch] text-[clamp(2.65rem,4.5vw,4.6rem)] font-semibold leading-[1.1] tracking-[-0.055em] text-balance md:col-span-4">
+              {t("applicationAreasTitle")}
+            </h2>
 
-          <div className="mt-12 grid gap-x-8 gap-y-12 lg:grid-cols-12">
+            <div className="md:col-start-7 md:col-span-6">
+              <p className="max-w-[38rem] text-[0.9rem] leading-7 text-[#626862]">
+                {t("applicationAreasDescription")}
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-x-8 gap-y-12 lg:grid-cols-12">
             {historyItems.map((item, index) => (
               <motion.article
                 key={item.title}

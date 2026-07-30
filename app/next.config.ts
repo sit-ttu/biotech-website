@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
       {
         protocol: "http",
         hostname: "localhost",
-        port: "8080",
+        port: "8081",
         pathname: "/uploads/**",
       },
       // TODO: add your production backend host here, e.g.

@@ -31,7 +31,7 @@ cp .env.example .env
 pnpm dev
 ```
 
-Runs at [http://localhost:3000](http://localhost:3000).
+Runs at [http://localhost:3001](http://localhost:3001).
 
 ## Commands
 

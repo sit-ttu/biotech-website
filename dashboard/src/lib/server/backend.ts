@@ -10,7 +10,7 @@ export interface BackendSession {
 
 export function getBackendConfig() {
   const baseUrl =
-    process.env.INTERNAL_API_URL || "http://localhost:8080/api/v1";
+    process.env.INTERNAL_API_URL || "http://localhost:8081/api/v1";
   const apiKey = process.env.API_ACCESS_KEY;
   if (!apiKey) throw new Error("API_ACCESS_KEY is required");
   return { baseUrl: baseUrl.replace(/\/$/, ""), apiKey };

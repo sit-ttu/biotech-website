@@ -572,11 +572,8 @@ export default function NewsPageContent({
                   variants={reveal}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.5, delay: (index % 4) * 0.05 }}
-                  className="grid gap-6 border-b border-[#d8dad7] py-7 md:grid-cols-[3rem_1fr_17rem] md:items-center"
+                  className="grid gap-6 border-b border-[#d8dad7] py-7 md:grid-cols-[1fr_17rem] md:items-center"
                 >
-                  <span className="font-mono text-[0.62rem] text-[#139C48]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
                   <div>
                     <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.62rem]">
                       <span className="font-semibold uppercase tracking-[0.1em] text-[#139C48]">

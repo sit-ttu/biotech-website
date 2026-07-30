@@ -3,7 +3,7 @@ export const API_URL =
     ? process.env.INTERNAL_API_URL ||
       (process.env.NODE_ENV === "production"
         ? "https://biotech.ttu.edu.vn/api/backend"
-        : "http://localhost:8080/api/v1")
+        : "http://localhost:8081/api/v1")
     : "/api/backend";
 
 // --- Types & Interfaces ---

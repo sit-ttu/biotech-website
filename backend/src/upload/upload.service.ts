@@ -15,7 +15,7 @@ export class UploadService {
     // Base URL the backend is reachable at; used to build absolute image URLs.
     this.publicUrl = (
       this.configService.get<string>('UPLOAD_PUBLIC_URL') ||
-      'http://localhost:8080'
+      'http://localhost:8081'
     ).replace(/\/$/, '');
 
     const configuredOrigins =

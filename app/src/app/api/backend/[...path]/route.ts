@@ -21,7 +21,7 @@ const PUBLIC_RESOURCES = new Set([
 
 export async function GET(request: NextRequest, context: RouteContext) {
   const baseUrl = (
-    process.env.INTERNAL_API_URL || "http://localhost:8080/api/v1"
+    process.env.INTERNAL_API_URL || "http://localhost:8081/api/v1"
   ).replace(/\/$/, "");
   const apiKey = process.env.API_ACCESS_KEY;
   if (!apiKey) {

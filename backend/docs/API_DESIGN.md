@@ -4,8 +4,8 @@
 
 The Biotech TTU API provides RESTful endpoints for managing educational programs, curriculums, curriculum sections, and user authentication. The API follows REST conventions and includes comprehensive Swagger/OpenAPI documentation.
 
-**Base URL**: `http://localhost:8080/api/v1`  
-**Swagger Documentation**: `http://localhost:8080/api/docs`
+**Base URL**: `http://localhost:8081/api/v1`  
+**Swagger Documentation**: `http://localhost:8081/api/docs`
 
 ### Authentication
 

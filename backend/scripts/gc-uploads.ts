@@ -17,7 +17,7 @@ if (!Number.isFinite(minAgeHours) || minAgeHours < 1) {
   );
 }
 
-const publicUrl = process.env.UPLOAD_PUBLIC_URL || 'http://localhost:8080';
+const publicUrl = process.env.UPLOAD_PUBLIC_URL || 'http://localhost:8081';
 const trustedOrigins = new Set(
   [publicUrl, ...(process.env.UPLOAD_TRUSTED_ORIGINS || '').split(',')]
     .map((value) => value.trim())

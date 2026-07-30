@@ -528,7 +528,7 @@ export default function HomePageContent({
             initial={reduceMotion ? false : { opacity: 0, y: 26 }}
             whileInView={reveal}
             viewport={{ once: true, amount: 0.5 }}
-            className="flex flex-col gap-6 border-b border-[#d8dad7] pb-7 sm:flex-row sm:items-end sm:justify-between"
+            className="flex flex-col gap-6 pb-7 sm:flex-row sm:items-end sm:justify-between"
           >
             <div className="grid gap-5 sm:grid-cols-[minmax(0,0.8fr)_minmax(16rem,1.2fr)] sm:items-end sm:gap-12">
               <h2 className="text-[2.15rem] font-semibold leading-none tracking-[-0.055em] text-[#111311] sm:text-[2.6rem]">

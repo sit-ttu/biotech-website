@@ -369,25 +369,25 @@ const Header = () => {
         id: "about-overview",
         label: aboutLinks[0].label,
         href: aboutLinks[0].href,
-        image: "/assets/ttu/menu/research-banner.jpg",
+        image: "/assets/biotech/students-biotech-lab-ttu.jpg",
       },
       {
         id: "about-faculty",
         label: aboutLinks[1].label,
         href: aboutLinks[1].href,
-        image: "/assets/ttu/menu/ttu-academic-campus.jpg",
+        image: "/assets/biotech/official-faculty-science-conference.jpg",
       },
       {
         id: "about-achievements",
         label: aboutLinks[2].label,
         href: aboutLinks[2].href,
-        image: "/assets/ttu/menu/international-cooperation-2026.jpg",
+        image: "/assets/biotech/biotech-hackathon-2026.jpg",
       },
       {
         id: "about-contact",
         label: aboutLinks[3].label,
         href: aboutLinks[3].href,
-        image: "/assets/ttu/menu/campus-discovery.jpg",
+        image: "/assets/biotech/official-contact-tan-tao-university.jpg",
       },
     ],
     [aboutLinks],
@@ -405,19 +405,19 @@ const Header = () => {
         id: "news-academic",
         label: locale === "vi" ? "Hoạt động học thuật" : "Academic activities",
         href: paths.news,
-        image: "/assets/ttu/menu/ttu-academic-campus.jpg",
+        image: "/assets/biotech/biology-conference-ttu.jpg",
       },
       {
         id: "news-cooperation",
         label: locale === "vi" ? "Hợp tác quốc tế" : "International cooperation",
         href: paths.news,
-        image: "/assets/ttu/menu/international-cooperation-2026.jpg",
+        image: "/assets/biotech/biotech-hackathon-2026.jpg",
       },
       {
         id: "news-community",
         label: locale === "vi" ? "Đời sống TTU" : "Life at TTU",
         href: paths.news,
-        image: "/assets/ttu/menu/students-at-ttu.jpg",
+        image: "/assets/biotech/students-biotech-lab-ttu.jpg",
       },
     ],
     [locale, paths.news],
@@ -428,23 +428,23 @@ const Header = () => {
       {
         id: "research-overview",
         ...researchLinks[0],
-        image: "/assets/ttu/menu/research-banner.jpg",
+        image: "/assets/biotech/research-overview-lab-pinterest.jpg",
       },
       {
         id: "research-projects",
         ...researchLinks[1],
-        image: "/assets/biotech/biotech-hackathon-2026.jpg",
+        image: "/assets/biotech/official-research-project-biotech-lab.jpg",
       },
       {
         id: "research-publications",
         ...researchLinks[2],
-        image: "/assets/ttu/menu/graduate-learning.jpg",
+        image: "/assets/biotech/official-scientific-publication.jpg",
       },
       {
         id: "research-cooperation",
         label: locale === "vi" ? "Hợp tác nghiên cứu" : "Research partnerships",
         href: paths.research,
-        image: "/assets/ttu/menu/international-cooperation-2026.jpg",
+        image: "/assets/biotech/biology-conference-ttu.jpg",
       },
     ],
     [locale, paths.research, researchLinks],
@@ -455,12 +455,12 @@ const Header = () => {
       {
         id: "students-overview",
         ...studentLinks[0],
-        image: "/assets/ttu/menu/students-at-ttu.jpg",
+        image: "/assets/biotech/students-biotech-lab-ttu.jpg",
       },
       {
         id: "students-admissions",
         ...studentLinks[1],
-        image: "/assets/ttu/menu/academic-programs.jpg",
+        image: "/assets/biotech/hero-biotechnology.png",
       },
       {
         id: "students-activities",
@@ -470,7 +470,7 @@ const Header = () => {
       {
         id: "students-alumni",
         ...studentLinks[5],
-        image: "/assets/ttu/menu/undergraduate-academic-life.jpg",
+        image: "/assets/biotech/students-alumni-graduation-pinterest.jpg",
       },
     ],
     [studentLinks],
@@ -540,10 +540,10 @@ const Header = () => {
 
   const programCards = useMemo(() => {
     const fallbackImages = [
-      "/assets/ttu/menu/students-at-ttu.jpg",
-      "/assets/ttu/menu/academic-programs.jpg",
-      "/assets/ttu/menu/graduate-learning.jpg",
-      "/assets/biotech/biotech-hackathon-2026.jpg",
+      "/assets/biotech/program-biotechnology-lab.webp",
+      "/assets/biotech/program-applied-biology-tissue-culture.webp",
+      "/assets/biotech/students-biotech-lab-ttu.jpg",
+      "/assets/biotech/environment-food-data-lab.jpg",
     ];
     const dynamicCards = programSections.flatMap((section) =>
       section.programs.map((program, index) => ({

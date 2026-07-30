@@ -57,9 +57,9 @@ pnpm start
 
 | Service | URL |
 |---|---|
-| Public app | http://localhost:3000 |
-| Dashboard | http://localhost:4000 |
-| Backend API | http://localhost:8080 |
+| Public app | http://localhost:3001 |
+| Dashboard | http://localhost:4001 |
+| Backend API | http://localhost:8081 |
 
 For active development, run each workspace's own dev server instead (`cd app && pnpm dev`, `cd backend && pnpm start:dev`, `cd dashboard && pnpm dev`), or `pnpm dev` from the root to run all three in parallel.
 

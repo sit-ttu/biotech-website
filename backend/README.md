@@ -34,7 +34,7 @@ Fill in `.env`:
 | `API_ACCESS_KEY_SHA256`, `JWT_ACCESS_SECRET` | generate both with `pnpm security:generate-secrets` |
 | `JWT_ACCESS_TTL_SECONDS`, `REFRESH_TOKEN_TTL_DAYS` | auth token lifetimes |
 | `UPLOAD_PUBLIC_URL`, `UPLOAD_TRUSTED_ORIGINS` | public base URL for `/uploads` files, plus any prior origins still referenced in stored URLs |
-| `ORIGIN` | extra CORS origins, comma-separated (`localhost:3000`/`4000` are always allowed) |
+| `ORIGIN` | extra CORS origins, comma-separated (`localhost:3001`/`4001` are always allowed) |
 | `PORT` | API port (default `8080`) |
 | `GOOGLE_API_KEY` | Gemini key used by the translation module |
 
@@ -45,7 +45,7 @@ pnpm db:push
 pnpm start:dev
 ```
 
-The API listens on `http://localhost:8080`, prefixed at `/api/v1`; Swagger UI is served alongside it. Uploaded files are served statically at `/uploads`.
+The API listens on `http://localhost:8081`, prefixed at `/api/v1`; Swagger UI is served alongside it. Uploaded files are served statically at `/uploads`.
 
 ## Commands
 

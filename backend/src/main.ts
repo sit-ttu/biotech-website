@@ -77,7 +77,7 @@ async function bootstrap() {
     .map((o) => o.trim())
     .filter(Boolean);
   app.enableCors({
-    origin: ['http://localhost:3000', 'http://localhost:4000', ...extraOrigins],
+    origin: ['http://localhost:3001', 'http://localhost:4001', ...extraOrigins],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
@@ -162,7 +162,7 @@ async function bootstrap() {
     },
   });
 
-  const port = process.env.PORT ?? 8080;
+  const port = process.env.PORT ?? 8081;
   await app.listen(port);
 
   logger.log(`Application is running on: http://localhost:${port}`);
