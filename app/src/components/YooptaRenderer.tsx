@@ -64,8 +64,17 @@ type Props = {
 };
 
 export default function YooptaRenderer({ value, className }: Props) {
-  const editor = useMemo(() => createYooptaEditor(), []);
   const normalizedValue = useMemo(() => normalizeWhitespace(value), [value]);
+  const editor = useMemo(
+    () =>
+      createYooptaEditor({
+        plugins: plugins as any,
+        marks: MARKS,
+        value: normalizedValue,
+        readOnly: true,
+      }),
+    [normalizedValue],
+  );
 
   return (
     <div
@@ -74,10 +83,6 @@ export default function YooptaRenderer({ value, className }: Props) {
     >
       <YooptaEditor
         editor={editor}
-        plugins={plugins as any}
-        marks={MARKS}
-        value={normalizedValue}
-        readOnly
         style={{ width: "100%" }}
       />
     </div>

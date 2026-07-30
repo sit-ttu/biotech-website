@@ -1,8 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Facebook, Linkedin, Link as LinkIcon } from "lucide-react";
-import { ArrowLeft02Icon, ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
+import { Link as LinkIcon } from "lucide-react";
+import {
+  ArrowLeft02Icon,
+  ArrowUpRight01Icon,
+  Facebook01Icon,
+  Linkedin01Icon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import EditorialCta from "@/components/EditorialCta";
@@ -344,7 +349,7 @@ export default function NewsDetailPageContent({
         aria-label="Facebook"
         className="flex h-11 w-11 items-center justify-center border border-[#171b25]/20 text-[#555a55] transition-colors hover:border-[#139C48] hover:bg-[#139C48] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#139C48]"
       >
-        <Facebook className="h-4 w-4" />
+        <HugeiconsIcon icon={Facebook01Icon} size={16} />
       </button>
       <button
         type="button"
@@ -353,7 +358,7 @@ export default function NewsDetailPageContent({
         aria-label="LinkedIn"
         className="flex h-11 w-11 items-center justify-center border border-[#171b25]/20 text-[#555a55] transition-colors hover:border-[#139C48] hover:bg-[#139C48] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#139C48]"
       >
-        <Linkedin className="h-4 w-4" />
+        <HugeiconsIcon icon={Linkedin01Icon} size={16} />
       </button>
     </div>
   );
