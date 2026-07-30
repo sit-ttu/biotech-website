@@ -9,6 +9,9 @@ config({ path: "../.env.shared", quiet: true });
 const withNextIntl = createNextIntlPlugin("./src/i18n.ts");
 
 const nextConfig: NextConfig = {
+  experimental: {
+    useTypeScriptCli: true,
+  },
   images: {
     remotePatterns: [
       {
