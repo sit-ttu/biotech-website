@@ -707,14 +707,6 @@ const Header = () => {
           </nav>
 
           <div className="ml-auto flex shrink-0 items-center gap-2">
-            <a
-              href="https://tuyensinh.ttu.edu.vn/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden min-h-10 items-center rounded-full bg-[#139C48] px-4 text-[0.72rem] font-bold uppercase tracking-[0.1em] text-white transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#0F7E3A] md:inline-flex"
-            >
-              {t("navigation.studentsAdmissions")}
-            </a>
             <button
               type="button"
               onClick={() => setIsSearchOpen(true)}
@@ -723,6 +715,14 @@ const Header = () => {
             >
               <Search size={17} strokeWidth={1.7} />
             </button>
+            <a
+              href="https://tuyensinh.ttu.edu.vn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden min-h-10 items-center rounded-full bg-[#139C48] px-4 text-[0.72rem] font-bold uppercase tracking-[0.1em] text-white transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#0F7E3A] md:inline-flex"
+            >
+              {t("navigation.studentsAdmissions")}
+            </a>
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen((open) => !open)}

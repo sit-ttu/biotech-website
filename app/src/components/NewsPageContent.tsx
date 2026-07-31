@@ -416,10 +416,7 @@ export default function NewsPageContent({
           className="mx-auto grid max-w-7xl gap-8 border-b border-[#d8dad7] pb-12 md:grid-cols-12 md:items-end md:pb-16"
         >
           <div className="md:col-span-7">
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
-              {t("newsroom")}
-            </p>
-            <h1 className="mt-5 max-w-[10ch] text-[clamp(3rem,6.2vw,6.4rem)] font-semibold leading-[1.04] tracking-[-0.06em] text-balance">
+            <h1 className="max-w-[10ch] text-[clamp(3rem,6.2vw,6.4rem)] font-semibold leading-[1.04] tracking-[-0.06em] text-balance">
               {t("title")}
             </h1>
           </div>
@@ -533,10 +530,7 @@ export default function NewsPageContent({
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 md:grid-cols-12 md:items-end">
             <div className="md:col-span-5">
-              <p className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-[#139C48]">
-                {t("topicsEyebrow")}
-              </p>
-              <h2 className="mt-4 text-[clamp(2.35rem,4.2vw,4.4rem)] font-semibold leading-[1.05] tracking-[-0.055em]">
+              <h2 className="text-[clamp(2.35rem,4.2vw,4.4rem)] font-semibold leading-[1.05] tracking-[-0.055em]">
                 {t("topicsTitle")}
               </h2>
             </div>
@@ -614,10 +608,7 @@ export default function NewsPageContent({
         <div className="mx-auto max-w-7xl border-t border-[#d8dad7] pt-14 md:pt-20">
           <div className="grid gap-8 md:grid-cols-12 md:items-end">
             <div className="md:col-span-5">
-              <p className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-[#139C48]">
-                {t("insightsEyebrow")}
-              </p>
-              <h2 className="mt-4 max-w-[12ch] text-[clamp(2.35rem,4.2vw,4.4rem)] font-semibold leading-[1.05] tracking-[-0.055em]">
+              <h2 className="max-w-[12ch] text-[clamp(2.35rem,4.2vw,4.4rem)] font-semibold leading-[1.05] tracking-[-0.055em]">
                 {t("insightsTitle")}
               </h2>
             </div>

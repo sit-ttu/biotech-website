@@ -7,7 +7,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
-import CtaBanner from "@/components/CtaBanner";
+import EditorialCta from "@/components/EditorialCta";
 import YooptaRenderer from "@/components/YooptaRenderer";
 import { api, type Curriculum, type Program } from "@/lib/api";
 import {
@@ -16,14 +16,11 @@ import {
   normalizeProgramLevel,
   programDetailHref,
   programImage,
-  programLevelPath,
   programsBasePath,
   stripProgramHtml,
   type ProgramLevelKey,
   type SiteLocale,
 } from "@/lib/program-pages";
-
-import { ArrowIcon } from "@/components/icons/ArrowIcon";
 
 type ProgramPageTranslations = {
   shared: {
@@ -35,13 +32,11 @@ type ProgramPageTranslations = {
       points: string[];
     };
     curriculum: {
-      badge: string;
       title: string;
       description: string;
       placeholder: string;
     };
     career: {
-      badge: string;
       title: string;
       points: string[];
     };
@@ -79,12 +74,15 @@ type ProgramSlugTranslations = {
 };
 
 const ProgramDetailLoading = () => (
-  <main className="min-h-screen animate-pulse bg-white">
-    <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-20">
-      <div className="h-3 w-40 bg-[#ebe6e1]" />
-      <div className="mt-10 h-40 max-w-4xl bg-[#ebe6e1]" />
-      <div className="mt-10 h-24 max-w-xl bg-[#f2eeea]" />
-      <div className="mt-14 h-72 bg-[#e8e2dc]" />
+  <main className="min-h-screen animate-pulse bg-[#fcfcfa]">
+    <section className="mx-auto max-w-7xl px-5 py-10 sm:px-8">
+      <div className="h-3 w-44 bg-[#e5e8e2]" />
+      <div className="mt-14 grid gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(16rem,0.5fr)]">
+        <div className="h-48 bg-[#e5e8e2]" />
+        <div className="h-28 bg-[#eef0ec]" />
+      </div>
+      <div className="mt-9 aspect-[16/7] min-h-72 rounded-2xl bg-[#e1e5de]" />
+      <div className="mt-12 h-24 border-y border-[#e1e4df]" />
     </section>
   </main>
 );
@@ -162,13 +160,6 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
   const copy =
     locale === "vi"
       ? {
-          dossier: "Hồ sơ chương trình",
-          updated: "Cập nhật tuyển sinh 2026",
-          contents: "Trong trang này",
-          overview: "Tổng quan",
-          curriculum: "Chương trình học",
-          career: "Cơ hội nghề nghiệp",
-          nextStep: "Bước tiếp theo",
           advice: "Trao đổi với đội ngũ tuyển sinh để được tư vấn lộ trình phù hợp.",
           apply: "Đăng ký tư vấn",
           curriculumIndex: "Danh mục chương trình đào tạo",
@@ -176,18 +167,10 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
           duration: "Thời lượng",
           credits: "Tín chỉ",
           semesters: "Học kỳ",
-          current: "Hiện hành",
           viewCurriculum: "Xem chi tiết chương trình",
           outcome: "Hướng phát triển",
         }
       : {
-          dossier: "Program dossier",
-          updated: "Admissions update 2026",
-          contents: "On this page",
-          overview: "Overview",
-          curriculum: "Curriculum",
-          career: "Career pathways",
-          nextStep: "Your next step",
           advice: "Talk with our admissions team to map a pathway that fits your goals.",
           apply: "Request guidance",
           curriculumIndex: "Curriculum index",
@@ -195,7 +178,6 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
           duration: "Duration",
           credits: "Credits",
           semesters: "Semesters",
-          current: "Current",
           viewCurriculum: "View curriculum details",
           outcome: "Pathway",
         };
@@ -205,13 +187,13 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
   if (error || !program) {
     return (
       <main className="flex min-h-[55vh] items-center justify-center bg-[#f5f7f4] px-5">
-        <div className="max-w-lg border-l-4 border-[#139C48] bg-white p-8">
+        <div className="max-w-lg rounded-[1rem] border-l-4 border-[#139C48] bg-white p-8">
           <p className="text-xl font-bold tracking-tight text-[#171b25]">
             {locale === "vi" ? "Không tìm thấy chương trình này" : "This program could not be found"}
           </p>
           <Link
             href={programsBasePath(locale)}
-            className="mt-6 inline-flex min-h-11 items-center bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
+            className="mt-6 inline-flex min-h-11 items-center rounded-full bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
           >
             {t("viewAll")}
           </Link>
@@ -234,228 +216,336 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
     program.banner ||
     programImage(program) ||
     slugLevelContent.hero.fallbackImage;
+  const experienceImages = [
+    levelContent.heroImage,
+    "/assets/biotech/biotechnology-microscope.jpg",
+    "/assets/biotech/students-alumni-graduation-pinterest.jpg",
+    "/assets/biotech/environment-food-data-lab.jpg",
+  ];
 
   return (
-    <main className="overflow-hidden bg-white text-[#171b25]">
-      <section className="border-b border-[#171b25]/15 bg-white">
-        <div className="mx-auto max-w-7xl px-5 pb-12 pt-7 sm:px-8 lg:pb-16">
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#8a8d88]">
-            <Link href={programsBasePath(locale)} className="transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]">
-              {t("title")}
-            </Link>
-            <span aria-hidden className="text-[#139C48]">/</span>
-            <Link
-              href={`${programsBasePath(locale)}/${programLevelPath(locale, levelKey)}`}
-              className="transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]"
-            >
-              {levelLabel}
-            </Link>
-            <span aria-hidden className="text-[#139C48]">/</span>
-            <span className="max-w-[26rem] truncate text-[#4f544f]">{title}</span>
-          </nav>
-
+    <main className="overflow-hidden bg-[#fcfcfa] text-[#101411]">
+      <section className="pb-10 pt-8 lg:pb-16">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={reveal}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-16"
+            className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(17rem,0.5fr)] lg:items-end lg:gap-14"
           >
             <div>
-              <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#139C48]">
-                <span className="h-px w-12 bg-current" />
-                {copy.dossier} · {program.majorCode || program.code}
-              </div>
-              <h1 className="mt-7 max-w-[17ch] text-[2.75rem] font-bold leading-[1.08] tracking-[-0.032em] text-balance text-[#171b25] sm:text-[3.4rem] lg:text-[4rem]">
+              <h1 className="max-w-[12ch] text-[clamp(3.5rem,8vw,7.6rem)] font-semibold leading-[1.02] tracking-[-0.075em] text-balance">
                 {title}
               </h1>
-              <p className="mt-7 max-w-2xl text-sm leading-7 text-[#60645f] sm:text-[0.95rem]">
-                {description || levelContent.heroTagline}
-              </p>
             </div>
 
-            <aside className="border-t-2 border-[#139C48] pt-5 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
-              <p className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-[#8a8d88]">{copy.updated}</p>
-              <div className="mt-6 grid grid-cols-2 gap-x-5 gap-y-7 lg:grid-cols-1">
-                {keyFacts.map((fact) => (
-                  <div key={fact.label}>
-                    <p className="font-mono text-[0.56rem] uppercase tracking-[0.14em] text-[#8a8d88]">{fact.label}</p>
-                    <p className="mt-2 text-sm font-semibold leading-6 text-[#171b25]">{fact.value}</p>
-                  </div>
-                ))}
-              </div>
+            <aside className="border-l border-[#d7dbd5] pl-6 lg:mb-2 lg:pl-8">
+              <p className="max-w-sm text-sm font-medium leading-6 text-[#303833]">
+                {description || levelContent.heroTagline}
+              </p>
               <a
                 href="https://tuyensinh.ttu.edu.vn"
                 target="_blank"
                 rel="noreferrer"
-                className="group mt-8 flex min-h-12 items-center justify-between rounded-full bg-[#139C48] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
+                className="group mt-6 inline-flex min-h-10 items-center gap-3 rounded-full border border-[#bfc6bf] px-4 text-xs font-semibold transition-colors hover:border-[#0a7b3e] hover:bg-[#0a7b3e] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0a7b3e]"
               >
-                {slugPage.shared.hero.applyLabel || programPage.shared.applyLabel}
-                <span className="transition-transform group-hover:translate-x-1"><ArrowIcon direction="up-right" size={16} /></span>
+                {slugPage.shared.hero.applyLabel ||
+                  programPage.shared.applyLabel}
+                <HugeiconsIcon
+                  icon={ArrowUpRight01Icon}
+                  size={15}
+                  className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
               </a>
             </aside>
           </motion.div>
-        </div>
 
-        <div className="relative mx-auto h-64 max-w-7xl overflow-hidden sm:h-80 lg:h-[25rem]">
-          <img src={banner} alt={title} className="h-full w-full object-cover" />
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#171b25]/55 to-transparent" />
-          <div className="absolute inset-x-5 bottom-6 mx-auto flex max-w-7xl items-end justify-between gap-6 sm:inset-x-8">
-            <p className="max-w-xl text-lg font-semibold leading-7 text-white sm:text-xl">{levelContent.heroTagline}</p>
-            <span className="hidden font-mono text-[0.6rem] uppercase tracking-[0.16em] text-white/70 sm:block">Biotech TTU · Tan Tao University</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="program-overview" className="relative scroll-mt-24 bg-[#f5f7f4] py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[11rem_minmax(0,1fr)] lg:gap-16">
-          <nav className="lg:sticky lg:top-28 lg:self-start" aria-label={copy.contents}>
-            <p className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.17em] text-[#139C48]">{copy.contents}</p>
-            <div className="mt-5 border-t-2 border-[#171b25]">
-              {[
-                ["#program-overview", copy.overview],
-                ["#curriculum", copy.curriculum],
-                ["#career", copy.career],
-              ].map(([href, label], index) => (
-                <a key={href} href={href} className="grid min-h-12 grid-cols-[2rem_1fr] items-center border-b border-[#d4cec8] text-[0.72rem] font-semibold text-[#5f635e] transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]">
-                  <span className="font-mono text-[0.58rem] text-[#139C48]">0{index + 1}</span>
-                  {label}
-                </a>
-              ))}
-            </div>
-          </nav>
-
-          <div>
-            <motion.div initial="hidden" whileInView="visible" variants={reveal} viewport={{ once: true }}>
-              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">{programPage.shared.overview.badge}</p>
-              <h2 className="mt-4 max-w-xl text-[2.2rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[2.9rem]">{slugPage.shared.overview.title}</h2>
-              <p className="mt-6 max-w-3xl text-base leading-8 text-[#686c67]">{slugPage.shared.overview.description}</p>
-            </motion.div>
-
-            {hasContent && (
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                variants={reveal}
-                viewport={{ once: true }}
-                className="mt-10 border-t border-[#d6d0ca] pt-8"
-              >
-                <YooptaRenderer value={program.content} className="[&_h1]:text-[#171b25] [&_h2]:text-[#171b25] [&_h3]:text-[#171b25] [&_p]:text-base [&_p]:leading-8 [&_p]:text-[#5f635e]" />
-              </motion.div>
-            )}
-
-            <div className="mt-10 border-t-2 border-[#171b25]">
-              {slugPage.shared.overview.sections.map((section, sectionIndex) => (
-                <motion.article
-                  key={section.title}
-                  initial="hidden"
-                  whileInView="visible"
-                  variants={reveal}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="grid gap-6 border-b border-[#d4cec8] py-8 sm:grid-cols-[3.5rem_1fr]"
-                >
-                  <span className="text-[2rem] font-bold leading-none tracking-[-0.05em] text-[#139C48]">0{sectionIndex + 1}</span>
-                  <div>
-                    <h3 className="text-xl font-bold tracking-[-0.03em]">{section.title}</h3>
-                    <div className="mt-5 divide-y divide-[#d9d3cd] border-t border-[#d9d3cd]">
-                      {section.points.map((point, index) => (
-                        <p key={point} className="grid grid-cols-[2.5rem_1fr] gap-4 py-4 text-base leading-7 text-[#5f635e] sm:text-[1.05rem]">
-                          <span className="pt-0.5 font-mono text-[0.68rem] text-[#139C48]">{String(index + 1).padStart(2, "0")}</span>
-                          <span>{point}</span>
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                </motion.article>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <section className="border-b border-[#171b25]/15 bg-white">
-        <div className="mx-auto grid max-w-7xl gap-6 px-5 py-8 sm:px-8 sm:py-10 lg:grid-cols-[10rem_minmax(0,1fr)_auto] lg:items-center lg:gap-10">
-          <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-[#139C48]">{copy.nextStep}</p>
-          <p className="max-w-3xl text-xl font-bold leading-8 tracking-[-0.025em] text-[#171b25] sm:text-2xl">{copy.advice}</p>
-          <a
-            href="https://www.facebook.com/biotech.ttu.edu.vn"
-            target="_blank"
-            rel="noreferrer"
-            className="group inline-flex min-h-12 items-center justify-between gap-8 rounded-full bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
+          <motion.figure
+            initial="hidden"
+            animate="visible"
+            variants={reveal}
+            transition={{ duration: 0.8, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-10 overflow-hidden rounded-[1.15rem] bg-[#e6e9e3]"
           >
-            {copy.apply}
-            <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </a>
+            <img
+              src={banner}
+              alt={title}
+              className="aspect-[16/8.2] min-h-[20rem] w-full object-cover sm:aspect-[16/7]"
+            />
+          </motion.figure>
+
+          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {keyFacts.map((fact, index) => (
+              <div
+                key={fact.label}
+                className={`flex min-h-36 flex-col justify-between rounded-[1.35rem] p-5 sm:p-6 ${
+                  index === 0
+                    ? "bg-[#139C48] text-white"
+                    : "border border-[#D6E5E0] bg-white text-[#12312B]"
+                }`}
+              >
+                <p
+                  className={`text-[0.58rem] font-semibold uppercase tracking-[0.15em] ${
+                    index === 0 ? "text-white/70" : "text-[#60756F]"
+                  }`}
+                >
+                  {fact.label}
+                </p>
+                <p className="mt-8 max-w-[18rem] text-lg font-semibold leading-6 tracking-[-0.03em]">
+                  {fact.value}
+                </p>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
-      <section id="curriculum" className="relative scroll-mt-24 bg-white py-16 sm:py-20 lg:py-24">
+      <section
+        id="program-overview"
+        className="scroll-mt-24 py-16 sm:py-20 lg:py-24"
+      >
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid gap-6 border-b-2 border-[#171b25] pb-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
-            <div>
-              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">{copy.curriculumIndex}</p>
-              <h2 className="mt-4 text-[2.2rem] font-bold leading-tight tracking-[-0.045em] sm:text-[2.9rem]">{slugPage.shared.curriculum.title}</h2>
-            </div>
-            <p className="max-w-xl text-base leading-8 text-[#686c67] lg:justify-self-end">{slugPage.shared.curriculum.description}</p>
-          </div>
+          <motion.header
+            initial="hidden"
+            whileInView="visible"
+            variants={reveal}
+            viewport={{ once: true }}
+            className="border-b border-[#d9ddd7] pb-5"
+          >
+            <h2 className="text-[clamp(2.25rem,4vw,4rem)] font-semibold leading-none tracking-[-0.055em]">
+              {programPage.shared.overview.title}
+            </h2>
+          </motion.header>
 
-          {curriculums.length > 0 ? (
+          <div className="mt-7 grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-14">
             <div>
-              {curriculums.map((curriculum, index) => {
-                const curriculumName = localizedProgramText(locale, curriculum.nameVi, curriculum.nameEn);
+              <p className="text-sm leading-6 text-[#69716b]">
+                {programPage.shared.overview.description}
+              </p>
+            </div>
+
+            <div className="grid gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-12">
+              {programPage.shared.overview.points.slice(0, 4).map((point, index) => {
+                const spans = [
+                  "lg:col-span-8",
+                  "lg:col-span-4",
+                  "lg:col-span-4",
+                  "lg:col-span-8",
+                ];
+                const ratios = [
+                  "aspect-[16/8.5]",
+                  "aspect-[4/3]",
+                  "aspect-[4/3]",
+                  "aspect-[16/7]",
+                ];
+
                 return (
-                  <motion.div
-                    key={curriculum.curriculumId}
+                  <motion.figure
+                    key={point}
                     initial="hidden"
                     whileInView="visible"
                     variants={reveal}
                     viewport={{ once: true, margin: "-40px" }}
-                    className="border-b border-[#dedad5]"
+                    transition={{ duration: 0.5, delay: index * 0.04 }}
+                    className={`${spans[index]} border-l border-[#d9ddd7] pl-3`}
                   >
-                    <Link
-                      href={curriculumDetailHref(locale, program, curriculum)}
-                      aria-label={`${copy.viewCurriculum}: ${curriculumName}`}
-                      className="group grid gap-5 px-3 py-7 transition-colors hover:bg-[#fbf8f5] focus-visible:bg-[#fbf8f5] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48] sm:grid-cols-[3rem_minmax(0,1fr)_8rem] sm:items-center lg:grid-cols-[4rem_minmax(0,1fr)_8rem_9rem_3rem]"
-                    >
-                      <span className="font-mono text-[0.72rem] font-semibold text-[#139C48]">{String(index + 1).padStart(2, "0")}</span>
-                      <div>
-                        <div className="flex flex-wrap items-center gap-3">
-                          <h3 className="text-xl font-bold leading-snug tracking-[-0.025em] transition-colors group-hover:text-[#139C48] sm:text-[1.35rem]">{curriculumName}</h3>
-                          {curriculum.isCurrent && <span className="border border-[#139C48]/35 px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-[0.1em] text-[#139C48]">{copy.current}</span>}
-                        </div>
-                        <p className="mt-2 font-mono text-[0.72rem] uppercase tracking-[0.08em] text-[#70746f]">{copy.year}: {curriculum.year}</p>
-                      </div>
-                      <div className="font-mono text-[0.72rem] uppercase tracking-[0.07em] text-[#70746f]">
-                        <span className="block text-[#a19d98]">{copy.duration}</span>
-                        <span className="mt-1 block font-semibold text-[#4f544f]">{curriculum.durationYears ? `${curriculum.durationYears} ${locale === "vi" ? "năm" : "years"}` : "—"}</span>
-                      </div>
-                      <div className="hidden font-mono text-[0.72rem] uppercase tracking-[0.07em] text-[#70746f] lg:block">
-                        <span className="block text-[#a19d98]">{copy.credits} / {copy.semesters}</span>
-                        <span className="mt-1 block font-semibold text-[#4f544f]">{curriculum.totalCredits || "—"} / {curriculum.totalSemesters || "—"}</span>
-                      </div>
-                      <span className="flex h-10 w-10 items-center justify-center justify-self-end border border-[#139C48]/35 text-[#139C48] transition-colors group-hover:bg-[#139C48] group-hover:text-white">
-                        <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} />
+                    <img
+                      src={experienceImages[index]}
+                      alt={point}
+                      className={`${ratios[index]} w-full rounded-[0.8rem] object-cover`}
+                    />
+                    <figcaption className="mt-3">
+                      <span className="max-w-[28rem] text-sm font-semibold leading-5">
+                        {point}
                       </span>
-                    </Link>
-                  </motion.div>
+                    </figcaption>
+                  </motion.figure>
                 );
               })}
             </div>
-          ) : (
-            <div className="border-b border-[#dedad5] py-16 text-center text-sm text-[#686c67]">{slugPage.shared.curriculum.placeholder}</div>
+          </div>
+
+          {hasContent && (
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              variants={reveal}
+              viewport={{ once: true }}
+              className="mt-24 grid gap-8 border-t border-[#d9ddd7] pt-7 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-14"
+            >
+              <div>
+                <p className="text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-[#0a7b3e]">
+                  {slugPage.shared.overview.title}
+                </p>
+                <p className="mt-4 text-sm leading-6 text-[#69716b]">
+                  {slugPage.shared.overview.description}
+                </p>
+              </div>
+              <YooptaRenderer
+                value={program.content}
+                className="max-w-4xl [&_h1]:tracking-[-0.04em] [&_h1]:text-[#101411] [&_h2]:tracking-[-0.035em] [&_h2]:text-[#101411] [&_h3]:text-[#101411] [&_p]:text-base [&_p]:leading-8 [&_p]:text-[#535c55]"
+              />
+            </motion.div>
           )}
+
+          <div className="mt-20 border-b border-[#C9CEC8]">
+            {slugPage.shared.overview.sections.map((section, sectionIndex) => (
+              <motion.article
+                key={section.title}
+                initial="hidden"
+                whileInView="visible"
+                variants={reveal}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: sectionIndex * 0.05 }}
+                className="grid gap-10 border-t border-[#C9CEC8] py-10 sm:py-12 lg:grid-cols-12 lg:gap-8"
+              >
+                <header className="lg:col-span-4">
+                  <span className="font-mono text-[2.75rem] font-medium leading-none tracking-[-0.08em] text-[#B8CDC0]">
+                    0{sectionIndex + 1}
+                  </span>
+                  <h3 className="mt-7 max-w-[14ch] text-[clamp(1.75rem,2.8vw,2.5rem)] font-semibold leading-[1.08] tracking-[-0.045em] text-[#12312B]">
+                    {section.title}
+                  </h3>
+                </header>
+                <ul className="grid gap-x-10 sm:grid-cols-2 lg:col-start-6 lg:col-span-7">
+                  {section.points.map((point) => (
+                    <li
+                      key={point}
+                      className="flex gap-4 border-t border-[#D9DDD7] py-5 text-sm leading-6 text-[#58615A]"
+                    >
+                      <span
+                        aria-hidden
+                        className="mt-[0.6rem] size-1.5 shrink-0 bg-[#139C48]"
+                      />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="career" className="relative scroll-mt-24 border-y border-[#171b25]/15 bg-white py-16 text-[#171b25] sm:py-20 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.68fr_1.32fr] lg:gap-20">
-          <div>
-            <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">{programPage.shared.career.badge}</p>
-            <h2 className="mt-5 max-w-md text-[2.2rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[2.9rem]">{programPage.shared.career.title}</h2>
-            <p className="mt-7 border-l-2 border-[#139C48] pl-5 text-sm leading-7 text-[#686c67]">{levelContent.heroTagline}</p>
+      <section
+        id="curriculum"
+        className="scroll-mt-24 bg-[#F4F6F2] py-16 sm:py-20 lg:py-24"
+      >
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <motion.header
+            initial="hidden"
+            whileInView="visible"
+            variants={reveal}
+            viewport={{ once: true }}
+            className="grid gap-8 border-b border-[#AEB6AD] pb-8 lg:grid-cols-12 lg:items-end"
+          >
+            <div className="lg:col-span-8">
+              <h2 className="max-w-[12ch] text-[clamp(2.5rem,5vw,5rem)] font-semibold leading-[0.95] tracking-[-0.065em] text-[#101411]">
+                {slugPage.shared.curriculum.title}
+              </h2>
+            </div>
+            <p className="max-w-md text-sm leading-7 text-[#616A63] lg:col-start-9 lg:col-span-4">
+              {slugPage.shared.curriculum.description}
+            </p>
+          </motion.header>
+
+          <div className="mt-10 grid gap-8 lg:grid-cols-12">
+            <p className="text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-[#60756F] lg:col-span-3">
+              {copy.curriculumIndex}
+            </p>
+            {curriculums.length > 0 ? (
+              <div className="border-t border-[#AEB6AD] lg:col-start-4 lg:col-span-9">
+                {curriculums.map((curriculum, index) => {
+                  const curriculumName = localizedProgramText(
+                    locale,
+                    curriculum.nameVi,
+                    curriculum.nameEn,
+                  );
+                  return (
+                    <motion.div
+                      key={curriculum.curriculumId}
+                      initial="hidden"
+                      whileInView="visible"
+                      variants={reveal}
+                      viewport={{ once: true, margin: "-40px" }}
+                    >
+                      <Link
+                        href={curriculumDetailHref(
+                          locale,
+                          program,
+                          curriculum,
+                        )}
+                        aria-label={`${copy.viewCurriculum}: ${curriculumName}`}
+                        className="group grid gap-7 border-b border-[#C9CEC8] py-8 transition-colors hover:text-[#0A7B3E] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0A7B3E] lg:grid-cols-[3rem_minmax(15rem,1fr)_minmax(22rem,1.15fr)_1.5rem] lg:items-center"
+                      >
+                        <span className="font-mono text-2xl font-medium tracking-[-0.08em] text-[#9BB6A7]">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <h3 className="text-lg font-semibold leading-6 tracking-[-0.025em] text-[#12312B] transition-colors group-hover:text-[#0A7B3E]">
+                          {curriculumName}
+                        </h3>
+                        <div className="grid grid-cols-2 gap-5 sm:grid-cols-4">
+                          {[
+                            [copy.year, curriculum.year],
+                            [
+                              copy.duration,
+                              curriculum.durationYears
+                              ? `${curriculum.durationYears} ${
+                                  locale === "vi" ? "năm" : "years"
+                                }`
+                              : "—",
+                            ],
+                            [copy.credits, curriculum.totalCredits || "—"],
+                            [copy.semesters, curriculum.totalSemesters || "—"],
+                          ].map(([label, value]) => (
+                            <div key={label}>
+                              <span className="block text-[0.56rem] font-semibold uppercase tracking-[0.12em] text-[#789087]">
+                                {label}
+                              </span>
+                              <span className="mt-2 block text-xs font-semibold text-[#12312B]">
+                                {value}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                        <HugeiconsIcon
+                          icon={ArrowUpRight01Icon}
+                          size={18}
+                          className="text-[#0A7B3E] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        />
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            ) : (
+              <p className="border-y border-[#C9CEC8] py-8 text-sm text-[#697169] lg:col-start-4 lg:col-span-9">
+                {slugPage.shared.curriculum.placeholder}
+              </p>
+            )}
           </div>
-          <div className="border-t-2 border-[#139C48]">
+        </div>
+      </section>
+
+      <section
+        id="career"
+        className="scroll-mt-24 py-16 sm:py-20 lg:py-24"
+      >
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <header className="grid gap-8 border-b border-[#bfc5be] pb-6 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end">
+            <div>
+              <h2 className="max-w-[13ch] text-[clamp(2.5rem,5vw,5rem)] font-semibold leading-[1.08] tracking-[-0.065em] text-balance">
+                {programPage.shared.career.title}
+              </h2>
+            </div>
+            <p className="max-w-md text-sm leading-6 text-[#616a63]">
+              {levelContent.heroTagline}
+            </p>
+          </header>
+
+          <div>
             {programPage.shared.career.points.map((point, index) => (
               <motion.article
                 key={point}
@@ -463,12 +553,18 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
                 whileInView="visible"
                 variants={reveal}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.05 }}
-                className="group grid min-h-24 grid-cols-[3.5rem_1fr_auto] items-center gap-4 border-b border-[#dedad5] py-5"
+                transition={{ duration: 0.45, delay: index * 0.04 }}
+                className="grid gap-5 border-b border-[#d9ddd7] py-7 sm:grid-cols-[3rem_minmax(0,1fr)_minmax(12rem,0.45fr)] sm:items-start"
               >
-                <span className="font-mono text-[0.64rem] font-semibold text-[#139C48]">0{index + 1}</span>
-                <p className="text-base font-semibold leading-7 sm:text-lg">{point}</p>
-                <span className="text-[#139C48] transition-transform group-hover:translate-x-1"><ArrowIcon direction="right" size={16} /></span>
+                <span className="text-[0.65rem] font-semibold text-[#0a7b3e]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <p className="max-w-2xl text-lg font-semibold leading-7 tracking-[-0.025em]">
+                  {point}
+                </p>
+                <p className="text-xs leading-5 text-[#747c76]">
+                  {copy.outcome} · {levelLabel}
+                </p>
               </motion.article>
             ))}
           </div>
@@ -476,23 +572,33 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
       </section>
 
       {relatedPrograms.length > 0 && (
-        <section className="relative bg-[#f5f7f4] py-16 sm:py-20">
+        <section className="bg-[#f1f3ee] py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
-            <h2 className="max-w-lg text-[2.1rem] font-bold leading-tight tracking-[-0.045em] sm:text-[2.7rem]">{t("exploreOtherPrograms")}</h2>
-            <div className="mt-9 border-t-2 border-[#171b25]">
+            <h2 className="max-w-[14ch] text-[clamp(2.3rem,4vw,4rem)] font-semibold leading-[1] tracking-[-0.055em]">
+              {t("exploreOtherPrograms")}
+            </h2>
+            <div className="mt-8 border-t border-[#aeb6ad]">
               {relatedPrograms.slice(0, 4).map((relatedProgram, index) => (
                 <Link
                   key={relatedProgram.programId}
                   href={programDetailHref(locale, relatedProgram)}
-                  className="group grid gap-3 border-b border-[#d6d0ca] py-5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48] sm:grid-cols-[3rem_1fr_auto] sm:items-center"
+                  className="group grid gap-4 border-b border-[#cbd0ca] py-6 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0a7b3e] sm:grid-cols-[3rem_minmax(0,1fr)_auto] sm:items-center"
                 >
-                  <span className="font-mono text-[0.64rem] font-semibold text-[#139C48]">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="text-lg font-bold tracking-[-0.025em] transition-colors group-hover:text-[#139C48]">
-                    {localizedProgramText(locale, relatedProgram.nameVi, relatedProgram.nameEn)}
+                  <span className="text-[0.62rem] font-semibold text-[#0a7b3e]">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#139C48]/35 text-[#139C48] transition-colors group-hover:bg-[#139C48] group-hover:text-white">
-                    <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} />
+                  <span className="text-base font-semibold tracking-[-0.02em] transition-colors group-hover:text-[#0a7b3e]">
+                    {localizedProgramText(
+                      locale,
+                      relatedProgram.nameVi,
+                      relatedProgram.nameEn,
+                    )}
                   </span>
+                  <HugeiconsIcon
+                    icon={ArrowUpRight01Icon}
+                    size={18}
+                    className="text-[#0a7b3e] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                  />
                 </Link>
               ))}
             </div>
@@ -500,7 +606,14 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
         </section>
       )}
 
-      <CtaBanner />
+      <EditorialCta
+        title={copy.apply}
+        description={copy.advice}
+        primaryLabel={copy.apply}
+        primaryHref="https://www.facebook.com/biotech.ttu.edu.vn"
+        secondaryLabel={t("viewAll")}
+        secondaryHref={programsBasePath(locale)}
+      />
     </main>
   );
 }

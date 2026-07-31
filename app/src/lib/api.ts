@@ -1,3 +1,12 @@
+import {
+  getMockCurriculumBySlug,
+  getMockCurriculums,
+  getMockProgramBySlug,
+  getMockPrograms,
+  mockCurriculums,
+  mockPrograms,
+} from "@/lib/program-mocks";
+
 export const API_URL =
   typeof window === "undefined"
     ? process.env.INTERNAL_API_URL ||
@@ -312,6 +321,8 @@ const fetchWithAuth = async (url: string, options: RequestInit = {}) => {
   });
 };
 
+const useProgramMocks = process.env.NODE_ENV === "development";
+
 // --- API Client (Read-Only) ---
 
 export const api = {
@@ -329,16 +340,24 @@ export const api = {
       );
 
       if (!response.ok) {
+        if (useProgramMocks) return getMockPrograms(params);
         throw new Error("Failed to fetch programs");
       }
 
-      return response.json();
+      const programs = (await response.json()) as Program[];
+      return useProgramMocks && programs.length === 0
+        ? getMockPrograms(params)
+        : programs;
     },
 
     findOne: async (id: string): Promise<Program> => {
       const response = await fetchWithAuth(`${API_URL}/programs/${id}`);
 
       if (!response.ok) {
+        const mockProgram = useProgramMocks
+          ? mockPrograms.find((program) => program.programId === id)
+          : undefined;
+        if (mockProgram) return mockProgram;
         throw new Error("Failed to fetch program");
       }
 
@@ -354,6 +373,10 @@ export const api = {
       );
 
       if (!response.ok) {
+        const mockProgram = useProgramMocks
+          ? getMockProgramBySlug(slug, locale)
+          : undefined;
+        if (mockProgram) return mockProgram;
         throw new Error("Failed to fetch program by slug");
       }
 
@@ -366,10 +389,14 @@ export const api = {
       const response = await fetchWithAuth(`${API_URL}/curriculums${query}`);
 
       if (!response.ok) {
+        if (useProgramMocks) return getMockCurriculums(programId);
         throw new Error("Failed to fetch curriculums");
       }
 
-      return response.json();
+      const curriculums = (await response.json()) as Curriculum[];
+      return useProgramMocks && curriculums.length === 0
+        ? getMockCurriculums(programId)
+        : curriculums;
     },
 
     findOne: async (
@@ -382,6 +409,12 @@ export const api = {
       );
 
       if (!response.ok) {
+        const mockCurriculum = useProgramMocks
+          ? mockCurriculums.find(
+              (curriculum) => curriculum.curriculumId === id,
+            )
+          : undefined;
+        if (mockCurriculum) return mockCurriculum;
         throw new Error("Failed to fetch curriculum");
       }
 
@@ -398,6 +431,10 @@ export const api = {
       );
 
       if (!response.ok) {
+        const mockCurriculum = useProgramMocks
+          ? getMockCurriculumBySlug(programSlug, curriculumSlug, locale)
+          : undefined;
+        if (mockCurriculum) return mockCurriculum;
         throw new Error("Failed to fetch curriculum by slug");
       }
 

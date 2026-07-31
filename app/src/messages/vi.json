@@ -260,7 +260,7 @@
         "overview": {
           "badge": "Tổng quan chương trình",
           "title": "Dẫn dắt công nghệ và sáng tạo",
-          "description": "Biotech TTU kết hợp nền tảng khai phóng với phòng thí nghiệm hiện đại giúp bạn xây dựng sự nghiệp ý nghĩa.",
+          "description": "Khoa Công nghệ Sinh học kết hợp nền tảng khai phóng với phòng thí nghiệm hiện đại giúp bạn xây dựng sự nghiệp ý nghĩa.",
           "points": [
             "Phòng studio hợp tác cùng giảng viên Biotech TTU",
             "Workshop doanh nghiệp và thử thách đổi mới",
@@ -269,13 +269,11 @@
           ]
         },
         "curriculum": {
-          "badge": "Điểm nhấn học phần",
           "title": "Bạn sẽ học gì",
           "description": "Các học phần nền tảng củng cố kiến thức trước khi chuyên sâu thông qua phòng lab, thực tập và đồ án.",
           "placeholder": "Cập nhật chương trình cốt lõi"
         },
         "career": {
-          "badge": "Lộ trình nghề nghiệp",
           "title": "Chương trình mở ra điều gì",
           "points": [
             "chuyên viên R&D và dữ liệu",
@@ -295,7 +293,7 @@
           },
           {
             "label": "Điều kiện tuyển sinh",
-            "value": "Tốt nghiệp THPT & phỏng vấn tuyển sinh Biotech TTU"
+            "value": "Tốt nghiệp THPT"
           },
           {
             "label": "Thời lượng",
@@ -943,18 +941,15 @@
     "latestNews": "Tin mới nhất",
     "viewDetails": "Xem chi tiết",
     "viewAllNews": "Xem tất cả tin tức",
-    "newsroom": "Bản tin Khoa Công nghệ Sinh học",
     "featuredStory": "Tiêu điểm",
     "browseByTopic": "Lọc tin theo chủ đề",
     "allCategories": "Tất cả",
     "noNews": "Chưa có tin tức được xuất bản.",
     "breadcrumbLabel": "Đường dẫn trang",
     "home": "Trang chủ",
-    "topicsEyebrow": "Bản tin theo chủ đề",
     "topicsTitle": "Tin theo chuyên mục",
     "topicsDescription": "Theo dõi nhanh các nhóm nội dung đang được quan tâm tại Biotech TTU mà không phải duyệt qua những thẻ tin lớn.",
     "storyCount": "{count} bài",
-    "insightsEyebrow": "Dấu ấn học thuật",
     "insightsTitle": "Nghiên cứu & thành tích nổi bật",
     "insightsDescription": "Theo dõi các đề tài, công bố khoa học và dấu ấn mới của giảng viên, sinh viên Khoa Công nghệ Sinh học.",
     "researchLabel": "Nghiên cứu",

@@ -4,13 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
-import CtaBanner from "@/components/CtaBanner";
+import EditorialCta from "@/components/EditorialCta";
 import { api, type Curriculum, type Program } from "@/lib/api";
 import {
   localizedProgramText,
-  normalizeProgramLevel,
   programDetailHref,
-  programLevelPath,
+  programImage,
   programsBasePath,
   stripProgramHtml,
   type SiteLocale,
@@ -144,6 +143,11 @@ export default function CurriculumDetailPageContent({
             "Xem bản chương trình đào tạo đầy đủ để tra cứu các học phần và yêu cầu tốt nghiệp.",
           viewPdf: "Xem chương trình đào tạo (PDF)",
           backToProgram: "Quay lại chương trình",
+          ctaTitle: "Bạn muốn tìm hiểu sâu hơn về chương trình?",
+          ctaDescription:
+            "Trao đổi với đội ngũ tuyển sinh để được tư vấn về lộ trình học, điều kiện đầu vào và cơ hội nghề nghiệp.",
+          ctaPrimary: "Đăng ký tư vấn",
+          allPrograms: "Xem tất cả chương trình",
         }
       : {
           breadcrumb: "Academic programs",
@@ -168,6 +172,11 @@ export default function CurriculumDetailPageContent({
             "View the full curriculum document for course and graduation requirements.",
           viewPdf: "View curriculum PDF",
           backToProgram: "Back to program",
+          ctaTitle: "Would you like to explore the program further?",
+          ctaDescription:
+            "Speak with admissions about the study pathway, entry requirements and career opportunities.",
+          ctaPrimary: "Request consultation",
+          allPrograms: "View all programs",
         };
 
   if (loading) return <CurriculumDetailLoading />;
@@ -191,7 +200,6 @@ export default function CurriculumDetailPageContent({
     ),
   );
   const heroDescription = summarizeText(description);
-  const levelKey = normalizeProgramLevel(program.level);
   const programHref = programDetailHref(locale, program);
   const reveal = {
     hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 22 },
@@ -221,91 +229,73 @@ export default function CurriculumDetailPageContent({
     }));
   };
 
-  const openSection = (sectionId: string) => {
-    setExpandedSections((current) => ({ ...current, [sectionId]: true }));
-  };
-
   return (
-    <main className="overflow-hidden bg-white text-[#171b25]">
-      <section className="border-b border-[#171b25]/15 bg-white">
-        <div className="mx-auto max-w-7xl px-5 pb-12 pt-7 sm:px-8 lg:pb-16">
-          <nav
-            aria-label="Breadcrumb"
-            className="flex flex-wrap items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#8a8d88]"
+    <main className="overflow-hidden bg-white text-[#111311]">
+      <section className="px-5 pb-16 pt-10 sm:px-8 md:pb-20 md:pt-14">
+        <div className="mx-auto max-w-7xl">
+          <Link
+            href={programHref}
+            className="inline-flex items-center gap-3 text-[0.68rem] font-semibold text-[#5f665f] transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
           >
-            <Link
-              href={programsBasePath(locale)}
-              className="transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]"
-            >
-              {copy.breadcrumb}
-            </Link>
-            <span aria-hidden className="text-[#139C48]">
-              /
-            </span>
-            <Link
-              href={`${programsBasePath(locale)}/${programLevelPath(locale, levelKey)}`}
-              className="transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]"
-            >
-              {getLevelDisplay(program.level, locale)}
-            </Link>
-            <span aria-hidden className="text-[#139C48]">
-              /
-            </span>
-            <Link
-              href={programHref}
-              className="max-w-[24rem] truncate transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]"
-            >
-              {programTitle}
-            </Link>
-          </nav>
+            <ArrowIcon direction="left" size={14} />
+            {copy.backToProgram}
+          </Link>
 
           <motion.div
             initial="hidden"
             animate="visible"
             variants={reveal}
-            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-12 max-w-5xl"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-12 grid gap-9 lg:grid-cols-12 lg:items-end"
           >
-            <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#139C48]">
-              <span className="h-px w-12 bg-current" />
-              {copy.dossier} · {program.code}
+            <div className="lg:col-span-8">
+              <h1 className="max-w-[16ch] text-[clamp(3rem,6.5vw,6.7rem)] font-semibold leading-[1.03] tracking-[-0.07em] text-balance">
+                {curriculumName}
+              </h1>
             </div>
-            <h1 className="mt-7 max-w-[22ch] text-[2.65rem] font-bold leading-[1.08] tracking-[-0.032em] text-balance sm:text-[3.35rem] lg:text-[4rem]">
-              {curriculumName}
-            </h1>
-            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <div className="border-l border-[#d8ddd8] pl-6 lg:col-span-4 lg:pl-8">
               <Link
                 href={programHref}
-                className="inline-flex border-b border-[#139C48]/45 pb-1 text-base font-semibold text-[#139C48] transition-colors hover:border-[#139C48] hover:text-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
+                className="text-[0.88rem] font-semibold leading-6 text-[#139C48] transition-colors hover:text-[#0f7e3a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
               >
                 {programTitle}
               </Link>
-              <span className="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#7b7e79]">
+              <p className="mt-4 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#747b75]">
                 {copy.version} {curriculum.year}
-              </span>
-              {curriculum.isCurrent && (
-                <span className="border border-[#139C48]/35 px-2.5 py-1 font-mono text-[0.56rem] font-semibold uppercase tracking-[0.12em] text-[#139C48]">
-                  {copy.current}
-                </span>
+                {curriculum.isCurrent ? ` · ${copy.current}` : ""}
+              </p>
+              {heroDescription && (
+                <p className="mt-6 max-w-sm text-[0.82rem] leading-7 text-[#626862]">
+                  {heroDescription}
+                </p>
               )}
             </div>
-            {heroDescription && (
-              <p className="mt-7 max-w-4xl text-base leading-8 text-[#626661]">
-                {heroDescription}
-              </p>
-            )}
           </motion.div>
 
-          <div className="mt-12 grid border-y border-[#d8d3ce] sm:grid-cols-2 lg:grid-cols-6">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={reveal}
+            transition={{ duration: 0.8, delay: 0.08 }}
+            className="relative mt-10 aspect-[4/3] min-h-80 overflow-hidden rounded-[1rem] bg-[#e8eae7] sm:aspect-[16/7]"
+          >
+            <img
+              src={programImage(program)}
+              alt={programTitle}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </motion.div>
+
+          <div className="mt-10 grid border-y border-[#d8ddd8] sm:grid-cols-2 lg:grid-cols-6">
             {facts.map((fact) => (
               <div
                 key={fact.label}
-                className="border-b border-[#d8d3ce] py-5 sm:px-5 sm:[&:nth-last-child(-n+2)]:border-b-0 lg:border-b-0 lg:border-r lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0"
+                className="border-b border-[#d8ddd8] py-6 sm:px-5 sm:[&:nth-last-child(-n+2)]:border-b-0 lg:min-h-32 lg:border-b-0 lg:border-r lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0"
               >
-                <p className="font-mono text-[0.58rem] uppercase tracking-[0.14em] text-[#8a8d88]">
+                <p className="font-mono text-[0.58rem] uppercase tracking-[0.14em] text-[#7d847e]">
                   {fact.label}
                 </p>
-                <p className="mt-2 text-sm font-semibold leading-6 text-[#171b25] sm:text-base">
+                <p className="mt-5 text-[1.05rem] font-semibold leading-6">
                   {fact.value}
                 </p>
               </div>
@@ -314,154 +304,131 @@ export default function CurriculumDetailPageContent({
         </div>
       </section>
 
-      <section className="relative bg-[#f5f7f4] py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-16">
-          <aside className="lg:sticky lg:top-28 lg:self-start">
-            <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.17em] text-[#139C48]">
-              {copy.contents}
+      <section className="bg-[#f4f5f1] px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl">
+          <motion.header
+            initial="hidden"
+            whileInView="visible"
+            variants={reveal}
+            viewport={{ once: true }}
+            className="grid gap-8 border-b border-[#cfd4cf] pb-10 lg:grid-cols-12 lg:items-end"
+          >
+            <h2 className="max-w-[11ch] text-[clamp(2.7rem,5vw,5rem)] font-semibold leading-[1.08] tracking-[-0.06em] text-balance lg:col-span-7">
+              {copy.curriculumContent}
+            </h2>
+            <p className="max-w-md text-[0.84rem] leading-7 text-[#626862] lg:col-start-9 lg:col-span-4">
+              {copy.curriculumDescription}
             </p>
-            <div className="mt-5 border-t-2 border-[#171b25]">
-              {sections.map((section, index) => (
-                <a
-                  key={section.sectionId}
-                  href={`#curriculum-section-${section.sectionId}`}
-                  onClick={() => openSection(section.sectionId)}
-                  className="grid min-h-14 grid-cols-[2.25rem_1fr] items-center border-b border-[#d4cec8] py-3 text-[0.78rem] font-semibold leading-5 text-[#5f635e] transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#139C48]"
-                >
-                  <span className="font-mono text-[0.62rem] text-[#139C48]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  {section.title}
-                </a>
-              ))}
-            </div>
-          </aside>
+          </motion.header>
 
-          <div>
-            <motion.header
-              initial="hidden"
-              whileInView="visible"
-              variants={reveal}
-              viewport={{ once: true }}
-              className="grid gap-6 border-b-2 border-[#171b25] pb-8 lg:grid-cols-[1fr_0.9fr] lg:items-end"
-            >
-              <div>
-                <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#139C48]">
-                  {copy.overview}
-                </p>
-                <h2 className="mt-4 text-[2.2rem] font-bold leading-[1.05] tracking-[-0.04em] sm:text-[2.9rem]">
-                  {copy.curriculumContent}
-                </h2>
-              </div>
-              <p className="max-w-xl text-base leading-8 text-[#686c67]">
-                {copy.curriculumDescription}
-              </p>
-            </motion.header>
+          {sections.length > 0 ? (
+            <div>
+              {sections.map((section, index) => {
+                const expanded = Boolean(expandedSections[section.sectionId]);
 
-            {sections.length > 0 ? (
-              <div>
-                {sections.map((section, index) => {
-                  const expanded = Boolean(expandedSections[section.sectionId]);
-
-                  return (
-                    <article
-                      id={`curriculum-section-${section.sectionId}`}
-                      key={section.sectionId}
-                      className="scroll-mt-28 border-b border-[#d4cec8]"
-                    >
-                      <h3>
-                        <button
-                          type="button"
-                          aria-expanded={expanded}
-                          aria-controls={`curriculum-panel-${section.sectionId}`}
-                          onClick={() => toggleSection(section.sectionId)}
-                          className="group grid w-full grid-cols-[2.75rem_minmax(0,1fr)_2.5rem] items-center gap-4 py-7 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48] sm:grid-cols-[3.5rem_minmax(0,1fr)_3rem] sm:py-8"
-                        >
-                          <span className="font-mono text-[0.68rem] font-semibold text-[#139C48]">
-                            {String(index + 1).padStart(2, "0")}
-                          </span>
-                          <span className="text-lg font-bold leading-7 tracking-[-0.025em] transition-colors group-hover:text-[#139C48] sm:text-[1.35rem]">
-                            {section.title}
-                          </span>
-                          <span
-                            aria-hidden
-                            className="flex h-9 w-9 items-center justify-center justify-self-end rounded-full border border-[#139C48]/35 text-xl font-light leading-none text-[#139C48] transition-colors group-hover:bg-[#139C48] group-hover:text-white"
-                          >
-                            {expanded ? "−" : "+"}
-                          </span>
-                        </button>
-                      </h3>
-
-                      <div
-                        id={`curriculum-panel-${section.sectionId}`}
-                        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
-                          expanded
-                            ? "grid-rows-[1fr] opacity-100"
-                            : "grid-rows-[0fr] opacity-0"
-                        }`}
+                return (
+                  <article
+                    id={`curriculum-section-${section.sectionId}`}
+                    key={section.sectionId}
+                    className="scroll-mt-28 border-b border-[#cfd4cf]"
+                  >
+                    <h3>
+                      <button
+                        type="button"
+                        aria-expanded={expanded}
+                        aria-controls={`curriculum-panel-${section.sectionId}`}
+                        onClick={() => toggleSection(section.sectionId)}
+                        className="group grid w-full grid-cols-[3rem_minmax(0,1fr)_2.75rem] items-center gap-4 py-7 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48] sm:grid-cols-[6rem_minmax(0,1fr)_3rem] sm:py-9"
                       >
-                        <div className="overflow-hidden">
-                          <div
-                            className="prose prose-slate max-w-none pb-10 pl-[4.25rem] text-base leading-8 text-[#555a55] sm:pl-[5rem] sm:text-[1.05rem] [&_h2]:mt-8 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:tracking-[-0.025em] [&_h2]:text-[#171b25] [&_h3]:mt-7 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-[#171b25] [&_li]:my-2 [&_p]:leading-8 [&_table]:my-8 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto [&_td]:min-w-32 [&_td]:border-[#d4cec8] [&_td]:px-4 [&_td]:py-3 [&_td]:text-base [&_th]:min-w-32 [&_th]:border-[#d4cec8] [&_th]:bg-white [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:text-sm"
-                            dangerouslySetInnerHTML={{
-                              __html: (section.content || "").replace(
-                                /&nbsp;/g,
-                                " ",
-                              ),
-                            }}
-                          />
-                        </div>
+                        <span className="font-mono text-[0.68rem] text-[#139C48]">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <span className="text-[1.15rem] font-semibold leading-7 tracking-[-0.02em] transition-colors group-hover:text-[#139C48] sm:text-[1.35rem]">
+                          {section.title}
+                        </span>
+                        <span
+                          aria-hidden
+                          className="flex h-9 w-9 items-center justify-center justify-self-end rounded-full border border-[#bfc8c0] text-xl font-light leading-none text-[#139C48] transition-colors group-hover:border-[#139C48] group-hover:bg-[#139C48] group-hover:text-white"
+                        >
+                          {expanded ? "−" : "+"}
+                        </span>
+                      </button>
+                    </h3>
+
+                    <div
+                      id={`curriculum-panel-${section.sectionId}`}
+                      className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+                        expanded
+                          ? "grid-rows-[1fr] opacity-100"
+                          : "grid-rows-[0fr] opacity-0"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <div
+                          className="prose prose-slate max-w-none pb-12 pl-[4rem] text-[0.9rem] leading-8 text-[#555b55] sm:pl-[7rem] sm:pr-14 sm:text-base [&_h2]:mt-8 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:tracking-[-0.025em] [&_h2]:text-[#111311] [&_h3]:mt-7 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#111311] [&_li]:my-2 [&_p]:leading-8 [&_table]:my-8 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto [&_td]:min-w-32 [&_td]:border-[#cfd4cf] [&_td]:px-4 [&_td]:py-3 [&_th]:min-w-32 [&_th]:border-[#cfd4cf] [&_th]:bg-white [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:text-sm"
+                          dangerouslySetInnerHTML={{
+                            __html: (section.content || "").replace(
+                              /&nbsp;/g,
+                              " ",
+                            ),
+                          }}
+                        />
                       </div>
-                    </article>
-                  );
-                })}
-              </div>
-            ) : (
-              <p className="border-b border-[#d4cec8] py-14 text-base text-[#686c67]">
-                {copy.noSections}
-              </p>
-            )}
-          </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="border-b border-[#cfd4cf] py-14 text-[0.86rem] text-[#626862]">
+              {copy.noSections}
+            </p>
+          )}
         </div>
       </section>
 
       {curriculum.pdfUrl && (
-        <section className="border-b border-[#171b25]/15 bg-white">
-          <div className="mx-auto grid max-w-7xl gap-6 px-5 py-10 sm:px-8 lg:grid-cols-[11rem_minmax(0,1fr)_auto] lg:items-center lg:gap-10">
+        <section className="bg-white px-5 py-12 sm:px-8">
+          <div className="mx-auto grid max-w-7xl gap-6 border-y border-[#d8ddd8] py-8 lg:grid-cols-[11rem_minmax(0,1fr)_auto] lg:items-center lg:gap-10">
             <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-[#139C48]">
               {copy.document}
             </p>
-            <p className="max-w-3xl text-lg font-bold leading-8 tracking-[-0.02em] sm:text-xl">
+            <p className="max-w-3xl text-[1.05rem] font-semibold leading-7 tracking-[-0.02em]">
               {copy.documentDescription}
             </p>
             <a
               href={curriculum.pdfUrl}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex min-h-12 items-center justify-between gap-8 rounded-full bg-[#139C48] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
+              className="group inline-flex min-h-11 items-center justify-between gap-8 rounded-full bg-[#139C48] px-5 text-[0.7rem] font-semibold text-white transition-colors hover:bg-[#0f7e3a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
             >
               {copy.viewPdf}
-              <span className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
-                <ArrowIcon direction="up-right" size={16} />
-              </span>
+              <ArrowIcon direction="up-right" size={14} />
             </a>
           </div>
         </section>
       )}
 
-      <section className="bg-white px-5 pt-12 sm:px-8 sm:pt-16">
-        <div className="mx-auto max-w-7xl border-t border-[#d8d3ce] pt-7">
+      <section className="bg-white px-5 pt-10 sm:px-8">
+        <div className="mx-auto max-w-7xl">
           <Link
             href={programHref}
-            className="inline-flex items-center gap-3 text-sm font-semibold text-[#139C48] transition-colors hover:text-[#0F7E3A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
+            className="inline-flex items-center gap-3 text-[0.7rem] font-semibold text-[#139C48] transition-colors hover:text-[#0f7e3a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
           >
-            <span aria-hidden><ArrowIcon direction="left" size={16} /></span>
+            <ArrowIcon direction="left" size={14} />
             {copy.backToProgram}
           </Link>
         </div>
       </section>
 
-      <CtaBanner />
+      <EditorialCta
+        title={copy.ctaTitle}
+        description={copy.ctaDescription}
+        primaryLabel={copy.ctaPrimary}
+        primaryHref="https://tuyensinh.ttu.edu.vn"
+        secondaryLabel={copy.allPrograms}
+        secondaryHref={programsBasePath(locale)}
+      />
     </main>
   );
 }

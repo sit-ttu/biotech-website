@@ -269,13 +269,11 @@
           ]
         },
         "curriculum": {
-          "badge": "Curriculum highlights",
           "title": "What you'll learn",
           "description": "Core modules strengthen your fundamentals before you specialise through labs, internships and capstone projects.",
           "placeholder": "Core curriculum update"
         },
         "career": {
-          "badge": "Career pathways",
           "title": "Where this program can take you",
           "points": [
             "Biotechnology research and laboratory roles",
@@ -943,18 +941,15 @@
     "latestNews": "Latest News",
     "viewDetails": "View Details",
     "viewAllNews": "View all news",
-    "newsroom": "School of Biotechnology newsroom",
     "featuredStory": "Featured story",
     "browseByTopic": "Filter news by topic",
     "allCategories": "All",
     "noNews": "No news has been published yet.",
     "breadcrumbLabel": "Breadcrumb",
     "home": "Home",
-    "topicsEyebrow": "Browse the newsroom",
     "topicsTitle": "News by topic",
     "topicsDescription": "Scan the areas that matter to you without moving through another set of oversized story cards.",
     "storyCount": "{count} stories",
-    "insightsEyebrow": "Academic highlights",
     "insightsTitle": "Research & achievements",
     "insightsDescription": "Follow current research, academic publications and new milestones from School of Biotechnology faculty and students.",
     "researchLabel": "Research",
