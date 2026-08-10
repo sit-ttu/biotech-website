@@ -187,6 +187,13 @@ export default function CurriculumDetailPageContent({
     curriculum.nameVi,
     curriculum.nameEn,
   );
+  const displayCurriculumName =
+    locale === "vi"
+      ? curriculumName.replace(
+          /Công nghệ Sinh học/g,
+          "công nghệ sinh học",
+        )
+      : curriculumName;
   const programTitle = localizedProgramText(
     locale,
     program.nameVi,
@@ -233,24 +240,16 @@ export default function CurriculumDetailPageContent({
     <main className="overflow-hidden bg-white text-[#111311]">
       <section className="px-5 pb-16 pt-10 sm:px-8 md:pb-20 md:pt-14">
         <div className="mx-auto max-w-7xl">
-          <Link
-            href={programHref}
-            className="inline-flex items-center gap-3 text-[0.68rem] font-semibold text-[#5f665f] transition-colors hover:text-[#139C48] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
-          >
-            <ArrowIcon direction="left" size={14} />
-            {copy.backToProgram}
-          </Link>
-
           <motion.div
             initial="hidden"
             animate="visible"
             variants={reveal}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-12 grid gap-9 lg:grid-cols-12 lg:items-end"
+            className="grid gap-9 lg:grid-cols-12 lg:items-end"
           >
             <div className="lg:col-span-8">
               <h1 className="max-w-[16ch] text-[clamp(3rem,6.5vw,6.7rem)] font-semibold leading-[1.03] tracking-[-0.07em] text-balance">
-                {curriculumName}
+                {displayCurriculumName}
               </h1>
             </div>
             <div className="border-l border-[#d8ddd8] pl-6 lg:col-span-4 lg:pl-8">
@@ -408,18 +407,6 @@ export default function CurriculumDetailPageContent({
           </div>
         </section>
       )}
-
-      <section className="bg-white px-5 pt-10 sm:px-8">
-        <div className="mx-auto max-w-7xl">
-          <Link
-            href={programHref}
-            className="inline-flex items-center gap-3 text-[0.7rem] font-semibold text-[#139C48] transition-colors hover:text-[#0f7e3a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#139C48]"
-          >
-            <ArrowIcon direction="left" size={14} />
-            {copy.backToProgram}
-          </Link>
-        </div>
-      </section>
 
       <EditorialCta
         title={copy.ctaTitle}
